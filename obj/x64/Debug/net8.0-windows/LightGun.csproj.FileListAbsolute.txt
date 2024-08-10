@@ -50,3 +50,4 @@ D:\Project\LightGun\LightGun\obj\x64\Debug\net8.0-windows\refint\LightGun.dll
 D:\Project\LightGun\LightGun\obj\x64\Debug\net8.0-windows\LightGun.pdb
 D:\Project\LightGun\LightGun\obj\x64\Debug\net8.0-windows\LightGun.genruntimeconfig.cache
 D:\Project\LightGun\LightGun\obj\x64\Debug\net8.0-windows\ref\LightGun.dll
+D:\Project\LightGun\LightGun\obj\x64\Debug\net8.0-windows\LightGun.sourcelink.json

@@ -1,0 +1,139 @@
+﻿ private PointF DetectEdge(Image<Bgr, byte> image)
+        {
+            // Convert to grayscale
+            Image<Gray, Byte> gray = image.Convert<Gray, Byte>();
+
+            // Increase contrast
+             //  gray._EqualizeHist();
+
+          //  Mat smoothed = new Mat();
+           // CvInvoke.BilateralFilter(gray, smoothed, 9, 75, 75);
+            // Apply Gaussian Blur to reduce noise
+            // Image<Gray, Byte> blurred = gray.SmoothGaussian(5);
+           // CvInvoke.GaussianBlur(gray, gray, new System.Drawing.Size(5, 5), 1.5);
+            // Apply threshold to isolate white areas
+            Mat thresholded = new Mat(); CvInvoke.Threshold(gray, thresholded, threadhold, 255, ThresholdType.Binary);
+
+            // Apply morphological operations to enhance edges
+           // Mat morph = new Mat(); Mat kernel = CvInvoke.GetStructuringElement(ElementShape.Rectangle, new Size(3, 3), new Point(-1, -1));
+          //  CvInvoke.MorphologyEx(thresholded, morph, MorphOp.Dilate, kernel, new Point(-1, -1), 1, BorderType.Default, new MCvScalar());
+           // CvInvoke.MorphologyEx(morph, morph, MorphOp.Erode, kernel, new Point(-1, -1), 1, BorderType.Default, new MCvScalar());
+
+            // Detect edges using Canny
+            //   Image<Gray, Byte> edged = new Image<Gray, byte>(gray.Size); 
+            pictureBox1.Image = thresholded.ToBitmap();
+
+            // CvInvoke.Canny(morph, edged, 100, 200); 
+            // Adjust these values
+            VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
+            Mat hierarchy = new Mat();
+            CvInvoke.FindContours(thresholded, contours, hierarchy, RetrType.Tree, ChainApproxMethod.ChainApproxSimple);
+
+            List<VectorOfPoint> contourList = new List<VectorOfPoint>();
+            for (int i = 0; i < contours.Size; i++)
+            {
+                if (contours[i].Size >= 4)
+                {
+                    contourList.Add(contours[i]);
+                }
+
+            }
+
+            // Sort contours by area and take the top 10
+            contourList.Sort((c1, c2) => CvInvoke.ContourArea(c2).CompareTo(CvInvoke.ContourArea(c1)));
+            // contourList = contourList.GetRange(0, Math.Min(1, contourList.Count));
+            VectorOfPoint biggest = BiggestContour(contourList);
+            PointF topLeft = PointF.Empty;
+            PointF topRight = PointF.Empty;
+            PointF bottomRight = PointF.Empty;
+            PointF bottomLeft = PointF.Empty;
+
+            // topLeft = corners[0]; PointF topRight = corners[1]; PointF bottomRight = corners[2]; PointF bottomLeft = corners[3];
+            // Assuming 'biggest' is a VectorOfPoint representing the biggest contour
+            if (biggest.Size == 4)
+            {
+                // Convert VectorOfPoint to PointF array
+                Point[] points = biggest.ToArray();
+                PointF[] corners = Array.ConvertAll(points, p => new PointF(p.X, p.Y));
+
+                // Calculate the center of the contour
+                float centerX = 0, centerY = 0;
+                foreach (var corner in corners)
+                {
+                    centerX += corner.X;
+                    centerY += corner.Y;
+                }
+                centerX /= corners.Length;
+                centerY /= corners.Length;
+
+                // Assign corners based on their position relative to the center
+                foreach (var corner in corners)
+                {
+                    if (corner.X < centerX && corner.Y < centerY) topLeft = corner;
+                    else if (corner.X > centerX && corner.Y < centerY) topRight = corner;
+                    else if (corner.X > centerX && corner.Y > centerY) bottomRight = corner;
+                    else if (corner.X < centerX && corner.Y > centerY) bottomLeft = corner;
+                }
+                image.Draw(new CircleF(topLeft, 20), new Bgr(0, 0, 255), 10);
+                image.Draw(new CircleF(topRight, 20), new Bgr(0, 255, 0), 10);
+                image.Draw(new CircleF(bottomRight, 20), new Bgr(255, 0, 0), 10);
+                image.Draw(new CircleF(bottomLeft, 20), new Bgr(0, 255, 255), 10);
+                image.Draw(new CircleF(new PointF(image.Width / 2, image.Height / 2), 10), new Bgr(255, 255, 0), 5);
+                pictureBox2.Image = image.ToBitmap();
+                PointF pointToTrack = new PointF(ixres / 2, iyres / 2);
+                Mat pointMat = new Mat(1, 1, DepthType.Cv32F, 2);
+                pointMat.SetTo(new float[] { pointToTrack.X, pointToTrack.Y });
+                // Assuming topLeft, topRight, bottomRight, and bottomLeft are defined and represent your source points
+                PointF[] pts1 = new PointF[] {
+                            topLeft,    // corners[0]
+                            topRight,   // corners[1]
+                            bottomRight,// corners[2]
+                            bottomLeft  // corners[3]
+                    };
+                // Assuming you have another set of points representing the destination points
+                PointF destTopLeft = new PointF(0, 0);
+                PointF destTopRight = new PointF(ixres, 0);
+                PointF destBottomRight = new PointF(ixres, iyres);
+                PointF destBottomLeft = new PointF(0, iyres);
+                PointF[] pts2 = new PointF[] {
+                            destTopLeft,    // Destination for topLeft
+                            destTopRight,   // Destination for topRight
+                            destBottomRight,// Destination for bottomRight
+                            destBottomLeft  // Destination for bottomLeft
+                    };
+
+
+                // Convert PointF arrays to Mat
+                using (Mat srcPoints = new Mat(4, 1, DepthType.Cv32F, 2))
+                using (Mat dstPoints = new Mat(4, 1, DepthType.Cv32F, 2))
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        srcPoints.SetTo(pts1);
+                        dstPoints.SetTo(pts2);
+                    }
+                    // Get the perspective transformation matrix
+                    Mat matrix = CvInvoke.GetPerspectiveTransform(srcPoints, dstPoints);
+                    // Apply the perspective transformation
+                    Mat transformedPointMat = new Mat();
+                    CvInvoke.PerspectiveTransform(pointMat, transformedPointMat, matrix);
+                    // Convert the transformed Mat back to PointF
+                    float[] transformedPointValues = new float[2];
+                    Marshal.Copy(transformedPointMat.DataPointer, transformedPointValues, 0, 2);
+                    PointF transformedPoint = new PointF((transformedPointValues[0] / ixres) * xres, (transformedPointValues[1] / iyres) * yres);
+                    return transformedPoint;
+
+                    // 'transformedFrame' now contains the transformed image
+                }
+
+            }
+            else
+            {
+                pictureBox2.Image = image.ToBitmap();
+            }
+            return PointF.Empty;
+
+
+
+
+        }

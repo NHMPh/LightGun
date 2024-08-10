@@ -18,19 +18,17 @@ namespace LightGun
 
         int xres = 1920;
         int yres = 1080;
-/*        int xres = 600;
-        int yres = 480;*/
+        /*        int xres = 600;
+                int yres = 480;*/
 
 
         static int ixres = 1280;
         static int iyres = 720;
 
-        int t1 = 50;
-        int t2 = 150;
-        int t3 = 200;
+
         [DllImport("user32.dll")]
         static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
-       static bool movable = false;
+        static bool movable = false;
         // Mouse event constants
         private const int MOUSEEVENTF_LEFTDOWN = 0x02;
         private const int MOUSEEVENTF_LEFTUP = 0x04;
@@ -43,33 +41,32 @@ namespace LightGun
         static int cameraIndex = 1;
         static VideoCapture capture = new VideoCapture(cameraIndex);
 
+        int threadhold = 200;
+        double exposure = capture.Get(CapProp.Exposure);
+        double gain = capture.Get(CapProp.Gain);
+        double brightness = capture.Get(CapProp.Brightness);
         public Form1()
         {
             InitializeComponent();
             // Set the capture resolution
             capture.Set(CapProp.FrameWidth, ixres);
             capture.Set(CapProp.FrameHeight, iyres);
-
+            capture.Set(CapProp.AutoExposure, 0); // 0 means manual exposure
             capture.Set(CapProp.Fps, 30);
             this.KeyDown += MyForm_KeyDown;
             KeyPreview = true;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-
+            // Set properties to control low-light behavior
+            // Note: The values here are examples and may need to be adjusted
         }
         private void MyForm_KeyDown(object sender, KeyEventArgs e)
         {
             // Check if a specific key is pressed
             if (e.KeyCode == Keys.C)
             {
-                movable =!movable;
-               /* capture.Read(frame);
-                CvInvoke.Resize(frame, frame, frameSize);
-                image = frame.ToImage<Bgr, byte>();
-                MoveMouseToPointAsync(DetectEdge(image));
-                Image<Bgr, byte> img = frame.ToImage<Bgr, byte>();
-                img.Draw(new CircleF(new PointF(capture.Width / 2, capture.Height / 2), 2), new Bgr(0, 0, 255), 1);
-                pictureBox1.Image = img.AsBitmap();*/
+                movable = !movable;
+ 
             }
         }
         [DllImport("user32.dll")]
@@ -79,24 +76,8 @@ namespace LightGun
             if (targetPoint == PointF.Empty) return;
             int x = (int)targetPoint.X;
             int y = (int)targetPoint.Y;
-            /* if (targetPoint == PointF.Empty) return;
-             Point startPoint;
-             GetCursorPos(out startPoint);
-
-             PointF increment = new PointF(
-                 (targetPoint.X - startPoint.X) / steps,
-                 (targetPoint.Y - startPoint.Y) / steps);
-
-             for (int i = 0; i < steps; i++)
-             {
-                 PointF nextPoint = new PointF(
-                     startPoint.X + increment.X * (i + 1),
-                     startPoint.Y + increment.Y * (i + 1));
-
-                 await Task.Delay(1);
-             }*/
-            if(movable)
-               SetCursorPos(x, y);
+            if (movable)
+                SetCursorPos(x, y);
         }
         public static Image<Bgr, byte> CropImageByRedDots(Image<Bgr, byte> image)
         {
@@ -209,7 +190,7 @@ namespace LightGun
                 CvInvoke.Resize(frame, frame, frameSize);
                 image = frame.ToImage<Bgr, byte>();
                 MoveMouseToPointAsync(DetectEdge(image));
-                await Task.Delay(1);
+               
 
             }
         }
@@ -224,6 +205,9 @@ namespace LightGun
                 {
                     VectorOfPoint approx = new VectorOfPoint();
                     CvInvoke.ApproxPolyDP(contour, approx, 0.015 * CvInvoke.ArcLength(contour, true), true);
+
+
+
                     if (area > maxArea && approx.Size == 4)
                     {
                         biggest = approx;
@@ -233,35 +217,31 @@ namespace LightGun
             }
             return biggest;
         }
+        
         private PointF DetectEdge(Image<Bgr, byte> image)
         {
             // Convert to grayscale
             Image<Gray, Byte> gray = image.Convert<Gray, Byte>();
-
-            // Increase contrast
-            gray._EqualizeHist();
-
-            // Apply Gaussian Blur to reduce noise
-         //   Image<Gray, Byte> blurred = gray.SmoothGaussian(5);
-            CvInvoke.GaussianBlur(gray,gray, new System.Drawing.Size(5, 5), 1.5);
-            // Apply threshold to isolate white areas
-            Mat thresholded = new Mat(); CvInvoke.Threshold(gray, thresholded, t3, 255, ThresholdType.Binary);
-
-            // Apply morphological operations to enhance edges
-            Mat morph = new Mat(); Mat kernel = CvInvoke.GetStructuringElement(ElementShape.Rectangle, new Size(3, 3), new Point(-1, -1)); 
-            CvInvoke.MorphologyEx(thresholded, morph, MorphOp.Dilate, kernel, new Point(-1, -1), 1, BorderType.Default, new MCvScalar()); 
-            CvInvoke.MorphologyEx(morph, morph, MorphOp.Erode, kernel, new Point(-1, -1), 1, BorderType.Default, new MCvScalar());
-
-            // Detect edges using Canny
-            Image<Gray, Byte> edged = new Image<Gray, byte>(gray.Size); 
-            pictureBox1.Image = morph.ToBitmap();
+            // Apply histogram equalization
+           // CvInvoke.EqualizeHist(gray, gray);
+            // Apply CLAHE (Contrast Limited Adaptive Histogram Equalization)
            
-           // CvInvoke.Canny(morph, edged, 100, 200); 
-            // Adjust these values
+            // Apply Gaussian blur to reduce noise and smooth out lighting variations
+            CvInvoke.GaussianBlur(gray, gray, new Size(5, 5), 0);
+            CvInvoke.CLAHE(gray,gain, new Size(8, 8), gray);
+            Mat thresholded = new Mat(); CvInvoke.Threshold(gray, thresholded, threadhold, 255, ThresholdType.Binary);  
+            pictureBox1.Image = thresholded.ToBitmap();
+           // pictureBox1.Image = thresholded.ToBitmap();
             VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
             Mat hierarchy = new Mat();
-            CvInvoke.FindContours(morph, contours, hierarchy, RetrType.Tree, ChainApproxMethod.ChainApproxSimple);
-
+            CvInvoke.FindContours(thresholded, contours, hierarchy, RetrType.Tree, ChainApproxMethod.ChainApproxSimple);
+            // Process contours as needed
+           /* foreach (var contour in contours.ToArrayOfArray())
+            {
+                // Example: Draw contours on the original image
+                CvInvoke.DrawContours(image, contours, -1, new MCvScalar(0, 255, 0), 2);
+            }*/
+          
             List<VectorOfPoint> contourList = new List<VectorOfPoint>();
             for (int i = 0; i < contours.Size; i++)
             {
@@ -276,11 +256,6 @@ namespace LightGun
             contourList.Sort((c1, c2) => CvInvoke.ContourArea(c2).CompareTo(CvInvoke.ContourArea(c1)));
             // contourList = contourList.GetRange(0, Math.Min(1, contourList.Count));
             VectorOfPoint biggest = BiggestContour(contourList);
-
-
-
-
-
             PointF topLeft = PointF.Empty;
             PointF topRight = PointF.Empty;
             PointF bottomRight = PointF.Empty;
@@ -316,7 +291,7 @@ namespace LightGun
                 image.Draw(new CircleF(topRight, 20), new Bgr(0, 255, 0), 10);
                 image.Draw(new CircleF(bottomRight, 20), new Bgr(255, 0, 0), 10);
                 image.Draw(new CircleF(bottomLeft, 20), new Bgr(0, 255, 255), 10);
-                image.Draw(new CircleF(new PointF(image.Width/2, image.Height/2), 10), new Bgr(255, 255, 0), 5);
+                image.Draw(new CircleF(new PointF(image.Width / 2, image.Height / 2), 10), new Bgr(255, 255, 0), 5);
                 pictureBox2.Image = image.ToBitmap();
                 PointF pointToTrack = new PointF(ixres / 2, iyres / 2);
                 Mat pointMat = new Mat(1, 1, DepthType.Cv32F, 2);
@@ -376,167 +351,6 @@ namespace LightGun
 
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        private void TrackBar1_ValueChanged(object sender, EventArgs e)
-        {
-            textBox2.Text = (sender as TrackBar).Value.ToString();
-            t2 = (sender as TrackBar).Value;
-        }
-
-        private void TrackBar2_ValueChanged(object sender, EventArgs e)
-        {
-            textBox1.Text = (sender as TrackBar).Value.ToString();
-            t1 = (sender as TrackBar).Value;
-        }
-        private void TrackBar3_ValueChanged(object sender, EventArgs e)
-        {
-            textBox3.Text = (sender as TrackBar).Value.ToString();
-            t3 = (sender as TrackBar).Value;
-        }
-        private Image<Bgr, byte> DetectAruco(Image<Bgr, byte> _image)
-        {
-
-
-            // Load the image
-            Mat image = _image.Mat;
-
-            // Create an empty Mat to store the transformed frame
-            Mat transformedFrame = new Mat();
-
-            // Initialize the detector parameters (optional)
-            DetectorParameters parameters = DetectorParameters.GetDefault();
-
-            // Create the dictionary for 6x6 Aruco markers
-            Dictionary dictionary = new Dictionary(Dictionary.PredefinedDictionaryName.Dict6X6_250);
-
-            // Prepare storage for detected markers
-            using (VectorOfInt markerIds = new VectorOfInt())
-            using (VectorOfVectorOfPointF markerCorners = new VectorOfVectorOfPointF())
-            {
-                // Detect markers
-                ArucoInvoke.DetectMarkers(image, dictionary, markerCorners, markerIds, parameters);
-                PointF pointToTrack = new PointF(capture.Width / 2, capture.Height / 2);
-                // Convert PointF to Mat
-                Mat pointMat = new Mat(1, 1, DepthType.Cv32F, 2);
-                pointMat.SetTo(new float[] { pointToTrack.X, pointToTrack.Y });
-                // Check if at least one marker was detected
-                if (markerIds.Size == 4)
-                {
-                    // Draw detected markers
-                    ArucoInvoke.DrawDetectedMarkers(image, markerCorners, markerIds, new MCvScalar(255, 0, 0));
-
-                    // Optionally, you can also estimate the pose of each marker if you know the camera parameters and marker size
-                    // This step requires camera calibration
-                    // Iterate through all detected markers
-                    PointF topLeft = PointF.Empty;
-                    PointF topRight = PointF.Empty;
-                    PointF bottomRight = PointF.Empty;
-                    PointF bottomLeft = PointF.Empty;
-
-                    // topLeft = corners[0]; PointF topRight = corners[1]; PointF bottomRight = corners[2]; PointF bottomLeft = corners[3];
-                    for (int i = 0; i < markerIds.Size; i++)
-                    {
-                        switch (markerIds[i])
-                        {
-                            case 0:
-                                topLeft = markerCorners[i][0];
-                                break;
-                            case 1:
-                                topRight = markerCorners[i][1];
-                                break;
-                            case 2:
-                                bottomRight = markerCorners[i][2];
-                                break;
-                            case 3:
-                                bottomLeft = markerCorners[i][3];
-                                break;
-                        }
-                    }
-                    // Assuming topLeft, topRight, bottomRight, and bottomLeft are defined and represent your source points
-                    PointF[] pts1 = new PointF[] {
-                            topLeft,    // corners[0]
-                            topRight,   // corners[1]
-                            bottomRight,// corners[2]
-                            bottomLeft  // corners[3]
-                    };
-
-                    // Assuming you have another set of points representing the destination points
-                    PointF destTopLeft = new PointF(0, 0);
-                    PointF destTopRight = new PointF(capture.Width, 0);
-                    PointF destBottomRight = new PointF(capture.Width, capture.Height);
-                    PointF destBottomLeft = new PointF(0, capture.Height);
-
-                    PointF[] pts2 = new PointF[] {
-                            destTopLeft,    // Destination for topLeft
-                            destTopRight,   // Destination for topRight
-                            destBottomRight,// Destination for bottomRight
-                            destBottomLeft  // Destination for bottomLeft
-                    };
-                    // Convert PointF arrays to Mat
-                    using (Mat srcPoints = new Mat(4, 1, DepthType.Cv32F, 2))
-                    using (Mat dstPoints = new Mat(4, 1, DepthType.Cv32F, 2))
-                    {
-                        for (int i = 0; i < 4; i++)
-                        {
-                            srcPoints.SetTo(pts1);
-                            dstPoints.SetTo(pts2);
-                        }
-
-                        // Get the perspective transformation matrix
-                        Mat matrix = CvInvoke.GetPerspectiveTransform(srcPoints, dstPoints);
-
-
-                        // Apply the perspective transformation
-                        Mat transformedPointMat = new Mat();
-                        CvInvoke.PerspectiveTransform(pointMat, transformedPointMat, matrix);
-                        // Convert the transformed Mat back to PointF
-                        float[] transformedPointValues = new float[2];
-                        Marshal.Copy(transformedPointMat.DataPointer, transformedPointValues, 0, 2);
-                        PointF transformedPoint = new PointF((transformedPointValues[0] / capture.Width) * xres, (transformedPointValues[1] / capture.Height) * yres);
-
-                        // Apply the perspective warp transformation
-                        CvInvoke.WarpPerspective(image, transformedFrame, matrix, new Size(capture.Width, capture.Height));
-                        var retrunimg = transformedFrame.ToImage<Bgr, byte>();
-                        retrunimg.Draw(new CircleF(transformedPoint, 2), new Bgr(0, 0, 255), 1);
-
-                        return retrunimg;
-                        // 'transformedFrame' now contains the transformed image
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("No Aruco markers detected.");
-                }
-
-
-            }
-
-
-            // Save or display the image
-            // For example, to save the image with detected markers drawn on it:
-            return image.ToImage<Bgr, byte>();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
+      
     }
 }
