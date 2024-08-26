@@ -18,12 +18,11 @@ namespace LightGun
 
         int xres = 1920;
         int yres = 1080;
-        /*        int xres = 600;
-                int yres = 480;*/
+        
 
 
-        static int ixres = 1280;
-        static int iyres = 720;
+        static int ixres = 600;
+        static int iyres = 480;
 
 
         [DllImport("user32.dll")]
@@ -43,7 +42,7 @@ namespace LightGun
 
         int threadhold = 200;
         double exposure = capture.Get(CapProp.Exposure);
-        double gain = capture.Get(CapProp.Gain);
+        double gain = 2;//capture.Get(CapProp.Gain);
         double brightness = capture.Get(CapProp.Brightness);
         public Form1()
         {
@@ -51,7 +50,7 @@ namespace LightGun
             // Set the capture resolution
             capture.Set(CapProp.FrameWidth, ixres);
             capture.Set(CapProp.FrameHeight, iyres);
-            capture.Set(CapProp.AutoExposure, 0); // 0 means manual exposure
+           // capture.Set(CapProp.AutoExposure, 0); // 0 means manual exposure
             capture.Set(CapProp.Fps, 30);
             this.KeyDown += MyForm_KeyDown;
             KeyPreview = true;
@@ -67,6 +66,19 @@ namespace LightGun
             {
                 movable = !movable;
  
+            }
+            // Check if a specific key is pressed
+            if (e.KeyCode == Keys.A)
+            {
+                 xres = 600;
+                 yres = 480;
+
+            }
+            if (e.KeyCode == Keys.S)
+            {
+                xres = 1920;
+                yres = 1080;
+
             }
         }
         [DllImport("user32.dll")]
@@ -190,7 +202,7 @@ namespace LightGun
                 CvInvoke.Resize(frame, frame, frameSize);
                 image = frame.ToImage<Bgr, byte>();
                 MoveMouseToPointAsync(DetectEdge(image));
-               
+                await Task.Delay(16);
 
             }
         }
@@ -222,16 +234,16 @@ namespace LightGun
         {
             // Convert to grayscale
             Image<Gray, Byte> gray = image.Convert<Gray, Byte>();
+            CvInvoke.CLAHE(gray,gain, new Size(8, 8), gray);
             // Apply histogram equalization
-           // CvInvoke.EqualizeHist(gray, gray);
             // Apply CLAHE (Contrast Limited Adaptive Histogram Equalization)
            
             // Apply Gaussian blur to reduce noise and smooth out lighting variations
             CvInvoke.GaussianBlur(gray, gray, new Size(5, 5), 0);
-            CvInvoke.CLAHE(gray,gain, new Size(8, 8), gray);
+          //  CvInvoke.EqualizeHist(gray, gray);
             Mat thresholded = new Mat(); CvInvoke.Threshold(gray, thresholded, threadhold, 255, ThresholdType.Binary);  
+          //  pictureBox1.Image = thresholded.ToBitmap();
             pictureBox1.Image = thresholded.ToBitmap();
-           // pictureBox1.Image = thresholded.ToBitmap();
             VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
             Mat hierarchy = new Mat();
             CvInvoke.FindContours(thresholded, contours, hierarchy, RetrType.Tree, ChainApproxMethod.ChainApproxSimple);
