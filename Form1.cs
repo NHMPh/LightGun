@@ -15,7 +15,7 @@ namespace LightGun
     public partial class Form1 : Form
     {
 
-        // Import the necessary Windows API functions
+        
 
 
 
@@ -58,6 +58,11 @@ namespace LightGun
         int exposure = 0;
 
         Settings settings;
+
+        Image<Gray, Byte> gray;
+        Mat hierarchy = new Mat();
+        Mat matrix= new Mat();
+        Mat transformedPointMat = new Mat();
         public Form1()
         {
             InitializeComponent();          
@@ -71,19 +76,19 @@ namespace LightGun
 
         private void SetCamera()
         {
+            string jsonFilePath = ".\\setting.json";
+            string jsonString = File.ReadAllText(jsonFilePath);
+            settings = JsonSerializer.Deserialize<Settings>(jsonString);
             // Set the capture resolution
             capture.Set(CapProp.FrameWidth, ixres);
             capture.Set(CapProp.FrameHeight, iyres);
             capture.Set(CapProp.Fps, 30);
 
             // Path to the JSON file
-            string jsonFilePath = ".\\setting.json";
 
             // Read the JSON file
-            string jsonString = File.ReadAllText(jsonFilePath);
 
             // Deserialize the JSON content into the Settings class
-            settings = JsonSerializer.Deserialize<Settings>(jsonString);
 
             // Assign the values to the variables
             threadhold = settings.Threadhold;
@@ -200,20 +205,14 @@ namespace LightGun
             double maxArea = 0;
             foreach (var contour in contours)
             {
-                double area = CvInvoke.ContourArea(contour);
-                if (area > 1000)
-                {
+                    double area = CvInvoke.ContourArea(contour);       
                     VectorOfPoint approx = new VectorOfPoint();
                     CvInvoke.ApproxPolyDP(contour, approx, 0.015 * CvInvoke.ArcLength(contour, true), true);
-
-
-
                     if (area > maxArea && approx.Size == 4)
                     {
                         biggest = approx;
                         maxArea = area;
-                    }
-                }
+                    }              
             }
             return biggest;
         }
@@ -224,15 +223,12 @@ namespace LightGun
             if (rawCheckBox.Checked)
                 pictureBox1.Image = image.ToBitmap();
 
-            Image<Gray, Byte> gray = image.Convert<Gray, Byte>();
+            gray = image.Convert<Gray, Byte>();
             CvInvoke.CLAHE(gray, 2, new Size(8, 8), gray);
-
             CvInvoke.GaussianBlur(gray, gray, new Size(5, 5), 0);
-
-            Mat thresholded = new Mat(); CvInvoke.Threshold(gray, thresholded, threadhold, 255, ThresholdType.Binary);
+            CvInvoke.Threshold(gray,gray, threadhold, 255, ThresholdType.Binary);
             VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
-            Mat hierarchy = new Mat();
-            CvInvoke.FindContours(thresholded, contours, hierarchy, RetrType.Tree, ChainApproxMethod.ChainApproxSimple);
+            CvInvoke.FindContours(gray, contours, hierarchy, RetrType.Tree, ChainApproxMethod.ChainApproxSimple);
             List<VectorOfPoint> contourList = new List<VectorOfPoint>();
             for (int i = 0; i < contours.Size; i++)
             {
@@ -279,14 +275,12 @@ namespace LightGun
                 PointF pointToTrack = new PointF(ixres / 2 + xOffset, iyres / 2 + yOffset);
                 Mat pointMat = new Mat(1, 1, DepthType.Cv32F, 2);
                 pointMat.SetTo(new float[] { pointToTrack.X, pointToTrack.Y });
-                // Assuming topLeft, topRight, bottomRight, and bottomLeft are defined and represent your source points
                 PointF[] pts1 = new PointF[] {
                             topLeft,    // corners[0]
                             topRight,   // corners[1]
                             bottomRight,// corners[2]
                             bottomLeft  // corners[3]
-                    };
-                // Assuming you have another set of points representing the destination points
+                    };      
                 PointF destTopLeft = new PointF(0, 0);
                 PointF destTopRight = new PointF(ixres, 0);
                 PointF destBottomRight = new PointF(ixres, iyres);
@@ -300,7 +294,7 @@ namespace LightGun
 
                 if (processCheckBox.Checked)
                 {
-                    var process = thresholded.ToImage<Bgr, byte>();
+                    var process = gray.ToBitmap().ToImage<Bgr, byte>();
                     process.Draw(new CircleF(topLeft, 20), new Bgr(0, 0, 255), 10);
                     process.Draw(new CircleF(topRight, 20), new Bgr(0, 255, 0), 10);
                     process.Draw(new CircleF(bottomRight, 20), new Bgr(255, 0, 0), 10);
@@ -319,9 +313,9 @@ namespace LightGun
                         dstPoints.SetTo(pts2);
                     }
                     // Get the perspective transformation matrix
-                    Mat matrix = CvInvoke.GetPerspectiveTransform(srcPoints, dstPoints);
+                     matrix = CvInvoke.GetPerspectiveTransform(srcPoints, dstPoints);
                     // Apply the perspective transformation
-                    Mat transformedPointMat = new Mat();
+                   
                     CvInvoke.PerspectiveTransform(pointMat, transformedPointMat, matrix);
                     // Convert the transformed Mat back to PointF
                     float[] transformedPointValues = new float[2];
@@ -335,8 +329,8 @@ namespace LightGun
             {
                 if (processCheckBox.Checked)
                 {
-                    var process = thresholded.ToImage<Bgr, byte>();
-                    pictureBox2.Image = process.ToBitmap();
+                    var process = gray.ToBitmap();
+                    pictureBox2.Image = process;
                 }
 
 

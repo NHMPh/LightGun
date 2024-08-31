@@ -31,6 +31,7 @@ namespace LightGun
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             pictureBox1 = new PictureBox();
             button1 = new Button();
             pictureBox2 = new PictureBox();
@@ -551,7 +552,8 @@ namespace LightGun
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ControlDarkDark;
+            panel1.BackColor = SystemColors.ActiveCaptionText;
+            panel1.ForeColor = SystemColors.ControlText;
             panel1.Location = new Point(799, 289);
             panel1.Name = "panel1";
             panel1.Size = new Size(428, 380);
@@ -613,6 +615,7 @@ namespace LightGun
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
             Cursor = Cursors.Cross;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "Phu's Light Gun";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
