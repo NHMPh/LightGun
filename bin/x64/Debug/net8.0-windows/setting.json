@@ -1,0 +1,16 @@
+{
+  "Threadhold": 23,
+  "Xoffset": -3,
+  "Yoffset": -31,
+  "Brightness": 64,
+  "Contrast": 69,
+  "Hue": -2000,
+  "Saturation": 100,
+  "Sharpness": 7,
+  "Gamma": 300,
+  "WhiteBalance": 4600,
+  "Exposure": -7,
+  "Border": 2,
+  "ClickOutSide": "Click right",
+  "HoldOutSide": "Click middle"
+}

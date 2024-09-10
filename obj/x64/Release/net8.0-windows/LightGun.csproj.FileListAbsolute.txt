@@ -52,3 +52,7 @@ D:\Project\LightGun\LightGun\obj\x64\Release\net8.0-windows\LightGun.pdb
 D:\Project\LightGun\LightGun\obj\x64\Release\net8.0-windows\LightGun.genruntimeconfig.cache
 D:\Project\LightGun\LightGun\obj\x64\Release\net8.0-windows\ref\LightGun.dll
 D:\Project\LightGun\LightGun\obj\x64\Release\net8.0-windows\LightGun.Properties.Resources.resources
+D:\Project\LightGun\LightGun\bin\x64\Release\net8.0-windows\AutoHotkey.Interop.dll
+D:\Project\LightGun\LightGun\bin\x64\Release\net8.0-windows\AForge.dll
+D:\Project\LightGun\LightGun\bin\x64\Release\net8.0-windows\AForge.Video.dll
+D:\Project\LightGun\LightGun\bin\x64\Release\net8.0-windows\AForge.Video.DirectShow.dll

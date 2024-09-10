@@ -2,20 +2,16 @@ using Emgu.CV.CvEnum;
 using Emgu.CV.Structure;
 using Emgu.CV.Util;
 using Emgu.CV;
-using Emgu.CV.Aruco;
 using System.Runtime.InteropServices;
-using Emgu.CV.Cuda;
-using System.Drawing;
-using System.Diagnostics;
-using Emgu.CV.Dai;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 using System.Text.Json;
+using AutoHotkey.Interop;
+using AForge.Video.DirectShow;
+
 namespace LightGun
 {
     public partial class Form1 : Form
     {
 
-        
 
 
 
@@ -23,14 +19,18 @@ namespace LightGun
         static int ixres = 600;
         static int iyres = 480;
 
-        int xres = 1920;
-        int yres = 1080;
+        static int xres = 1920;
+        static int yres = 1080;
 
+        public static float sWidth = 2;
 
-        static bool movable = false;
+        static TransparentForm border;
+        public static bool movable = false;
+        public static bool outSideOfScreen = true;
         bool streamVideo = false;
-
-
+        public bool init = false;
+        public static string clickOutside;
+        public static string holdOutside;
         //Camera variable
         static int cameraIndex = -1;
         static VideoCapture capture = new VideoCapture(cameraIndex);
@@ -57,32 +57,71 @@ namespace LightGun
         int whiteBalance = 0;
         int exposure = 0;
 
+
         Settings settings;
 
         Image<Gray, Byte> gray;
         Mat hierarchy = new Mat();
-        Mat matrix= new Mat();
+        Mat matrix = new Mat();
         Mat transformedPointMat = new Mat();
+
+        AutoHotkeyEngine ahk = AutoHotkeyEngine.Instance;
         public Form1()
         {
-            InitializeComponent();          
-            this.KeyDown += MyForm_KeyDown;
+
+
+
+
+            //ahk.Suspend();
+            InitializeComponent();
+
+            //create new hotkeys
+
+            init = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             KeyPreview = true;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-
-        }
-
-
-        private void SetCamera()
-        {
             string jsonFilePath = ".\\setting.json";
             string jsonString = File.ReadAllText(jsonFilePath);
             settings = JsonSerializer.Deserialize<Settings>(jsonString);
+            sWidth = settings.Border;
+            borderTextBox.Text = sWidth.ToString();
+            LoadWebcams();
+            clickOutside = settings.ClickOutSide;
+            holdOutside = settings.HoldOutSide;
+            clickOutComboBox.SelectedItem = clickOutside.ToString();
+            holdOutComboBox.SelectedItem = holdOutside.ToString();
+            ahk.ExecRaw($"clickAction := \"{clickOutside}\"\r\nholdAction := \"{holdOutside}\"\r\nLButton::\r\n if (clickAction = \"Click Right\")\r\n   Click right\r\n    else if (clickAction = \"Click Middle\")\r\n        Click middle\r\n    else\r\n        Send %clickAction%\r\n\r\n    SetTimer, SendMiddleClick, -1000  \r\n    return\r\n\r\nLButton Up::\r\n    SetTimer, SendMiddleClick, Off\r\n    return\r\n\r\nSendMiddleClick:\r\n    if (holdAction = \"Click Right\")\r\n        Click right\r\n    else if (holdAction = \"Click Middle\")\r\n        Click middle\r\n    else\r\n        Send %holdAction%\r\n    return");
+            ahk.Suspend();
+
+        }
+        private void LoadWebcams()
+        {
+            // Create a collection to hold the video devices
+            FilterInfoCollection videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+
+            // Check if any video devices are found
+            if (videoDevices.Count == 0)
+            {
+                MessageBox.Show("No webcams found.");
+                return;
+            }
+
+            // Add each video device to the ComboBox
+            foreach (FilterInfo device in videoDevices)
+            {
+                comboBox1.Items.Add(device.Name);
+            }
+        }
+        private void SetCamera()
+        {
+
             // Set the capture resolution
             capture.Set(CapProp.FrameWidth, ixres);
             capture.Set(CapProp.FrameHeight, iyres);
-            capture.Set(CapProp.Fps, 30);
+            capture.Set(CapProp.Fps, 60);
 
             // Path to the JSON file
 
@@ -104,6 +143,8 @@ namespace LightGun
             xOffset = settings.Xoffset;
             yOffset = settings.Yoffset;
 
+
+
             tTrackBar.Value = threadhold;
             bTrackBar.Value = brightness;
             cTrackBar.Value = contrast;
@@ -113,6 +154,9 @@ namespace LightGun
             gTrackBar.Value = gamma;
             wTrackBar.Value = whiteBalance;
             eTrackBar.Value = exposure;
+
+
+
 
             tTextBox.Text = threadhold.ToString();
             bTextBox.Text = brightness.ToString();
@@ -137,28 +181,6 @@ namespace LightGun
 
         }
 
-        private void MyForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            // Check if a specific key is pressed
-            if (e.KeyCode == Keys.C)
-            {
-                movable = !movable;
-
-            }
-            // Check if a specific key is pressed
-            if (e.KeyCode == Keys.A)
-            {
-                xres = 600;
-                yres = 480;
-
-            }
-            if (e.KeyCode == Keys.S)
-            {
-                xres = 1920;
-                yres = 1080;
-
-            }
-        }
 
 
         public static void MoveMouseToPointAsync(PointF targetPoint, int steps = 16, int duration = 35)
@@ -166,20 +188,26 @@ namespace LightGun
             if (targetPoint == PointF.Empty) return;
             int x = (int)targetPoint.X;
             int y = (int)targetPoint.Y;
+
             if (movable)
                 SetCursorPos(x, y);
         }
 
-
+        public static void StartStop()
+        {
+            movable = !movable;
+            button1.Text = movable ? "Stop" : "Start";
+            button1.BackColor = movable ? Color.Red : Color.Green;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
-            movable=!movable;
-            button1.Text = movable ? "Stop" : "Start";
+            StartStop();
         }
 
         private async Task StreamVideo()
         {
+            capture.Read(frame);
             SetCamera();
             while (streamVideo)
             {
@@ -205,14 +233,14 @@ namespace LightGun
             double maxArea = 0;
             foreach (var contour in contours)
             {
-                    double area = CvInvoke.ContourArea(contour);       
-                    VectorOfPoint approx = new VectorOfPoint();
-                    CvInvoke.ApproxPolyDP(contour, approx, 0.015 * CvInvoke.ArcLength(contour, true), true);
-                    if (area > maxArea && approx.Size == 4)
-                    {
-                        biggest = approx;
-                        maxArea = area;
-                    }              
+                double area = CvInvoke.ContourArea(contour);
+                VectorOfPoint approx = new VectorOfPoint();
+                CvInvoke.ApproxPolyDP(contour, approx, 0.015 * CvInvoke.ArcLength(contour, true), true);
+                if (area > maxArea && approx.Size == 4)
+                {
+                    biggest = approx;
+                    maxArea = area;
+                }
             }
             return biggest;
         }
@@ -224,9 +252,9 @@ namespace LightGun
                 pictureBox1.Image = image.ToBitmap();
 
             gray = image.Convert<Gray, Byte>();
-            CvInvoke.CLAHE(gray, 2, new Size(8, 8), gray);
-            CvInvoke.GaussianBlur(gray, gray, new Size(5, 5), 0);
-            CvInvoke.Threshold(gray,gray, threadhold, 255, ThresholdType.Binary);
+            //  CvInvoke.CLAHE(gray, 2, new Size(8, 8), gray);
+            //  CvInvoke.GaussianBlur(gray, gray, new Size(5, 5), 0);
+            CvInvoke.Threshold(gray, gray, threadhold, 255, ThresholdType.Binary);
             VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
             CvInvoke.FindContours(gray, contours, hierarchy, RetrType.Tree, ChainApproxMethod.ChainApproxSimple);
             List<VectorOfPoint> contourList = new List<VectorOfPoint>();
@@ -246,9 +274,23 @@ namespace LightGun
             PointF bottomRight = PointF.Empty;
             PointF bottomLeft = PointF.Empty;
 
-
             if (biggest.Size == 4)
             {
+                double area = CvInvoke.ContourArea(biggest);
+                if (area < 28800)
+                {
+                    if (processCheckBox.Checked)
+                    {
+                        var process = gray.ToBitmap();
+                        pictureBox2.Image = process;
+                    }
+                    outSideOfScreen = true;
+                    if (movable)
+                        ahk.UnSuspend();
+                    else
+                        ahk.Suspend();
+                    return System.Drawing.PointF.Empty;
+                }
                 // Convert VectorOfPoint to PointF array
                 Point[] points = biggest.ToArray();
                 PointF[] corners = Array.ConvertAll(points, p => new PointF(p.X, p.Y));
@@ -272,6 +314,7 @@ namespace LightGun
                     else if (corner.X < centerX && corner.Y > centerY) bottomLeft = corner;
                 }
 
+
                 PointF pointToTrack = new PointF(ixres / 2 + xOffset, iyres / 2 + yOffset);
                 Mat pointMat = new Mat(1, 1, DepthType.Cv32F, 2);
                 pointMat.SetTo(new float[] { pointToTrack.X, pointToTrack.Y });
@@ -280,7 +323,7 @@ namespace LightGun
                             topRight,   // corners[1]
                             bottomRight,// corners[2]
                             bottomLeft  // corners[3]
-                    };      
+                    };
                 PointF destTopLeft = new PointF(0, 0);
                 PointF destTopRight = new PointF(ixres, 0);
                 PointF destBottomRight = new PointF(ixres, iyres);
@@ -299,7 +342,7 @@ namespace LightGun
                     process.Draw(new CircleF(topRight, 20), new Bgr(0, 255, 0), 10);
                     process.Draw(new CircleF(bottomRight, 20), new Bgr(255, 0, 0), 10);
                     process.Draw(new CircleF(bottomLeft, 20), new Bgr(0, 255, 255), 10);
-                    process.Draw(new CircleF(new PointF(image.Width / 2, image.Height / 2), 10), new Bgr(255, 255, 0), 5);
+                    process.Draw(new CircleF(new PointF(pointToTrack.X, pointToTrack.Y), 10), new Bgr(255, 255, 0), 5);
                     pictureBox2.Image = process.ToBitmap();
                 }
 
@@ -313,14 +356,31 @@ namespace LightGun
                         dstPoints.SetTo(pts2);
                     }
                     // Get the perspective transformation matrix
-                     matrix = CvInvoke.GetPerspectiveTransform(srcPoints, dstPoints);
+                    matrix = CvInvoke.GetPerspectiveTransform(srcPoints, dstPoints);
                     // Apply the perspective transformation
-                   
+
                     CvInvoke.PerspectiveTransform(pointMat, transformedPointMat, matrix);
                     // Convert the transformed Mat back to PointF
                     float[] transformedPointValues = new float[2];
                     Marshal.Copy(transformedPointMat.DataPointer, transformedPointValues, 0, 2);
                     PointF transformedPoint = new PointF((transformedPointValues[0] / ixres) * xres, (transformedPointValues[1] / iyres) * yres);
+
+                    if (Math.Abs(transformedPoint.X) > xres || Math.Abs(transformedPoint.Y) > yres)
+                    {
+                        outSideOfScreen = true;
+                        if (movable)
+                            ahk.UnSuspend();
+                        else
+                            ahk.Suspend();
+
+                    }
+                    else
+                    {
+                        outSideOfScreen = false;
+                        ahk.Suspend();
+                    }
+
+
                     return transformedPoint;
                 }
 
@@ -332,9 +392,18 @@ namespace LightGun
                     var process = gray.ToBitmap();
                     pictureBox2.Image = process;
                 }
-
+                if (movable)
+                    ahk.UnSuspend();
+                else
+                    ahk.Suspend();
+                outSideOfScreen = true;
 
             }
+            if (movable)
+                ahk.UnSuspend();
+            else
+                ahk.Suspend();
+            outSideOfScreen = true;
             return PointF.Empty;
 
 
@@ -401,15 +470,38 @@ namespace LightGun
             settings.Xoffset = (int)xOffset;
         }
 
-        private void button12_Click(object sender, EventArgs e)
-        {
-            // Path to the JSON file
-            string jsonFilePath = "D:\\Project\\LightGun\\LightGun\\bin\\x64\\Release\\net8.0-windows\\setting.json";
-            // Serialize the object back to a JSON string
-            string updatedJsonString = JsonSerializer.Serialize(settings, new JsonSerializerOptions { WriteIndented = true });
 
-            // Write the JSON string to a file
-            File.WriteAllText(jsonFilePath, updatedJsonString);
+
+
+
+        public static void OpenBorder()
+        {
+            int screenWidth = Screen.PrimaryScreen.Bounds.Width;
+            int screenHeight = Screen.PrimaryScreen.Bounds.Height;
+
+            if (border != null && border.Visible)
+            {
+                border.Dispose();
+                border = null;
+                xres = screenWidth;
+                yres = screenHeight;
+            }
+            else
+            {
+                border = new TransparentForm(sWidth, screenWidth, screenHeight);
+                border.Show();
+                xres = screenWidth;
+                yres = screenHeight;
+            }
+
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            LoadWebcams();
+        }
+
+      
     }
 }

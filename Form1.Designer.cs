@@ -1,4 +1,5 @@
-﻿using Emgu.CV;
+﻿using AutoHotkey.Interop;
+using Emgu.CV;
 using Emgu.CV.CvEnum;
 
 namespace LightGun
@@ -66,12 +67,9 @@ namespace LightGun
             eTextBox = new TextBox();
             label9 = new Label();
             eTrackBar = new TrackBar();
-            label8 = new Label();
-            comboBox2 = new ComboBox();
             label10 = new Label();
             label11 = new Label();
             button11 = new Button();
-            button12 = new Button();
             label13 = new Label();
             up1Button = new Button();
             left1Button = new Button();
@@ -82,6 +80,17 @@ namespace LightGun
             left10Button = new Button();
             up10Button = new Button();
             panel1 = new Panel();
+            label8 = new Label();
+            borderTextBox = new TextBox();
+            label12 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            clickOutComboBox = new ComboBox();
+            holdOutComboBox = new ComboBox();
+            label18 = new Label();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tTrackBar).BeginInit();
@@ -97,6 +106,7 @@ namespace LightGun
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = SystemColors.ActiveBorder;
             pictureBox1.Location = new Point(210, 47);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(317, 217);
@@ -105,16 +115,19 @@ namespace LightGun
             // 
             // button1
             // 
-            button1.Location = new Point(937, 57);
+            button1.BackColor = Color.Green;
+            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.Location = new Point(979, 47);
             button1.Name = "button1";
             button1.Size = new Size(155, 41);
             button1.TabIndex = 1;
             button1.Text = "Start";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // pictureBox2
             // 
+            pictureBox2.BackColor = SystemColors.ActiveBorder;
             pictureBox2.Location = new Point(573, 47);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(317, 217);
@@ -144,6 +157,7 @@ namespace LightGun
             // 
             tTextBox.Location = new Point(507, 308);
             tTextBox.Name = "tTextBox";
+            tTextBox.ReadOnly = true;
             tTextBox.Size = new Size(100, 23);
             tTextBox.TabIndex = 14;
             // 
@@ -151,6 +165,7 @@ namespace LightGun
             // 
             bTextBox.Location = new Point(507, 346);
             bTextBox.Name = "bTextBox";
+            bTextBox.ReadOnly = true;
             bTextBox.Size = new Size(100, 23);
             bTextBox.TabIndex = 23;
             // 
@@ -199,8 +214,8 @@ namespace LightGun
             // 
             // comboBox1
             // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "0", "1", "2", "3", "4" });
             comboBox1.Location = new Point(33, 75);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(121, 23);
@@ -210,7 +225,7 @@ namespace LightGun
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(33, 57);
+            label1.Location = new Point(31, 57);
             label1.Name = "label1";
             label1.Size = new Size(89, 15);
             label1.TabIndex = 36;
@@ -220,6 +235,7 @@ namespace LightGun
             // 
             hTextBox.Location = new Point(507, 422);
             hTextBox.Name = "hTextBox";
+            hTextBox.ReadOnly = true;
             hTextBox.Size = new Size(100, 23);
             hTextBox.TabIndex = 42;
             // 
@@ -248,6 +264,7 @@ namespace LightGun
             // 
             cTextBox.Location = new Point(507, 384);
             cTextBox.Name = "cTextBox";
+            cTextBox.ReadOnly = true;
             cTextBox.Size = new Size(100, 23);
             cTextBox.TabIndex = 39;
             // 
@@ -273,6 +290,7 @@ namespace LightGun
             // 
             shTextBox.Location = new Point(507, 494);
             shTextBox.Name = "shTextBox";
+            shTextBox.ReadOnly = true;
             shTextBox.Size = new Size(100, 23);
             shTextBox.TabIndex = 48;
             // 
@@ -300,6 +318,7 @@ namespace LightGun
             // 
             saTextBox.Location = new Point(507, 456);
             saTextBox.Name = "saTextBox";
+            saTextBox.ReadOnly = true;
             saTextBox.Size = new Size(100, 23);
             saTextBox.TabIndex = 45;
             // 
@@ -326,6 +345,7 @@ namespace LightGun
             // 
             wTextBox.Location = new Point(507, 568);
             wTextBox.Name = "wTextBox";
+            wTextBox.ReadOnly = true;
             wTextBox.Size = new Size(100, 23);
             wTextBox.TabIndex = 54;
             // 
@@ -353,6 +373,7 @@ namespace LightGun
             // 
             gTextBox.Location = new Point(507, 530);
             gTextBox.Name = "gTextBox";
+            gTextBox.ReadOnly = true;
             gTextBox.Size = new Size(100, 23);
             gTextBox.TabIndex = 51;
             // 
@@ -380,6 +401,7 @@ namespace LightGun
             // 
             eTextBox.Location = new Point(507, 605);
             eTextBox.Name = "eTextBox";
+            eTextBox.ReadOnly = true;
             eTextBox.Size = new Size(100, 23);
             eTextBox.TabIndex = 57;
             // 
@@ -401,27 +423,8 @@ namespace LightGun
             eTrackBar.Name = "eTrackBar";
             eTrackBar.Size = new Size(367, 45);
             eTrackBar.TabIndex = 55;
+            eTrackBar.Value = -7;
             eTrackBar.ValueChanged += ETrackBar_ValueChanged;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(937, 117);
-            label8.Name = "label8";
-            label8.Size = new Size(94, 15);
-            label8.TabIndex = 59;
-            label8.Text = "Game resolution";
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "2560x1440", "1920x1080", "1366x768", "1280x720", "1920x1200", "1680x1050", "1440x900", "1280x800", "1024x768", "800x600", "640x480" });
-            comboBox2.Location = new Point(937, 135);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 58;
-            comboBox2.SelectedIndexChanged += ComboBox2_SelectedIndexChanged;
-            comboBox2.KeyDown += ComboBox2_KeyDown;
             // 
             // label10
             // 
@@ -443,23 +446,15 @@ namespace LightGun
             // 
             // button11
             // 
-            button11.Location = new Point(221, 650);
+            button11.BackColor = SystemColors.Highlight;
+            button11.ForeColor = SystemColors.ControlLight;
+            button11.Location = new Point(622, 629);
             button11.Name = "button11";
-            button11.Size = new Size(93, 25);
+            button11.Size = new Size(154, 46);
             button11.TabIndex = 68;
             button11.Text = "Save";
-            button11.UseVisualStyleBackColor = true;
+            button11.UseVisualStyleBackColor = false;
             button11.Click += button11_Click;
-            // 
-            // button12
-            // 
-            button12.Location = new Point(1134, 627);
-            button12.Name = "button12";
-            button12.Size = new Size(93, 25);
-            button12.TabIndex = 69;
-            button12.Text = "Save";
-            button12.UseVisualStyleBackColor = true;
-            button12.Click += button12_Click;
             // 
             // label13
             // 
@@ -559,11 +554,128 @@ namespace LightGun
             panel1.Size = new Size(428, 380);
             panel1.TabIndex = 80;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(940, 112);
+            label8.Name = "label8";
+            label8.Size = new Size(104, 15);
+            label8.TabIndex = 81;
+            label8.Text = "Border Percentage";
+            // 
+            // borderTextBox
+            // 
+            borderTextBox.Location = new Point(1063, 109);
+            borderTextBox.Name = "borderTextBox";
+            borderTextBox.Size = new Size(100, 23);
+            borderTextBox.TabIndex = 82;
+            borderTextBox.TextChanged += TextBox1_TextChanged;
+            borderTextBox.KeyPress += TextBox1_KeyPress;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(940, 150);
+            label12.Name = "label12";
+            label12.Size = new Size(112, 15);
+            label12.TabIndex = 83;
+            label12.Text = "Click outside screen";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(940, 191);
+            label14.Name = "label14";
+            label14.Size = new Size(112, 15);
+            label14.TabIndex = 85;
+            label14.Text = "Hold outside screen";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(940, 223);
+            label15.MaximumSize = new Size(250, 0);
+            label15.Name = "label15";
+            label15.Size = new Size(0, 15);
+            label15.TabIndex = 87;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(1169, 112);
+            label16.Name = "label16";
+            label16.Size = new Size(61, 15);
+            label16.TabIndex = 89;
+            label16.Text = "(LCtrl + B)";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(1140, 60);
+            label17.Name = "label17";
+            label17.Size = new Size(66, 15);
+            label17.TabIndex = 90;
+            label17.Text = "(LShift + B)";
+            // 
+            // clickOutComboBox
+            // 
+            clickOutComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            clickOutComboBox.FormattingEnabled = true;
+            clickOutComboBox.Items.AddRange(new object[] { "Click Left", "Click Right", "Click Middle", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "Esc", "Tab", "Shift", "Ctrl", "Alt", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Numpad0", "Numpad1", "Numpad2", "Numpad3", "Numpad4", "Numpad5", "Numpad6", "Numpad7", "Numpad8", "Numpad9" });
+            clickOutComboBox.Location = new Point(1063, 147);
+            clickOutComboBox.Name = "clickOutComboBox";
+            clickOutComboBox.Size = new Size(100, 23);
+            clickOutComboBox.TabIndex = 91;
+            clickOutComboBox.SelectedIndexChanged += clickOutComboBox_SelectedIndexChanged;
+            // 
+            // holdOutComboBox
+            // 
+            holdOutComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            holdOutComboBox.FormattingEnabled = true;
+            holdOutComboBox.Items.AddRange(new object[] { "Click Left", "Click Right", "Click Middle", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "Esc", "Tab", "Shift", "Ctrl", "Alt", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Numpad0", "Numpad1", "Numpad2", "Numpad3", "Numpad4", "Numpad5", "Numpad6", "Numpad7", "Numpad8", "Numpad9" });
+            holdOutComboBox.Location = new Point(1063, 188);
+            holdOutComboBox.Name = "holdOutComboBox";
+            holdOutComboBox.Size = new Size(100, 23);
+            holdOutComboBox.TabIndex = 92;
+            holdOutComboBox.SelectedIndexChanged += holdOutComboBox_SelectedIndexChanged;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(1003, 238);
+            label18.Name = "label18";
+            label18.Size = new Size(112, 15);
+            label18.TabIndex = 93;
+            label18.Text = "Created by MHMPh";
+            // 
+            // button2
+            // 
+            button2.BackColor = SystemColors.Control;
+            button2.ForeColor = SystemColors.ActiveCaptionText;
+            button2.Location = new Point(52, 104);
+            button2.Name = "button2";
+            button2.Size = new Size(71, 23);
+            button2.TabIndex = 94;
+            button2.Text = "Refresh";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1268, 687);
+            Controls.Add(button2);
+            Controls.Add(label18);
+            Controls.Add(holdOutComboBox);
+            Controls.Add(clickOutComboBox);
+            Controls.Add(label17);
+            Controls.Add(label16);
+            Controls.Add(label15);
+            Controls.Add(label14);
+            Controls.Add(label12);
+            Controls.Add(borderTextBox);
+            Controls.Add(label8);
             Controls.Add(down10Button);
             Controls.Add(right10Button);
             Controls.Add(left10Button);
@@ -573,12 +685,9 @@ namespace LightGun
             Controls.Add(left1Button);
             Controls.Add(up1Button);
             Controls.Add(label13);
-            Controls.Add(button12);
             Controls.Add(button11);
             Controls.Add(label11);
             Controls.Add(label10);
-            Controls.Add(label8);
-            Controls.Add(comboBox2);
             Controls.Add(eTextBox);
             Controls.Add(label9);
             Controls.Add(eTrackBar);
@@ -615,9 +724,10 @@ namespace LightGun
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
             Cursor = Cursors.Cross;
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Form1";
-            Text = "Phu's Light Gun";
+            Name = "NHMPh's Light Gun";
+            Text = "NHMPh's Light Gun";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)tTrackBar).EndInit();
@@ -633,31 +743,70 @@ namespace LightGun
             PerformLayout();
         }
 
-        private void ComboBox2_KeyDown(object sender, KeyEventArgs e)
+        private void clickOutComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+
+            clickOutside = (sender as ComboBox).SelectedItem.ToString();
+            ahk.SetVar("clickAction", $"{clickOutside}");
+            settings.ClickOutSide = clickOutside;
+            this.ActiveControl = null;
+        }
+        private void holdOutComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            holdOutside = (sender as ComboBox).SelectedItem.ToString();
+            ahk.SetVar("holdAction", $"{holdOutside}");
+            settings.HoldOutSide = holdOutside;
+            this.ActiveControl = null;
+        }
+        private void ClickOutTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+            if ((sender as TextBox).Text == string.Empty)
             {
-                try
-                {
-                string value = (sender as ComboBox).Text.ToString();
-                var res = value.Split('x');
-                xres = int.Parse(res[0]);
-                yres = int.Parse(res[1]);
-
-                }
-                catch
-                {
-
-                }
+                return;
             }
+           
+
         }
 
-        private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void HoldOutTextBox_TextChanged(object sender, EventArgs e)
         {
-            string value = (sender as ComboBox).Text.ToString();
-            var res = value.Split('x');
-            xres = int.Parse(res[0]);
-            yres = int.Parse(res[1]);
+            if ((sender as TextBox).Text == string.Empty)
+            {
+                return;
+            }
+
+            holdOutside = (sender as TextBox).Text;
+            settings.HoldOutSide = holdOutside;
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+            if ((sender as TextBox).Text == string.Empty)
+            {
+                (sender as TextBox).Text = "0";
+            }
+            sWidth = float.Parse((sender as TextBox).Text.ToString());
+            settings.Border = sWidth;
+        }
+
+        private void TextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow control keys (backspace, delete, etc.)
+            if (char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+
+            // Allow digits only
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+
+
+            }
+
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -747,7 +896,6 @@ namespace LightGun
         #endregion
 
         private PictureBox pictureBox1;
-        private Button button1;
         private PictureBox pictureBox2;
         private TrackBar tTrackBar;
         private Label tLable;
@@ -780,12 +928,9 @@ namespace LightGun
         private TextBox eTextBox;
         private Label label9;
         private TrackBar eTrackBar;
-        private Label label8;
-        private ComboBox comboBox2;
         private Label label10;
         private Label label11;
         private Button button11;
-        private Button button12;
         private Label label13;
         private Button up1Button;
         private Button left1Button;
@@ -796,5 +941,17 @@ namespace LightGun
         private Button left10Button;
         private Button up10Button;
         private Panel panel1;
+        private Label label8;
+        private TextBox borderTextBox;
+        private Label label12;
+        private Label label14;
+        private Label label15;
+        private Label label16;
+        private Label label17;
+        private ComboBox clickOutComboBox;
+        private ComboBox holdOutComboBox;
+        private Label label18;
+        private Button button2;
+        private static Button button1;
     }
 }

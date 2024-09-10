@@ -19,5 +19,8 @@ namespace LightGun
         public int Gamma { get; set; }
         public int WhiteBalance { get; set; }
         public int Exposure { get; set; }
+        public float Border { get; set; }
+        public string ClickOutSide { get; set; }
+        public string HoldOutSide { get; set; }
     }
 }

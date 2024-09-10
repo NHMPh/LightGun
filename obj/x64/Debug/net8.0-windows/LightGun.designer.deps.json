@@ -6,6 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
+      "AutoHotkey.Interop/1.0.0.1": {
+        "runtime": {
+          "lib/net45/AutoHotkey.Interop.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Emgu.CV/4.9.0.5494": {
         "dependencies": {
           "System.Drawing.Primitives": "4.3.0",
@@ -417,6 +425,13 @@
     }
   },
   "libraries": {
+    "AutoHotkey.Interop/1.0.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZeJLYFmNDthkw/xj0kKDiQYaBWNHb5q54CqGd71vZ/jggi0xGKoMUA5pVQmT5k/+ssy3WFDw5NcBlAqSr2gy2g==",
+      "path": "autohotkey.interop/1.0.0.1",
+      "hashPath": "autohotkey.interop.1.0.0.1.nupkg.sha512"
+    },
     "Emgu.CV/4.9.0.5494": {
       "type": "package",
       "serviceable": true,
