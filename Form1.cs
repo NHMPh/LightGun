@@ -16,7 +16,7 @@ namespace LightGun
 
 
 
-        static int ixres = 600;
+        static int ixres = 640;
         static int iyres = 480;
 
         static int xres = 1920;
@@ -65,7 +65,7 @@ namespace LightGun
         Mat matrix = new Mat();
         Mat transformedPointMat = new Mat();
 
-        AutoHotkeyEngine ahk = AutoHotkeyEngine.Instance;
+        static AutoHotkeyEngine ahk = AutoHotkeyEngine.Instance;
         public Form1()
         {
 
@@ -93,7 +93,40 @@ namespace LightGun
             holdOutside = settings.HoldOutSide;
             clickOutComboBox.SelectedItem = clickOutside.ToString();
             holdOutComboBox.SelectedItem = holdOutside.ToString();
-            ahk.ExecRaw($"clickAction := \"{clickOutside}\"\r\nholdAction := \"{holdOutside}\"\r\nLButton::\r\n if (clickAction = \"Click Right\")\r\n   Click right\r\n    else if (clickAction = \"Click Middle\")\r\n        Click middle\r\n    else\r\n        Send %clickAction%\r\n\r\n    SetTimer, SendMiddleClick, -1000  \r\n    return\r\n\r\nLButton Up::\r\n    SetTimer, SendMiddleClick, Off\r\n    return\r\n\r\nSendMiddleClick:\r\n    if (holdAction = \"Click Right\")\r\n        Click right\r\n    else if (holdAction = \"Click Middle\")\r\n        Click middle\r\n    else\r\n        Send %holdAction%\r\n    return");
+            string script = $@"
+clickAction := ""{clickOutside}""
+holdAction := ""{holdOutside}""
+LButton::
+    if (clickAction = ""Click Right"")
+        Click right
+    else if (clickAction = ""Click Middle"")
+        Click middle
+    else
+        Send %clickAction%
+
+    ; Set a timer to run the SendMiddleClick label every 2000 milliseconds (2 seconds)
+    SetTimer, SendMiddleClick, 1000
+return
+
+LButton Up::
+    SetTimer, SendMiddleClick, Off
+return
+
+SendMiddleClick:
+
+    if (holdAction = ""Click Right"")
+        Click right
+    else if (holdAction = ""Click Middle"")
+        Click middle
+    else
+        Send %holdAction%
+return
+
+StopTimer(){{
+ SetTimer, SendMiddleClick, Off
+}}
+";
+            ahk.ExecRaw(script);
             ahk.Suspend();
 
         }
@@ -121,7 +154,7 @@ namespace LightGun
             // Set the capture resolution
             capture.Set(CapProp.FrameWidth, ixres);
             capture.Set(CapProp.FrameHeight, iyres);
-            capture.Set(CapProp.Fps, 60);
+            capture.Set(CapProp.Fps, 30);
 
             // Path to the JSON file
 
@@ -188,9 +221,10 @@ namespace LightGun
             if (targetPoint == PointF.Empty) return;
             int x = (int)targetPoint.X;
             int y = (int)targetPoint.Y;
-
+            
             if (movable)
                 SetCursorPos(x, y);
+                
         }
 
         public static void StartStop()
@@ -198,6 +232,9 @@ namespace LightGun
             movable = !movable;
             button1.Text = movable ? "Stop" : "Start";
             button1.BackColor = movable ? Color.Red : Color.Green;
+           if(movable)
+            ahk.UnSuspend();
+           else ahk.Suspend();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -217,6 +254,7 @@ namespace LightGun
                     CvInvoke.Resize(frame, frame, frameSize);
                     image = frame.ToImage<Bgr, byte>();
                     MoveMouseToPointAsync(DetectEdge(image));
+                    
                     await Task.Delay(1);
                 }
                 catch
@@ -285,7 +323,7 @@ namespace LightGun
                         pictureBox2.Image = process;
                     }
                     outSideOfScreen = true;
-                    if (movable)
+                    if(movable)
                         ahk.UnSuspend();
                     else
                         ahk.Suspend();
@@ -365,18 +403,23 @@ namespace LightGun
                     Marshal.Copy(transformedPointMat.DataPointer, transformedPointValues, 0, 2);
                     PointF transformedPoint = new PointF((transformedPointValues[0] / ixres) * xres, (transformedPointValues[1] / iyres) * yres);
 
-                    if (Math.Abs(transformedPoint.X) > xres || Math.Abs(transformedPoint.Y) > yres)
+
+                    bool outsideX = transformedPoint.X < 0 || transformedPoint.X > xres;
+                    bool outsideY = transformedPoint.Y < 0 || transformedPoint.Y > yres;
+                    if ( outsideX||outsideY)
                     {
+                       
                         outSideOfScreen = true;
                         if (movable)
                             ahk.UnSuspend();
                         else
                             ahk.Suspend();
-
                     }
                     else
                     {
                         outSideOfScreen = false;
+                      
+                        ahk.ExecFunction("StopTimer");
                         ahk.Suspend();
                     }
 
@@ -392,18 +435,19 @@ namespace LightGun
                     var process = gray.ToBitmap();
                     pictureBox2.Image = process;
                 }
+     
+                outSideOfScreen = true;
                 if (movable)
                     ahk.UnSuspend();
                 else
                     ahk.Suspend();
-                outSideOfScreen = true;
-
             }
+           
+            outSideOfScreen = true;
             if (movable)
                 ahk.UnSuspend();
             else
                 ahk.Suspend();
-            outSideOfScreen = true;
             return PointF.Empty;
 
 
@@ -502,6 +546,6 @@ namespace LightGun
             LoadWebcams();
         }
 
-      
+
     }
 }

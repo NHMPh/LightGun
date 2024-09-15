@@ -1,9 +1,9 @@
 {
-  "Threadhold": 64,
-  "Xoffset": 4,
-  "Yoffset": -37,
+  "Threadhold": 30,
+  "Xoffset": -17,
+  "Yoffset": -25,
   "Brightness": 64,
-  "Contrast": 23,
+  "Contrast": 56,
   "Hue": -2000,
   "Saturation": 0,
   "Sharpness": 7,
@@ -11,6 +11,6 @@
   "WhiteBalance": 4595,
   "Exposure": -7,
   "Border": 2,
-  "ClickOutSide": "Click Right",
-  "HoldOutSide": "Click Middle"
+  "ClickOutSide": "Click Middle",
+  "HoldOutSide": "Click Right"
 }

@@ -419,7 +419,7 @@ namespace LightGun
             eTrackBar.LargeChange = 1;
             eTrackBar.Location = new Point(134, 605);
             eTrackBar.Maximum = 0;
-            eTrackBar.Minimum = -7;
+            eTrackBar.Minimum = -8;
             eTrackBar.Name = "eTrackBar";
             eTrackBar.Size = new Size(367, 45);
             eTrackBar.TabIndex = 55;
@@ -726,7 +726,7 @@ namespace LightGun
             Cursor = Cursors.Cross;
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "NHMPh's Light Gun";
+            Name = "Form1";
             Text = "NHMPh's Light Gun";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
