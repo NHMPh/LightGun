@@ -129,6 +129,7 @@ SendRightClick:
 return
 
 StopTimer(){{
+ SetTimer, SendRightClick, Off 
  SetTimer, SendMiddleClick, Off
 }}
 ";
