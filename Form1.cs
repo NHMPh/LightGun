@@ -107,7 +107,7 @@ LButton::
 
     SetTimer, SendRightClick, 10
     ; Set a timer to run the SendMiddleClick label every 2000 milliseconds (2 seconds)
-    SetTimer, SendMiddleClick, 1500
+    SetTimer, SendMiddleClick, 1000
 return
 
 LButton Up::
@@ -116,7 +116,7 @@ LButton Up::
 return
 
 SendMiddleClick:
-
+    SetTimer, SendRightClick, Off 
     if (holdAction = ""Click Right"")
         Click right
     else if (holdAction = ""Click Middle"")
@@ -156,7 +156,7 @@ StopTimer(){{
                 MessageBox.Show("No webcams found.");
                 return;
             }
-
+            comboBox1.Sorted = false;
             // Add each video device to the ComboBox
             foreach (FilterInfo device in videoDevices)
             {
@@ -268,13 +268,12 @@ StopTimer(){{
                     capture.Read(frame);
                     CvInvoke.Resize(frame, frame, frameSize);
                     image = frame.ToImage<Bgr, byte>();
-                    MoveMouseToPointAsync(DetectEdge(image));
-                    
+                    MoveMouseToPointAsync(DetectEdge(image));                    
                     await Task.Delay(1);
                 }
                 catch
                 {
-
+                   
                 }
 
 

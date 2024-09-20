@@ -1,7 +1,7 @@
 {
   "Threadhold": 87,
-  "Xoffset": -31,
-  "Yoffset": -36,
+  "Xoffset": -23,
+  "Yoffset": -43,
   "Brightness": 64,
   "Contrast": 0,
   "Hue": -2000,
@@ -12,5 +12,5 @@
   "Exposure": -8,
   "Border": 2,
   "ClickOutSide": "Click Right",
-  "HoldOutSide": "Space"
+  "HoldOutSide": "Click Middle"
 }
