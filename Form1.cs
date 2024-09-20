@@ -97,7 +97,15 @@ namespace LightGun
 clickAction := ""{clickOutside}""
 holdAction := ""{holdOutside}""
 LButton::
-    SetTimer, SendRightClick, 1
+
+    if (clickAction = ""Click Right"")
+        Click right
+    else if (clickAction = ""Click Middle"")
+        Click middle
+    else
+        Send %clickAction%
+
+    SetTimer, SendRightClick, 10
     ; Set a timer to run the SendMiddleClick label every 2000 milliseconds (2 seconds)
     SetTimer, SendMiddleClick, 1500
 return
