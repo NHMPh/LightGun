@@ -73,7 +73,7 @@ The switch is soldered to the PCB, replacing the mouse's left-click
      ![Example Image](Readme_img/3.png "CamCal")
 
  - #### 5 Have fun
-   Be sure to save your setting and turn on the overlay border when you start your game.
+   Be sure to turn on the overlay border when you start your game and save your setting and.
    
    Tips: Open your game and then hold ``LeftCtrl + B`` to enable the overlay border. Then hit  hold ``LeftShift + B`` to start the light gun.
 
