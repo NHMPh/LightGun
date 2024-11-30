@@ -1,6 +1,10 @@
 # NHMPh Light gun
 
-This repository will show you how to play light gun game with a DIY light gun with line of sight accuracy.
+## Introduction
+
+Welcome to NHMPh Light gun! 🚀
+
+This repository demonstrates how to play light gun games using a DIY light gun with line-of-sight accuracy, all for under $15.
 
 ## How it work
 
