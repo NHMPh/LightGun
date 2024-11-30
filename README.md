@@ -33,7 +33,7 @@ The switch is soldered to the PCB, replacing the mouse's left-click
 
 ### 3. **Software Set Up**  
 
-   - #### 0 Download and open NHMPh's Light gun software
+   - #### 0 Download and open NHMPh Light gun software
      You can compile it yourself or download the RAR file.
   - #### 1 Set up the webcam
     Plug the two USB to your computer and select your light gun's webcam from the options here.
