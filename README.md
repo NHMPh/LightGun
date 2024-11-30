@@ -68,7 +68,7 @@ The switch is soldered to the PCB, replacing the mouse's left-click
 
     Note: This will take over your current mouse.
     
-    Use your gun sight to adjust the mouse cursor position by clicking/shooting on the (+10 -10 +1 -1) buttons
+    Use your gun's iron sight to adjust the mouse cursor position by clicking/shooting on the (+10 -10 +1 -1) buttons
 
      ![Example Image](Readme_img/3.png "CamCal")
 
