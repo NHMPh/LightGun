@@ -66,14 +66,14 @@ The switch is soldered to the PCB, replacing the mouse's left-click
 
     Start your gun by holding  ``LeftShift + B``
 
-    Note: This will take over your current mouse.
+    Note: This will allow the program to take control of your current mouse.
     
-    Use your gun's iron sight to adjust the mouse cursor position by clicking/shooting on the (+10 -10 +1 -1) buttons
+    Use the iron sights of your gun to adjust the mouse cursor position, aligning it with the gun’s sight by clicking/shooting the (+10, -10, +1, -1) buttons.
 
      ![Example Image](Readme_img/3.png "CamCal")
 
  - #### 5 Have fun
-   Be sure to turn on the overlay border when you start your game and save your setting and.
+   Be sure to turn on the overlay border when you start your game and save your setting.
    
    Tips: Open your game and then hold ``LeftCtrl + B`` to enable the overlay border. Then hold ``LeftShift + B`` to start the light gun.
 
