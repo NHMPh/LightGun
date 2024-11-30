@@ -79,4 +79,3 @@ The switch is soldered to the PCB, replacing the mouse's left-click
    
    I recommend THOTD2, THOTD3, hotd overkill, or any light gun games that can be control with a usb mouse.
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
