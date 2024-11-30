@@ -75,9 +75,9 @@ The switch is soldered to the PCB, replacing the mouse's left-click
  - #### 5 Have fun
    Be sure to turn on the overlay border when you start your game and save your setting and.
    
-   Tips: Open your game and then hold ``LeftCtrl + B`` to enable the overlay border. Then hit  hold ``LeftShift + B`` to start the light gun.
+   Tips: Open your game and then hold ``LeftCtrl + B`` to enable the overlay border. Then hold ``LeftShift + B`` to start the light gun.
 
-   You can also customize what input will be send when you click/shoot outside of the screen  and the border width here.
+   You can also customize what input will be send when you click/shoot outside of the screen and the border width here.
    
     ![Example Image](Readme_img/4.png "CamCal")
    
