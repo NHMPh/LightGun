@@ -56,7 +56,7 @@ The switch is soldered to the PCB, replacing the mouse's left-click
 
     ** THE LIGHT GUN'S CAMERA NEED TO SEE THE WHITE BORDER EVERY FRAME**
     
-     Ensure that the camera can consistently detect the white border on the screen. You should Experiment with the threshold, contrast, gamma, and exposure settings to achieve optimal performance.
+     Ensure that the camera can consistently detect the white border on the screen. You should experiment with the threshold, contrast, gamma, and exposure settings to achieve optimal performance.
 
      You also need to make sure that the light gun's camera is at  [****(1+1/2) * your screen width****] away from your screen.
 
