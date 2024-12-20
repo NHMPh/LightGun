@@ -11,6 +11,14 @@
     <ApplicationIcon>bin\x64\Release\net8.0-windows\icon.ico</ApplicationIcon>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+
   <ItemGroup>
     <Content Include="bin\x64\Release\net8.0-windows\icon.ico" />
   </ItemGroup>

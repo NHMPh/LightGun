@@ -6,6 +6,10 @@ using System.Runtime.InteropServices;
 using System.Text.Json;
 using AutoHotkey.Interop;
 using AForge.Video.DirectShow;
+using System.Text;
+using System.Net.NetworkInformation;
+using System.Drawing;
+using System.Diagnostics;
 
 namespace LightGun
 {
@@ -83,6 +87,7 @@ namespace LightGun
             KeyPreview = true;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             string jsonFilePath = ".\\setting.json";
             string jsonString = File.ReadAllText(jsonFilePath);
             settings = JsonSerializer.Deserialize<Settings>(jsonString);
@@ -141,7 +146,7 @@ StopTimer(){{
  SetTimer, SendMiddleClick, Off
 }}
 ";
-            ahk.ExecRaw(script);
+          //  ahk.ExecRaw(script);
             ahk.Suspend();
 
         }
@@ -229,7 +234,7 @@ StopTimer(){{
 
         }
 
-
+       
 
         public static void MoveMouseToPointAsync(PointF targetPoint, int steps = 16, int duration = 35)
         {
@@ -268,7 +273,7 @@ StopTimer(){{
                     capture.Read(frame);
                     CvInvoke.Resize(frame, frame, frameSize);
                     image = frame.ToImage<Bgr, byte>();
-                    MoveMouseToPointAsync(DetectEdge(image));                    
+                    MoveMouseToPointAsync(DetectEdge2(image));                    
                     await Task.Delay(1);
                 }
                 catch
@@ -296,13 +301,103 @@ StopTimer(){{
             }
             return biggest;
         }
+        public static double GetParallelogramArea(List<Point> corners)
+        {
+            if (corners.Count != 4)
+            {
+                throw new ArgumentException("There must be exactly 4 corners.");
+            }
 
+            // Use the Shoelace formula to calculate the area
+            double area = 0;
+            for (int i = 0; i < corners.Count; i++)
+            {
+                Point current = corners[i];
+                Point next = corners[(i + 1) % corners.Count];
+                area += current.X * next.Y - next.X * current.Y;
+            }
+
+            return Math.Abs(area) / 2.0;
+        }
+        List<Point> _BiggestContour(List<List<Point>> contours)
+        {
+            List<Point> biggest = new List<Point>();
+            double maxArea = 0;
+            foreach (var contour in contours)
+            {
+                List<Point> _conners = MPCV.GetCorners(contour);
+                //  return new List<Point> { topLeft, topRight, bottomLeft, bottomRight };
+                double area = GetParallelogramArea(_conners);
+               
+                if (area > maxArea )
+                {
+                    biggest = _conners;
+                    maxArea = area;
+                }
+              
+               
+            }
+            return biggest;
+        }
+
+        private PointF DetectEdge2(Image<Bgr, byte> image)
+        {
+            if (rawCheckBox.Checked)
+                pictureBox1.Image = image.ToBitmap();
+            Bitmap mpimg = image.ToBitmap();
+            MPCV.Gray(mpimg);
+            MPCV.Threshold(mpimg, threadhold, 255);
+            List<List<Point>> _contourList = MPCV.FindContour(mpimg);
+            List<Point> _biggest = _BiggestContour(_contourList);
+            Point _topLeft = Point.Empty;
+            Point _topRight = Point.Empty;
+            Point _bottomRight = Point.Empty;
+            Point _bottomLeft = Point.Empty;
+            // Calculate the center of the contour
+            float _centerX = 0, _centerY = 0;
+            foreach (var corner in _biggest)
+            {
+                _centerX += corner.X;
+                _centerY += corner.Y;
+            }
+            _centerX /= _biggest.Count;
+            _centerY /= _biggest.Count;
+
+            // Assign corners based on their position relative to the center
+            foreach (var corner in _biggest)
+            {
+                if (corner.X < _centerX && corner.Y < _centerY) _topLeft = corner;
+                else if (corner.X > _centerX && corner.Y < _centerY) _topRight = corner;
+                else if (corner.X > _centerX && corner.Y > _centerY) _bottomRight = corner;
+                else if (corner.X < _centerX && corner.Y > _centerY) _bottomLeft = corner;
+            }
+            PointF _transformedPoint = new PointF();
+            Point _pointToTrack = new Point();
+            //  List<Point> _des = new List<Point>() { new Point(ixres, 0), new Point(ixres, iyres), new Point(0, iyres) , new Point(0, 0)    };
+            List<Point> _des = new List<Point>() { new Point(0, 0), new Point(ixres, 0), new Point(0, iyres), new Point(ixres, iyres) };
+            List<Point> _scr = new List<Point>() { _topLeft, _topRight, _bottomLeft, _bottomRight };
+            try
+            {
+               // MPCV.DrawContour(mpimg, _biggest);
+                _pointToTrack = new Point((int)(ixres / 2 +xOffset), (int)(iyres / 2+yOffset) );
+              
+
+                double[,] _matrix=MPCV.GetPerspectiveTransform(_scr, _des);
+                _pointToTrack = MPCV.PerspectiveTransform(_pointToTrack, _matrix);
+                _transformedPoint = new PointF((_pointToTrack.X / (float)ixres) * xres, (_pointToTrack.Y / (float)iyres) * yres);
+            }
+            catch (Exception ex) { }
+
+
+
+            pictureBox2.Image = mpimg;
+            return _transformedPoint;
+        }
         private PointF DetectEdge(Image<Bgr, byte> image)
         {
 
             if (rawCheckBox.Checked)
                 pictureBox1.Image = image.ToBitmap();
-
             gray = image.Convert<Gray, Byte>();
             //  CvInvoke.CLAHE(gray, 2, new Size(8, 8), gray);
             //  CvInvoke.GaussianBlur(gray, gray, new Size(5, 5), 0);
@@ -321,10 +416,7 @@ StopTimer(){{
 
 
             VectorOfPoint biggest = BiggestContour(contourList);
-            PointF topLeft = PointF.Empty;
-            PointF topRight = PointF.Empty;
-            PointF bottomRight = PointF.Empty;
-            PointF bottomLeft = PointF.Empty;
+           
 
             if (biggest.Size == 4)
             {
@@ -333,8 +425,8 @@ StopTimer(){{
                 {
                     if (processCheckBox.Checked)
                     {
-                        var process = gray.ToBitmap();
-                        pictureBox2.Image = process;
+                       var process2 = gray.ToBitmap();
+                        pictureBox2.Image = process2;
                     }
                     outSideOfScreen = true;
                     if(movable)
@@ -347,6 +439,10 @@ StopTimer(){{
                 Point[] points = biggest.ToArray();
                 PointF[] corners = Array.ConvertAll(points, p => new PointF(p.X, p.Y));
 
+                PointF topLeft = PointF.Empty;
+                PointF topRight = PointF.Empty;
+                PointF bottomRight = PointF.Empty;
+                PointF bottomLeft = PointF.Empty;
                 // Calculate the center of the contour
                 float centerX = 0, centerY = 0;
                 foreach (var corner in corners)
@@ -367,9 +463,11 @@ StopTimer(){{
                 }
 
 
-                PointF pointToTrack = new PointF(ixres / 2 + xOffset, iyres / 2 + yOffset);
+                PointF pointToTrack = new PointF(ixres / 2 +xOffset , iyres / 2 +yOffset);
+                var process = gray.ToBitmap().ToImage<Bgr, byte>();
+                process.Draw(new CircleF(new PointF(pointToTrack.X, pointToTrack.Y), 10), new Bgr(255, 255, 0), 5);
                 Mat pointMat = new Mat(1, 1, DepthType.Cv32F, 2);
-                pointMat.SetTo(new float[] { pointToTrack.X, pointToTrack.Y });
+                pointMat.SetTo(new float[] {pointToTrack.X, pointToTrack.Y });
                 PointF[] pts1 = new PointF[] {
                             topLeft,    // corners[0]
                             topRight,   // corners[1]
@@ -389,15 +487,18 @@ StopTimer(){{
 
                 if (processCheckBox.Checked)
                 {
-                    var process = gray.ToBitmap().ToImage<Bgr, byte>();
+                    process = gray.ToBitmap().ToImage<Bgr, byte>();
                     process.Draw(new CircleF(topLeft, 20), new Bgr(0, 0, 255), 10);
                     process.Draw(new CircleF(topRight, 20), new Bgr(0, 255, 0), 10);
                     process.Draw(new CircleF(bottomRight, 20), new Bgr(255, 0, 0), 10);
                     process.Draw(new CircleF(bottomLeft, 20), new Bgr(0, 255, 255), 10);
                     process.Draw(new CircleF(new PointF(pointToTrack.X, pointToTrack.Y), 10), new Bgr(255, 255, 0), 5);
-                    pictureBox2.Image = process.ToBitmap();
-                }
 
+
+                    pictureBox2.Image = process.ToBitmap();
+                    
+                }
+               
                 // Convert PointF arrays to Mat
                 using (Mat srcPoints = new Mat(4, 1, DepthType.Cv32F, 2))
                 using (Mat dstPoints = new Mat(4, 1, DepthType.Cv32F, 2))
@@ -411,7 +512,9 @@ StopTimer(){{
                     matrix = CvInvoke.GetPerspectiveTransform(srcPoints, dstPoints);
                     // Apply the perspective transformation
 
-                    CvInvoke.PerspectiveTransform(pointMat, transformedPointMat, matrix);
+                    // Apply the perspective transformation
+                   
+                     CvInvoke.PerspectiveTransform(pointMat, transformedPointMat, matrix);
                     // Convert the transformed Mat back to PointF
                     float[] transformedPointValues = new float[2];
                     Marshal.Copy(transformedPointMat.DataPointer, transformedPointValues, 0, 2);

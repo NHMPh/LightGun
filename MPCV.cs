@@ -30,7 +30,7 @@ namespace LightGun
                     byte blue = pixels[pos];
                     byte green = pixels[pos + 1];
                     byte red = pixels[pos + 2];
-                    byte gray = (byte)(.299 * red + .587 * green + .114 * blue);
+                    byte gray = (byte)((red * 77 + green * 150 + blue * 29) >> 8); // Optimized grayscale conversion
                     pixels[pos] = gray;
                     pixels[pos + 1] = gray;
                     pixels[pos + 2] = gray;
@@ -50,6 +50,9 @@ namespace LightGun
             IntPtr ptrFirstPixel = bmpData.Scan0;
             Marshal.Copy(ptrFirstPixel, pixels, 0, pixels.Length);
 
+            byte thresholdByte = (byte)threshold;
+            byte maxValueByte = (byte)maxValue;
+
             for (int y = 0; y < bitmap.Height; y++)
             {
                 int yPos = y * bmpData.Stride;
@@ -59,9 +62,10 @@ namespace LightGun
                     byte blue = pixels[pos];
                     byte green = pixels[pos + 1];
                     byte red = pixels[pos + 2];
-                    pixels[pos] = blue >= threshold ? (byte)maxValue : (byte)0;
-                    pixels[pos + 1] = green >= threshold ? (byte)maxValue : (byte)0;
-                    pixels[pos + 2] = red >= threshold ? (byte)maxValue : (byte)0;
+                    byte value = (byte)((blue >= thresholdByte || green >= thresholdByte || red >= thresholdByte) ? maxValueByte : 0);
+                    pixels[pos] = value;
+                    pixels[pos + 1] = value;
+                    pixels[pos + 2] = value;
                 }
             }
 
@@ -95,24 +99,6 @@ namespace LightGun
                 }
             }
 
-            //Random rand = new Random();
-
-            //foreach (var contour in contours)
-            //{
-            //    // Generate a random color
-            //    byte blue = (byte)rand.Next(256);
-            //    byte green = (byte)rand.Next(256);
-            //    byte red = (byte)rand.Next(256);
-
-            //    foreach (var point in contour)
-            //    {
-            //        int pos = point.Y * bmpData.Stride + point.X * bytesPerPixel;
-            //        pixels[pos] = blue; // Blue
-            //        pixels[pos + 1] = green; // Green
-            //        pixels[pos + 2] = red; // Red
-            //    }
-            //}
-
             Marshal.Copy(pixels, 0, ptrFirstPixel, pixels.Length);
             bitmap.UnlockBits(bmpData);
             return contours;
@@ -127,12 +113,12 @@ namespace LightGun
         {
             int[] dx = { 1, -1, 0, 0 };
             int[] dy = { 0, 0, 1, -1 };
-            Queue<Point> queue = new Queue<Point>();
-            queue.Enqueue(new Point(startX, startY));
+            Stack<Point> stack = new Stack<Point>();
+            stack.Push(new Point(startX, startY));
 
-            while (queue.Count > 0)
+            while (stack.Count > 0)
             {
-                Point p = queue.Dequeue();
+                Point p = stack.Pop();
                 int x = p.X;
                 int y = p.Y;
 
@@ -153,10 +139,11 @@ namespace LightGun
                 {
                     int newX = x + dx[i];
                     int newY = y + dy[i];
-                    queue.Enqueue(new Point(newX, newY));
+                    stack.Push(new Point(newX, newY));
                 }
             }
         }
+
         private static void TraceContour(byte[] pixels, bool[,] visited, int startX, int startY, int stride, int bytesPerPixel, List<Point> contour)
         {
             int[] dx = { 1, 1, 0, -1, -1, -1, 0, 1 };
@@ -246,9 +233,9 @@ namespace LightGun
             {
                 throw new ArgumentException("Transformation matrix must be 3x3.");
             }
-            double x = point.X * matrix[0, 0] + point.Y * matrix[0, 1] + matrix[0, 2];
-            double y = point.X * matrix[1, 0] + point.Y * matrix[1, 1] + matrix[1, 2];
-            double w = point.X * matrix[2, 0] + point.Y * matrix[2, 1] + matrix[2, 2];
+            double x = (double)point.X * matrix[0, 0] + (double)point.Y * matrix[0, 1] + matrix[0, 2];
+            double y = (double)point.X * matrix[1, 0] + (double)point.Y * matrix[1, 1] + matrix[1, 2];
+            double w = (double)point.X * matrix[2, 0] + (double)point.Y * matrix[2, 1] + matrix[2, 2];
             return new Point((int)(x / w), (int)(y / w));
         }
         public static double[,] GetPerspectiveTransform(List<Point> src, List<Point> dst)
