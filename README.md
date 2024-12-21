@@ -6,6 +6,10 @@ Welcome to NHMPh Light gun! 🚀
 
 This repository demonstrates how to play light gun games using a DIY light gun with line-of-sight accuracy, all for under $15.
 
+# **IMPORTANT** 
+
+The current branch implements a custom algorithm for image processing, rather than utilizing EmguCV, as part of a school DSA project.
+
 ## How it work
 
 This program utilizes image processing to translate visuals captured by the light gun's webcam into corresponding mouse coordinates.
