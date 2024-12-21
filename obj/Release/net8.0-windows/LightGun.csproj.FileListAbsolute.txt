@@ -9,9 +9,7 @@ D:\WPF\LightGun\bin\Release\net8.0-windows\AForge.Video.DirectShow.dll
 D:\WPF\LightGun\bin\Release\net8.0-windows\AutoHotkey.Interop.dll
 D:\WPF\LightGun\bin\Release\net8.0-windows\Emgu.CV.dll
 D:\WPF\LightGun\bin\Release\net8.0-windows\Emgu.CV.Bitmap.dll
-D:\WPF\LightGun\bin\Release\net8.0-windows\Microsoft.Win32.SystemEvents.dll
 D:\WPF\LightGun\bin\Release\net8.0-windows\System.Drawing.Common.dll
-D:\WPF\LightGun\bin\Release\net8.0-windows\System.Text.Json.dll
 D:\WPF\LightGun\bin\Release\net8.0-windows\runtimes\win-arm64\native\cvextern.dll
 D:\WPF\LightGun\bin\Release\net8.0-windows\runtimes\win-x64\native\cvextern.dll
 D:\WPF\LightGun\bin\Release\net8.0-windows\runtimes\win-x64\native\libusb-1.0.dll
@@ -42,7 +40,6 @@ D:\WPF\LightGun\bin\Release\net8.0-windows\runtimes\win-x86\native\msvcp140_2.dl
 D:\WPF\LightGun\bin\Release\net8.0-windows\runtimes\win-x86\native\msvcp140_atomic_wait.dll
 D:\WPF\LightGun\bin\Release\net8.0-windows\runtimes\win-x86\native\msvcp140_codecvt_ids.dll
 D:\WPF\LightGun\bin\Release\net8.0-windows\runtimes\win-x86\native\vcruntime140.dll
-D:\WPF\LightGun\bin\Release\net8.0-windows\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll
 D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.csproj.AssemblyReference.cache
 D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.Form1.resources
 D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.Properties.Resources.resources
@@ -52,9 +49,9 @@ D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.AssemblyInfoInputs.cache
 D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.AssemblyInfo.cs
 D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.csproj.CoreCompileInputs.cache
 D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.sourcelink.json
-D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.csproj.CopyComplete
 D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.dll
 D:\WPF\LightGun\obj\Release\net8.0-windows\refint\LightGun.dll
 D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.pdb
 D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.genruntimeconfig.cache
 D:\WPF\LightGun\obj\Release\net8.0-windows\ref\LightGun.dll
+D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.csproj.Up2Date

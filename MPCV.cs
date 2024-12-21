@@ -144,45 +144,7 @@ namespace LightGun
             }
         }
 
-        private static void TraceContour(byte[] pixels, bool[,] visited, int startX, int startY, int stride, int bytesPerPixel, List<Point> contour)
-        {
-            int[] dx = { 1, 1, 0, -1, -1, -1, 0, 1 };
-            int[] dy = { 0, -1, -1, -1, 0, 1, 1, 1 };
-            int dir = 0;
-            int x = startX, y = startY;
 
-            do
-            {
-                contour.Add(new Point(x, y));
-                visited[x, y] = true;
-
-                bool foundNext = false;
-                for (int i = 0; i < 8; i++)
-                {
-                    int newDir = (dir + i) % 8;
-                    int newX = x + dx[newDir];
-                    int newY = y + dy[newDir];
-
-                    if (newX >= 0 && newX < visited.GetLength(0) && newY >= 0 && newY < visited.GetLength(1))
-                    {
-                        int pos = newY * stride + newX * bytesPerPixel;
-                        if (IsWhitePixel(pixels, pos) && !visited[newX, newY])
-                        {
-                            x = newX;
-                            y = newY;
-                            dir = (newDir + 6) % 8;
-                            foundNext = true;
-                            break;
-                        }
-                    }
-                }
-
-                if (!foundNext)
-                {
-                    break;
-                }
-            } while (x != startX || y != startY);
-        }
 
         public static void DrawContour(Bitmap bitmap, List<Point> contour)
         {
@@ -198,41 +160,51 @@ namespace LightGun
             }
         }
 
-        public static double ContourArea(List<Point> contour)
-        {
-            if (contour.Count < 3)
-            {
-                return 0.0;
-            }
-            double area = 0.0;
-            int n = contour.Count;
 
-            for (int i = 0; i < n; i++)
-            {
-                Point p1 = contour[i];
-                Point p2 = contour[(i + 1) % n];
-                area += p1.X * p2.Y - p2.X * p1.Y;
-            }
-
-            return Math.Abs(area) / 2.0;
-        }
 
         public static List<Point> GetCorners(List<Point> contour)
         {
-            // Find the top-left, top-right, bottom-left, and bottom-right points
-            Point topLeft = contour.OrderBy(p => p.X + p.Y).First();
-            Point topRight = contour.OrderBy(p => p.X - p.Y).First();
-            Point bottomLeft = contour.OrderBy(p => p.X + p.Y).Last();
-            Point bottomRight = contour.OrderBy(p => p.X - p.Y).Last();
+            int minTopLeft = int.MaxValue;
+            int minTopRight = int.MaxValue;
+            int maxBottomLeft = int.MinValue;
+            int maxBottomRight = int.MinValue;
+            Point topLeft = new Point(0, 0);
+            Point topRight = new Point(0, 0);
+            Point bottomLeft = new Point(0, 0);
+            Point bottomRight = new Point(0, 0);
+
+            for (int i = 0; i < contour.Count; i++)
+            {
+                int sum = contour[i].X + contour[i].Y;
+                int sub = contour[i].X - contour[i].Y;
+
+                if (sum < minTopLeft)
+                {
+                    topLeft = contour[i];
+                    minTopLeft = sum;
+                }
+                if (sub < minTopRight)
+                {
+                    topRight = contour[i];
+                    minTopRight = sub;
+                }
+
+                if (sum > maxBottomLeft)
+                {
+                    bottomLeft = contour[i];
+                    maxBottomLeft = sum;
+                }
+                if (sub > maxBottomRight)
+                {
+                    bottomRight = contour[i];
+                    maxBottomRight = sub;
+                }
+            }
 
             return new List<Point> { topLeft, topRight, bottomLeft, bottomRight };
         }
         public static Point PerspectiveTransform(Point point, double[,] matrix)
         {
-            if (matrix.GetLength(0) != 3 || matrix.GetLength(1) != 3)
-            {
-                throw new ArgumentException("Transformation matrix must be 3x3.");
-            }
             double x = (double)point.X * matrix[0, 0] + (double)point.Y * matrix[0, 1] + matrix[0, 2];
             double y = (double)point.X * matrix[1, 0] + (double)point.Y * matrix[1, 1] + matrix[1, 2];
             double w = (double)point.X * matrix[2, 0] + (double)point.Y * matrix[2, 1] + matrix[2, 2];
@@ -240,11 +212,6 @@ namespace LightGun
         }
         public static double[,] GetPerspectiveTransform(List<Point> src, List<Point> dst)
         {
-            if (src.Count != 4 || dst.Count != 4)
-            {
-                throw new ArgumentException("Both source and destination points must contain exactly 4 points.");
-            }
-
             double[,] matrix = new double[8, 9];
 
             for (int i = 0; i < 4; i++)
@@ -294,10 +261,6 @@ namespace LightGun
 
                 // Normalize the pivot row
                 double factor = matrix[i, i];
-                if (factor == 0)
-                {
-                    throw new InvalidOperationException("Matrix is singular and cannot be inverted.");
-                }
                 for (int j = 0; j < 9; j++)
                 {
                     matrix[i, j] /= factor;

@@ -68,7 +68,6 @@ namespace LightGun
             label9 = new Label();
             eTrackBar = new TrackBar();
             label10 = new Label();
-            label11 = new Label();
             button11 = new Button();
             label13 = new Label();
             up1Button = new Button();
@@ -91,10 +90,7 @@ namespace LightGun
             holdOutComboBox = new ComboBox();
             label18 = new Label();
             button2 = new Button();
-            pictureBox3 = new PictureBox();
             label19 = new Label();
-            EmcvTopLeft = new Label();
-            MpcvTopLeft = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tTrackBar).BeginInit();
@@ -106,7 +102,6 @@ namespace LightGun
             ((System.ComponentModel.ISupportInitialize)wTrackBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gTrackBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)eTrackBar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -122,7 +117,7 @@ namespace LightGun
             // 
             button1.BackColor = Color.Green;
             button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(1333, 57);
+            button1.Location = new Point(980, 46);
             button1.Name = "button1";
             button1.Size = new Size(155, 41);
             button1.TabIndex = 1;
@@ -440,15 +435,6 @@ namespace LightGun
             label10.TabIndex = 60;
             label10.Text = "Raw video";
             // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(683, 18);
-            label11.Name = "label11";
-            label11.Size = new Size(93, 15);
-            label11.TabIndex = 61;
-            label11.Text = "Proceesed video";
-            // 
             // button11
             // 
             button11.BackColor = SystemColors.Highlight;
@@ -472,7 +458,7 @@ namespace LightGun
             // 
             // up1Button
             // 
-            up1Button.Location = new Point(1333, 394);
+            up1Button.Location = new Point(980, 383);
             up1Button.Name = "up1Button";
             up1Button.Size = new Size(65, 61);
             up1Button.TabIndex = 72;
@@ -482,7 +468,7 @@ namespace LightGun
             // 
             // left1Button
             // 
-            left1Button.Location = new Point(1262, 454);
+            left1Button.Location = new Point(909, 443);
             left1Button.Name = "left1Button";
             left1Button.Size = new Size(65, 61);
             left1Button.TabIndex = 73;
@@ -492,7 +478,7 @@ namespace LightGun
             // 
             // right1Button
             // 
-            right1Button.Location = new Point(1404, 454);
+            right1Button.Location = new Point(1051, 443);
             right1Button.Name = "right1Button";
             right1Button.Size = new Size(65, 61);
             right1Button.TabIndex = 74;
@@ -502,7 +488,7 @@ namespace LightGun
             // 
             // down1Button
             // 
-            down1Button.Location = new Point(1333, 517);
+            down1Button.Location = new Point(980, 506);
             down1Button.Name = "down1Button";
             down1Button.Size = new Size(65, 61);
             down1Button.TabIndex = 75;
@@ -512,7 +498,7 @@ namespace LightGun
             // 
             // down10Button
             // 
-            down10Button.Location = new Point(1311, 584);
+            down10Button.Location = new Point(958, 573);
             down10Button.Name = "down10Button";
             down10Button.Size = new Size(106, 88);
             down10Button.TabIndex = 79;
@@ -522,7 +508,7 @@ namespace LightGun
             // 
             // right10Button
             // 
-            right10Button.Location = new Point(1475, 440);
+            right10Button.Location = new Point(1122, 429);
             right10Button.Name = "right10Button";
             right10Button.Size = new Size(106, 88);
             right10Button.TabIndex = 78;
@@ -532,7 +518,7 @@ namespace LightGun
             // 
             // left10Button
             // 
-            left10Button.Location = new Point(1153, 440);
+            left10Button.Location = new Point(800, 429);
             left10Button.Name = "left10Button";
             left10Button.Size = new Size(106, 88);
             left10Button.TabIndex = 77;
@@ -542,7 +528,7 @@ namespace LightGun
             // 
             // up10Button
             // 
-            up10Button.Location = new Point(1311, 300);
+            up10Button.Location = new Point(958, 289);
             up10Button.Name = "up10Button";
             up10Button.Size = new Size(106, 88);
             up10Button.TabIndex = 76;
@@ -554,7 +540,7 @@ namespace LightGun
             // 
             panel1.BackColor = SystemColors.ActiveCaptionText;
             panel1.ForeColor = SystemColors.ControlText;
-            panel1.Location = new Point(1153, 299);
+            panel1.Location = new Point(800, 288);
             panel1.Name = "panel1";
             panel1.Size = new Size(428, 380);
             panel1.TabIndex = 80;
@@ -562,7 +548,7 @@ namespace LightGun
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(1294, 122);
+            label8.Location = new Point(941, 111);
             label8.Name = "label8";
             label8.Size = new Size(104, 15);
             label8.TabIndex = 81;
@@ -570,7 +556,7 @@ namespace LightGun
             // 
             // borderTextBox
             // 
-            borderTextBox.Location = new Point(1417, 119);
+            borderTextBox.Location = new Point(1064, 108);
             borderTextBox.Name = "borderTextBox";
             borderTextBox.Size = new Size(100, 23);
             borderTextBox.TabIndex = 82;
@@ -580,7 +566,7 @@ namespace LightGun
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(1294, 160);
+            label12.Location = new Point(941, 149);
             label12.Name = "label12";
             label12.Size = new Size(112, 15);
             label12.TabIndex = 83;
@@ -589,7 +575,7 @@ namespace LightGun
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(1294, 201);
+            label14.Location = new Point(941, 190);
             label14.Name = "label14";
             label14.Size = new Size(112, 15);
             label14.TabIndex = 85;
@@ -598,7 +584,7 @@ namespace LightGun
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(1294, 233);
+            label15.Location = new Point(941, 222);
             label15.MaximumSize = new Size(250, 0);
             label15.Name = "label15";
             label15.Size = new Size(0, 15);
@@ -607,7 +593,7 @@ namespace LightGun
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(1523, 122);
+            label16.Location = new Point(1170, 111);
             label16.Name = "label16";
             label16.Size = new Size(61, 15);
             label16.TabIndex = 89;
@@ -616,7 +602,7 @@ namespace LightGun
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(1494, 70);
+            label17.Location = new Point(1141, 59);
             label17.Name = "label17";
             label17.Size = new Size(66, 15);
             label17.TabIndex = 90;
@@ -627,7 +613,7 @@ namespace LightGun
             clickOutComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             clickOutComboBox.FormattingEnabled = true;
             clickOutComboBox.Items.AddRange(new object[] { "Click Left", "Click Right", "Click Middle", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "Esc", "Tab", "Shift", "Ctrl", "Alt", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Numpad0", "Numpad1", "Numpad2", "Numpad3", "Numpad4", "Numpad5", "Numpad6", "Numpad7", "Numpad8", "Numpad9" });
-            clickOutComboBox.Location = new Point(1417, 157);
+            clickOutComboBox.Location = new Point(1064, 146);
             clickOutComboBox.Name = "clickOutComboBox";
             clickOutComboBox.Size = new Size(100, 23);
             clickOutComboBox.TabIndex = 91;
@@ -638,7 +624,7 @@ namespace LightGun
             holdOutComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             holdOutComboBox.FormattingEnabled = true;
             holdOutComboBox.Items.AddRange(new object[] { "Click Left", "Click Right", "Click Middle", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "Esc", "Tab", "Shift", "Ctrl", "Alt", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Numpad0", "Numpad1", "Numpad2", "Numpad3", "Numpad4", "Numpad5", "Numpad6", "Numpad7", "Numpad8", "Numpad9" });
-            holdOutComboBox.Location = new Point(1417, 198);
+            holdOutComboBox.Location = new Point(1064, 187);
             holdOutComboBox.Name = "holdOutComboBox";
             holdOutComboBox.Size = new Size(100, 23);
             holdOutComboBox.TabIndex = 92;
@@ -647,7 +633,7 @@ namespace LightGun
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(1357, 248);
+            label18.Location = new Point(1004, 237);
             label18.Name = "label18";
             label18.Size = new Size(112, 15);
             label18.TabIndex = 93;
@@ -665,51 +651,21 @@ namespace LightGun
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = SystemColors.ActiveBorder;
-            pictureBox3.Location = new Point(931, 47);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(317, 217);
-            pictureBox3.TabIndex = 95;
-            pictureBox3.TabStop = false;
-            // 
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(1025, 18);
+            label19.Location = new Point(664, 18);
             label19.Name = "label19";
             label19.Size = new Size(129, 15);
             label19.TabIndex = 96;
             label19.Text = "MPCV Proceesed video";
             // 
-            // EmcvTopLeft
-            // 
-            EmcvTopLeft.AutoSize = true;
-            EmcvTopLeft.Location = new Point(698, 325);
-            EmcvTopLeft.Name = "EmcvTopLeft";
-            EmcvTopLeft.Size = new Size(58, 15);
-            EmcvTopLeft.TabIndex = 97;
-            EmcvTopLeft.Text = "Top left: 0";
-            // 
-            // MpcvTopLeft
-            // 
-            MpcvTopLeft.AutoSize = true;
-            MpcvTopLeft.Location = new Point(947, 325);
-            MpcvTopLeft.Name = "MpcvTopLeft";
-            MpcvTopLeft.Size = new Size(58, 15);
-            MpcvTopLeft.TabIndex = 98;
-            MpcvTopLeft.Text = "Top left: 0";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1673, 687);
-            Controls.Add(MpcvTopLeft);
-            Controls.Add(EmcvTopLeft);
+            ClientSize = new Size(1258, 687);
             Controls.Add(label19);
-            Controls.Add(pictureBox3);
             Controls.Add(button2);
             Controls.Add(label18);
             Controls.Add(holdOutComboBox);
@@ -731,7 +687,6 @@ namespace LightGun
             Controls.Add(up1Button);
             Controls.Add(label13);
             Controls.Add(button11);
-            Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(eTextBox);
             Controls.Add(label9);
@@ -784,7 +739,6 @@ namespace LightGun
             ((System.ComponentModel.ISupportInitialize)wTrackBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)gTrackBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)eTrackBar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -975,7 +929,6 @@ namespace LightGun
         private Label label9;
         private TrackBar eTrackBar;
         private Label label10;
-        private Label label11;
         private Button button11;
         private Label label13;
         private Button up1Button;
@@ -998,10 +951,7 @@ namespace LightGun
         private ComboBox holdOutComboBox;
         private Label label18;
         private Button button2;
-        private PictureBox pictureBox3;
         private Label label19;
-        private Label EmcvTopLeft;
-        private Label MpcvTopLeft;
         private static Button button1;
     }
 }

@@ -87,7 +87,7 @@ namespace LightGun
             KeyPreview = true;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+    
             string jsonFilePath = ".\\setting.json";
             string jsonString = File.ReadAllText(jsonFilePath);
             settings = JsonSerializer.Deserialize<Settings>(jsonString);
@@ -146,7 +146,7 @@ StopTimer(){{
  SetTimer, SendMiddleClick, Off
 }}
 ";
-          //  ahk.ExecRaw(script);
+            ahk.ExecRaw(script);
             ahk.Suspend();
 
         }
@@ -234,17 +234,17 @@ StopTimer(){{
 
         }
 
-       
+
 
         public static void MoveMouseToPointAsync(PointF targetPoint, int steps = 16, int duration = 35)
         {
             if (targetPoint == PointF.Empty) return;
             int x = (int)targetPoint.X;
             int y = (int)targetPoint.Y;
-            
+
             if (movable)
                 SetCursorPos(x, y);
-                
+
         }
 
         public static void StartStop()
@@ -252,9 +252,9 @@ StopTimer(){{
             movable = !movable;
             button1.Text = movable ? "Stop" : "Start";
             button1.BackColor = movable ? Color.Red : Color.Green;
-           if(movable)
-            ahk.UnSuspend();
-           else ahk.Suspend();
+            if (movable)
+                ahk.UnSuspend();
+            else ahk.Suspend();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -273,12 +273,12 @@ StopTimer(){{
                     capture.Read(frame);
                     CvInvoke.Resize(frame, frame, frameSize);
                     image = frame.ToImage<Bgr, byte>();
-                    MoveMouseToPointAsync(DetectEdge2(image));                    
+                    MoveMouseToPointAsync(DetectEdge2(image));
                     await Task.Delay(1);
                 }
                 catch
                 {
-                   
+
                 }
 
 
@@ -328,24 +328,25 @@ StopTimer(){{
                 List<Point> _conners = MPCV.GetCorners(contour);
                 //  return new List<Point> { topLeft, topRight, bottomLeft, bottomRight };
                 double area = GetParallelogramArea(_conners);
-               
-                if (area > maxArea )
+
+                if (area > maxArea)
                 {
                     biggest = _conners;
                     maxArea = area;
                 }
-              
-               
+
+
             }
             return biggest;
         }
 
         private PointF DetectEdge2(Image<Bgr, byte> image)
         {
+
             if (rawCheckBox.Checked)
                 pictureBox1.Image = image.ToBitmap();
             Bitmap mpimg = image.ToBitmap();
-            MPCV.Gray(mpimg);
+            //MPCV.Gray(mpimg);
             MPCV.Threshold(mpimg, threadhold, 255);
             List<List<Point>> _contourList = MPCV.FindContour(mpimg);
             List<Point> _biggest = _BiggestContour(_contourList);
@@ -362,7 +363,6 @@ StopTimer(){{
             }
             _centerX /= _biggest.Count;
             _centerY /= _biggest.Count;
-
             // Assign corners based on their position relative to the center
             foreach (var corner in _biggest)
             {
@@ -373,24 +373,37 @@ StopTimer(){{
             }
             PointF _transformedPoint = new PointF();
             Point _pointToTrack = new Point();
-            //  List<Point> _des = new List<Point>() { new Point(ixres, 0), new Point(ixres, iyres), new Point(0, iyres) , new Point(0, 0)    };
             List<Point> _des = new List<Point>() { new Point(0, 0), new Point(ixres, 0), new Point(0, iyres), new Point(ixres, iyres) };
             List<Point> _scr = new List<Point>() { _topLeft, _topRight, _bottomLeft, _bottomRight };
-            try
+            _pointToTrack = new Point((int)(ixres / 2 + xOffset), (int)(iyres / 2 + yOffset));
+            double[,] _matrix = MPCV.GetPerspectiveTransform(_scr, _des);
+            _pointToTrack = MPCV.PerspectiveTransform(_pointToTrack, _matrix);
+            _transformedPoint = new PointF((_pointToTrack.X / (float)ixres) * xres, (_pointToTrack.Y / (float)iyres) * yres);
+            bool outsideX = _transformedPoint.X < 0 || _transformedPoint.X > xres;
+            bool outsideY = _transformedPoint.Y < 0 || _transformedPoint.Y > yres;
+            if (outsideX || outsideY)
             {
-               // MPCV.DrawContour(mpimg, _biggest);
-                _pointToTrack = new Point((int)(ixres / 2 +xOffset), (int)(iyres / 2+yOffset) );
-              
 
-                double[,] _matrix=MPCV.GetPerspectiveTransform(_scr, _des);
-                _pointToTrack = MPCV.PerspectiveTransform(_pointToTrack, _matrix);
-                _transformedPoint = new PointF((_pointToTrack.X / (float)ixres) * xres, (_pointToTrack.Y / (float)iyres) * yres);
+                outSideOfScreen = true;
+                if (movable)
+                    ahk.UnSuspend();
+                else
+                    ahk.Suspend();
             }
-            catch (Exception ex) { }
+            else
+            {
+                outSideOfScreen = false;
 
+                ahk.ExecFunction("StopTimer");
+                ahk.Suspend();
+            }
 
-
-            pictureBox2.Image = mpimg;
+            if (processCheckBox.Checked)
+            {
+                MPCV.DrawContour(mpimg, _biggest);
+                pictureBox2.Image = mpimg;
+            }
+                
             return _transformedPoint;
         }
         private PointF DetectEdge(Image<Bgr, byte> image)
@@ -416,7 +429,7 @@ StopTimer(){{
 
 
             VectorOfPoint biggest = BiggestContour(contourList);
-           
+
 
             if (biggest.Size == 4)
             {
@@ -425,11 +438,11 @@ StopTimer(){{
                 {
                     if (processCheckBox.Checked)
                     {
-                       var process2 = gray.ToBitmap();
+                        var process2 = gray.ToBitmap();
                         pictureBox2.Image = process2;
                     }
                     outSideOfScreen = true;
-                    if(movable)
+                    if (movable)
                         ahk.UnSuspend();
                     else
                         ahk.Suspend();
@@ -463,11 +476,11 @@ StopTimer(){{
                 }
 
 
-                PointF pointToTrack = new PointF(ixres / 2 +xOffset , iyres / 2 +yOffset);
+                PointF pointToTrack = new PointF(ixres / 2 + xOffset, iyres / 2 + yOffset);
                 var process = gray.ToBitmap().ToImage<Bgr, byte>();
                 process.Draw(new CircleF(new PointF(pointToTrack.X, pointToTrack.Y), 10), new Bgr(255, 255, 0), 5);
                 Mat pointMat = new Mat(1, 1, DepthType.Cv32F, 2);
-                pointMat.SetTo(new float[] {pointToTrack.X, pointToTrack.Y });
+                pointMat.SetTo(new float[] { pointToTrack.X, pointToTrack.Y });
                 PointF[] pts1 = new PointF[] {
                             topLeft,    // corners[0]
                             topRight,   // corners[1]
@@ -496,9 +509,9 @@ StopTimer(){{
 
 
                     pictureBox2.Image = process.ToBitmap();
-                    
+
                 }
-               
+
                 // Convert PointF arrays to Mat
                 using (Mat srcPoints = new Mat(4, 1, DepthType.Cv32F, 2))
                 using (Mat dstPoints = new Mat(4, 1, DepthType.Cv32F, 2))
@@ -513,8 +526,8 @@ StopTimer(){{
                     // Apply the perspective transformation
 
                     // Apply the perspective transformation
-                   
-                     CvInvoke.PerspectiveTransform(pointMat, transformedPointMat, matrix);
+
+                    CvInvoke.PerspectiveTransform(pointMat, transformedPointMat, matrix);
                     // Convert the transformed Mat back to PointF
                     float[] transformedPointValues = new float[2];
                     Marshal.Copy(transformedPointMat.DataPointer, transformedPointValues, 0, 2);
@@ -523,9 +536,9 @@ StopTimer(){{
 
                     bool outsideX = transformedPoint.X < 0 || transformedPoint.X > xres;
                     bool outsideY = transformedPoint.Y < 0 || transformedPoint.Y > yres;
-                    if ( outsideX||outsideY)
+                    if (outsideX || outsideY)
                     {
-                       
+
                         outSideOfScreen = true;
                         if (movable)
                             ahk.UnSuspend();
@@ -535,7 +548,7 @@ StopTimer(){{
                     else
                     {
                         outSideOfScreen = false;
-                      
+
                         ahk.ExecFunction("StopTimer");
                         ahk.Suspend();
                     }
@@ -552,14 +565,14 @@ StopTimer(){{
                     var process = gray.ToBitmap();
                     pictureBox2.Image = process;
                 }
-     
+
                 outSideOfScreen = true;
                 if (movable)
                     ahk.UnSuspend();
                 else
                     ahk.Suspend();
             }
-           
+
             outSideOfScreen = true;
             if (movable)
                 ahk.UnSuspend();

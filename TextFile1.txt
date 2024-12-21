@@ -727,3 +727,45 @@ namespace LightGun
        
     }
 }
+                //// Append _pointToTrack
+                //sb.AppendLine($"_pointToTrack: {_pointToTrack.X}, {_pointToTrack.Y}");
+
+                ////// Append _scr points
+                ////sb.AppendLine("_scr points:");
+                ////foreach (var point in _scr)
+                ////{
+                ////    sb.AppendLine($"{point.X}, {point.Y}");
+                ////}
+
+                ////// Append _des points
+                ////sb.AppendLine("_des points:");
+                ////foreach (var point in _des)
+                ////{
+                ////    sb.AppendLine($"{point.X}, {point.Y}");
+                ////}
+
+                //// Append _matrix
+                //sb.AppendLine("_matrix:");
+                //for (int i = 0; i < _matrix.GetLength(0); i++)
+                //{
+                //    for (int j = 0; j < _matrix.GetLength(1); j++)
+                //    {
+                //        sb.Append(_matrix[i, j].ToString("F2")).Append(" ");
+                //    }
+                //    sb.AppendLine();
+                //}
+                //sb.AppendLine($"_transformedPoint: {_transformedPoint.X:F2}, {_transformedPoint.Y:F2}");
+                //int rows = matrix.Rows;
+                //int cols = matrix.Cols;
+                //sb.AppendLine("POINT:");
+                //sb.AppendLine($"{ixres}, {xres}, {iyres}, {yres}");
+                //sb.AppendLine($"{_pointToTrack.X}, {_pointToTrack.Y}");
+                //sb.AppendLine($"{((_pointToTrack.X / (float)ixres) * xres)}, {((_pointToTrack.Y / (float)iyres) * yres)}");
+                //sb.AppendLine("Matrix");
+
+
+
+
+
+
+                //EmcvTopLeft.Text = sb.ToString();
