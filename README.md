@@ -8,7 +8,7 @@ This repository demonstrates how to play light gun games using a DIY light gun w
 
 # **IMPORTANT** 
 
-The current branch implements a custom algorithm for image processing, rather than utilizing EmguCV, as part of a school DSA project.
+The current branch  implements a custom algorithm for image processing, located in MPCV.cs, instead of using EmguCV, as part of a school DSA project.
 
 ## How it work
 
