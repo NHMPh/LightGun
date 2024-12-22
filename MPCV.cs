@@ -12,7 +12,34 @@ namespace LightGun
 {
     class MPCV
     {
+        public static void Gray(Bitmap bitmap)
+        {
+            BitmapData bmpData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.ReadWrite, bitmap.PixelFormat);
+            int bytesPerPixel = Image.GetPixelFormatSize(bitmap.PixelFormat) / 8;
+            int byteCount = bmpData.Stride * bitmap.Height;
+            byte[] pixels = new byte[byteCount];
+            IntPtr ptrFirstPixel = bmpData.Scan0;
+            Marshal.Copy(ptrFirstPixel, pixels, 0, pixels.Length);
 
+            for (int y = 0; y < bitmap.Height; y++)
+            {
+                int yPos = y * bmpData.Stride;
+                for (int x = 0; x < bitmap.Width; x++)
+                {
+                    int pos = yPos + x * bytesPerPixel;
+                    byte blue = pixels[pos];
+                    byte green = pixels[pos + 1];
+                    byte red = pixels[pos + 2];
+                    byte gray = (byte)((red * 77 + green * 150 + blue * 29) >> 8); // Optimized grayscale conversion
+                    pixels[pos] = gray;
+                    pixels[pos + 1] = gray;
+                    pixels[pos + 2] = gray;
+                }
+            }
+
+            Marshal.Copy(pixels, 0, ptrFirstPixel, pixels.Length);
+            bitmap.UnlockBits(bmpData);
+        }
 
         public static void Threshold(Bitmap bitmap, double threshold, double maxValue)
         {
@@ -35,8 +62,7 @@ namespace LightGun
                     byte blue = pixels[pos];
                     byte green = pixels[pos + 1];
                     byte red = pixels[pos + 2];
-                    byte gray = (byte)((red * 0.299 + green * 0.587 + blue * 0.114));
-                    byte value = gray > thresholdByte ? maxValueByte : (byte)0;
+                    byte value = (byte)((blue >= thresholdByte || green >= thresholdByte || red >= thresholdByte) ? maxValueByte : 0);
                     pixels[pos] = value;
                     pixels[pos + 1] = value;
                     pixels[pos + 2] = value;
@@ -49,7 +75,6 @@ namespace LightGun
 
         public static List<List<Point>> FindContour(Bitmap bitmap)
         {
-           
             BitmapData bmpData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.ReadWrite, bitmap.PixelFormat);
             int bytesPerPixel = Image.GetPixelFormatSize(bitmap.PixelFormat) / 8;
             int byteCount = bmpData.Stride * bitmap.Height;
@@ -88,12 +113,12 @@ namespace LightGun
         {
             int[] dx = { 1, -1, 0, 0 };
             int[] dy = { 0, 0, 1, -1 };
-            Queue<Point> queue = new Queue<Point>();
-            queue.Enqueue(new Point(startX, startY));
+            Stack<Point> stack = new Stack<Point>();
+            stack.Push(new Point(startX, startY));
 
-            while (queue.Count > 0)
+            while (stack.Count > 0)
             {
-                Point p = queue.Dequeue();
+                Point p = stack.Pop();
                 int x = p.X;
                 int y = p.Y;
 
@@ -106,13 +131,15 @@ namespace LightGun
                 int pos = y * stride + x * bytesPerPixel;
                 if (!IsWhitePixel(pixels, pos))
                     continue;
-                
+
+                visited[x, y] = true;
+                contour.Add(new Point(x, y));
 
                 for (int i = 0; i < 4; i++)
                 {
                     int newX = x + dx[i];
                     int newY = y + dy[i];
-                    queue.Enqueue(new Point(newX, newY));
+                    stack.Push(new Point(newX, newY));
                 }
             }
         }
@@ -127,11 +154,7 @@ namespace LightGun
                 {
                     using (Pen pen = new Pen(Color.Red, 10))
                     {
-                        foreach (var point in contour)
-                        {
-                            int radius = 5; 
-                            g.DrawEllipse(pen, point.X - radius, point.Y - radius, radius * 2, radius * 2);
-                        }
+                        g.DrawPolygon(pen, contour.ToArray());
                     }
                 }
             }
@@ -189,103 +212,87 @@ namespace LightGun
         }
         public static double[,] GetPerspectiveTransform(List<Point> src, List<Point> dst)
         {
+            double[,] matrix = new double[8, 9];
 
-            double[,] A = {{src[0].X,src[0].Y,1},
-                           {src[1].X,src[1].Y,1},
-                           {src[3].X,src[3].Y,1}};
-
-            double[] B1 = { dst[0].X, dst[1].X, dst[3].X };
-
-            double[] B2 = { dst[0].Y, dst[1].Y, dst[3].Y };
-
-            double[] X1, X2;
-            GaussJordanEliminationWithPartialPivoting(A, B1, B2, out X1, out X2);
-
-            double[,] transform = new double[3, 3]
+            for (int i = 0; i < 4; i++)
             {
-                { X1[0], X1[1], X1[2] },
-                { X2[0], X2[1], X2[2] },
-                { 0, 0, 1 }
-            };
+                int j = i * 2;
+                matrix[j, 0] = src[i].X;
+                matrix[j, 1] = src[i].Y;
+                matrix[j, 2] = 1;
+                matrix[j, 3] = 0;
+                matrix[j, 4] = 0;
+                matrix[j, 5] = 0;
+                matrix[j, 6] = -src[i].X * dst[i].X;
+                matrix[j, 7] = -src[i].Y * dst[i].X;
+                matrix[j, 8] = dst[i].X;
 
-
-
-            return transform;
-        }
-
-        private static void GaussJordanEliminationWithPartialPivoting(double[,] A, double[] B1, double[] B2, out double[] X1, out double[] X2)
-        {
-            int n = B1.Length;
-            double[,] AB1 = new double[n, n + 1];
-            double[,] AB2 = new double[n, n + 1];
-            X1 = new double[n];
-            X2 = new double[n];
-
-            //Form the Augmented Matrices
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    AB1[i, j] = A[i, j];
-                    AB2[i, j] = A[i, j];
-                }
-                AB1[i, n] = B1[i];
-                AB2[i, n] = B2[i];
+                matrix[j + 1, 0] = 0;
+                matrix[j + 1, 1] = 0;
+                matrix[j + 1, 2] = 0;
+                matrix[j + 1, 3] = src[i].X;
+                matrix[j + 1, 4] = src[i].Y;
+                matrix[j + 1, 5] = 1;
+                matrix[j + 1, 6] = -src[i].X * dst[i].Y;
+                matrix[j + 1, 7] = -src[i].Y * dst[i].Y;
+                matrix[j + 1, 8] = dst[i].Y;
             }
 
-            for (int i = 0; i < n; i++)
+            // Solve the system of linear equations using Gaussian elimination
+            for (int i = 0; i < 8; i++)
             {
-                // Find the entry in the left column with the largest absolute value. This entry is called the pivot.
-                int maxRow1 = i;
-                int maxRow2 = i;
-                for (int j = i + 1; j < n; j++)
+                // Find the pivot row
+                int maxRow = i;
+                for (int k = i + 1; k < 8; k++)
                 {
-                    if (Math.Abs(AB1[j, i]) > Math.Abs(AB1[maxRow1, i]))
-                        maxRow1 = j;
-                    if (Math.Abs(AB2[j, i]) > Math.Abs(AB2[maxRow2, i]))
-                        maxRow2 = j;
-                }
-                // Perform row interchange, so that the pivot is in the first row.
-                for (int j = 0; j <= n; j++)
-                {
-                    double temp1 = AB1[i, j];
-                    AB1[i, j] = AB1[maxRow1, j];
-                    AB1[maxRow1, j] = temp1;
-
-                    double temp2 = AB2[i, j];
-                    AB2[i, j] = AB2[maxRow2, j];
-                    AB2[maxRow2, j] = temp2;
-                }
-                // Gaussian Elimination
-                for (int j = 0; j < n; j++)
-                {
-                    if (i != j)
+                    if (Math.Abs(matrix[k, i]) > Math.Abs(matrix[maxRow, i]))
                     {
-                        double factor1 = AB1[j, i] / AB1[i, i];
-                        double factor2 = AB2[j, i] / AB2[i, i];
-                        for (int k = i; k <= n; k++)
+                        maxRow = k;
+                    }
+                }
+
+                // Swap the pivot row with the current row
+                for (int j = 0; j < 9; j++)
+                {
+                    double temp = matrix[i, j];
+                    matrix[i, j] = matrix[maxRow, j];
+                    matrix[maxRow, j] = temp;
+                }
+
+                // Normalize the pivot row
+                double factor = matrix[i, i];
+                for (int j = 0; j < 9; j++)
+                {
+                    matrix[i, j] /= factor;
+                }
+
+                // Eliminate the column
+                for (int k = 0; k < 8; k++)
+                {
+                    if (k != i)
+                    {
+                        factor = matrix[k, i];
+                        for (int j = 0; j < 9; j++)
                         {
-                            AB1[j, k] -= factor1 * AB1[i, k];
-                            AB2[j, k] -= factor2 * AB2[i, k];
+                            matrix[k, j] -= factor * matrix[i, j];
                         }
                     }
                 }
             }
-            // Back Substitution
-            for (int i = n - 1; i >= 0; i--)
-            {
-                X1[i] = AB1[i, n];
-                X2[i] = AB2[i, n];
 
-                for (int j = i + 1; j < n; j++)
-                {
-                    X1[i] -= AB1[i, j] * X1[j];
-                    X2[i] -= AB2[i, j] * X2[j];
-                }
+            // Extract the perspective transformation matrix
+            double[,] transform = new double[3, 3];
+            transform[0, 0] = matrix[0, 8];
+            transform[0, 1] = matrix[1, 8];
+            transform[0, 2] = matrix[2, 8];
+            transform[1, 0] = matrix[3, 8];
+            transform[1, 1] = matrix[4, 8];
+            transform[1, 2] = matrix[5, 8];
+            transform[2, 0] = matrix[6, 8];
+            transform[2, 1] = matrix[7, 8];
+            transform[2, 2] = 1;
 
-                X1[i] /= AB1[i, i];
-                X2[i] /= AB2[i, i];
-            }
+            return transform;
         }
     }
 

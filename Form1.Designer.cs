@@ -952,6 +952,6 @@ namespace LightGun
         private Label label18;
         private Button button2;
         private Label label19;
-        private static  Button button1;
+        private static Button button1;
     }
 }
