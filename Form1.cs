@@ -403,7 +403,7 @@ StopTimer(){{
                 MPCV.DrawContour(mpimg, _biggest);
                 pictureBox2.Image = mpimg;
             }
-                
+      
             return _transformedPoint;
         }
         private PointF DetectEdge(Image<Bgr, byte> image)
