@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "D:\\WPF\\LightGun\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\mpcv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:mpcv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\transparentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:transparentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|D:\\WPF\\LightGun\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -11,20 +27,12 @@
       "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:lightgun.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|D:\\WPF\\LightGun\\transparentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:transparentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\textfile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:textfile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\mpcv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:mpcv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,23 +42,35 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "TransparentForm.cs",
+              "DocumentMoniker": "D:\\WPF\\LightGun\\TransparentForm.cs",
+              "RelativeDocumentMoniker": "TransparentForm.cs",
+              "ToolTip": "D:\\WPF\\LightGun\\TransparentForm.cs",
+              "RelativeToolTip": "TransparentForm.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowCUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T11:23:33.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "LightGun",
               "DocumentMoniker": "D:\\WPF\\LightGun\\LightGun.csproj",
               "RelativeDocumentMoniker": "LightGun.csproj",
               "ToolTip": "D:\\WPF\\LightGun\\LightGun.csproj",
               "RelativeToolTip": "LightGun.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-21T05:20:49.242Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-21T05:20:49.242Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "TextFile1.txt",
               "DocumentMoniker": "D:\\WPF\\LightGun\\TextFile1.txt",
               "RelativeDocumentMoniker": "TextFile1.txt",
@@ -58,55 +78,61 @@
               "RelativeToolTip": "TextFile1.txt",
               "ViewState": "AgIAAF0CAAAAAAAAAAAUwAIDAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-12-20T15:40:32.855Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-20T15:40:32.855Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\WPF\\LightGun\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\WPF\\LightGun\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAEYBAAAAAAAAAAAEwFwBAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAEQBAAAAAAAAAADwv0YBAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-17T11:47:25.08Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "MPCV.cs",
               "DocumentMoniker": "D:\\WPF\\LightGun\\MPCV.cs",
               "RelativeDocumentMoniker": "MPCV.cs",
               "ToolTip": "D:\\WPF\\LightGun\\MPCV.cs",
               "RelativeToolTip": "MPCV.cs",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAQwK8AAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAgwCYAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T14:26:51.11Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "D:\\WPF\\LightGun\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "Form1.Designer.cs",
               "ToolTip": "D:\\WPF\\LightGun\\Form1.Designer.cs",
               "RelativeToolTip": "Form1.Designer.cs",
-              "ViewState": "AgIAAKMDAAAAAAAAAAAqwLoDAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAK4DAAAAAAAAAAAgwLoDAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-17T11:47:07.487Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TransparentForm.cs [Design]",
+              "DocumentMoniker": "D:\\WPF\\LightGun\\TransparentForm.cs",
+              "RelativeDocumentMoniker": "TransparentForm.cs",
+              "ToolTip": "D:\\WPF\\LightGun\\TransparentForm.cs [Design]",
+              "RelativeToolTip": "TransparentForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T11:23:21.412Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\WPF\\LightGun\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
@@ -115,6 +141,10 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T14:27:17.052Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }

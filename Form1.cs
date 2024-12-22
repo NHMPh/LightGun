@@ -110,7 +110,7 @@ LButton::
     else
         Send %clickAction%
 
-    SetTimer, SendRightClick, 10
+    ;SetTimer, SendRightClick, 50
     ; Set a timer to run the SendMiddleClick label every 2000 milliseconds (2 seconds)
     SetTimer, SendMiddleClick, 1000
 return
@@ -142,7 +142,7 @@ SendRightClick:
 return
 
 StopTimer(){{
- SetTimer, SendRightClick, Off 
+ ;SetTimer, SendRightClick, Off 
  SetTimer, SendMiddleClick, Off
 }}
 ";
@@ -236,14 +236,14 @@ StopTimer(){{
 
 
 
-        public static void MoveMouseToPointAsync(PointF targetPoint, int steps = 16, int duration = 35)
+        public static void MoveMouseToPointAsync(PointF targetPoint)
         {
             if (targetPoint == PointF.Empty) return;
             int x = (int)targetPoint.X;
             int y = (int)targetPoint.Y;
-
+            
             if (movable)
-                SetCursorPos(x, y);
+                SetCursorPos(x, y); //Move mouse cursor 
 
         }
 
@@ -303,11 +303,6 @@ StopTimer(){{
         }
         public static double GetParallelogramArea(List<Point> corners)
         {
-            if (corners.Count != 4)
-            {
-                throw new ArgumentException("There must be exactly 4 corners.");
-            }
-
             // Use the Shoelace formula to calculate the area
             double area = 0;
             for (int i = 0; i < corners.Count; i++)
@@ -322,11 +317,11 @@ StopTimer(){{
         List<Point> _BiggestContour(List<List<Point>> contours)
         {
             List<Point> biggest = new List<Point>();
-            double maxArea = 0;
+            double maxArea = 500;
             foreach (var contour in contours)
             {
-                List<Point> _conners = MPCV.GetCorners(contour);
-                //  return new List<Point> { topLeft, topRight, bottomLeft, bottomRight };
+                List<Point> _conners = MPCV.GetCorners(contour); //Get 4 corners
+
                 double area = GetParallelogramArea(_conners);
 
                 if (area > maxArea)
@@ -345,15 +340,20 @@ StopTimer(){{
 
             if (rawCheckBox.Checked)
                 pictureBox1.Image = image.ToBitmap();
-            Bitmap mpimg = image.ToBitmap();
-            //MPCV.Gray(mpimg);
-            MPCV.Threshold(mpimg, threadhold, 255);
-            List<List<Point>> _contourList = MPCV.FindContour(mpimg);
-            List<Point> _biggest = _BiggestContour(_contourList);
+
+            Bitmap mpimg = image.ToBitmap(); //Get image
+            
+
+            MPCV.Threshold(mpimg, threadhold, 255); //Aplly Threshold 
+            
+            List<List<Point>> _contourList = MPCV.FindContour(mpimg);  //Find contour
+           
+            List<Point> _biggest = _BiggestContour(_contourList); // Find biggest contour
             Point _topLeft = Point.Empty;
             Point _topRight = Point.Empty;
             Point _bottomRight = Point.Empty;
             Point _bottomLeft = Point.Empty;
+
             // Calculate the center of the contour
             float _centerX = 0, _centerY = 0;
             foreach (var corner in _biggest)
@@ -371,31 +371,42 @@ StopTimer(){{
                 else if (corner.X > _centerX && corner.Y > _centerY) _bottomRight = corner;
                 else if (corner.X < _centerX && corner.Y > _centerY) _bottomLeft = corner;
             }
+
             PointF _transformedPoint = new PointF();
+
             Point _pointToTrack = new Point();
+
             List<Point> _des = new List<Point>() { new Point(0, 0), new Point(ixres, 0), new Point(0, iyres), new Point(ixres, iyres) };
             List<Point> _scr = new List<Point>() { _topLeft, _topRight, _bottomLeft, _bottomRight };
-            _pointToTrack = new Point((int)(ixres / 2 + xOffset), (int)(iyres / 2 + yOffset));
-            double[,] _matrix = MPCV.GetPerspectiveTransform(_scr, _des);
-            _pointToTrack = MPCV.PerspectiveTransform(_pointToTrack, _matrix);
-            _transformedPoint = new PointF((_pointToTrack.X / (float)ixres) * xres, (_pointToTrack.Y / (float)iyres) * yres);
-            bool outsideX = _transformedPoint.X < 0 || _transformedPoint.X > xres;
-            bool outsideY = _transformedPoint.Y < 0 || _transformedPoint.Y > yres;
-            if (outsideX || outsideY)
+
+            _pointToTrack = new Point((int)(ixres / 2 + xOffset), (int)(iyres / 2 + yOffset)); // midpoint of the img
+
+            double[,] _matrix = MPCV.GetPerspectiveTransform(_scr, _des); // Find PerspectiveTransform matrix
+
+            _pointToTrack = MPCV.PerspectiveTransform(_pointToTrack, _matrix); //Apply matrix to point
+
+            _transformedPoint = new PointF((_pointToTrack.X / (float)ixres) * xres, (_pointToTrack.Y / (float)iyres) * yres); // Translate to screen coordinate
+            bool outsideX = _transformedPoint.X < 0 || _transformedPoint.X > xres; //Check outside horizontal
+            bool outsideY = _transformedPoint.Y < 0 || _transformedPoint.Y > yres; //Check outside vertical
+            if (outsideX || outsideY|| _biggest.Count<4)
             {
 
                 outSideOfScreen = true;
                 if (movable)
-                    ahk.UnSuspend();
+                    ahk.UnSuspend(); //Activate
                 else
-                    ahk.Suspend();
+                {
+                    ahk.ExecFunction("StopTimer");
+                    ahk.Suspend(); //Deactivate
+                }
+                   
             }
             else
             {
                 outSideOfScreen = false;
 
                 ahk.ExecFunction("StopTimer");
-                ahk.Suspend();
+                ahk.Suspend(); //Deactivate
             }
 
             if (processCheckBox.Checked)
@@ -536,7 +547,7 @@ StopTimer(){{
 
                     bool outsideX = transformedPoint.X < 0 || transformedPoint.X > xres;
                     bool outsideY = transformedPoint.Y < 0 || transformedPoint.Y > yres;
-                    if (outsideX || outsideY)
+                    if (outsideX || outsideY )
                     {
 
                         outSideOfScreen = true;

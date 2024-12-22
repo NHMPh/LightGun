@@ -35,7 +35,7 @@ namespace LightGun
         {
             base.OnPaint(e);
             float thickness = (float)Math.Ceiling((resX*1.12) * (width / 100)) ;
-            // Draw a rectangle on the form
+            // Draw a rectangle on the window
             using (Pen pen = new Pen(Color.White, thickness))
             {
                 e.Graphics.DrawRectangle(pen, new Rectangle(0, 0, resX, resY));
@@ -47,6 +47,7 @@ namespace LightGun
         {
             get
             {
+                //Set window as transparent
                 CreateParams cp = base.CreateParams;
                 cp.ExStyle |= 0x20; // WS_EX_TRANSPARENT
                 return cp;
@@ -55,6 +56,7 @@ namespace LightGun
 
         protected override void WndProc(ref Message m)
         {
+            //Make transparent to mouse clicks
             const int WM_NCHITTEST = 0x84;
             const int HTTRANSPARENT = -1;
 

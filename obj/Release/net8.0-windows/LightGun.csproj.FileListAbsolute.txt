@@ -55,3 +55,4 @@ D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.pdb
 D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.genruntimeconfig.cache
 D:\WPF\LightGun\obj\Release\net8.0-windows\ref\LightGun.dll
 D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.csproj.Up2Date
+D:\WPF\LightGun\obj\Release\net8.0-windows\LightGun.TransparentForm.resources
