@@ -219,6 +219,7 @@ namespace LightGun
 
             return new List<Point> { topLeft, topRight, bottomLeft, bottomRight };
         }
+
         public static Point PerspectiveTransform(Point point, double[,] matrix)
         {
             double x = (double)point.X * matrix[0, 0] + (double)point.Y * matrix[0, 1] + matrix[0, 2];
@@ -228,7 +229,7 @@ namespace LightGun
         }
         public static double[,] GetPerspectiveTransform(List<Point> src, List<Point> dst)
         {
-
+            //Setting up matries
             double[,] A = {{src[0].X,src[0].Y,1},
                            {src[1].X,src[1].Y,1},
                            {src[3].X,src[3].Y,1}};
@@ -236,18 +237,18 @@ namespace LightGun
             double[] B1 = { dst[0].X, dst[1].X, dst[3].X };
 
             double[] B2 = { dst[0].Y, dst[1].Y, dst[3].Y };
-
+            
+            //Output X1[a1,a2,a3] X2[a4, a5, a6]
             double[] X1, X2;
             GaussJordanEliminationWithPartialPivoting(A, B1, B2, out X1, out X2);
 
+            //Transformation matrix obtain
             double[,] transform = new double[3, 3]
             {
                 { X1[0], X1[1], X1[2] },
                 { X2[0], X2[1], X2[2] },
                 { 0, 0, 1 }
             };
-
-
 
             return transform;
         }

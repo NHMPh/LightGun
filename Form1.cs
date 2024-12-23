@@ -303,12 +303,6 @@ StopTimer(){{
         }
         public static double GetParallelogramArea(List<Point> corners)
         {
-            if (corners.Count != 4)
-            {
-                throw new ArgumentException("There must be exactly 4 corners.");
-            }
-
-            // Use the Shoelace formula to calculate the area
             double area = 0;
             for (int i = 0; i < corners.Count; i++)
             {
@@ -322,11 +316,10 @@ StopTimer(){{
         List<Point> _BiggestContour(List<List<Point>> contours)
         {
             List<Point> biggest = new List<Point>();
-            double maxArea = 0;
+            double maxArea = 5000;
             foreach (var contour in contours)
             {
                 List<Point> _conners = MPCV.GetCorners(contour);
-                //  return new List<Point> { topLeft, topRight, bottomLeft, bottomRight };
                 double area = GetParallelogramArea(_conners);
 
                 if (area > maxArea)
@@ -334,8 +327,6 @@ StopTimer(){{
                     biggest = _conners;
                     maxArea = area;
                 }
-
-
             }
             return biggest;
         }
@@ -375,10 +366,16 @@ StopTimer(){{
             Point _pointToTrack = new Point();
             List<Point> _des = new List<Point>() { new Point(0, 0), new Point(ixres, 0), new Point(0, iyres), new Point(ixres, iyres) };
             List<Point> _scr = new List<Point>() { _topLeft, _topRight, _bottomLeft, _bottomRight };
+
             _pointToTrack = new Point((int)(ixres / 2 + xOffset), (int)(iyres / 2 + yOffset));
+            
             double[,] _matrix = MPCV.GetPerspectiveTransform(_scr, _des);
+
             _pointToTrack = MPCV.PerspectiveTransform(_pointToTrack, _matrix);
+
+
             _transformedPoint = new PointF((_pointToTrack.X / (float)ixres) * xres, (_pointToTrack.Y / (float)iyres) * yres);
+           
             bool outsideX = _transformedPoint.X < 0 || _transformedPoint.X > xres;
             bool outsideY = _transformedPoint.Y < 0 || _transformedPoint.Y > yres;
             if (outsideX || outsideY)
@@ -400,7 +397,7 @@ StopTimer(){{
 
             if (processCheckBox.Checked)
             {
-                MPCV.DrawContour(mpimg, _biggest);
+                MPCV.DrawPoint(mpimg, _biggest);
                 pictureBox2.Image = mpimg;
             }
       
