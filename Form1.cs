@@ -304,6 +304,7 @@ StopTimer(){{
         public static double GetParallelogramArea(List<Point> corners)
         {
             double area = 0;
+         
             for (int i = 0; i < corners.Count; i++)
             {
                 Point current = corners[i];
@@ -315,8 +316,8 @@ StopTimer(){{
         }
         List<Point> _BiggestContour(List<List<Point>> contours)
         {
-            List<Point> biggest = new List<Point>();
-            double maxArea = 5000;
+            List<Point> biggest = new List<Point>() { new Point(0,0) };
+            double maxArea = 100;
             foreach (var contour in contours)
             {
                 List<Point> _conners = MPCV.GetCorners(contour);
@@ -341,32 +342,28 @@ StopTimer(){{
             MPCV.Threshold(mpimg, threadhold, 255);
             List<List<Point>> _contourList = MPCV.FindContour(mpimg);
             List<Point> _biggest = _BiggestContour(_contourList);
-            Point _topLeft = Point.Empty;
-            Point _topRight = Point.Empty;
-            Point _bottomRight = Point.Empty;
-            Point _bottomLeft = Point.Empty;
-            // Calculate the center of the contour
-            float _centerX = 0, _centerY = 0;
-            foreach (var corner in _biggest)
+             Point _topLeft = Point.Empty;
+             Point _topRight = Point.Empty;
+             Point _bottomRight = Point.Empty;
+             Point _bottomLeft = Point.Empty;
+            if (_biggest != null && _biggest.Count == 4)
             {
-                _centerX += corner.X;
-                _centerY += corner.Y;
+                _topLeft = _biggest[0];
+                _topRight = _biggest[1];
+                _bottomLeft = _biggest[2];
+                _bottomRight = _biggest[3];
             }
-            _centerX /= _biggest.Count;
-            _centerY /= _biggest.Count;
-            // Assign corners based on their position relative to the center
-            foreach (var corner in _biggest)
-            {
-                if (corner.X < _centerX && corner.Y < _centerY) _topLeft = corner;
-                else if (corner.X > _centerX && corner.Y < _centerY) _topRight = corner;
-                else if (corner.X > _centerX && corner.Y > _centerY) _bottomRight = corner;
-                else if (corner.X < _centerX && corner.Y > _centerY) _bottomLeft = corner;
+            else {
+                _topLeft = Point.Empty;
+                _topRight = Point.Empty;
+                _bottomRight = Point.Empty;
+                _bottomLeft = Point.Empty;
             }
-            PointF _transformedPoint = new PointF();
+        
+           PointF _transformedPoint = new PointF();
             Point _pointToTrack = new Point();
             List<Point> _des = new List<Point>() { new Point(0, 0), new Point(ixres, 0), new Point(0, iyres), new Point(ixres, iyres) };
             List<Point> _scr = new List<Point>() { _topLeft, _topRight, _bottomLeft, _bottomRight };
-
             _pointToTrack = new Point((int)(ixres / 2 + xOffset), (int)(iyres / 2 + yOffset));
             
             double[,] _matrix = MPCV.GetPerspectiveTransform(_scr, _des);
@@ -397,6 +394,7 @@ StopTimer(){{
 
             if (processCheckBox.Checked)
             {
+               
                 MPCV.DrawPoint(mpimg, _biggest);
                 pictureBox2.Image = mpimg;
             }

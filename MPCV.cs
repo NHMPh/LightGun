@@ -181,8 +181,8 @@ namespace LightGun
         public static List<Point> GetCorners(List<Point> contour)
         {
             int minTopLeft = int.MaxValue;
-            int minTopRight = int.MaxValue;
-            int maxBottomLeft = int.MinValue;
+            int maxTopRight = int.MinValue;
+            int minBottomLeft = int.MaxValue;
             int maxBottomRight = int.MinValue;
             Point topLeft = new Point(0, 0);
             Point topRight = new Point(0, 0);
@@ -199,21 +199,21 @@ namespace LightGun
                     topLeft = contour[i];
                     minTopLeft = sum;
                 }
-                if (sub < minTopRight)
+                if (sub > maxTopRight)
                 {
                     topRight = contour[i];
-                    minTopRight = sub;
+                    maxTopRight = sub;
                 }
 
-                if (sum > maxBottomLeft)
+                if (sub < minBottomLeft)
                 {
                     bottomLeft = contour[i];
-                    maxBottomLeft = sum;
+                    minBottomLeft = sub;
                 }
-                if (sub > maxBottomRight)
+                if (sum > maxBottomRight)
                 {
                     bottomRight = contour[i];
-                    maxBottomRight = sub;
+                    maxBottomRight = sum;
                 }
             }
 
