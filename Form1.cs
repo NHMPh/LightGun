@@ -317,7 +317,7 @@ StopTimer(){{
         List<Point> _BiggestContour(List<List<Point>> contours)
         {
             List<Point> biggest = new List<Point>() { new Point(0,0) };
-            double maxArea = 100;
+            double maxArea = 00;
             foreach (var contour in contours)
             {
                 List<Point> _conners = MPCV.GetCorners(contour);
@@ -331,7 +331,7 @@ StopTimer(){{
             }
             return biggest;
         }
-
+        //Use MPCV
         private PointF DetectEdge2(Image<Bgr, byte> image)
         {
 
@@ -401,6 +401,7 @@ StopTimer(){{
       
             return _transformedPoint;
         }
+        //Use EmguCV
         private PointF DetectEdge(Image<Bgr, byte> image)
         {
 

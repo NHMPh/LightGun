@@ -62,7 +62,8 @@ namespace LightGun
                     byte blue = pixels[pos];
                     byte green = pixels[pos + 1];
                     byte red = pixels[pos + 2];
-                    byte value = (byte)((blue >= thresholdByte || green >= thresholdByte || red >= thresholdByte) ? maxValueByte : 0);
+                    byte gray = (byte)((red * 77 + green * 150 + blue * 29) >> 8);
+                    byte value = (byte)(gray >= thresholdByte  ? maxValueByte : 0);
                     pixels[pos] = value;
                     pixels[pos + 1] = value;
                     pixels[pos + 2] = value;

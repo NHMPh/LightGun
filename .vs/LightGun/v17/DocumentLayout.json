@@ -34,12 +34,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 4,
@@ -71,7 +67,7 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\WPF\\LightGun\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAADoBAAAAAAAAAAAswGwBAACIAAAAAAAAAA==",
+              "ViewState": "AgIAACoBAAAAAAAAAAAYwD8BAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-17T11:47:25.08Z",
               "EditorCaption": ""
@@ -84,7 +80,7 @@
               "RelativeDocumentMoniker": "MPCV.cs",
               "ToolTip": "D:\\WPF\\LightGun\\MPCV.cs",
               "RelativeToolTip": "MPCV.cs",
-              "ViewState": "AgIAALIAAAAAAAAAAAAkwLQAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAIwEEAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T14:26:51.11Z",
               "EditorCaption": ""
@@ -100,6 +96,10 @@
               "ViewState": "AgIAAKsDAAAAAAAAAAAgwLoDAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-17T11:47:07.487Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
