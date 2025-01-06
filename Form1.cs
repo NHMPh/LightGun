@@ -11,11 +11,6 @@ namespace LightGun
 {
     public partial class Form1 : Form
     {
-
-
-
-
-
         static int ixres = 640;
         static int iyres = 480;
 
@@ -34,6 +29,7 @@ namespace LightGun
         //Camera variable
         static int cameraIndex = -1;
         static VideoCapture capture = new VideoCapture(cameraIndex);
+        ArduinoCom arduinoCom;
         Mat frame = new Mat();
         Image<Bgr, byte> image;
         Size frameSize = new Size(ixres, iyres);
@@ -68,10 +64,6 @@ namespace LightGun
         static AutoHotkeyEngine ahk = AutoHotkeyEngine.Instance;
         public Form1()
         {
-
-
-
-
             //ahk.Suspend();
             InitializeComponent();
 
@@ -143,6 +135,9 @@ StopTimer(){{
 ";
             ahk.ExecRaw(script);
             ahk.Suspend();
+
+           arduinoCom = new ArduinoCom();
+            arduinoCom.OpenPort("COM10");
 
         }
         private void LoadWebcams()
@@ -416,7 +411,7 @@ StopTimer(){{
                     float[] transformedPointValues = new float[2];
                     Marshal.Copy(transformedPointMat.DataPointer, transformedPointValues, 0, 2);
                     PointF transformedPoint = new PointF((transformedPointValues[0] / ixres) * xres, (transformedPointValues[1] / iyres) * yres);
-
+                    arduinoCom.SendCursorPos((int)transformedPointValues[0], (int)transformedPointValues[1]);
 
                     bool outsideX = transformedPoint.X < 0 || transformedPoint.X > xres;
                     bool outsideY = transformedPoint.Y < 0 || transformedPoint.Y > yres;

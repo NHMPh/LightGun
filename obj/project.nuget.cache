@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "myYkNEwOAkM=",
+  "dgSpecHash": "w6984dnqI1c=",
   "success": true,
   "projectFilePath": "D:\\WPF\\LightGun\\LightGun.csproj",
   "expectedPackageFiles": [
@@ -17,11 +17,30 @@
     "C:\\Users\\Phu\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.1\\microsoft.netcore.platforms.1.1.1.nupkg.sha512",
     "C:\\Users\\Phu\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
     "C:\\Users\\Phu\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.android-arm.runtime.native.system.io.ports\\9.0.0\\runtime.android-arm.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.android-arm64.runtime.native.system.io.ports\\9.0.0\\runtime.android-arm64.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.android-x64.runtime.native.system.io.ports\\9.0.0\\runtime.android-x64.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.android-x86.runtime.native.system.io.ports\\9.0.0\\runtime.android-x86.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\9.0.0\\runtime.linux-arm.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\9.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.linux-bionic-arm64.runtime.native.system.io.ports\\9.0.0\\runtime.linux-bionic-arm64.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.linux-bionic-x64.runtime.native.system.io.ports\\9.0.0\\runtime.linux-bionic-x64.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.linux-musl-arm.runtime.native.system.io.ports\\9.0.0\\runtime.linux-musl-arm.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.linux-musl-arm64.runtime.native.system.io.ports\\9.0.0\\runtime.linux-musl-arm64.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.linux-musl-x64.runtime.native.system.io.ports\\9.0.0\\runtime.linux-musl-x64.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\9.0.0\\runtime.linux-x64.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.maccatalyst-arm64.runtime.native.system.io.ports\\9.0.0\\runtime.maccatalyst-arm64.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.maccatalyst-x64.runtime.native.system.io.ports\\9.0.0\\runtime.maccatalyst-x64.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
     "C:\\Users\\Phu\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.native.system.io.ports\\9.0.0\\runtime.native.system.io.ports.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\9.0.0\\runtime.osx-arm64.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\9.0.0\\runtime.osx-x64.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
     "C:\\Users\\Phu\\.nuget\\packages\\system.drawing.common\\8.0.1\\system.drawing.common.8.0.1.nupkg.sha512",
     "C:\\Users\\Phu\\.nuget\\packages\\system.drawing.primitives\\4.3.0\\system.drawing.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Phu\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
     "C:\\Users\\Phu\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\system.io.pipelines\\9.0.0\\system.io.pipelines.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\system.io.ports\\9.0.0\\system.io.ports.9.0.0.nupkg.sha512",
     "C:\\Users\\Phu\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
     "C:\\Users\\Phu\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\Phu\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
@@ -32,22 +51,12 @@
     "C:\\Users\\Phu\\.nuget\\packages\\system.runtime.interopservices\\4.3.0\\system.runtime.interopservices.4.3.0.nupkg.sha512",
     "C:\\Users\\Phu\\.nuget\\packages\\system.runtime.interopservices.runtimeinformation\\4.3.0\\system.runtime.interopservices.runtimeinformation.4.3.0.nupkg.sha512",
     "C:\\Users\\Phu\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
-    "C:\\Users\\Phu\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
-    "C:\\Users\\Phu\\.nuget\\packages\\system.text.json\\8.0.4\\system.text.json.8.0.4.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\system.text.encodings.web\\9.0.0\\system.text.encodings.web.9.0.0.nupkg.sha512",
+    "C:\\Users\\Phu\\.nuget\\packages\\system.text.json\\9.0.0\\system.text.json.9.0.0.nupkg.sha512",
     "C:\\Users\\Phu\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\Phu\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
   ],
   "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Text.Json' 8.0.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-8g4q-xg66-9fp4",
-      "libraryId": "System.Text.Json",
-      "targetGraphs": [
-        "net8.0-windows7.0"
-      ]
-    },
     {
       "code": "NU1701",
       "level": "Warning",

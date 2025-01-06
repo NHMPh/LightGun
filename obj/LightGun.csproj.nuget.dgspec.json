@@ -66,9 +66,13 @@
               "target": "Package",
               "version": "[4.9.0.5494, )"
             },
+            "System.IO.Ports": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "System.Text.Json": {
               "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[9.0.0, )"
             }
           },
           "imports": [
