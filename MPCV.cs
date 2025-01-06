@@ -62,8 +62,9 @@ namespace LightGun
                     byte blue = pixels[pos];
                     byte green = pixels[pos + 1];
                     byte red = pixels[pos + 2];
-                    byte gray = (byte)((red * 77 + green * 150 + blue * 29) >> 8);
-                    byte value = (byte)(gray >= thresholdByte  ? maxValueByte : 0);
+                  //  byte gray = (byte)((red * 77 + green * 150 + blue * 29) >> 8);
+                  //  byte value = (byte)(gray >= thresholdByte  ? maxValueByte : 0);
+                    byte value = (byte)((red>=thresholdByte||blue>=thresholdByte|green>=thresholdByte)? maxValueByte : 0);
                     pixels[pos] = value;
                     pixels[pos + 1] = value;
                     pixels[pos + 2] = value;
@@ -94,8 +95,14 @@ namespace LightGun
                     if (IsWhitePixel(pixels, pos) && !visited[x, y])
                     {
                         List<Point> contour = new List<Point>();
-                        FloodFill(pixels, visited, x, y, bmpData.Stride, bytesPerPixel, contour);
+                        MooreNeighborTracing(pixels, visited, x, y, bmpData.Stride, bytesPerPixel, contour);
                         contours.Add(contour);
+
+                        // Mark the entire contour as visited to avoid finding contours inside it
+                        foreach (Point p in contour)
+                        {
+                            visited[p.X, p.Y] = true;
+                        }
                     }
                 }
             }
@@ -108,6 +115,48 @@ namespace LightGun
         private static bool IsWhitePixel(byte[] pixels, int pos)
         {
             return pixels[pos] == 255 && pixels[pos + 1] == 255 && pixels[pos + 2] == 255;
+        }
+        
+        private static void MooreNeighborTracing(byte[] pixels, bool[,] visited, int startX, int startY, int stride, int bytesPerPixel, List<Point> contour)
+        {
+            int[,] directions = { { 0, 1 }, { -1, 1 }, { -1, 0 }, { -1, -1 }, { 0, -1 }, { 1, -1 }, { 1, 0 }, { 1, 1 } };
+            int dir = 0;
+            int x = startX;
+            int y = startY;
+            int startDir = 0;
+
+            do
+            {
+                contour.Add(new Point(x, y));
+                visited[x, y] = true;
+
+                bool foundNext = false;
+                for (int i = 0; i < 8; i++)
+                {
+                    int newDir = (startDir + i) % 8;
+                    int newX = x + directions[newDir, 0];
+                    int newY = y + directions[newDir, 1];
+
+                    if (newX >= 0 && newX < visited.GetLength(0) && newY >= 0 && newY < visited.GetLength(1))
+                    {
+                        int pos = newY * stride + newX * bytesPerPixel;
+                        if (IsWhitePixel(pixels, pos) && !visited[newX, newY])
+                        {
+                            x = newX;
+                            y = newY;
+                            startDir = (newDir + 6) % 8;
+                            foundNext = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!foundNext)
+                {
+                    break;
+                }
+
+            } while (x != startX || y != startY || dir != startDir);
         }
 
         private static void FloodFill(byte[] pixels, bool[,] visited, int startX, int startY, int stride, int bytesPerPixel, List<Point> contour)
@@ -161,13 +210,13 @@ namespace LightGun
             }
         }
 
-        public static void DrawPoint(Bitmap bitmap, List<Point> contour)
+        public static void DrawPoint(Bitmap bitmap, List<Point> contour,Color color)
         {
             using (Graphics g = Graphics.FromImage(bitmap))
             {
                 if (contour.Count > 1)
                 {
-                    using (Pen pen = new Pen(Color.Red, 10))
+                    using (Pen pen = new Pen(color, 10))
                     {
                         foreach (Point p in contour)
                         {
@@ -178,7 +227,57 @@ namespace LightGun
             }
             
         }
+ public static List<Point> GetCornersHarris(List<Point> contour)
+{
+    int width = contour.Max(p => p.X) + 1;
+    int height = contour.Max(p => p.Y) + 1;
+    double[,] harrisResponse = new double[width, height];
 
+    // Compute Harris response for each point in the contour
+    foreach (var point in contour)
+    {
+        double ix = 0, iy = 0, ixx = 0, iyy = 0, ixy = 0;
+        for (int dy = -1; dy <= 1; dy++)
+        {
+            for (int dx = -1; dx <= 1; dx++)
+            {
+                int x = point.X + dx;
+                int y = point.Y + dy;
+                if (x >= 0 && x < width && y >= 0 && y < height)
+                {
+                    ix += dx;
+                    iy += dy;
+                    ixx += dx * dx;
+                    iyy += dy * dy;
+                    ixy += dx * dy;
+                }
+            }
+        }
+
+        double det = ixx * iyy - ixy * ixy;
+        double trace = ixx + iyy;
+        harrisResponse[point.X, point.Y] = det - 0.04 * trace * trace;
+    }
+
+    // Find local maxima in the Harris response
+    List<Point> corners = new List<Point>();
+    for (int y = 1; y < height - 1; y++)
+    {
+        for (int x = 1; x < width - 1; x++)
+        {
+            double response = harrisResponse[x, y];
+            if (response > harrisResponse[x - 1, y - 1] && response > harrisResponse[x, y - 1] &&
+                response > harrisResponse[x + 1, y - 1] && response > harrisResponse[x - 1, y] &&
+                response > harrisResponse[x + 1, y] && response > harrisResponse[x - 1, y + 1] &&
+                response > harrisResponse[x, y + 1] && response > harrisResponse[x + 1, y + 1])
+            {
+                corners.Add(new Point(x, y));
+            }
+        }
+    }
+
+    return corners;
+}
         public static List<Point> GetCorners(List<Point> contour)
         {
             int minTopLeft = int.MaxValue;
@@ -253,7 +352,72 @@ namespace LightGun
 
             return transform;
         }
+        public static List<Point> approxPolyDP(List<Point> contour, double epsilon)
+        {
+            return DouglasPeucker(contour, epsilon);
+        }
 
+        private static List<Point> DouglasPeucker(List<Point> pointList, double epsilon)
+        {
+            // Find the point with the maximum distance
+            double dmax = 0;
+            int index = 0;
+            int end = pointList.Count;
+            for (int i = 1; i < end - 1; i++)
+            {
+                double d = PerpendicularDistance(pointList[i], pointList[0], pointList[end - 1]);
+                if (d > dmax)
+                {
+                    index = i;
+                    dmax = d;
+                }
+            }
+
+            List<Point> resultList = new List<Point>();
+
+            // If max distance is greater than epsilon, recursively simplify
+            if (dmax > epsilon)
+            {
+                // Recursive call
+                List<Point> recResults1 = DouglasPeucker(pointList.GetRange(0, index + 1), epsilon);
+                List<Point> recResults2 = DouglasPeucker(pointList.GetRange(index, end - index), epsilon);
+
+                // Build the result list
+                resultList.AddRange(recResults1.Take(recResults1.Count - 1));
+                resultList.AddRange(recResults2);
+            }
+            else
+            {
+                resultList.Add(pointList[0]);
+                resultList.Add(pointList[end - 1]);
+            }
+
+            // Return the result
+            return resultList;
+        }
+
+        private static double PerpendicularDistance(Point point, Point lineStart, Point lineEnd)
+        {
+            double dx = lineEnd.X - lineStart.X;
+            double dy = lineEnd.Y - lineStart.Y;
+
+            double mag = Math.Sqrt(dx * dx + dy * dy);
+            if (mag > 0.0)
+            {
+                dx /= mag;
+                dy /= mag;
+            }
+
+            double pvx = point.X - lineStart.X;
+            double pvy = point.Y - lineStart.Y;
+
+            double pvdot = dx * pvx + dy * pvy;
+
+            double ax = pvx - pvdot * dx;
+            double ay = pvy - pvdot * dy;
+
+            return Math.Sqrt(ax * ax + ay * ay);
+        }
         private static void GaussJordanEliminationWithPartialPivoting(double[,] A, double[] B1, double[] B2, out double[] X1, out double[] X2)
         {
             int n = B1.Length;

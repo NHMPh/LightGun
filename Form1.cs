@@ -304,26 +304,21 @@ StopTimer(){{
         public static double GetParallelogramArea(List<Point> corners)
         {
             double area = 0;
-         
-            for (int i = 0; i < corners.Count; i++)
-            {
-                Point current = corners[i];
-                Point next = corners[(i + 1) % corners.Count];
-                area += current.X * next.Y - next.X * current.Y;
-            }
 
-            return Math.Abs(area) / 2.0;
+            area = (corners[1].X - corners[0].X) - (corners[0].Y - corners[2].Y);
+
+            return Math.Abs(area);
         }
         List<Point> _BiggestContour(List<List<Point>> contours)
         {
-            List<Point> biggest = new List<Point>() { new Point(0,0) };
-            double maxArea = 00;
+            List<Point> biggest = new List<Point>();
+            double maxArea = 100;
             foreach (var contour in contours)
             {
                 List<Point> _conners = MPCV.GetCorners(contour);
                 double area = GetParallelogramArea(_conners);
 
-                if (area > maxArea)
+                if (area > maxArea&& _conners.Count==4)
                 {
                     biggest = _conners;
                     maxArea = area;
@@ -353,14 +348,14 @@ StopTimer(){{
                 _bottomLeft = _biggest[2];
                 _bottomRight = _biggest[3];
             }
-            else {
+            else
+            {
                 _topLeft = Point.Empty;
                 _topRight = Point.Empty;
                 _bottomRight = Point.Empty;
                 _bottomLeft = Point.Empty;
             }
-        
-           PointF _transformedPoint = new PointF();
+            PointF _transformedPoint = new PointF();
             Point _pointToTrack = new Point();
             List<Point> _des = new List<Point>() { new Point(0, 0), new Point(ixres, 0), new Point(0, iyres), new Point(ixres, iyres) };
             List<Point> _scr = new List<Point>() { _topLeft, _topRight, _bottomLeft, _bottomRight };
@@ -394,12 +389,25 @@ StopTimer(){{
 
             if (processCheckBox.Checked)
             {
-               
-                MPCV.DrawPoint(mpimg, _biggest);
+
+                //foreach (var contour in _contourList)
+                //{
+                //    Color color = RandomColor();
+                //    MPCV.DrawPoint(mpimg, contour, color);
+                //}
+                MPCV.DrawPoint(mpimg, _biggest, Color.Aqua);
                 pictureBox2.Image = mpimg;
             }
       
             return _transformedPoint;
+        }
+        private static Color RandomColor()
+        {
+            Random random = new Random();
+            byte r = (byte)random.Next(256);
+            byte g = (byte)random.Next(256);
+            byte b = (byte)random.Next(256);
+            return Color.FromArgb(r, g, b);
         }
         //Use EmguCV
         private PointF DetectEdge(Image<Bgr, byte> image)
