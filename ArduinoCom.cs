@@ -28,10 +28,9 @@ namespace LightGun
         public void SendCursorPos(int x, int y)
         {
             
-            if (x > 640 || x < 0 || y > 480 || y < 0)
-                return;
+           
 
-            String data = $"{x} {y}\n";
+            String data = $"0 {x} {y}\n";
             if(port.BytesToWrite == 0)
             {
                 port.Write(data);

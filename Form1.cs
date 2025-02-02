@@ -137,7 +137,7 @@ StopTimer(){{
             ahk.Suspend();
 
            arduinoCom = new ArduinoCom();
-            arduinoCom.OpenPort("COM10");
+            arduinoCom.OpenPort("COM12");
 
         }
         private void LoadWebcams()

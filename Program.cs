@@ -41,7 +41,7 @@ namespace LightGun
             ApplicationConfiguration.Initialize();
             _mouseHookID = SetMouseHook(_mouseProc);
             _keyboardHookID = SetKeyboardHook(_keyboardProc);
-            Application.Run(new Form1());
+            Application.Run(new MainWindow());
             UnhookWindowsHookEx(_mouseHookID);
             UnhookWindowsHookEx(_keyboardHookID);
 

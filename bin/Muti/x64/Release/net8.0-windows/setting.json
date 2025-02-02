@@ -1,9 +1,9 @@
 {
-  "Threadhold": 87,
+  "Threadhold": 85,
   "Xoffset": -51,
   "Yoffset": -31,
   "Brightness": 64,
-  "Contrast": 2,
+  "Contrast": 0,
   "Hue": -2000,
   "Saturation": 0,
   "Sharpness": 7,

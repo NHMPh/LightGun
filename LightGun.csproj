@@ -10,6 +10,7 @@
     <OutputType>WinExe</OutputType>
     <ApplicationIcon>bin\x64\Release\net8.0-windows\icon.ico</ApplicationIcon>
     <BaseOutputPath>D:\WPF\LightGun\bin\Muti</BaseOutputPath>
+    <StartupObject></StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
