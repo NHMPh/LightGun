@@ -31,70 +31,66 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            label122 = new Label();
-            panel5 = new Panel();
             label119 = new Label();
             label18 = new Label();
-            button1 = new Button();
+            btnStart = new Button();
             label13 = new Label();
             label14 = new Label();
             label11 = new Label();
             label12 = new Label();
             processCheckBox = new CheckBox();
             rawCheckBox = new CheckBox();
-            button11 = new Button();
+            btnSave = new Button();
             label16 = new Label();
             borderTextBox = new TextBox();
             label10 = new Label();
-            pictureBox4 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
-            textBox1 = new TextBox();
+            picBoxProP2 = new PictureBox();
+            picBoxRawP2 = new PictureBox();
+            picBoxProP1 = new PictureBox();
+            picBoxRawP1 = new PictureBox();
+            eTextBoxP2 = new TextBox();
             label2 = new Label();
-            trackBar1 = new TrackBar();
-            textBox2 = new TextBox();
+            eTrackBarP2 = new TrackBar();
+            gTextBoxP2 = new TextBox();
             label4 = new Label();
-            trackBar2 = new TrackBar();
-            textBox3 = new TextBox();
+            gTrackBarP2 = new TrackBar();
+            cTextBoxP2 = new TextBox();
             label5 = new Label();
-            trackBar3 = new TrackBar();
-            textBox4 = new TextBox();
+            cTrackBarP2 = new TrackBar();
+            bTextBoxP2 = new TextBox();
             label6 = new Label();
-            trackBar4 = new TrackBar();
-            textBox5 = new TextBox();
+            bTrackBarP2 = new TrackBar();
+            tTextBoxP2 = new TextBox();
             label8 = new Label();
-            trackBar5 = new TrackBar();
-            eTextBox = new TextBox();
+            tTrackBarP2 = new TrackBar();
+            eTextBoxP1 = new TextBox();
             label9 = new Label();
-            eTrackBar = new TrackBar();
-            gTextBox = new TextBox();
+            eTrackBarP1 = new TrackBar();
+            gTextBoxP1 = new TextBox();
             label7 = new Label();
-            gTrackBar = new TrackBar();
-            cTextBox = new TextBox();
+            gTrackBarP1 = new TrackBar();
+            cTextBoxP1 = new TextBox();
             label3 = new Label();
-            cTrackBar = new TrackBar();
-            bTextBox = new TextBox();
+            cTrackBarP1 = new TrackBar();
+            bTextBoxP1 = new TextBox();
             bLabel = new Label();
-            bTrackBar = new TrackBar();
-            tTextBox = new TextBox();
+            bTrackBarP1 = new TrackBar();
+            tTextBoxP1 = new TextBox();
             tLable = new Label();
-            tTrackBar = new TrackBar();
-            button4 = new Button();
+            tTrackBarP1 = new TrackBar();
+            btnRefreshArP2 = new Button();
             label20 = new Label();
-            comboBox4 = new ComboBox();
-            button5 = new Button();
+            comBoxArP2 = new ComboBox();
+            btnRefreshCamP2 = new Button();
             label21 = new Label();
-            comboBox5 = new ComboBox();
-            button3 = new Button();
+            comBoxCamP2 = new ComboBox();
+            btnRefreshArP1 = new Button();
             label19 = new Label();
-            comboBox3 = new ComboBox();
-            button2 = new Button();
+            comBoxArP1 = new ComboBox();
+            btnRefreshCamP1 = new Button();
             label1 = new Label();
-            comboBox1 = new ComboBox();
+            comBoxCamP1 = new ComboBox();
             tabPage2 = new TabPage();
-            label120 = new Label();
-            panel3 = new Panel();
             button15 = new Button();
             label114 = new Label();
             label112 = new Label();
@@ -280,8 +276,6 @@
             label15 = new Label();
             label17 = new Label();
             tabPage3 = new TabPage();
-            label121 = new Label();
-            panel4 = new Panel();
             label118 = new Label();
             label117 = new Label();
             button16 = new Button();
@@ -307,20 +301,20 @@
             panel1 = new Panel();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)eTrackBar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gTrackBar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)cTrackBar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)bTrackBar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)tTrackBar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picBoxProP2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picBoxRawP2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picBoxProP1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picBoxRawP1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)eTrackBarP2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gTrackBarP2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cTrackBarP2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bTrackBarP2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tTrackBarP2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)eTrackBarP1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gTrackBarP1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cTrackBarP1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bTrackBarP1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tTrackBarP1).BeginInit();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
             SuspendLayout();
@@ -339,67 +333,65 @@
             // tabPage1
             // 
             tabPage1.BackColor = SystemColors.Control;
-            tabPage1.Controls.Add(label122);
-            tabPage1.Controls.Add(panel5);
             tabPage1.Controls.Add(label119);
             tabPage1.Controls.Add(label18);
-            tabPage1.Controls.Add(button1);
+            tabPage1.Controls.Add(btnStart);
             tabPage1.Controls.Add(label13);
             tabPage1.Controls.Add(label14);
             tabPage1.Controls.Add(label11);
             tabPage1.Controls.Add(label12);
             tabPage1.Controls.Add(processCheckBox);
             tabPage1.Controls.Add(rawCheckBox);
-            tabPage1.Controls.Add(button11);
+            tabPage1.Controls.Add(btnSave);
             tabPage1.Controls.Add(label16);
             tabPage1.Controls.Add(borderTextBox);
             tabPage1.Controls.Add(label10);
-            tabPage1.Controls.Add(pictureBox4);
-            tabPage1.Controls.Add(pictureBox3);
-            tabPage1.Controls.Add(pictureBox2);
-            tabPage1.Controls.Add(pictureBox1);
-            tabPage1.Controls.Add(textBox1);
+            tabPage1.Controls.Add(picBoxProP2);
+            tabPage1.Controls.Add(picBoxRawP2);
+            tabPage1.Controls.Add(picBoxProP1);
+            tabPage1.Controls.Add(picBoxRawP1);
+            tabPage1.Controls.Add(eTextBoxP2);
             tabPage1.Controls.Add(label2);
-            tabPage1.Controls.Add(trackBar1);
-            tabPage1.Controls.Add(textBox2);
+            tabPage1.Controls.Add(eTrackBarP2);
+            tabPage1.Controls.Add(gTextBoxP2);
             tabPage1.Controls.Add(label4);
-            tabPage1.Controls.Add(trackBar2);
-            tabPage1.Controls.Add(textBox3);
+            tabPage1.Controls.Add(gTrackBarP2);
+            tabPage1.Controls.Add(cTextBoxP2);
             tabPage1.Controls.Add(label5);
-            tabPage1.Controls.Add(trackBar3);
-            tabPage1.Controls.Add(textBox4);
+            tabPage1.Controls.Add(cTrackBarP2);
+            tabPage1.Controls.Add(bTextBoxP2);
             tabPage1.Controls.Add(label6);
-            tabPage1.Controls.Add(trackBar4);
-            tabPage1.Controls.Add(textBox5);
+            tabPage1.Controls.Add(bTrackBarP2);
+            tabPage1.Controls.Add(tTextBoxP2);
             tabPage1.Controls.Add(label8);
-            tabPage1.Controls.Add(trackBar5);
-            tabPage1.Controls.Add(eTextBox);
+            tabPage1.Controls.Add(tTrackBarP2);
+            tabPage1.Controls.Add(eTextBoxP1);
             tabPage1.Controls.Add(label9);
-            tabPage1.Controls.Add(eTrackBar);
-            tabPage1.Controls.Add(gTextBox);
+            tabPage1.Controls.Add(eTrackBarP1);
+            tabPage1.Controls.Add(gTextBoxP1);
             tabPage1.Controls.Add(label7);
-            tabPage1.Controls.Add(gTrackBar);
-            tabPage1.Controls.Add(cTextBox);
+            tabPage1.Controls.Add(gTrackBarP1);
+            tabPage1.Controls.Add(cTextBoxP1);
             tabPage1.Controls.Add(label3);
-            tabPage1.Controls.Add(cTrackBar);
-            tabPage1.Controls.Add(bTextBox);
+            tabPage1.Controls.Add(cTrackBarP1);
+            tabPage1.Controls.Add(bTextBoxP1);
             tabPage1.Controls.Add(bLabel);
-            tabPage1.Controls.Add(bTrackBar);
-            tabPage1.Controls.Add(tTextBox);
+            tabPage1.Controls.Add(bTrackBarP1);
+            tabPage1.Controls.Add(tTextBoxP1);
             tabPage1.Controls.Add(tLable);
-            tabPage1.Controls.Add(tTrackBar);
-            tabPage1.Controls.Add(button4);
+            tabPage1.Controls.Add(tTrackBarP1);
+            tabPage1.Controls.Add(btnRefreshArP2);
             tabPage1.Controls.Add(label20);
-            tabPage1.Controls.Add(comboBox4);
-            tabPage1.Controls.Add(button5);
+            tabPage1.Controls.Add(comBoxArP2);
+            tabPage1.Controls.Add(btnRefreshCamP2);
             tabPage1.Controls.Add(label21);
-            tabPage1.Controls.Add(comboBox5);
-            tabPage1.Controls.Add(button3);
+            tabPage1.Controls.Add(comBoxCamP2);
+            tabPage1.Controls.Add(btnRefreshArP1);
             tabPage1.Controls.Add(label19);
-            tabPage1.Controls.Add(comboBox3);
-            tabPage1.Controls.Add(button2);
+            tabPage1.Controls.Add(comBoxArP1);
+            tabPage1.Controls.Add(btnRefreshCamP1);
             tabPage1.Controls.Add(label1);
-            tabPage1.Controls.Add(comboBox1);
+            tabPage1.Controls.Add(comBoxCamP1);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -407,28 +399,10 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Main";
             // 
-            // label122
-            // 
-            label122.AutoSize = true;
-            label122.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label122.Location = new Point(564, 53);
-            label122.Name = "label122";
-            label122.Size = new Size(119, 25);
-            label122.TabIndex = 280;
-            label122.Text = "Gun is active";
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.Lime;
-            panel5.Location = new Point(534, 26);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(181, 24);
-            panel5.TabIndex = 279;
-            // 
             // label119
             // 
             label119.AutoSize = true;
-            label119.Location = new Point(723, 128);
+            label119.Location = new Point(592, 91);
             label119.Name = "label119";
             label119.Size = new Size(66, 15);
             label119.TabIndex = 239;
@@ -443,22 +417,22 @@
             label18.TabIndex = 238;
             label18.Text = "Created by MHMPh";
             // 
-            // button1
+            // btnStart
             // 
-            button1.BackColor = Color.Green;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(551, 112);
-            button1.Name = "button1";
-            button1.Size = new Size(155, 41);
-            button1.TabIndex = 237;
-            button1.Text = "Start";
-            button1.UseVisualStyleBackColor = false;
+            btnStart.BackColor = Color.Green;
+            btnStart.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnStart.ForeColor = SystemColors.ButtonHighlight;
+            btnStart.Location = new Point(551, 112);
+            btnStart.Name = "btnStart";
+            btnStart.Size = new Size(155, 41);
+            btnStart.TabIndex = 237;
+            btnStart.Text = "Start";
+            btnStart.UseVisualStyleBackColor = false;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(901, 200);
+            label13.Location = new Point(886, 200);
             label13.Name = "label13";
             label13.Size = new Size(93, 15);
             label13.TabIndex = 236;
@@ -467,7 +441,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(923, 0);
+            label14.Location = new Point(903, 3);
             label14.Name = "label14";
             label14.Size = new Size(61, 15);
             label14.TabIndex = 235;
@@ -476,7 +450,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(245, 201);
+            label11.Location = new Point(270, 204);
             label11.Name = "label11";
             label11.Size = new Size(93, 15);
             label11.TabIndex = 234;
@@ -485,7 +459,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(258, 0);
+            label12.Location = new Point(283, 3);
             label12.Name = "label12";
             label12.Size = new Size(61, 15);
             label12.TabIndex = 233;
@@ -515,17 +489,17 @@
             rawCheckBox.Text = "Show raw";
             rawCheckBox.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // btnSave
             // 
-            button11.BackColor = SystemColors.MenuHighlight;
-            button11.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button11.ForeColor = SystemColors.ControlLightLight;
-            button11.Location = new Point(551, 346);
-            button11.Name = "button11";
-            button11.Size = new Size(154, 46);
-            button11.TabIndex = 230;
-            button11.Text = "Save Setting";
-            button11.UseVisualStyleBackColor = false;
+            btnSave.BackColor = SystemColors.MenuHighlight;
+            btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSave.ForeColor = SystemColors.ControlLightLight;
+            btnSave.Location = new Point(551, 346);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(154, 46);
+            btnSave.TabIndex = 230;
+            btnSave.Text = "Save Setting";
+            btnSave.UseVisualStyleBackColor = false;
             // 
             // label16
             // 
@@ -552,77 +526,77 @@
             label10.TabIndex = 227;
             label10.Text = "Border Percentage";
             // 
-            // pictureBox4
+            // picBoxProP2
             // 
-            pictureBox4.BackColor = SystemColors.ActiveBorder;
-            pictureBox4.Location = new Point(821, 220);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(266, 171);
-            pictureBox4.TabIndex = 226;
-            pictureBox4.TabStop = false;
+            picBoxProP2.BackColor = SystemColors.ActiveBorder;
+            picBoxProP2.Location = new Point(776, 215);
+            picBoxProP2.Name = "picBoxProP2";
+            picBoxProP2.Size = new Size(309, 177);
+            picBoxProP2.TabIndex = 226;
+            picBoxProP2.TabStop = false;
             // 
-            // pictureBox3
+            // picBoxRawP2
             // 
-            pictureBox3.BackColor = SystemColors.ActiveBorder;
-            pictureBox3.Location = new Point(821, 26);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(266, 171);
-            pictureBox3.TabIndex = 225;
-            pictureBox3.TabStop = false;
+            picBoxRawP2.BackColor = SystemColors.ActiveBorder;
+            picBoxRawP2.Location = new Point(776, 21);
+            picBoxRawP2.Name = "picBoxRawP2";
+            picBoxRawP2.Size = new Size(309, 177);
+            picBoxRawP2.TabIndex = 225;
+            picBoxRawP2.TabStop = false;
             // 
-            // pictureBox2
+            // picBoxProP1
             // 
-            pictureBox2.BackColor = SystemColors.ActiveBorder;
-            pictureBox2.Location = new Point(163, 219);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(266, 171);
-            pictureBox2.TabIndex = 224;
-            pictureBox2.TabStop = false;
+            picBoxProP1.BackColor = SystemColors.ActiveBorder;
+            picBoxProP1.Location = new Point(163, 219);
+            picBoxProP1.Name = "picBoxProP1";
+            picBoxProP1.Size = new Size(309, 177);
+            picBoxProP1.TabIndex = 224;
+            picBoxProP1.TabStop = false;
             // 
-            // pictureBox1
+            // picBoxRawP1
             // 
-            pictureBox1.BackColor = SystemColors.ActiveBorder;
-            pictureBox1.Location = new Point(163, 21);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(266, 171);
-            pictureBox1.TabIndex = 223;
-            pictureBox1.TabStop = false;
+            picBoxRawP1.BackColor = SystemColors.ActiveBorder;
+            picBoxRawP1.Location = new Point(163, 21);
+            picBoxRawP1.Name = "picBoxRawP1";
+            picBoxRawP1.Size = new Size(309, 177);
+            picBoxRawP1.TabIndex = 223;
+            picBoxRawP1.TabStop = false;
             // 
-            // textBox1
+            // eTextBoxP2
             // 
-            textBox1.Location = new Point(1149, 567);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(50, 23);
-            textBox1.TabIndex = 222;
+            eTextBoxP2.Location = new Point(1149, 567);
+            eTextBoxP2.Name = "eTextBoxP2";
+            eTextBoxP2.ReadOnly = true;
+            eTextBoxP2.Size = new Size(50, 23);
+            eTextBoxP2.TabIndex = 222;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(713, 567);
             label2.Name = "label2";
-            label2.Size = new Size(55, 15);
+            label2.Size = new Size(54, 15);
             label2.TabIndex = 221;
             label2.Text = "Exposure";
             // 
-            // trackBar1
+            // eTrackBarP2
             // 
-            trackBar1.LargeChange = 1;
-            trackBar1.Location = new Point(776, 567);
-            trackBar1.Maximum = 0;
-            trackBar1.Minimum = -8;
-            trackBar1.Name = "trackBar1";
-            trackBar1.Size = new Size(367, 45);
-            trackBar1.TabIndex = 220;
-            trackBar1.Value = -7;
+            eTrackBarP2.LargeChange = 1;
+            eTrackBarP2.Location = new Point(776, 567);
+            eTrackBarP2.Maximum = 0;
+            eTrackBarP2.Minimum = -8;
+            eTrackBarP2.Name = "eTrackBarP2";
+            eTrackBarP2.Size = new Size(367, 45);
+            eTrackBarP2.TabIndex = 220;
+            eTrackBarP2.Value = -7;
             // 
-            // textBox2
+            // gTextBoxP2
             // 
-            textBox2.Location = new Point(1149, 528);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(50, 23);
-            textBox2.TabIndex = 219;
+            gTextBoxP2.Location = new Point(1149, 528);
+            gTextBoxP2.Name = "gTextBoxP2";
+            gTextBoxP2.ReadOnly = true;
+            gTextBoxP2.Size = new Size(50, 23);
+            gTextBoxP2.TabIndex = 219;
             // 
             // label4
             // 
@@ -633,23 +607,23 @@
             label4.TabIndex = 218;
             label4.Text = "Gamma";
             // 
-            // trackBar2
+            // gTrackBarP2
             // 
-            trackBar2.Location = new Point(776, 528);
-            trackBar2.Maximum = 300;
-            trackBar2.Minimum = 100;
-            trackBar2.Name = "trackBar2";
-            trackBar2.Size = new Size(367, 45);
-            trackBar2.TabIndex = 217;
-            trackBar2.Value = 200;
+            gTrackBarP2.Location = new Point(776, 528);
+            gTrackBarP2.Maximum = 300;
+            gTrackBarP2.Minimum = 100;
+            gTrackBarP2.Name = "gTrackBarP2";
+            gTrackBarP2.Size = new Size(367, 45);
+            gTrackBarP2.TabIndex = 217;
+            gTrackBarP2.Value = 200;
             // 
-            // textBox3
+            // cTextBoxP2
             // 
-            textBox3.Location = new Point(1149, 489);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(50, 23);
-            textBox3.TabIndex = 216;
+            cTextBoxP2.Location = new Point(1149, 489);
+            cTextBoxP2.Name = "cTextBoxP2";
+            cTextBoxP2.ReadOnly = true;
+            cTextBoxP2.Size = new Size(50, 23);
+            cTextBoxP2.TabIndex = 216;
             // 
             // label5
             // 
@@ -660,21 +634,21 @@
             label5.TabIndex = 215;
             label5.Text = "Contrast";
             // 
-            // trackBar3
+            // cTrackBarP2
             // 
-            trackBar3.Location = new Point(776, 489);
-            trackBar3.Maximum = 95;
-            trackBar3.Name = "trackBar3";
-            trackBar3.Size = new Size(367, 45);
-            trackBar3.TabIndex = 214;
+            cTrackBarP2.Location = new Point(776, 489);
+            cTrackBarP2.Maximum = 95;
+            cTrackBarP2.Name = "cTrackBarP2";
+            cTrackBarP2.Size = new Size(367, 45);
+            cTrackBarP2.TabIndex = 214;
             // 
-            // textBox4
+            // bTextBoxP2
             // 
-            textBox4.Location = new Point(1149, 451);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new Size(50, 23);
-            textBox4.TabIndex = 213;
+            bTextBoxP2.Location = new Point(1149, 451);
+            bTextBoxP2.Name = "bTextBoxP2";
+            bTextBoxP2.ReadOnly = true;
+            bTextBoxP2.Size = new Size(50, 23);
+            bTextBoxP2.TabIndex = 213;
             // 
             // label6
             // 
@@ -685,76 +659,76 @@
             label6.TabIndex = 212;
             label6.Text = "Brightness";
             // 
-            // trackBar4
+            // bTrackBarP2
             // 
-            trackBar4.Location = new Point(776, 451);
-            trackBar4.Maximum = 64;
-            trackBar4.Minimum = -64;
-            trackBar4.Name = "trackBar4";
-            trackBar4.Size = new Size(367, 45);
-            trackBar4.TabIndex = 211;
+            bTrackBarP2.Location = new Point(776, 451);
+            bTrackBarP2.Maximum = 64;
+            bTrackBarP2.Minimum = -64;
+            bTrackBarP2.Name = "bTrackBarP2";
+            bTrackBarP2.Size = new Size(367, 45);
+            bTrackBarP2.TabIndex = 211;
             // 
-            // textBox5
+            // tTextBoxP2
             // 
-            textBox5.Location = new Point(1149, 413);
-            textBox5.Name = "textBox5";
-            textBox5.ReadOnly = true;
-            textBox5.Size = new Size(50, 23);
-            textBox5.TabIndex = 210;
+            tTextBoxP2.Location = new Point(1149, 413);
+            tTextBoxP2.Name = "tTextBoxP2";
+            tTextBoxP2.ReadOnly = true;
+            tTextBoxP2.Size = new Size(50, 23);
+            tTextBoxP2.TabIndex = 210;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Location = new Point(713, 413);
             label8.Name = "label8";
-            label8.Size = new Size(67, 15);
+            label8.Size = new Size(68, 15);
             label8.TabIndex = 209;
             label8.Text = "Threadhold";
             // 
-            // trackBar5
+            // tTrackBarP2
             // 
-            trackBar5.Location = new Point(776, 413);
-            trackBar5.Maximum = 255;
-            trackBar5.Name = "trackBar5";
-            trackBar5.Size = new Size(367, 45);
-            trackBar5.TabIndex = 208;
-            trackBar5.Value = 200;
+            tTrackBarP2.Location = new Point(776, 413);
+            tTrackBarP2.Maximum = 255;
+            tTrackBarP2.Name = "tTrackBarP2";
+            tTrackBarP2.Size = new Size(367, 45);
+            tTrackBarP2.TabIndex = 208;
+            tTrackBarP2.Value = 200;
             // 
-            // eTextBox
+            // eTextBoxP1
             // 
-            eTextBox.Location = new Point(493, 567);
-            eTextBox.Name = "eTextBox";
-            eTextBox.ReadOnly = true;
-            eTextBox.Size = new Size(50, 23);
-            eTextBox.TabIndex = 207;
+            eTextBoxP1.Location = new Point(493, 567);
+            eTextBoxP1.Name = "eTextBoxP1";
+            eTextBoxP1.ReadOnly = true;
+            eTextBoxP1.Size = new Size(50, 23);
+            eTextBoxP1.TabIndex = 207;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Location = new Point(57, 567);
             label9.Name = "label9";
-            label9.Size = new Size(55, 15);
+            label9.Size = new Size(54, 15);
             label9.TabIndex = 206;
             label9.Text = "Exposure";
             // 
-            // eTrackBar
+            // eTrackBarP1
             // 
-            eTrackBar.LargeChange = 1;
-            eTrackBar.Location = new Point(120, 567);
-            eTrackBar.Maximum = 0;
-            eTrackBar.Minimum = -8;
-            eTrackBar.Name = "eTrackBar";
-            eTrackBar.Size = new Size(367, 45);
-            eTrackBar.TabIndex = 205;
-            eTrackBar.Value = -7;
+            eTrackBarP1.LargeChange = 1;
+            eTrackBarP1.Location = new Point(120, 567);
+            eTrackBarP1.Maximum = 0;
+            eTrackBarP1.Minimum = -8;
+            eTrackBarP1.Name = "eTrackBarP1";
+            eTrackBarP1.Size = new Size(367, 45);
+            eTrackBarP1.TabIndex = 205;
+            eTrackBarP1.Value = -7;
             // 
-            // gTextBox
+            // gTextBoxP1
             // 
-            gTextBox.Location = new Point(493, 528);
-            gTextBox.Name = "gTextBox";
-            gTextBox.ReadOnly = true;
-            gTextBox.Size = new Size(50, 23);
-            gTextBox.TabIndex = 204;
+            gTextBoxP1.Location = new Point(493, 528);
+            gTextBoxP1.Name = "gTextBoxP1";
+            gTextBoxP1.ReadOnly = true;
+            gTextBoxP1.Size = new Size(50, 23);
+            gTextBoxP1.TabIndex = 204;
             // 
             // label7
             // 
@@ -765,23 +739,23 @@
             label7.TabIndex = 203;
             label7.Text = "Gamma";
             // 
-            // gTrackBar
+            // gTrackBarP1
             // 
-            gTrackBar.Location = new Point(120, 528);
-            gTrackBar.Maximum = 300;
-            gTrackBar.Minimum = 100;
-            gTrackBar.Name = "gTrackBar";
-            gTrackBar.Size = new Size(367, 45);
-            gTrackBar.TabIndex = 202;
-            gTrackBar.Value = 200;
+            gTrackBarP1.Location = new Point(120, 528);
+            gTrackBarP1.Maximum = 300;
+            gTrackBarP1.Minimum = 100;
+            gTrackBarP1.Name = "gTrackBarP1";
+            gTrackBarP1.Size = new Size(367, 45);
+            gTrackBarP1.TabIndex = 202;
+            gTrackBarP1.Value = 200;
             // 
-            // cTextBox
+            // cTextBoxP1
             // 
-            cTextBox.Location = new Point(493, 489);
-            cTextBox.Name = "cTextBox";
-            cTextBox.ReadOnly = true;
-            cTextBox.Size = new Size(50, 23);
-            cTextBox.TabIndex = 201;
+            cTextBoxP1.Location = new Point(493, 489);
+            cTextBoxP1.Name = "cTextBoxP1";
+            cTextBoxP1.ReadOnly = true;
+            cTextBoxP1.Size = new Size(50, 23);
+            cTextBoxP1.TabIndex = 201;
             // 
             // label3
             // 
@@ -792,21 +766,21 @@
             label3.TabIndex = 200;
             label3.Text = "Contrast";
             // 
-            // cTrackBar
+            // cTrackBarP1
             // 
-            cTrackBar.Location = new Point(120, 489);
-            cTrackBar.Maximum = 95;
-            cTrackBar.Name = "cTrackBar";
-            cTrackBar.Size = new Size(367, 45);
-            cTrackBar.TabIndex = 199;
+            cTrackBarP1.Location = new Point(120, 489);
+            cTrackBarP1.Maximum = 95;
+            cTrackBarP1.Name = "cTrackBarP1";
+            cTrackBarP1.Size = new Size(367, 45);
+            cTrackBarP1.TabIndex = 199;
             // 
-            // bTextBox
+            // bTextBoxP1
             // 
-            bTextBox.Location = new Point(493, 451);
-            bTextBox.Name = "bTextBox";
-            bTextBox.ReadOnly = true;
-            bTextBox.Size = new Size(50, 23);
-            bTextBox.TabIndex = 198;
+            bTextBoxP1.Location = new Point(493, 451);
+            bTextBoxP1.Name = "bTextBoxP1";
+            bTextBoxP1.ReadOnly = true;
+            bTextBoxP1.Size = new Size(50, 23);
+            bTextBoxP1.TabIndex = 198;
             // 
             // bLabel
             // 
@@ -817,51 +791,51 @@
             bLabel.TabIndex = 197;
             bLabel.Text = "Brightness";
             // 
-            // bTrackBar
+            // bTrackBarP1
             // 
-            bTrackBar.Location = new Point(120, 451);
-            bTrackBar.Maximum = 64;
-            bTrackBar.Minimum = -64;
-            bTrackBar.Name = "bTrackBar";
-            bTrackBar.Size = new Size(367, 45);
-            bTrackBar.TabIndex = 196;
+            bTrackBarP1.Location = new Point(120, 451);
+            bTrackBarP1.Maximum = 64;
+            bTrackBarP1.Minimum = -64;
+            bTrackBarP1.Name = "bTrackBarP1";
+            bTrackBarP1.Size = new Size(367, 45);
+            bTrackBarP1.TabIndex = 196;
             // 
-            // tTextBox
+            // tTextBoxP1
             // 
-            tTextBox.Location = new Point(493, 413);
-            tTextBox.Name = "tTextBox";
-            tTextBox.ReadOnly = true;
-            tTextBox.Size = new Size(50, 23);
-            tTextBox.TabIndex = 195;
+            tTextBoxP1.Location = new Point(493, 413);
+            tTextBoxP1.Name = "tTextBoxP1";
+            tTextBoxP1.ReadOnly = true;
+            tTextBoxP1.Size = new Size(50, 23);
+            tTextBoxP1.TabIndex = 195;
             // 
             // tLable
             // 
             tLable.AutoSize = true;
             tLable.Location = new Point(57, 413);
             tLable.Name = "tLable";
-            tLable.Size = new Size(67, 15);
+            tLable.Size = new Size(68, 15);
             tLable.TabIndex = 194;
             tLable.Text = "Threadhold";
             // 
-            // tTrackBar
+            // tTrackBarP1
             // 
-            tTrackBar.Location = new Point(120, 413);
-            tTrackBar.Maximum = 255;
-            tTrackBar.Name = "tTrackBar";
-            tTrackBar.Size = new Size(367, 45);
-            tTrackBar.TabIndex = 193;
-            tTrackBar.Value = 200;
+            tTrackBarP1.Location = new Point(120, 413);
+            tTrackBarP1.Maximum = 255;
+            tTrackBarP1.Name = "tTrackBarP1";
+            tTrackBarP1.Size = new Size(367, 45);
+            tTrackBarP1.TabIndex = 193;
+            tTrackBarP1.Value = 200;
             // 
-            // button4
+            // btnRefreshArP2
             // 
-            button4.BackColor = SystemColors.Control;
-            button4.ForeColor = SystemColors.ActiveCaptionText;
-            button4.Location = new Point(1131, 219);
-            button4.Name = "button4";
-            button4.Size = new Size(71, 23);
-            button4.TabIndex = 192;
-            button4.Text = "Refresh";
-            button4.UseVisualStyleBackColor = false;
+            btnRefreshArP2.BackColor = SystemColors.Control;
+            btnRefreshArP2.ForeColor = SystemColors.ActiveCaptionText;
+            btnRefreshArP2.Location = new Point(1131, 219);
+            btnRefreshArP2.Name = "btnRefreshArP2";
+            btnRefreshArP2.Size = new Size(71, 23);
+            btnRefreshArP2.TabIndex = 192;
+            btnRefreshArP2.Text = "Refresh";
+            btnRefreshArP2.UseVisualStyleBackColor = false;
             // 
             // label20
             // 
@@ -872,25 +846,25 @@
             label20.TabIndex = 191;
             label20.Text = "Select arduino";
             // 
-            // comboBox4
+            // comBoxArP2
             // 
-            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(1112, 190);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(121, 23);
-            comboBox4.TabIndex = 190;
+            comBoxArP2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comBoxArP2.FormattingEnabled = true;
+            comBoxArP2.Location = new Point(1112, 190);
+            comBoxArP2.Name = "comBoxArP2";
+            comBoxArP2.Size = new Size(121, 23);
+            comBoxArP2.TabIndex = 190;
             // 
-            // button5
+            // btnRefreshCamP2
             // 
-            button5.BackColor = SystemColors.Control;
-            button5.ForeColor = SystemColors.ActiveCaptionText;
-            button5.Location = new Point(1133, 120);
-            button5.Name = "button5";
-            button5.Size = new Size(71, 23);
-            button5.TabIndex = 189;
-            button5.Text = "Refresh";
-            button5.UseVisualStyleBackColor = false;
+            btnRefreshCamP2.BackColor = SystemColors.Control;
+            btnRefreshCamP2.ForeColor = SystemColors.ActiveCaptionText;
+            btnRefreshCamP2.Location = new Point(1133, 120);
+            btnRefreshCamP2.Name = "btnRefreshCamP2";
+            btnRefreshCamP2.Size = new Size(71, 23);
+            btnRefreshCamP2.TabIndex = 189;
+            btnRefreshCamP2.Text = "Refresh";
+            btnRefreshCamP2.UseVisualStyleBackColor = false;
             // 
             // label21
             // 
@@ -901,25 +875,25 @@
             label21.TabIndex = 188;
             label21.Text = "Select camera";
             // 
-            // comboBox5
+            // comBoxCamP2
             // 
-            comboBox5.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Location = new Point(1114, 91);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(121, 23);
-            comboBox5.TabIndex = 187;
+            comBoxCamP2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comBoxCamP2.FormattingEnabled = true;
+            comBoxCamP2.Location = new Point(1114, 91);
+            comBoxCamP2.Name = "comBoxCamP2";
+            comBoxCamP2.Size = new Size(121, 23);
+            comBoxCamP2.TabIndex = 187;
             // 
-            // button3
+            // btnRefreshArP1
             // 
-            button3.BackColor = SystemColors.Control;
-            button3.ForeColor = SystemColors.ActiveCaptionText;
-            button3.Location = new Point(40, 219);
-            button3.Name = "button3";
-            button3.Size = new Size(71, 23);
-            button3.TabIndex = 186;
-            button3.Text = "Refresh";
-            button3.UseVisualStyleBackColor = false;
+            btnRefreshArP1.BackColor = SystemColors.Control;
+            btnRefreshArP1.ForeColor = SystemColors.ActiveCaptionText;
+            btnRefreshArP1.Location = new Point(40, 219);
+            btnRefreshArP1.Name = "btnRefreshArP1";
+            btnRefreshArP1.Size = new Size(71, 23);
+            btnRefreshArP1.TabIndex = 186;
+            btnRefreshArP1.Text = "Refresh";
+            btnRefreshArP1.UseVisualStyleBackColor = false;
             // 
             // label19
             // 
@@ -930,25 +904,25 @@
             label19.TabIndex = 185;
             label19.Text = "Select arduino";
             // 
-            // comboBox3
+            // comBoxArP1
             // 
-            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(21, 190);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(121, 23);
-            comboBox3.TabIndex = 184;
+            comBoxArP1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comBoxArP1.FormattingEnabled = true;
+            comBoxArP1.Location = new Point(21, 190);
+            comBoxArP1.Name = "comBoxArP1";
+            comBoxArP1.Size = new Size(121, 23);
+            comBoxArP1.TabIndex = 184;
             // 
-            // button2
+            // btnRefreshCamP1
             // 
-            button2.BackColor = SystemColors.Control;
-            button2.ForeColor = SystemColors.ActiveCaptionText;
-            button2.Location = new Point(40, 120);
-            button2.Name = "button2";
-            button2.Size = new Size(71, 23);
-            button2.TabIndex = 183;
-            button2.Text = "Refresh";
-            button2.UseVisualStyleBackColor = false;
+            btnRefreshCamP1.BackColor = SystemColors.Control;
+            btnRefreshCamP1.ForeColor = SystemColors.ActiveCaptionText;
+            btnRefreshCamP1.Location = new Point(40, 120);
+            btnRefreshCamP1.Name = "btnRefreshCamP1";
+            btnRefreshCamP1.Size = new Size(71, 23);
+            btnRefreshCamP1.TabIndex = 183;
+            btnRefreshCamP1.Text = "Refresh";
+            btnRefreshCamP1.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -959,20 +933,18 @@
             label1.TabIndex = 182;
             label1.Text = "Select camera";
             // 
-            // comboBox1
+            // comBoxCamP1
             // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(21, 91);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 181;
+            comBoxCamP1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comBoxCamP1.FormattingEnabled = true;
+            comBoxCamP1.Location = new Point(21, 91);
+            comBoxCamP1.Name = "comBoxCamP1";
+            comBoxCamP1.Size = new Size(121, 23);
+            comBoxCamP1.TabIndex = 181;
             // 
             // tabPage2
             // 
             tabPage2.BackColor = SystemColors.Control;
-            tabPage2.Controls.Add(label120);
-            tabPage2.Controls.Add(panel3);
             tabPage2.Controls.Add(button15);
             tabPage2.Controls.Add(label114);
             tabPage2.Controls.Add(label112);
@@ -1163,24 +1135,6 @@
             tabPage2.Size = new Size(1244, 626);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Button Assignment";
-            // 
-            // label120
-            // 
-            label120.AutoSize = true;
-            label120.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label120.Location = new Point(569, 68);
-            label120.Name = "label120";
-            label120.Size = new Size(127, 25);
-            label120.TabIndex = 278;
-            label120.Text = "Guns is active";
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.Lime;
-            panel3.Location = new Point(539, 41);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(181, 24);
-            panel3.TabIndex = 277;
             // 
             // button15
             // 
@@ -2939,8 +2893,6 @@
             // tabPage3
             // 
             tabPage3.BackColor = SystemColors.Control;
-            tabPage3.Controls.Add(label121);
-            tabPage3.Controls.Add(panel4);
             tabPage3.Controls.Add(label118);
             tabPage3.Controls.Add(label117);
             tabPage3.Controls.Add(button16);
@@ -2969,24 +2921,6 @@
             tabPage3.Size = new Size(1244, 626);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Calibration";
-            // 
-            // label121
-            // 
-            label121.AutoSize = true;
-            label121.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label121.Location = new Point(566, 51);
-            label121.Name = "label121";
-            label121.Size = new Size(119, 25);
-            label121.TabIndex = 280;
-            label121.Text = "Gun is active";
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.Lime;
-            panel4.Location = new Point(536, 24);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(181, 24);
-            panel4.TabIndex = 279;
             // 
             // label118
             // 
@@ -3215,20 +3149,20 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)eTrackBar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gTrackBar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)cTrackBar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)bTrackBar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)tTrackBar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picBoxProP2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picBoxRawP2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picBoxProP1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picBoxRawP1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)eTrackBarP2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gTrackBarP2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cTrackBarP2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bTrackBarP2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tTrackBarP2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)eTrackBarP1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gTrackBarP1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cTrackBarP1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bTrackBarP1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tTrackBarP1).EndInit();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
             tabPage3.ResumeLayout(false);
@@ -3241,63 +3175,63 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private Label label18;
-        private Button button1;
+        private Button btnStart;
         private Label label13;
         private Label label14;
         private Label label11;
         private Label label12;
         private CheckBox processCheckBox;
         private CheckBox rawCheckBox;
-        private Button button11;
+        private Button btnSave;
         private Label label16;
         private TextBox borderTextBox;
         private Label label10;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
-        private TextBox textBox1;
+        private PictureBox picBoxProP2;
+        private PictureBox picBoxRawP2;
+        private PictureBox picBoxProP1;
+        private PictureBox picBoxRawP1;
+        private TextBox eTextBoxP2;
         private Label label2;
-        private TrackBar trackBar1;
-        private TextBox textBox2;
+        private TrackBar eTrackBarP2;
+        private TextBox gTextBoxP2;
         private Label label4;
-        private TrackBar trackBar2;
-        private TextBox textBox3;
+        private TrackBar gTrackBarP2;
+        private TextBox cTextBoxP2;
         private Label label5;
-        private TrackBar trackBar3;
-        private TextBox textBox4;
+        private TrackBar cTrackBarP2;
+        private TextBox bTextBoxP2;
         private Label label6;
-        private TrackBar trackBar4;
-        private TextBox textBox5;
+        private TrackBar bTrackBarP2;
+        private TextBox tTextBoxP2;
         private Label label8;
-        private TrackBar trackBar5;
-        private TextBox eTextBox;
+        private TrackBar tTrackBarP2;
+        private TextBox eTextBoxP1;
         private Label label9;
-        private TrackBar eTrackBar;
-        private TextBox gTextBox;
+        private TrackBar eTrackBarP1;
+        private TextBox gTextBoxP1;
         private Label label7;
-        private TrackBar gTrackBar;
-        private TextBox cTextBox;
+        private TrackBar gTrackBarP1;
+        private TextBox cTextBoxP1;
         private Label label3;
-        private TrackBar cTrackBar;
-        private TextBox bTextBox;
+        private TrackBar cTrackBarP1;
+        private TextBox bTextBoxP1;
         private Label bLabel;
-        private TrackBar bTrackBar;
-        private TextBox tTextBox;
+        private TrackBar bTrackBarP1;
+        private TextBox tTextBoxP1;
         private Label tLable;
-        private TrackBar tTrackBar;
-        private Button button4;
+        private TrackBar tTrackBarP1;
+        private Button btnRefreshArP2;
         private Label label20;
-        private ComboBox comboBox4;
-        private Button button5;
+        private ComboBox comBoxArP2;
+        private Button btnRefreshCamP2;
         private Label label21;
-        private ComboBox comboBox5;
-        private Button button3;
+        private ComboBox comBoxCamP2;
+        private Button btnRefreshArP1;
         private Label label19;
-        private ComboBox comboBox3;
-        private Button button2;
+        private ComboBox comBoxArP1;
+        private Button btnRefreshCamP1;
         private Label label1;
-        private ComboBox comboBox1;
+        private ComboBox comBoxCamP1;
         private TabPage tabPage2;
         private ComboBox comboBox19;
         private Label label36;
@@ -3508,11 +3442,5 @@
         private Label label118;
         private Label label117;
         private Label label119;
-        private Label label122;
-        private Panel panel5;
-        private Label label120;
-        private Panel panel3;
-        private Label label121;
-        private Panel panel4;
     }
 }

@@ -3,56 +3,40 @@
   "WorkspaceRootPath": "D:\\WPF\\LightGun\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|D:\\WPF\\LightGun\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|D:\\WPF\\LightGun\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\mainwindow.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:mainwindow.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\lightgun.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:lightgun.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\mainwindow.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:mainwindow.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\lightguncompoment\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:lightguncompoment\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\lightguncompoment\\lightgun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:lightguncompoment\\lightgun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\uicontrol\\maintab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:uicontrol\\maintab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\uicontrol\\master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:uicontrol\\master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\arduinomouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:arduinomouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\lightgun.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:lightgun.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\lightgun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:lightgun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\arduinocom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:arduinocom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\textfile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:textfile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\lightguncompoment\\imageprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:lightguncompoment\\imageprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,8 +46,85 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainTab.cs",
+              "DocumentMoniker": "D:\\WPF\\LightGun\\UIControl\\MainTab.cs",
+              "RelativeDocumentMoniker": "UIControl\\MainTab.cs",
+              "ToolTip": "D:\\WPF\\LightGun\\UIControl\\MainTab.cs",
+              "RelativeToolTip": "UIControl\\MainTab.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAiwDAAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-03T07:37:27.489Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Camera.cs",
+              "DocumentMoniker": "D:\\WPF\\LightGun\\LightGunCompoment\\Camera.cs",
+              "RelativeDocumentMoniker": "LightGunCompoment\\Camera.cs",
+              "ToolTip": "D:\\WPF\\LightGun\\LightGunCompoment\\Camera.cs",
+              "RelativeToolTip": "LightGunCompoment\\Camera.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T13:01:49.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ImageProcessor.cs",
+              "DocumentMoniker": "D:\\WPF\\LightGun\\LightGunCompoment\\ImageProcessor.cs",
+              "RelativeDocumentMoniker": "LightGunCompoment\\ImageProcessor.cs",
+              "ToolTip": "D:\\WPF\\LightGun\\LightGunCompoment\\ImageProcessor.cs",
+              "RelativeToolTip": "LightGunCompoment\\ImageProcessor.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAhwD4AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T12:41:43.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Master.cs",
+              "DocumentMoniker": "D:\\WPF\\LightGun\\UIControl\\Master.cs",
+              "RelativeDocumentMoniker": "UIControl\\Master.cs",
+              "ToolTip": "D:\\WPF\\LightGun\\UIControl\\Master.cs",
+              "RelativeToolTip": "UIControl\\Master.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T11:46:06.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LightGun.cs",
+              "DocumentMoniker": "D:\\WPF\\LightGun\\LightGunCompoment\\LightGun.cs",
+              "RelativeDocumentMoniker": "LightGunCompoment\\LightGun.cs",
+              "ToolTip": "D:\\WPF\\LightGun\\LightGunCompoment\\LightGun.cs",
+              "RelativeToolTip": "LightGunCompoment\\LightGun.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAkwD0AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T11:41:40.184Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\WPF\\LightGun\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\WPF\\LightGun\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAwwKUAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T11:47:25.08Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -75,106 +136,28 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-02T08:38:02.164Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\WPF\\LightGun\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\WPF\\LightGun\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCsAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T12:32:00.11Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\WPF\\LightGun\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\WPF\\LightGun\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAQwA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-17T11:47:25.08Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "LightGun.cs",
-              "DocumentMoniker": "D:\\WPF\\LightGun\\LightGun.cs",
-              "RelativeDocumentMoniker": "LightGun.cs",
-              "ToolTip": "D:\\WPF\\LightGun\\LightGun.cs",
-              "RelativeToolTip": "LightGun.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHoAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T07:15:26.213Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainWindow.cs",
-              "DocumentMoniker": "D:\\WPF\\LightGun\\MainWindow.cs",
-              "RelativeDocumentMoniker": "MainWindow.cs",
-              "ToolTip": "D:\\WPF\\LightGun\\MainWindow.cs*",
-              "RelativeToolTip": "MainWindow.cs*",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAowBcAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T09:36:49.58Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ArduinoMouse.cs",
-              "DocumentMoniker": "D:\\WPF\\LightGun\\ArduinoMouse.cs",
-              "RelativeDocumentMoniker": "ArduinoMouse.cs",
-              "ToolTip": "D:\\WPF\\LightGun\\ArduinoMouse.cs",
-              "RelativeToolTip": "ArduinoMouse.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T07:13:09.188Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Camera.cs",
-              "DocumentMoniker": "D:\\WPF\\LightGun\\Camera.cs",
-              "RelativeDocumentMoniker": "Camera.cs",
-              "ToolTip": "D:\\WPF\\LightGun\\Camera.cs",
-              "RelativeToolTip": "Camera.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAowCEAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T06:27:52.698Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "D:\\WPF\\LightGun\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\WPF\\LightGun\\Form1.cs [Design]",
-              "RelativeToolTip": "Form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T14:27:17.052Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LightGun.csproj",
-              "DocumentMoniker": "D:\\WPF\\LightGun\\LightGun.csproj",
-              "RelativeDocumentMoniker": "LightGun.csproj",
-              "ToolTip": "D:\\WPF\\LightGun\\LightGun.csproj",
-              "RelativeToolTip": "LightGun.csproj",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-31T09:33:58.057Z",
-              "EditorCaption": ""
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "400acbb8-1c7b-48ee-a616-b81544546c8b",
+        "Display": 0,
+        "X": 109,
+        "Y": 202,
+        "Width": 1539,
+        "Height": 801,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -183,50 +166,23 @@
               "RelativeDocumentMoniker": "MainWindow.Designer.cs",
               "ToolTip": "D:\\WPF\\LightGun\\MainWindow.Designer.cs*",
               "RelativeToolTip": "MainWindow.Designer.cs*",
-              "ViewState": "AgIAALcEAAAAAAAAAAAcwLcEAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAACUKAAAAAAAAAAAAADIKAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-31T09:36:13.344Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "LightGun",
-              "DocumentMoniker": "D:\\WPF\\LightGun\\LightGun.csproj",
-              "RelativeDocumentMoniker": "LightGun.csproj",
-              "ToolTip": "D:\\WPF\\LightGun\\LightGun.csproj",
-              "RelativeToolTip": "LightGun.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-06T14:00:55.079Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ArduinoCom.cs",
-              "DocumentMoniker": "D:\\WPF\\LightGun\\ArduinoCom.cs",
-              "RelativeDocumentMoniker": "ArduinoCom.cs",
-              "ToolTip": "D:\\WPF\\LightGun\\ArduinoCom.cs",
-              "RelativeToolTip": "ArduinoCom.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwCcAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.cs",
+              "DocumentMoniker": "D:\\WPF\\LightGun\\MainWindow.cs",
+              "RelativeDocumentMoniker": "MainWindow.cs",
+              "ToolTip": "D:\\WPF\\LightGun\\MainWindow.cs*",
+              "RelativeToolTip": "MainWindow.cs*",
+              "ViewState": "AgIAAKgAAAAAAAAAAADgv80AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T13:32:25.869Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "TextFile1.txt",
-              "DocumentMoniker": "D:\\WPF\\LightGun\\TextFile1.txt",
-              "RelativeDocumentMoniker": "TextFile1.txt",
-              "ToolTip": "D:\\WPF\\LightGun\\TextFile1.txt",
-              "RelativeToolTip": "TextFile1.txt",
-              "ViewState": "AgIAAJ8EAAAAAAAAAAAYwAkFAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-10-21T12:30:29.864Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "WhenOpened": "2025-01-31T09:36:49.58Z",
+              "EditorCaption": ""
             }
           ]
         }

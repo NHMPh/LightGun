@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LightGun
+namespace LightGun.LightGunCompoment
 {
     public class ArduinoMouse
     {
@@ -26,15 +26,15 @@ namespace LightGun
         }
         public bool isOpen()
         {
-            return this.port.IsOpen;
+            return port.IsOpen;
         }
         public void ClosePort()
         {
-            this.port.Close();
+            port.Close();
         }
         public void SendCursorPos(Point point)
         {
-            String data = $"0 {point.X} {point.Y}\n";
+            string data = $"0 {point.X} {point.Y}\n";
             if (port.BytesToWrite == 0)
             {
                 port.Write(data);

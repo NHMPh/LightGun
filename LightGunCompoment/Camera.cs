@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace LightGun
+namespace LightGun.LightGunCompoment
 {
     public class Camera
     {
@@ -25,7 +25,7 @@ namespace LightGun
 
         public void OpenCamera(int index)
         {
-            camera = new VideoCapture(index);
+            camera = new VideoCapture(index,VideoCapture.API.DShow);
             camera.Set(CapProp.FrameWidth, ixres);
             camera.Set(CapProp.FrameHeight, iyres);
             camera.Set(CapProp.Fps, 60);
@@ -33,7 +33,6 @@ namespace LightGun
 
         public Image<Bgr, byte> GetVideoFrame()
         {
-            camera.Read(frame);
             camera.Read(frame);
             CvInvoke.Resize(frame, frame, frameSize);
             image = frame.ToImage<Bgr, byte>();

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using static Emgu.CV.ML.KNearest;
 using System.Windows.Forms;
 
-namespace LightGun
+namespace LightGun.LightGunCompoment
 {
     public class ImageProcessor
     {
@@ -28,8 +28,8 @@ namespace LightGun
         PointF bottomRight = PointF.Empty;
         PointF bottomLeft = PointF.Empty;
 
-        private Image<Gray, Byte> processImage;
-        private Image<Bgr, Byte> rawImage;
+        private Image<Gray, byte> processImage;
+        private Image<Bgr, byte> rawImage;
         private Mat hierarchy = new Mat();
         private Mat matrix = new Mat();
         private Mat transformedPointMat = new Mat();
@@ -47,10 +47,13 @@ namespace LightGun
 
         public Bitmap GetRawImage()
         {
-            return rawImage.ToBitmap();
+            if (rawImage != null)
+                return rawImage.ToBitmap();
+            else return null;
         }
         public Bitmap GetProcessImage()
         {
+            if (processImage == null) return null;
             var process = processImage.ToBitmap().ToImage<Bgr, byte>();
             var pointToTrack = new PointF(ixres / 2 + xOffset, iyres / 2 + yOffset);
             process.Draw(new CircleF(topLeft, 20), new Bgr(0, 0, 255), 10);
@@ -81,7 +84,7 @@ namespace LightGun
         {
 
             rawImage = image;
-            processImage = rawImage.Convert<Gray, Byte>();
+            processImage = rawImage.Convert<Gray, byte>();
 
             CvInvoke.Threshold(processImage, processImage, thresdhold, 255, ThresholdType.Binary);
             VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
@@ -98,7 +101,7 @@ namespace LightGun
 
 
             VectorOfPoint biggest = BiggestContour(contourList);
-           
+
 
             if (biggest.Size == 4)
             {
