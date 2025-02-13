@@ -1,19 +1,7 @@
 ﻿using AForge;
 using AForge.Video.DirectShow;
-using LightGun.LightGunCompoment;
 using LightGun.UIControl;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace LightGun
@@ -54,46 +42,88 @@ namespace LightGun
             btnRefreshArP2.Click += BtnRefresh;
 
             btnStart.Click += master.mainTab.Start;
-            btnSave.Click += master.mainTab.SaveSetting;
+            btnSave.Click += master.SaveSetting;
+            btnSaveCali.Click += master.SaveSetting;
 
-            // Camera Slider
-            tTrackBarP1.ValueChanged += master.mainTab.tTrackBarP1;
             tTrackBarP1.ValueChanged += TTrackBarP1_ValueChanged;
-
-            bTrackBarP1.ValueChanged += master.mainTab.bTrackBarP1;
             bTrackBarP1.ValueChanged += BTrackBarP1_ValueChanged;
-
-            cTrackBarP1.ValueChanged += master.mainTab.cTrackBarP1;
             cTrackBarP1.ValueChanged += CTrackBarP1_ValueChanged;
-
-            gTrackBarP1.ValueChanged += master.mainTab.gTrackBarP1;
             gTrackBarP1.ValueChanged += GTrackBarP1_ValueChanged;
-
-            eTrackBarP1.ValueChanged += master.mainTab.eTrackBarP1;
             eTrackBarP1.ValueChanged += ETrackBarP1_ValueChanged;
-
-            tTrackBarP2.ValueChanged += master.mainTab.tTrackBarP2;
             tTrackBarP2.ValueChanged += TTrackBarP2_ValueChanged;
-
-            bTrackBarP2.ValueChanged += master.mainTab.bTrackBarP2;
             bTrackBarP2.ValueChanged += BTrackBarP2_ValueChanged;
-
-            cTrackBarP2.ValueChanged += master.mainTab.cTrackBarP2;
             cTrackBarP2.ValueChanged += CTrackBarP2_ValueChanged;
-
-            gTrackBarP2.ValueChanged += master.mainTab.gTrackBarP2;
             gTrackBarP2.ValueChanged += GTrackBarP2_ValueChanged;
-
-            eTrackBarP2.ValueChanged += master.mainTab.eTrackBarP2;
             eTrackBarP2.ValueChanged += ETrackBarP2_ValueChanged;
+            LoadSetting();
+            tTrackBarP1.ValueChanged += master.mainTab.tTrackBarP1;
+            bTrackBarP1.ValueChanged += master.mainTab.bTrackBarP1;
+            cTrackBarP1.ValueChanged += master.mainTab.cTrackBarP1;
+            gTrackBarP1.ValueChanged += master.mainTab.gTrackBarP1;
+            eTrackBarP1.ValueChanged += master.mainTab.eTrackBarP1;
+            tTrackBarP2.ValueChanged += master.mainTab.tTrackBarP2;
+            bTrackBarP2.ValueChanged += master.mainTab.bTrackBarP2;
+            cTrackBarP2.ValueChanged += master.mainTab.cTrackBarP2;
+            gTrackBarP2.ValueChanged += master.mainTab.gTrackBarP2;
+            eTrackBarP2.ValueChanged += master.mainTab.eTrackBarP2;
+
+            //Calibration Tab UI
+            up10ButtonP1.Click += master.calibrationTab.up10ButtonP1;
+            down10ButtonP1.Click += master.calibrationTab.down10ButtonP1;
+            left10ButtonP1.Click += master.calibrationTab.left10ButtonP1;
+            right10ButtonP1.Click += master.calibrationTab.right10ButtonP1;
+
+            up1ButtonP1.Click += master.calibrationTab.up1ButtonP1;
+            down1ButtonP1.Click += master.calibrationTab.down1ButtonP1;
+            left1ButtonP1.Click += master.calibrationTab.left1ButtonP1;
+            right1ButtonP1.Click += master.calibrationTab.right1ButtonP1;
+
+            up10ButtonP2.Click += master.calibrationTab.up10ButtonP2;
+            down10ButtonP2.Click += master.calibrationTab.down10ButtonP2;
+            left10ButtonP2.Click += master.calibrationTab.left10ButtonP2;
+            right10ButtonP2.Click += master.calibrationTab.right10ButtonP2;
+
+            up1ButtonP2.Click += master.calibrationTab.up1ButtonP2;
+            down1ButtonP2.Click += master.calibrationTab.down1ButtonP2;
+            left1ButtonP2.Click += master.calibrationTab.left1ButtonP2;
+            right1ButtonP2.Click += master.calibrationTab.right1ButtonP2;
+
+            //Button AssignmentTab UI
+
+            for(int i=0; i < 88;i++)
+            {
+                ComboBox comboBox = this.Controls.Find($"comboBox{i+1}", true)[0] as ComboBox;
+                if (comboBox != null)
+                {
+                    comboBox.SelectedIndex = 0;
+                    comboBox.SelectedIndexChanged += master.buttonAssignmentTab.ComboBoxChangeButton;
+                }
+            }
         }
 
        
 
+        private void LoadSetting()
+        {
+            tTrackBarP1.Value = master.Settings.Players[0].Threshold;
+            bTrackBarP1.Value = master.Settings.Players[0].Brightness;
+            cTrackBarP1.Value = master.Settings.Players[0].Contrast;
+            gTrackBarP1.Value = master.Settings.Players[0].Gamma;
+            eTrackBarP1.Value = master.Settings.Players[0].Exposure;
+
+            tTrackBarP2.Value = master.Settings.Players[1].Threshold;
+            bTrackBarP2.Value = master.Settings.Players[1].Brightness;
+            cTrackBarP2.Value = master.Settings.Players[1].Contrast;
+            gTrackBarP2.Value = master.Settings.Players[1].Gamma;
+            eTrackBarP2.Value = master.Settings.Players[1].Exposure;
+
+            borderTextBox.Text = master.Settings.Border.ToString();
+        }
+
         private void BtnRefresh(object? sender, EventArgs e)
         {
 
-            comBoxCamP1.Items.Clear(); 
+            comBoxCamP1.Items.Clear();
             comBoxCamP2.Items.Clear();
             comBoxArP1.Items.Clear();
             comBoxArP2.Items.Clear();
@@ -110,7 +140,7 @@ namespace LightGun
             comBoxCamP1.Sorted = false;
             comBoxCamP2.Sorted = false;
             comBoxArP1.Sorted = false;
-            comBoxArP2.Sorted=false;
+            comBoxArP2.Sorted = false;
             // Add each video device to the ComboBox
             foreach (FilterInfo device in videoDevices)
             {
@@ -120,7 +150,7 @@ namespace LightGun
             comBoxCamP1.Sorted = false;
             comBoxCamP2.Sorted = false;
 
-            foreach(var port in ports)
+            foreach (var port in ports)
             {
                 comBoxArP1.Items.Add((string)port);
                 comBoxArP2.Items.Add((string)port);
@@ -182,11 +212,13 @@ namespace LightGun
         private void ComBoxCamP2_SelectedIndexChanged(object? sender, EventArgs e)
         {
             Task.Run(async () => await FetchVideoP2());
+
         }
 
         private void ComBoxCamP1_SelectedIndexChanged(object? sender, EventArgs e)
         {
             Task.Run(async () => await FetchVideoP1());
+
         }
         private async Task FetchVideoP1()
         {
@@ -207,12 +239,49 @@ namespace LightGun
             while (true)
             {
                 //Display video
-                if(rawCheckBox.Checked)
-                master.mainTab.picBoxRawP2(picBoxRawP2);
-                if(processCheckBox.Checked)
-                master.mainTab.picBoxProP2(picBoxProP2);
+                if (rawCheckBox.Checked)
+                    master.mainTab.picBoxRawP2(picBoxRawP2);
+                if (processCheckBox.Checked)
+                    master.mainTab.picBoxProP2(picBoxProP2);
                 await Task.Delay(16);
             }
         }
+
+        private TransparentForm border;
+        public void OpenBorder()
+        {
+            int screenWidth = Screen.PrimaryScreen.Bounds.Width;
+            int screenHeight = Screen.PrimaryScreen.Bounds.Height;
+
+            if (border != null && border.Visible)
+            {
+                border.Dispose();
+                border = null;
+
+            }
+            else
+            {
+                border = new TransparentForm(int.Parse(borderTextBox.Text), screenWidth, screenHeight);
+                border.Show();
+
+            }
+        }
+        public void StartStop()
+        {
+            master.mainTab.Start(this.btnStart, null);
+        }
+
+
+        private void borderTextBox_KeyDown(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+                master.Settings.Border = int.Parse(borderTextBox.Text);
+            }
+
+        }
+
+       
     }
 }

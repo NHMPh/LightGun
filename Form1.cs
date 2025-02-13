@@ -81,8 +81,8 @@ namespace LightGun
             sWidth = settings.Border;
             borderTextBox.Text = sWidth.ToString();
             LoadWebcams();
-            clickOutside = settings.ClickOutSide;
-            holdOutside = settings.HoldOutSide;
+            //clickOutside = settings.ClickOutSide;
+            //holdOutside = settings.HoldOutSide;
             clickOutComboBox.SelectedItem = clickOutside.ToString();
             holdOutComboBox.SelectedItem = holdOutside.ToString();
             string script = $@"
@@ -161,66 +161,66 @@ StopTimer(){{
         private void SetCamera()
         {
 
-            // Set the capture resolution
-            capture.Set(CapProp.FrameWidth, ixres);
-            capture.Set(CapProp.FrameHeight, iyres);
-            capture.Set(CapProp.Fps, 30);
+            //// Set the capture resolution
+            //capture.Set(CapProp.FrameWidth, ixres);
+            //capture.Set(CapProp.FrameHeight, iyres);
+            //capture.Set(CapProp.Fps, 30);
 
-            // Path to the JSON file
+            //// Path to the JSON file
 
-            // Read the JSON file
+            //// Read the JSON file
 
-            // Deserialize the JSON content into the Settings class
+            //// Deserialize the JSON content into the Settings class
 
-            // Assign the values to the variables
-            threadhold = settings.Threadhold;
-            brightness = settings.Brightness;
-            contrast = settings.Contrast;
-            hue = settings.Hue;
-            saturation = settings.Saturation;
-            sharpness = settings.Sharpness;
-            gamma = settings.Gamma;
-            whiteBalance = settings.WhiteBalance;
-            exposure = settings.Exposure;
+            //// Assign the values to the variables
+            //threadhold = settings.Threadhold;
+            //brightness = settings.Brightness;
+            //contrast = settings.Contrast;
+            //hue = settings.Hue;
+            //saturation = settings.Saturation;
+            //sharpness = settings.Sharpness;
+            //gamma = settings.Gamma;
+            //whiteBalance = settings.WhiteBalance;
+            //exposure = settings.Exposure;
 
-            xOffset = settings.Xoffset;
-            yOffset = settings.Yoffset;
-
-
-
-            tTrackBar.Value = threadhold;
-            bTrackBar.Value = brightness;
-            cTrackBar.Value = contrast;
-            hTrackBar.Value = hue;
-            saTrackBar.Value = saturation;
-            shTrackBar.Value = sharpness;
-            gTrackBar.Value = gamma;
-            wTrackBar.Value = whiteBalance;
-            eTrackBar.Value = exposure;
+            //xOffset = settings.Xoffset;
+            //yOffset = settings.Yoffset;
 
 
 
-
-            tTextBox.Text = threadhold.ToString();
-            bTextBox.Text = brightness.ToString();
-            cTextBox.Text = contrast.ToString();
-            hTextBox.Text = hue.ToString();
-            saTextBox.Text = saturation.ToString();
-            shTextBox.Text = sharpness.ToString();
-            gTextBox.Text = gamma.ToString();
-            wTextBox.Text = whiteBalance.ToString();
-            eTextBox.Text = exposure.ToString();
-
+            //tTrackBar.Value = threadhold;
+            //bTrackBar.Value = brightness;
+            //cTrackBar.Value = contrast;
+            //hTrackBar.Value = hue;
+            //saTrackBar.Value = saturation;
+            //shTrackBar.Value = sharpness;
+            //gTrackBar.Value = gamma;
+            //wTrackBar.Value = whiteBalance;
+            //eTrackBar.Value = exposure;
 
 
-            capture.Set(CapProp.Brightness, brightness);
-            capture.Set(CapProp.Contrast, contrast);
-            capture.Set(CapProp.Hue, hue);
-            capture.Set(CapProp.Saturation, saturation);
-            capture.Set(CapProp.Sharpness, sharpness);
-            capture.Set(CapProp.Gamma, gamma);
-            capture.Set(CapProp.WhiteBalanceRedV, whiteBalance);
-            capture.Set(CapProp.Exposure, exposure);
+
+
+            //tTextBox.Text = threadhold.ToString();
+            //bTextBox.Text = brightness.ToString();
+            //cTextBox.Text = contrast.ToString();
+            //hTextBox.Text = hue.ToString();
+            //saTextBox.Text = saturation.ToString();
+            //shTextBox.Text = sharpness.ToString();
+            //gTextBox.Text = gamma.ToString();
+            //wTextBox.Text = whiteBalance.ToString();
+            //eTextBox.Text = exposure.ToString();
+
+
+
+            //capture.Set(CapProp.Brightness, brightness);
+            //capture.Set(CapProp.Contrast, contrast);
+            //capture.Set(CapProp.Hue, hue);
+            //capture.Set(CapProp.Saturation, saturation);
+            //capture.Set(CapProp.Sharpness, sharpness);
+            //capture.Set(CapProp.Gamma, gamma);
+            //capture.Set(CapProp.WhiteBalanceRedV, whiteBalance);
+            //capture.Set(CapProp.Exposure, exposure);
 
         }
 
@@ -478,49 +478,49 @@ StopTimer(){{
         private void up10Button_Click(object sender, EventArgs e)
         {
             yOffset -= 10;
-            settings.Yoffset = (int)yOffset;
+            //settings.Yoffset = (int)yOffset;
         }
 
         private void down10Button_Click(object sender, EventArgs e)
         {
             yOffset += 10;
-            settings.Yoffset = (int)yOffset;
+          //  settings.Yoffset = (int)yOffset;
         }
 
         private void left10Button_Click(object sender, EventArgs e)
         {
             xOffset -= 10;
-            settings.Xoffset = (int)xOffset;
+           // settings.Xoffset = (int)xOffset;
         }
 
         private void right10Button_Click(object sender, EventArgs e)
         {
             xOffset += 10;
-            settings.Xoffset = (int)xOffset;
+           // settings.Xoffset = (int)xOffset;
         }
 
         private void up1Button_Click(object sender, EventArgs e)
         {
             yOffset -= 1;
-            settings.Yoffset = (int)yOffset;
+           // settings.Yoffset = (int)yOffset;
         }
 
         private void down1Button_Click(object sender, EventArgs e)
         {
             yOffset += 1;
-            settings.Yoffset = (int)yOffset;
+           // settings.Yoffset = (int)yOffset;
         }
 
         private void left1Button_Click(object sender, EventArgs e)
         {
             xOffset -= 1;
-            settings.Xoffset = (int)xOffset;
+          //  settings.Xoffset = (int)xOffset;
         }
 
         private void right1Button_Click(object sender, EventArgs e)
         {
             xOffset += 1;
-            settings.Xoffset = (int)xOffset;
+           // settings.Xoffset = (int)xOffset;
         }
 
 

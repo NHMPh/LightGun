@@ -46,11 +46,19 @@ namespace LightGun.UIControl
         public void ComBoxCamP1(object sender, EventArgs e)
         {
             int cameraIndex = (sender as ComboBox).SelectedIndex;
+            if(lightGunP2.CamIndex == cameraIndex)
+            {
+                lightGunP2.CloseCamera();
+            }
             lightGunP1.SetAndStartCamera(cameraIndex);
         }
         public void ComBoxCamP2(object sender, EventArgs e)
         {
             int cameraIndex = (sender as ComboBox).SelectedIndex;
+            if (lightGunP1.CamIndex == cameraIndex)
+            {
+                lightGunP1.CloseCamera();
+            }
             lightGunP2.SetAndStartCamera(cameraIndex);
         }
         public void ComBoxArP1(object sender, EventArgs e)
@@ -79,10 +87,6 @@ namespace LightGun.UIControl
         public void picBoxProP2(PictureBox sender)
         {
             sender.Image = lightGunP2.GetProcessImage();
-        }
-        public void SaveSetting(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
         //
         public void tTrackBarP1(object sender, EventArgs e)

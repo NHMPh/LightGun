@@ -6,21 +6,20 @@ using System.Threading.Tasks;
 
 namespace LightGun
 {
-    public class Settings
+    public class PlayerSettings
     {
-        public int Threadhold { get; set; }
+        public int Threshold { get; set; }
         public int Xoffset { get; set; }
         public int Yoffset { get; set; }
         public int Brightness { get; set; }
         public int Contrast { get; set; }
-        public int Hue { get; set; }
-        public int Saturation { get; set; }
-        public int Sharpness { get; set; }
         public int Gamma { get; set; }
-        public int WhiteBalance { get; set; }
         public int Exposure { get; set; }
+    }
+
+    public class Settings
+    {
+        public PlayerSettings[] Players { get; set; }
         public float Border { get; set; }
-        public string ClickOutSide { get; set; }
-        public string HoldOutSide { get; set; }
     }
 }

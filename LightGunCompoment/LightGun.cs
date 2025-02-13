@@ -9,12 +9,25 @@ using System.Threading.Tasks;
 using Emgu.CV.CvEnum;
 using Emgu.CV.XPhoto;
 using System.Diagnostics.Contracts;
+using System.Text.Json;
 
 namespace LightGun.LightGunCompoment
 {
     public class LightGun
     {
         private int index = 0;
+
+        public int Index { get { return index; } }
+
+
+        private int camIndex = 0;
+
+        public int CamIndex { get { return camIndex; } }
+
+        private string comPortString = "";
+
+        public string ComPortString { get { return comPortString; } }
+
         private int xOffset;
         private int yOffset;
         // Camera Property
@@ -28,6 +41,12 @@ namespace LightGun.LightGunCompoment
         private int whiteBalance;
         private int exposure;
 
+        public int Threshold { get { return thresdhold; } }
+        public int Brightness { get { return brightness; } }
+        public int Contrast { get { return contrast; } }
+        public int Gamma { get { return gamma; } }
+        public int Exposure { get { return Exposure; } }
+
         private bool isStart = false;
 
         private Camera camera = new Camera();
@@ -35,40 +54,39 @@ namespace LightGun.LightGunCompoment
         private ArduinoMouse arduinoMouse = new ArduinoMouse();
         private Image<Bgr, byte> image;
         private Point point;
-        public LightGun(int index)
+
+
+        private Settings settings;
+        public LightGun(int index, Settings settings)
         {
             this.index = index;
+            this.settings = settings;
+            LoadSetting();
         }
-        public LightGun(int xOffset, int yOffset, int thresdhold, int brightness, int contrast, int hue, int saturation, int sharpness, int gamma, int whiteBalance, int exposure)
+        private void LoadSetting()
         {
-            this.xOffset = xOffset;
-            this.yOffset = yOffset;
-            this.thresdhold = thresdhold;
-            this.brightness = brightness;
-            this.contrast = contrast;
-            this.hue = hue;
-            this.saturation = saturation;
-            this.sharpness = sharpness;
-            this.gamma = gamma;
-            this.whiteBalance = whiteBalance;
-            this.exposure = exposure;
-
+            thresdhold = settings.Players[index].Threshold;
+            brightness = settings.Players[index].Brightness;
+            contrast = settings.Players[index].Contrast;
+            exposure = settings.Players[index].Exposure;
+            xOffset = settings.Players[index].Xoffset;
+            yOffset = settings.Players[index].Yoffset;
         }
-
+        public void CloseCamera()
+        {
+            camera.CloseCamera();
+        }
         public void SetAndStartCamera(int index)
         {
             try
             {
+                camIndex = index;
                 camera.OpenCamera(index);
-                //camera.SetBrightness(brightness);
-                //camera.SetContrast(contrast);
-                //camera.SetHue(hue);
-                //camera.SetSharpness(sharpness);
-                //camera.SetSaturation(saturation);
-                //camera.SetWhiteBalance(whiteBalance);
-                //camera.SetExposure(exposure);
-                //processor.SetOffset(xOffset, yOffset);
-                //processor.SetThresdHold(thresdhold);
+                camera.SetBrightness(brightness);
+                camera.SetContrast(contrast);
+                camera.SetExposure(exposure);
+                processor.SetOffset(xOffset, yOffset);
+                processor.SetThresdHold(thresdhold);
                 Task.Run(async () => await StreamVideo());
             }
             catch (Exception e)
@@ -82,12 +100,14 @@ namespace LightGun.LightGunCompoment
         {
             camera.SetBrightness(brightness);
             this.brightness = brightness;
+            settings.Players[index].Brightness = brightness;
         }
 
         public void SetCameraContrast(int contrast)
         {
             camera.SetContrast(contrast);
             this.contrast = contrast;
+            settings.Players[index].Contrast = contrast;
         }
 
         public void SetCameraHue(int hue)
@@ -110,6 +130,7 @@ namespace LightGun.LightGunCompoment
         {
             camera.SetGamma(saturation);
             this.gamma = gamma;
+            settings.Players[index].Gamma = gamma;
         }
 
         public void SetCameraWhiteBalance(int whiteBalance)
@@ -122,26 +143,35 @@ namespace LightGun.LightGunCompoment
         {
             camera.SetExposure(exposure);
             this.exposure = exposure;
+            settings.Players[index].Exposure = exposure;
         }
 
         public void SetProcessorOffset(int xOffset, int yOffset)
         {
-            processor.SetOffset(xOffset, yOffset);
-            this.xOffset = xOffset;
-            this.yOffset = yOffset;
+            this.xOffset += xOffset;
+            this.yOffset += yOffset;
+            processor.SetOffset(this.xOffset,this.yOffset);
+            settings.Players[index].Xoffset = this.xOffset;
+            settings.Players[index].Yoffset = this.yOffset;
         }
+     
 
         public void SetProcessorThreadHold(int thresdhold)
         {
             processor.SetThresdHold(thresdhold);
             this.thresdhold = thresdhold;
+            settings.Players[index].Threshold = thresdhold;
         }
 
         public void SetArduinoMouse(string comPort)
         {
             arduinoMouse.OpenPort(comPort);
+            comPortString = comPort;
         }
-
+        public void SetButton(int type,int index,byte buttonCode)
+        {
+            arduinoMouse.SendNewButtonAssignment(type,index,buttonCode);
+        }
         public Bitmap GetRawImage()
         {
             return processor.GetRawImage();
@@ -170,7 +200,10 @@ namespace LightGun.LightGunCompoment
                     //processor contains raw and process images
                     point = processor.GetPointingCoordinate(image);
                     if (arduinoMouse.isOpen() && isStart)
+                    {
                         arduinoMouse.SendCursorPos(point);
+                    }
+
                     await Task.Delay(16);
                 }
                 catch

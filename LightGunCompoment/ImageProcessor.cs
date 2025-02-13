@@ -2,14 +2,8 @@
 using Emgu.CV.Structure;
 using Emgu.CV.Util;
 using Emgu.CV;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using static Emgu.CV.ML.KNearest;
-using System.Windows.Forms;
+
 
 namespace LightGun.LightGunCompoment
 {
@@ -90,6 +84,7 @@ namespace LightGun.LightGunCompoment
             VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
             CvInvoke.FindContours(processImage, contours, hierarchy, RetrType.Tree, ChainApproxMethod.ChainApproxSimple);
             List<VectorOfPoint> contourList = new List<VectorOfPoint>();
+
             for (int i = 0; i < contours.Size; i++)
             {
                 if (contours[i].Size >= 4)
@@ -98,7 +93,6 @@ namespace LightGun.LightGunCompoment
                 }
 
             }
-
 
             VectorOfPoint biggest = BiggestContour(contourList);
 
@@ -161,16 +155,11 @@ namespace LightGun.LightGunCompoment
                     // Get the perspective transformation matrix
                     matrix = CvInvoke.GetPerspectiveTransform(srcPoints, dstPoints);
                     // Apply the perspective transformation
-
                     CvInvoke.PerspectiveTransform(pointMat, transformedPointMat, matrix);
                     // Convert the transformed Mat back to PointF
                     float[] transformedPointValues = new float[2];
                     Marshal.Copy(transformedPointMat.DataPointer, transformedPointValues, 0, 2);
-
-
                     Point returnPoint = new Point((int)transformedPointValues[0], (int)transformedPointValues[1]);
-
-
 
                     return returnPoint;
                 }

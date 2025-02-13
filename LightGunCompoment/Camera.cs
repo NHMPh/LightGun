@@ -25,6 +25,8 @@ namespace LightGun.LightGunCompoment
 
         public void OpenCamera(int index)
         {
+            if(camera!=null)
+            CloseCamera();
             camera = new VideoCapture(index,VideoCapture.API.DShow);
             camera.Set(CapProp.FrameWidth, ixres);
             camera.Set(CapProp.FrameHeight, iyres);

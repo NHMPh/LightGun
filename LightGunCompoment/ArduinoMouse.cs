@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LightGun.LightGunCompoment
 {
@@ -33,12 +29,22 @@ namespace LightGun.LightGunCompoment
             port.Close();
         }
         public void SendCursorPos(Point point)
-        {
+        {      
             string data = $"0 {point.X} {point.Y}\n";
-            if (port.BytesToWrite == 0)
-            {
-                port.Write(data);
-            }
+           
+            while (port.BytesToWrite != 0);    
+            
+            port.Write(data);
+        }
+        public void SendNewButtonAssignment(int type, int index,byte buttonCode)
+        {
+            //type = 0 normal type = 1 offscreen  
+            string data = $"1 {type} {index} {buttonCode}\n";
+
+            while (port.BytesToWrite != 0) ;
+            
+            port.Write(data);
+            
         }
     }
 }
