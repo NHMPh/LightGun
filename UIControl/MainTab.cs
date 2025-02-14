@@ -10,7 +10,7 @@ namespace LightGun.UIControl
 {
     internal class MainTab
     {
-       
+
 
         private LightGunCompoment.LightGun lightGunP1;
         private LightGunCompoment.LightGun lightGunP2;
@@ -18,7 +18,7 @@ namespace LightGun.UIControl
         public MainTab(LightGunCompoment.LightGun lightGunP1, LightGunCompoment.LightGun lightGunP2)
         {
             this.lightGunP1 = lightGunP1;
-            this.lightGunP2 = lightGunP2;        
+            this.lightGunP2 = lightGunP2;
         }
 
         public void Start(object? sender, EventArgs e)
@@ -40,13 +40,13 @@ namespace LightGun.UIControl
             else
             {
                 button.BackColor = Color.Green;
-                button.Text= "Start";
+                button.Text = "Start";
             }
         }
         public void ComBoxCamP1(object sender, EventArgs e)
         {
             int cameraIndex = (sender as ComboBox).SelectedIndex;
-            if(lightGunP2.CamIndex == cameraIndex)
+            if (lightGunP2.CamIndex == cameraIndex)
             {
                 lightGunP2.CloseCamera();
             }
@@ -63,30 +63,45 @@ namespace LightGun.UIControl
         }
         public void ComBoxArP1(object sender, EventArgs e)
         {
+            if ((sender as ComboBox).SelectedIndex == -1) return;
             string arduinoIndex = (sender as ComboBox).SelectedItem.ToString();
             lightGunP1.SetArduinoMouse(arduinoIndex);
+            if (lightGunP1.ComPortString == "")
+            {              
+                (sender as ComboBox).SelectedIndex = -1;
+            }
+
+
+
         }
         public void ComBoxArP2(object sender, EventArgs e)
         {
+            if ((sender as ComboBox).SelectedIndex == -1) return;
             string arduinoIndex = (sender as ComboBox).SelectedItem.ToString();
             lightGunP2.SetArduinoMouse(arduinoIndex); ;
+            if (lightGunP2.ComPortString == "")
+            {
+                (sender as ComboBox).SelectedIndexChanged -= ComBoxArP2;
+                (sender as ComboBox).SelectedIndex = -1;
+                (sender as ComboBox).SelectedIndexChanged += ComBoxArP2;
+            }
         }
 
-        public void picBoxRawP1(PictureBox sender)
+        public Bitmap picBoxRawP1()
         {
-            sender.Image = lightGunP1.GetRawImage();
+            return lightGunP1.GetRawImage();
         }
-        public void picBoxRawP2(PictureBox sender)
+        public Bitmap picBoxRawP2()
         {
-           sender.Image = lightGunP2.GetRawImage();
+            return lightGunP2.GetRawImage();
         }
-        public void picBoxProP1(PictureBox sender)
+        public Bitmap picBoxProP1()
         {
-            sender.Image = lightGunP1.GetProcessImage();
+            return lightGunP1.GetProcessImage();
         }
-        public void picBoxProP2(PictureBox sender)
+        public Bitmap picBoxProP2()
         {
-            sender.Image = lightGunP2.GetProcessImage();
+            return lightGunP2.GetProcessImage();
         }
         //
         public void tTrackBarP1(object sender, EventArgs e)

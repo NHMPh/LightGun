@@ -179,7 +179,7 @@
             comboBox20 = new ComboBox();
             comboBox21 = new ComboBox();
             comboBox22 = new ComboBox();
-            button15 = new Button();
+            btnSaveBuAssign = new Button();
             label114 = new Label();
             label112 = new Label();
             label113 = new Label();
@@ -915,6 +915,7 @@
             comBoxArP1.Name = "comBoxArP1";
             comBoxArP1.Size = new Size(121, 23);
             comBoxArP1.TabIndex = 184;
+            comBoxArP1.Tag = "-1";
             // 
             // btnRefreshCamP1
             // 
@@ -1036,7 +1037,7 @@
             tabPage2.Controls.Add(comboBox20);
             tabPage2.Controls.Add(comboBox21);
             tabPage2.Controls.Add(comboBox22);
-            tabPage2.Controls.Add(button15);
+            tabPage2.Controls.Add(btnSaveBuAssign);
             tabPage2.Controls.Add(label114);
             tabPage2.Controls.Add(label112);
             tabPage2.Controls.Add(label113);
@@ -2019,17 +2020,17 @@
             comboBox22.Size = new Size(100, 23);
             comboBox22.TabIndex = 299;
             // 
-            // button15
+            // btnSaveBuAssign
             // 
-            button15.BackColor = SystemColors.MenuHighlight;
-            button15.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button15.ForeColor = SystemColors.ControlLightLight;
-            button15.Location = new Point(550, 117);
-            button15.Name = "button15";
-            button15.Size = new Size(154, 46);
-            button15.TabIndex = 276;
-            button15.Text = "Save Setting";
-            button15.UseVisualStyleBackColor = false;
+            btnSaveBuAssign.BackColor = SystemColors.MenuHighlight;
+            btnSaveBuAssign.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSaveBuAssign.ForeColor = SystemColors.ControlLightLight;
+            btnSaveBuAssign.Location = new Point(550, 117);
+            btnSaveBuAssign.Name = "btnSaveBuAssign";
+            btnSaveBuAssign.Size = new Size(154, 46);
+            btnSaveBuAssign.TabIndex = 276;
+            btnSaveBuAssign.Text = "Save Setting";
+            btnSaveBuAssign.UseVisualStyleBackColor = false;
             // 
             // label114
             // 
@@ -3351,7 +3352,7 @@
         private Button left1ButtonP1;
         private Button up1ButtonP1;
         private Panel panel1;
-        private Button button15;
+        private Button btnSaveBuAssign;
         private Button btnSaveCali;
         private Label label116;
         private Label label115;

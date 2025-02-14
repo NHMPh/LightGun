@@ -2,6 +2,7 @@
 using AForge.Video.DirectShow;
 using LightGun.UIControl;
 using System.IO.Ports;
+using static LightGun.UIControl.ButtonAssignmentTab;
 using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace LightGun
@@ -33,7 +34,10 @@ namespace LightGun
             comBoxCamP2.SelectedIndexChanged += ComBoxCamP2_SelectedIndexChanged;
 
             comBoxArP1.SelectedIndexChanged += master.mainTab.ComBoxArP1;
+            comBoxArP1.SelectedIndexChanged += AssignAllButtonP1;
+
             comBoxArP2.SelectedIndexChanged += master.mainTab.ComBoxArP2;
+            comBoxArP2.SelectedIndexChanged += AssignAllButtonP2;
 
             btnRefreshCamP1.Click += BtnRefresh;
             btnRefreshCamP2.Click += BtnRefresh;
@@ -41,9 +45,12 @@ namespace LightGun
             btnRefreshArP1.Click += BtnRefresh;
             btnRefreshArP2.Click += BtnRefresh;
 
+            BtnRefresh(null, null);
+
             btnStart.Click += master.mainTab.Start;
             btnSave.Click += master.SaveSetting;
             btnSaveCali.Click += master.SaveSetting;
+            btnSaveBuAssign.Click += master.SaveSetting;
 
             tTrackBarP1.ValueChanged += TTrackBarP1_ValueChanged;
             bTrackBarP1.ValueChanged += BTrackBarP1_ValueChanged;
@@ -90,19 +97,94 @@ namespace LightGun
 
             //Button AssignmentTab UI
 
-            for(int i=0; i < 88;i++)
+            for (int i = 0; i < 88; i++)
             {
-                ComboBox comboBox = this.Controls.Find($"comboBox{i+1}", true)[0] as ComboBox;
-                if (comboBox != null)
+                
+                if (this.Controls.Find($"comboBox{i + 1}", true)[0] is ComboBox comboBox)
                 {
-                    comboBox.SelectedIndex = 0;
+                    if (i >= 0 && i <= 21)
+                    {
+                        comboBox.SelectedIndex = master.Settings.Players[0].NormalButton[i].SelectedIndex;
+                        comboBox.Tag = master.Settings.Players[0].NormalButton[i].SelectedIndex;
+                    }
+                       
+                    else if (i >= 22 && i <= 43)
+                    {
+                        comboBox.SelectedIndex = master.Settings.Players[0].OffscreenButton[i - 22].SelectedIndex;
+                        comboBox.Tag = master.Settings.Players[0].OffscreenButton[i - 22].SelectedIndex;
+                    }
+                        
+                    else if (i >= 44 && i <= 65)
+                    {
+                        comboBox.SelectedIndex = master.Settings.Players[1].NormalButton[i - 44].SelectedIndex;
+                        comboBox.Tag = master.Settings.Players[1].NormalButton[i - 44].SelectedIndex;
+                    }
+                        
+                    else if (i >= 66 && i <= 87)
+                    {
+                        comboBox.SelectedIndex = master.Settings.Players[1].OffscreenButton[i - 66].SelectedIndex;
+                        comboBox.Tag= master.Settings.Players[1].OffscreenButton[i - 66].SelectedIndex;
+                    }
+                       
+                    
                     comboBox.SelectedIndexChanged += master.buttonAssignmentTab.ComboBoxChangeButton;
+                    comboBox.SelectedIndexChanged += Unforcus;
+
                 }
             }
         }
 
-       
+        private void Unforcus(object? sender, EventArgs e)
+        {
+            label114.Focus();
+        }
 
+        public void AssignAllButtonP1(object? sender, EventArgs e)
+        {
+           
+            if (comBoxArP1.SelectedIndex == -1) return;
+            for (int i = 0; i < 43; i++)
+            {
+
+                if (this.Controls.Find($"comboBox{i + 1}", true)[0] is ComboBox comboBox)
+                {
+                    if (comboBox.SelectedIndex == 0) continue;
+
+                    if (i >= 0 && i <= 21)
+                    {
+                        master.buttonAssignmentTab.SetButton(comboBox.SelectedItem.ToString(),0, 0, i);
+                    }
+                    else if (i >= 22 && i <= 43)
+                    {
+                        master.buttonAssignmentTab.SetButton(comboBox.SelectedItem.ToString(), 0, 1, i-22);
+                    }
+                   
+                }
+            }
+        }
+        public void AssignAllButtonP2(object? sender, EventArgs e)
+        {
+            if (comBoxArP2.SelectedIndex == -1) return;
+            for (int i = 44; i < 88; i++)
+            {
+
+                if (this.Controls.Find($"comboBox{i + 1}", true)[0] is ComboBox comboBox)
+                {
+                    if (comboBox.SelectedIndex == 0) continue;
+
+                   
+                    if (i >= 44 && i <= 65)
+                    {
+                        master.buttonAssignmentTab.SetButton(comboBox.SelectedItem.ToString(), 1, 0, i - 44);
+
+                    }
+                    else if (i >= 66 && i <= 87)
+                    {
+                        master.buttonAssignmentTab.SetButton(comboBox.SelectedItem.ToString(), 1, 1, i - 66);
+                    }
+                }
+            }
+        }
         private void LoadSetting()
         {
             tTrackBarP1.Value = master.Settings.Players[0].Threshold;
@@ -227,9 +309,9 @@ namespace LightGun
             {
                 //Display video
                 if (rawCheckBox.Checked)
-                    master.mainTab.picBoxRawP1(picBoxRawP1);
+                    picBoxRawP1.Image = master.mainTab.picBoxRawP1();
                 if (processCheckBox.Checked)
-                    master.mainTab.picBoxProP1(picBoxProP1);
+                    picBoxProP1.Image = master.mainTab.picBoxProP1();
                 await Task.Delay(16);
 
             }
@@ -240,9 +322,9 @@ namespace LightGun
             {
                 //Display video
                 if (rawCheckBox.Checked)
-                    master.mainTab.picBoxRawP2(picBoxRawP2);
+                    picBoxRawP2.Image = master.mainTab.picBoxRawP2();
                 if (processCheckBox.Checked)
-                    master.mainTab.picBoxProP2(picBoxProP2);
+                    picBoxProP2.Image = master.mainTab.picBoxProP2();
                 await Task.Delay(16);
             }
         }

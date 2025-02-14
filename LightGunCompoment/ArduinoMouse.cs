@@ -38,6 +38,7 @@ namespace LightGun.LightGunCompoment
         }
         public void SendNewButtonAssignment(int type, int index,byte buttonCode)
         {
+           
             //type = 0 normal type = 1 offscreen  
             string data = $"1 {type} {index} {buttonCode}\n";
 

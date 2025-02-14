@@ -28,7 +28,7 @@ namespace LightGun.UIControl
             lightGunP2 = new LightGunCompoment.LightGun(1,settings);
             ////////
             mainTab = new MainTab(lightGunP1,lightGunP2);
-            buttonAssignmentTab = new ButtonAssignmentTab( lightGunP1, lightGunP2);
+            buttonAssignmentTab = new ButtonAssignmentTab(lightGunP1, lightGunP2);
             calibrationTab = new CalibrationTab(lightGunP1, lightGunP2);
         }
 

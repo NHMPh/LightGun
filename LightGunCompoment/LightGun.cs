@@ -150,11 +150,11 @@ namespace LightGun.LightGunCompoment
         {
             this.xOffset += xOffset;
             this.yOffset += yOffset;
-            processor.SetOffset(this.xOffset,this.yOffset);
+            processor.SetOffset(this.xOffset, this.yOffset);
             settings.Players[index].Xoffset = this.xOffset;
             settings.Players[index].Yoffset = this.yOffset;
         }
-     
+
 
         public void SetProcessorThreadHold(int thresdhold)
         {
@@ -166,11 +166,30 @@ namespace LightGun.LightGunCompoment
         public void SetArduinoMouse(string comPort)
         {
             arduinoMouse.OpenPort(comPort);
+            if(arduinoMouse.isOpen())
             comPortString = comPort;
         }
-        public void SetButton(int type,int index,byte buttonCode)
+        public bool SetButton(int type, int index, byte buttonCode)
         {
-            arduinoMouse.SendNewButtonAssignment(type,index,buttonCode);
+            if (arduinoMouse.isOpen())
+            {
+                arduinoMouse.SendNewButtonAssignment(type, index, buttonCode);
+                return true;
+            }
+
+            else
+            {
+                MessageBox.Show($"The arduino for player {this.index+1} is not open.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+        }
+                
+        public void SaveButtonSetting(int index, int type, int selectedValue)
+        {
+            if (type == 0)
+                settings.Players[this.index].NormalButton[index].SelectedIndex = selectedValue;
+            else
+                settings.Players[this.index].OffscreenButton[index].SelectedIndex = selectedValue;
         }
         public Bitmap GetRawImage()
         {
