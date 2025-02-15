@@ -6,6 +6,10 @@ namespace LightGun.LightGunCompoment
     public class ArduinoMouse
     {
         private SerialPort port = new SerialPort();
+        public ArduinoMouse()
+        {
+           
+        }
         public void OpenPort(string port)
         {
             ClosePort();
@@ -47,5 +51,6 @@ namespace LightGun.LightGunCompoment
             port.Write(data);
             
         }
+       
     }
 }

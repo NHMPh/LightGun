@@ -19,14 +19,20 @@ namespace LightGun.UIControl
         public ButtonAssignmentTab buttonAssignmentTab;
         public CalibrationTab calibrationTab;
         public OverlayPanel overlayPanel;
-        public Master()
+        public Master(MainWindow mainWindow)
         {
+            
             //Load setting
             jsonString = File.ReadAllText(jsonFilePath);
             settings = JsonSerializer.Deserialize<Settings>(jsonString);
 
             lightGunP1 = new LightGunCompoment.LightGun(0,settings);
             lightGunP2 = new LightGunCompoment.LightGun(1,settings);
+
+            lightGunP1.CameraDisconnected += mainWindow.DisconnectCameraP1;
+            lightGunP1.ArduinoDisconnected += mainWindow.DisconnectArduinoP1;
+            lightGunP2.CameraDisconnected += mainWindow.DisconnectCameraP2;
+            lightGunP2.ArduinoDisconnected += mainWindow.DisconnectArduinoP2;
             ////////
             mainTab = new MainTab(lightGunP1,lightGunP2);
             buttonAssignmentTab = new ButtonAssignmentTab(lightGunP1, lightGunP2);

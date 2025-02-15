@@ -57,5 +57,22 @@ namespace LightGun.UIControl
                 button.Text = "Start";
             }
         }
+        
+        public bool CheckCameraConnectP1()
+        {
+            return lightGunP1.CamIndex != -1;            
+        }
+        public bool CheckArduinoConnectP1()
+        {
+            return lightGunP1.ComPortString != "";
+        }
+        public bool CheckCameraConnectP2()
+        {
+            return lightGunP2.CamIndex != -1;
+        }
+        public bool CheckArduinoConnectP2()
+        {
+            return lightGunP2.ComPortString != "";
+        }
     }
 }

@@ -87,12 +87,15 @@ namespace LightGun
                         mainWindow.OpenBorder();
 
                     }
-                    if (shiftPressed && key == Keys.B)
+                    if (shiftPressed && key == Keys.D1)
                     {
 
-                        mainWindow.StartStop();
+                        mainWindow.StartStopP1(null, null);
+                    }
+                    if (shiftPressed && key == Keys.D2)
+                    {
 
-
+                        mainWindow.StartStopP2(null,null);
                     }
                 }
                 else if (wParam == (IntPtr)WM_KEYUP)

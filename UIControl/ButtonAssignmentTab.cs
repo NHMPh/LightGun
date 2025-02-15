@@ -161,7 +161,7 @@ namespace LightGun.UIControl
             if (playerIndex == 0)
                 lightGunP1.SetButton(type, index, ButtonCodeConvert(comboBoxValue));
             else
-                lightGunP1.SetButton(type, index, ButtonCodeConvert(comboBoxValue));
+                lightGunP2.SetButton(type, index, ButtonCodeConvert(comboBoxValue));
         }
     }
 }

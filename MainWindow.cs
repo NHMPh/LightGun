@@ -1,5 +1,6 @@
 ﻿using AForge;
 using AForge.Video.DirectShow;
+using LightGun.LightGunCompoment;
 using LightGun.UIControl;
 using System.IO.Ports;
 using static LightGun.UIControl.ButtonAssignmentTab;
@@ -19,7 +20,7 @@ namespace LightGun
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             KeyPreview = true;
-            master = new Master();
+            master = new Master(this);
 
             picBoxRawP1.SizeMode = PictureBoxSizeMode.StretchImage;
             picBoxRawP2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -47,8 +48,8 @@ namespace LightGun
 
             BtnRefresh(null, null);
 
-            btnStartP1.Click += master.overlayPanel.StartP1;
-            btnStartP2.Click += master.overlayPanel.StartP2;
+            btnStartP1.Click += StartStopP1;
+            btnStartP2.Click += StartStopP2;
             btnSave.Click += master.SaveSetting;
             btnSaveCali.Click += master.SaveSetting;
             btnSaveBuAssign.Click += master.SaveSetting;
@@ -100,7 +101,7 @@ namespace LightGun
 
             for (int i = 0; i < 88; i++)
             {
-                
+
                 if (this.Controls.Find($"comboBox{i + 1}", true)[0] is ComboBox comboBox)
                 {
                     if (i >= 0 && i <= 21)
@@ -108,31 +109,34 @@ namespace LightGun
                         comboBox.SelectedIndex = master.Settings.Players[0].NormalButton[i].SelectedIndex;
                         comboBox.Tag = master.Settings.Players[0].NormalButton[i].SelectedIndex;
                     }
-                       
+
                     else if (i >= 22 && i <= 43)
                     {
                         comboBox.SelectedIndex = master.Settings.Players[0].OffscreenButton[i - 22].SelectedIndex;
                         comboBox.Tag = master.Settings.Players[0].OffscreenButton[i - 22].SelectedIndex;
                     }
-                        
+
                     else if (i >= 44 && i <= 65)
                     {
                         comboBox.SelectedIndex = master.Settings.Players[1].NormalButton[i - 44].SelectedIndex;
                         comboBox.Tag = master.Settings.Players[1].NormalButton[i - 44].SelectedIndex;
                     }
-                        
+
                     else if (i >= 66 && i <= 87)
                     {
                         comboBox.SelectedIndex = master.Settings.Players[1].OffscreenButton[i - 66].SelectedIndex;
-                        comboBox.Tag= master.Settings.Players[1].OffscreenButton[i - 66].SelectedIndex;
+                        comboBox.Tag = master.Settings.Players[1].OffscreenButton[i - 66].SelectedIndex;
                     }
-                       
-                    
+
+
                     comboBox.SelectedIndexChanged += master.buttonAssignmentTab.ComboBoxChangeButton;
                     comboBox.SelectedIndexChanged += Unforcus;
 
                 }
             }
+
+
+
         }
 
         private void Unforcus(object? sender, EventArgs e)
@@ -142,8 +146,17 @@ namespace LightGun
 
         public void AssignAllButtonP1(object? sender, EventArgs e)
         {
-           
+
             if (comBoxArP1.SelectedIndex == -1) return;
+            if (master.overlayPanel.CheckArduinoConnectP1())
+            {
+                checkBoxArP1.Checked = true;
+                if (checkBoxCamP1.Checked)
+                {
+                    btnStartP1.BackColor = Color.Green;
+                    btnStartP1.Text = "Start";
+                }
+            }
             for (int i = 0; i < 43; i++)
             {
 
@@ -153,19 +166,29 @@ namespace LightGun
 
                     if (i >= 0 && i <= 21)
                     {
-                        master.buttonAssignmentTab.SetButton(comboBox.SelectedItem.ToString(),0, 0, i);
+                        master.buttonAssignmentTab.SetButton(comboBox.SelectedItem.ToString(), 0, 0, i);
                     }
                     else if (i >= 22 && i <= 43)
                     {
-                        master.buttonAssignmentTab.SetButton(comboBox.SelectedItem.ToString(), 0, 1, i-22);
+                        master.buttonAssignmentTab.SetButton(comboBox.SelectedItem.ToString(), 0, 1, i - 22);
                     }
-                   
+
                 }
             }
         }
         public void AssignAllButtonP2(object? sender, EventArgs e)
         {
             if (comBoxArP2.SelectedIndex == -1) return;
+            if (master.overlayPanel.CheckArduinoConnectP2())
+            {
+                checkBoxArP2.Checked = true;
+                if (checkBoxCamP2.Checked)
+                {
+                    btnStartP2.BackColor = Color.Green;
+                    btnStartP2.Text = "Start";
+                }
+            }
+
             for (int i = 44; i < 88; i++)
             {
 
@@ -173,7 +196,7 @@ namespace LightGun
                 {
                     if (comboBox.SelectedIndex == 0) continue;
 
-                   
+
                     if (i >= 44 && i <= 65)
                     {
                         master.buttonAssignmentTab.SetButton(comboBox.SelectedItem.ToString(), 1, 0, i - 44);
@@ -294,12 +317,34 @@ namespace LightGun
 
         private void ComBoxCamP2_SelectedIndexChanged(object? sender, EventArgs e)
         {
+            if (master.overlayPanel.CheckCameraConnectP2())
+            {
+                checkBoxCamP2.Checked = true;
+                if (checkBoxArP2.Checked)
+                {
+                    btnStartP2.BackColor = Color.Green;
+                    btnStartP2.Text = "Start";
+                }
+            }
+
+
             Task.Run(async () => await FetchVideoP2());
 
         }
 
         private void ComBoxCamP1_SelectedIndexChanged(object? sender, EventArgs e)
         {
+            if (master.overlayPanel.CheckCameraConnectP1())
+            {
+                checkBoxCamP1.Checked = true;
+                if (checkBoxArP1.Checked)
+                {
+                    btnStartP1.BackColor = Color.Green;
+                    btnStartP1.Text = "Start";
+                }
+            }
+
+
             Task.Run(async () => await FetchVideoP1());
 
         }
@@ -349,9 +394,46 @@ namespace LightGun
 
             }
         }
-        public void StartStop()
+        public void StartStopP1(object? sender, EventArgs e)
         {
-            master.mainTab.Start(this.btnStartP1, null);
+            if (!checkBoxCamP1.Checked && !checkBoxArP1.Checked)
+            {
+                MessageBox.Show("Camera is not found\nArduino is not found", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (!checkBoxCamP1.Checked)
+            {
+                MessageBox.Show("Camera is not found.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (!checkBoxArP1.Checked)
+            {
+                MessageBox.Show("Arduino is not found", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            master.overlayPanel.StartP1(this.btnStartP1, null);
+        }
+
+        public void StartStopP2(object? sender, EventArgs e)
+        {
+            if (!checkBoxCamP2.Checked && !checkBoxArP2.Checked)
+            {
+                MessageBox.Show("Camera is not found\nArduino is not found", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (!checkBoxCamP2.Checked)
+            {
+                MessageBox.Show("Camera is not found.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (!checkBoxArP2.Checked)
+            {
+                MessageBox.Show("Arduino is not found.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            master.overlayPanel.StartP2(this.btnStartP2, null);
         }
 
 
@@ -364,7 +446,37 @@ namespace LightGun
             }
 
         }
+        public void DisconnectCameraP1(object? sender, EventArgs e)
+        {
+            checkBoxCamP1.Checked = false;
+            btnStartP1.BackColor = Color.DarkGray;
+            btnStartP1.Text = "Not ready";
+            comBoxCamP1.SelectedIndex = -1;
 
-       
+        }
+        public void DisconnectArduinoP1(object? sender, EventArgs e)
+        {
+            checkBoxArP1.Checked = false;
+            btnStartP1.BackColor = Color.DarkGray;
+            btnStartP1.Text = "Not ready";
+            comBoxArP1.SelectedIndex = -1;
+
+        }
+        public void DisconnectCameraP2(object? sender, EventArgs e)
+        {
+            checkBoxCamP2.Checked = false;
+            btnStartP2.BackColor = Color.DarkGray;
+            btnStartP2.Text = "Not ready";
+            comBoxCamP2.SelectedIndex = -1;
+
+        }
+        public void DisconnectArduinoP2(object? sender, EventArgs e)
+        {
+            checkBoxArP2.Checked = false;
+            btnStartP2.BackColor = Color.DarkGray;
+            btnStartP2.Text = "Not ready";
+            comBoxArP2.SelectedIndex = -1;
+        }
+
     }
 }

@@ -301,14 +301,14 @@
             btnStartP2 = new Button();
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
-            checkBox3 = new CheckBox();
-            checkBox4 = new CheckBox();
+            checkBoxCamP2 = new CheckBox();
+            checkBoxArP2 = new CheckBox();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             label121 = new Label();
             label120 = new Label();
-            checkBox1 = new CheckBox();
-            checkBox2 = new CheckBox();
+            checkBoxCamP1 = new CheckBox();
+            checkBoxArP1 = new CheckBox();
             btnStartP1 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -3147,15 +3147,15 @@
             panel3.Controls.Add(btnStartP2);
             panel3.Controls.Add(pictureBox3);
             panel3.Controls.Add(pictureBox4);
-            panel3.Controls.Add(checkBox3);
-            panel3.Controls.Add(checkBox4);
+            panel3.Controls.Add(checkBoxCamP2);
+            panel3.Controls.Add(checkBoxArP2);
             panel3.Controls.Add(pictureBox2);
             panel3.Controls.Add(btnSave);
             panel3.Controls.Add(pictureBox1);
             panel3.Controls.Add(label121);
             panel3.Controls.Add(label120);
-            panel3.Controls.Add(checkBox1);
-            panel3.Controls.Add(checkBox2);
+            panel3.Controls.Add(checkBoxCamP1);
+            panel3.Controls.Add(checkBoxArP1);
             panel3.Controls.Add(btnStartP1);
             panel3.Location = new Point(478, 48);
             panel3.Name = "panel3";
@@ -3195,25 +3195,25 @@
             pictureBox4.TabIndex = 251;
             pictureBox4.TabStop = false;
             // 
-            // checkBox3
+            // checkBoxCamP2
             // 
-            checkBox3.AutoSize = true;
-            checkBox3.Enabled = false;
-            checkBox3.Location = new Point(181, 66);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(15, 14);
-            checkBox3.TabIndex = 250;
-            checkBox3.UseVisualStyleBackColor = true;
+            checkBoxCamP2.AutoSize = true;
+            checkBoxCamP2.Enabled = false;
+            checkBoxCamP2.Location = new Point(181, 66);
+            checkBoxCamP2.Name = "checkBoxCamP2";
+            checkBoxCamP2.Size = new Size(15, 14);
+            checkBoxCamP2.TabIndex = 250;
+            checkBoxCamP2.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // checkBoxArP2
             // 
-            checkBox4.AutoSize = true;
-            checkBox4.Enabled = false;
-            checkBox4.Location = new Point(239, 66);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(15, 14);
-            checkBox4.TabIndex = 249;
-            checkBox4.UseVisualStyleBackColor = true;
+            checkBoxArP2.AutoSize = true;
+            checkBoxArP2.Enabled = false;
+            checkBoxArP2.Location = new Point(239, 66);
+            checkBoxArP2.Name = "checkBoxArP2";
+            checkBoxArP2.Size = new Size(15, 14);
+            checkBoxArP2.TabIndex = 249;
+            checkBoxArP2.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
             // 
@@ -3254,25 +3254,25 @@
             label120.TabIndex = 243;
             label120.Text = "Player 2";
             // 
-            // checkBox1
+            // checkBoxCamP1
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Enabled = false;
-            checkBox1.Location = new Point(32, 66);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(15, 14);
-            checkBox1.TabIndex = 242;
-            checkBox1.UseVisualStyleBackColor = true;
+            checkBoxCamP1.AutoSize = true;
+            checkBoxCamP1.Enabled = false;
+            checkBoxCamP1.Location = new Point(32, 66);
+            checkBoxCamP1.Name = "checkBoxCamP1";
+            checkBoxCamP1.Size = new Size(15, 14);
+            checkBoxCamP1.TabIndex = 242;
+            checkBoxCamP1.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBoxArP1
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Enabled = false;
-            checkBox2.Location = new Point(92, 66);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(15, 14);
-            checkBox2.TabIndex = 241;
-            checkBox2.UseVisualStyleBackColor = true;
+            checkBoxArP1.AutoSize = true;
+            checkBoxArP1.Enabled = false;
+            checkBoxArP1.Location = new Point(92, 66);
+            checkBoxArP1.Name = "checkBoxArP1";
+            checkBoxArP1.Size = new Size(15, 14);
+            checkBoxArP1.TabIndex = 241;
+            checkBoxArP1.UseVisualStyleBackColor = true;
             // 
             // btnStartP1
             // 
@@ -3600,14 +3600,14 @@
         private Panel panel3;
         private Label label121;
         private Label label120;
-        private CheckBox checkBox1;
-        private CheckBox checkBox2;
+        private CheckBox checkBoxCamP1;
+        private CheckBox checkBoxArP1;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
-        private CheckBox checkBox3;
-        private CheckBox checkBox4;
+        private CheckBox checkBoxCamP2;
+        private CheckBox checkBoxArP2;
         private Button btnStartP2;
         private Label label18;
     }

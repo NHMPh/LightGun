@@ -1,0 +1,295 @@
+{
+  "Players": [
+    {
+      "Threshold": 57,
+      "Xoffset": -51,
+      "Yoffset": -41,
+      "Brightness": 64,
+      "Contrast": 59,
+      "Gamma": 300,
+      "Exposure": -7,
+      "NormalButton": [
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 1
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        }
+      ],
+      "OffscreenButton": [
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 2
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        }
+      ]
+    },
+    {
+      "Threshold": 29,
+      "Xoffset": -51,
+      "Yoffset": -33,
+      "Brightness": 64,
+      "Contrast": 50,
+      "Gamma": 300,
+      "Exposure": -7,
+      "NormalButton": [
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 1
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        }
+      ],
+      "OffscreenButton": [
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 2
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        }
+      ]
+    }
+  ],
+  "Border": 3
+}

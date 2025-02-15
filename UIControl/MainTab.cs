@@ -20,32 +20,10 @@ namespace LightGun.UIControl
             this.lightGunP1 = lightGunP1;
             this.lightGunP2 = lightGunP2;
         }
-
-        public void Start(object? sender, EventArgs e)
-        {
-            Button button = sender as Button;
-            if (button == null) return;
-
-            bool isStartP1 = lightGunP1.GetIsStart();
-            bool isStartP2 = lightGunP2.GetIsStart();
-
-            lightGunP1.SetIsStart(!isStartP1);
-            lightGunP2.SetIsStart(!isStartP2);
-
-            if (!isStartP1 || !isStartP2)
-            {
-                button.BackColor = Color.Red;
-                button.Text = "Stop";
-            }
-            else
-            {
-                button.BackColor = Color.Green;
-                button.Text = "Start";
-            }
-        }
         public void ComBoxCamP1(object sender, EventArgs e)
         {
             int cameraIndex = (sender as ComboBox).SelectedIndex;
+            if (cameraIndex == -1) return;
             if (lightGunP2.CamIndex == cameraIndex)
             {
                 lightGunP2.CloseCamera();
@@ -55,7 +33,8 @@ namespace LightGun.UIControl
         public void ComBoxCamP2(object sender, EventArgs e)
         {
             int cameraIndex = (sender as ComboBox).SelectedIndex;
-            if (lightGunP1.CamIndex == cameraIndex && cameraIndex!=-1)
+            if (cameraIndex == -1) return;
+            if (lightGunP1.CamIndex == cameraIndex)
             {
                 lightGunP1.CloseCamera();
             }
@@ -81,9 +60,7 @@ namespace LightGun.UIControl
             lightGunP2.SetArduinoMouse(arduinoIndex); ;
             if (lightGunP2.ComPortString == "")
             {
-                (sender as ComboBox).SelectedIndexChanged -= ComBoxArP2;
                 (sender as ComboBox).SelectedIndex = -1;
-                (sender as ComboBox).SelectedIndexChanged += ComBoxArP2;
             }
         }
 

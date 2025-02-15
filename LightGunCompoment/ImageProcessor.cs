@@ -63,7 +63,11 @@ namespace LightGun.LightGunCompoment
             double maxArea = 28800;
             foreach (var contour in contours)
             {
-                double area = CvInvoke.ContourArea(contour);
+                double area = 0;
+
+                area = CvInvoke.ContourArea(contour);
+
+
                 VectorOfPoint approx = new VectorOfPoint();
                 CvInvoke.ApproxPolyDP(contour, approx, 0.015 * CvInvoke.ArcLength(contour, true), true);
                 if (area > maxArea && approx.Size == 4)
@@ -71,6 +75,8 @@ namespace LightGun.LightGunCompoment
                     biggest = approx;
                     maxArea = area;
                 }
+
+
             }
             return biggest;
         }
