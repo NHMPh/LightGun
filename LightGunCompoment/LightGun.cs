@@ -20,7 +20,7 @@ namespace LightGun.LightGunCompoment
         public int Index { get { return index; } }
 
 
-        private int camIndex = 0;
+        private int camIndex = -1;
 
         public int CamIndex { get { return camIndex; } }
 
@@ -128,7 +128,7 @@ namespace LightGun.LightGunCompoment
         }
         public void SetCameraGamma(int gamma)
         {
-            camera.SetGamma(saturation);
+            camera.SetGamma(gamma);
             this.gamma = gamma;
             settings.Players[index].Gamma = gamma;
         }

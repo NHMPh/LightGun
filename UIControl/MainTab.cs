@@ -55,7 +55,7 @@ namespace LightGun.UIControl
         public void ComBoxCamP2(object sender, EventArgs e)
         {
             int cameraIndex = (sender as ComboBox).SelectedIndex;
-            if (lightGunP1.CamIndex == cameraIndex)
+            if (lightGunP1.CamIndex == cameraIndex && cameraIndex!=-1)
             {
                 lightGunP1.CloseCamera();
             }

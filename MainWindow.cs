@@ -47,7 +47,8 @@ namespace LightGun
 
             BtnRefresh(null, null);
 
-            btnStart.Click += master.mainTab.Start;
+            btnStartP1.Click += master.overlayPanel.StartP1;
+            btnStartP2.Click += master.overlayPanel.StartP2;
             btnSave.Click += master.SaveSetting;
             btnSaveCali.Click += master.SaveSetting;
             btnSaveBuAssign.Click += master.SaveSetting;
@@ -350,7 +351,7 @@ namespace LightGun
         }
         public void StartStop()
         {
-            master.mainTab.Start(this.btnStart, null);
+            master.mainTab.Start(this.btnStartP1, null);
         }
 
 

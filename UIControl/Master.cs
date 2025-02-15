@@ -18,6 +18,7 @@ namespace LightGun.UIControl
         public MainTab mainTab;
         public ButtonAssignmentTab buttonAssignmentTab;
         public CalibrationTab calibrationTab;
+        public OverlayPanel overlayPanel;
         public Master()
         {
             //Load setting
@@ -30,6 +31,7 @@ namespace LightGun.UIControl
             mainTab = new MainTab(lightGunP1,lightGunP2);
             buttonAssignmentTab = new ButtonAssignmentTab(lightGunP1, lightGunP2);
             calibrationTab = new CalibrationTab(lightGunP1, lightGunP2);
+            overlayPanel = new OverlayPanel(lightGunP1 ,lightGunP2);
         }
 
         public void SaveSetting(object sender, EventArgs e)

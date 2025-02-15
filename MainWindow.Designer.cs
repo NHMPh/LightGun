@@ -31,16 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            label119 = new Label();
             label18 = new Label();
-            btnStart = new Button();
             label13 = new Label();
             label14 = new Label();
             label11 = new Label();
             label12 = new Label();
             processCheckBox = new CheckBox();
             rawCheckBox = new CheckBox();
-            btnSave = new Button();
             label16 = new Label();
             borderTextBox = new TextBox();
             label10 = new Label();
@@ -299,6 +296,20 @@
             left1ButtonP1 = new Button();
             up1ButtonP1 = new Button();
             panel1 = new Panel();
+            btnSave = new Button();
+            panel3 = new Panel();
+            btnStartP2 = new Button();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            checkBox3 = new CheckBox();
+            checkBox4 = new CheckBox();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            label121 = new Label();
+            label120 = new Label();
+            checkBox1 = new CheckBox();
+            checkBox2 = new CheckBox();
+            btnStartP1 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxProP2).BeginInit();
@@ -317,6 +328,11 @@
             ((System.ComponentModel.ISupportInitialize)tTrackBarP1).BeginInit();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -324,7 +340,7 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
-            tabControl1.Location = new Point(0, 1);
+            tabControl1.Location = new Point(2, 2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1252, 654);
@@ -333,16 +349,13 @@
             // tabPage1
             // 
             tabPage1.BackColor = SystemColors.Control;
-            tabPage1.Controls.Add(label119);
             tabPage1.Controls.Add(label18);
-            tabPage1.Controls.Add(btnStart);
             tabPage1.Controls.Add(label13);
             tabPage1.Controls.Add(label14);
             tabPage1.Controls.Add(label11);
             tabPage1.Controls.Add(label12);
             tabPage1.Controls.Add(processCheckBox);
             tabPage1.Controls.Add(rawCheckBox);
-            tabPage1.Controls.Add(btnSave);
             tabPage1.Controls.Add(label16);
             tabPage1.Controls.Add(borderTextBox);
             tabPage1.Controls.Add(label10);
@@ -399,35 +412,14 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Main";
             // 
-            // label119
-            // 
-            label119.AutoSize = true;
-            label119.Location = new Point(592, 91);
-            label119.Name = "label119";
-            label119.Size = new Size(66, 15);
-            label119.TabIndex = 239;
-            label119.Text = "(LShift + B)";
-            // 
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(572, 167);
+            label18.Location = new Point(564, 204);
             label18.Name = "label18";
             label18.Size = new Size(112, 15);
-            label18.TabIndex = 238;
+            label18.TabIndex = 239;
             label18.Text = "Created by MHMPh";
-            // 
-            // btnStart
-            // 
-            btnStart.BackColor = Color.Green;
-            btnStart.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnStart.ForeColor = SystemColors.ButtonHighlight;
-            btnStart.Location = new Point(551, 112);
-            btnStart.Name = "btnStart";
-            btnStart.Size = new Size(155, 41);
-            btnStart.TabIndex = 237;
-            btnStart.Text = "Start";
-            btnStart.UseVisualStyleBackColor = false;
             // 
             // label13
             // 
@@ -470,7 +462,7 @@
             processCheckBox.AutoSize = true;
             processCheckBox.Checked = true;
             processCheckBox.CheckState = CheckState.Checked;
-            processCheckBox.Location = new Point(571, 258);
+            processCheckBox.Location = new Point(550, 276);
             processCheckBox.Name = "processCheckBox";
             processCheckBox.Size = new Size(111, 19);
             processCheckBox.TabIndex = 232;
@@ -482,29 +474,17 @@
             rawCheckBox.AutoSize = true;
             rawCheckBox.Checked = true;
             rawCheckBox.CheckState = CheckState.Checked;
-            rawCheckBox.Location = new Point(571, 216);
+            rawCheckBox.Location = new Point(550, 238);
             rawCheckBox.Name = "rawCheckBox";
             rawCheckBox.Size = new Size(77, 19);
             rawCheckBox.TabIndex = 231;
             rawCheckBox.Text = "Show raw";
             rawCheckBox.UseVisualStyleBackColor = true;
             // 
-            // btnSave
-            // 
-            btnSave.BackColor = SystemColors.MenuHighlight;
-            btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSave.ForeColor = SystemColors.ControlLightLight;
-            btnSave.Location = new Point(551, 346);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(154, 46);
-            btnSave.TabIndex = 230;
-            btnSave.Text = "Save Setting";
-            btnSave.UseVisualStyleBackColor = false;
-            // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(689, 298);
+            label16.Location = new Point(697, 328);
             label16.Name = "label16";
             label16.Size = new Size(61, 15);
             label16.TabIndex = 229;
@@ -512,7 +492,7 @@
             // 
             // borderTextBox
             // 
-            borderTextBox.Location = new Point(583, 295);
+            borderTextBox.Location = new Point(591, 325);
             borderTextBox.Name = "borderTextBox";
             borderTextBox.Size = new Size(100, 23);
             borderTextBox.TabIndex = 228;
@@ -521,7 +501,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(473, 298);
+            label10.Location = new Point(481, 328);
             label10.Name = "label10";
             label10.Size = new Size(104, 15);
             label10.TabIndex = 227;
@@ -570,6 +550,7 @@
             eTextBoxP2.ReadOnly = true;
             eTextBoxP2.Size = new Size(50, 23);
             eTextBoxP2.TabIndex = 222;
+            eTextBoxP2.Text = "-8";
             // 
             // label2
             // 
@@ -589,7 +570,7 @@
             eTrackBarP2.Name = "eTrackBarP2";
             eTrackBarP2.Size = new Size(367, 45);
             eTrackBarP2.TabIndex = 220;
-            eTrackBarP2.Value = -7;
+            eTrackBarP2.Value = -8;
             // 
             // gTextBoxP2
             // 
@@ -598,6 +579,7 @@
             gTextBoxP2.ReadOnly = true;
             gTextBoxP2.Size = new Size(50, 23);
             gTextBoxP2.TabIndex = 219;
+            gTextBoxP2.Text = "100";
             // 
             // label4
             // 
@@ -616,7 +598,7 @@
             gTrackBarP2.Name = "gTrackBarP2";
             gTrackBarP2.Size = new Size(367, 45);
             gTrackBarP2.TabIndex = 217;
-            gTrackBarP2.Value = 200;
+            gTrackBarP2.Value = 100;
             // 
             // cTextBoxP2
             // 
@@ -625,6 +607,7 @@
             cTextBoxP2.ReadOnly = true;
             cTextBoxP2.Size = new Size(50, 23);
             cTextBoxP2.TabIndex = 216;
+            cTextBoxP2.Text = "0";
             // 
             // label5
             // 
@@ -642,7 +625,6 @@
             cTrackBarP2.Name = "cTrackBarP2";
             cTrackBarP2.Size = new Size(367, 45);
             cTrackBarP2.TabIndex = 214;
-            cTrackBarP2.Value = 1;
             // 
             // bTextBoxP2
             // 
@@ -651,6 +633,7 @@
             bTextBoxP2.ReadOnly = true;
             bTextBoxP2.Size = new Size(50, 23);
             bTextBoxP2.TabIndex = 213;
+            bTextBoxP2.Text = "-64";
             // 
             // label6
             // 
@@ -669,6 +652,7 @@
             bTrackBarP2.Name = "bTrackBarP2";
             bTrackBarP2.Size = new Size(367, 45);
             bTrackBarP2.TabIndex = 211;
+            bTrackBarP2.Value = -64;
             // 
             // tTextBoxP2
             // 
@@ -677,6 +661,7 @@
             tTextBoxP2.ReadOnly = true;
             tTextBoxP2.Size = new Size(50, 23);
             tTextBoxP2.TabIndex = 210;
+            tTextBoxP2.Text = "0";
             // 
             // label8
             // 
@@ -694,7 +679,6 @@
             tTrackBarP2.Name = "tTrackBarP2";
             tTrackBarP2.Size = new Size(367, 45);
             tTrackBarP2.TabIndex = 208;
-            tTrackBarP2.Value = 200;
             // 
             // eTextBoxP1
             // 
@@ -703,6 +687,7 @@
             eTextBoxP1.ReadOnly = true;
             eTextBoxP1.Size = new Size(50, 23);
             eTextBoxP1.TabIndex = 207;
+            eTextBoxP1.Text = "-8";
             // 
             // label9
             // 
@@ -722,7 +707,7 @@
             eTrackBarP1.Name = "eTrackBarP1";
             eTrackBarP1.Size = new Size(367, 45);
             eTrackBarP1.TabIndex = 205;
-            eTrackBarP1.Value = -7;
+            eTrackBarP1.Value = -8;
             // 
             // gTextBoxP1
             // 
@@ -731,6 +716,7 @@
             gTextBoxP1.ReadOnly = true;
             gTextBoxP1.Size = new Size(50, 23);
             gTextBoxP1.TabIndex = 204;
+            gTextBoxP1.Text = "100";
             // 
             // label7
             // 
@@ -749,7 +735,7 @@
             gTrackBarP1.Name = "gTrackBarP1";
             gTrackBarP1.Size = new Size(367, 45);
             gTrackBarP1.TabIndex = 202;
-            gTrackBarP1.Value = 200;
+            gTrackBarP1.Value = 100;
             // 
             // cTextBoxP1
             // 
@@ -758,6 +744,7 @@
             cTextBoxP1.ReadOnly = true;
             cTextBoxP1.Size = new Size(50, 23);
             cTextBoxP1.TabIndex = 201;
+            cTextBoxP1.Text = "0";
             // 
             // label3
             // 
@@ -775,7 +762,6 @@
             cTrackBarP1.Name = "cTrackBarP1";
             cTrackBarP1.Size = new Size(367, 45);
             cTrackBarP1.TabIndex = 199;
-            cTrackBarP1.Value = 1;
             // 
             // bTextBoxP1
             // 
@@ -784,6 +770,7 @@
             bTextBoxP1.ReadOnly = true;
             bTextBoxP1.Size = new Size(50, 23);
             bTextBoxP1.TabIndex = 198;
+            bTextBoxP1.Text = "-64";
             // 
             // bLabel
             // 
@@ -802,6 +789,7 @@
             bTrackBarP1.Name = "bTrackBarP1";
             bTrackBarP1.Size = new Size(367, 45);
             bTrackBarP1.TabIndex = 196;
+            bTrackBarP1.Value = -64;
             // 
             // tTextBoxP1
             // 
@@ -810,6 +798,7 @@
             tTextBoxP1.ReadOnly = true;
             tTextBoxP1.Size = new Size(50, 23);
             tTextBoxP1.TabIndex = 195;
+            tTextBoxP1.Text = "0";
             // 
             // tLable
             // 
@@ -827,7 +816,6 @@
             tTrackBarP1.Name = "tTrackBarP1";
             tTrackBarP1.Size = new Size(367, 45);
             tTrackBarP1.TabIndex = 193;
-            tTrackBarP1.Value = 200;
             // 
             // btnRefreshArP2
             // 
@@ -2963,7 +2951,7 @@
             // 
             label116.AutoSize = true;
             label116.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label116.Location = new Point(847, 115);
+            label116.Location = new Point(889, 125);
             label116.Name = "label116";
             label116.Size = new Size(221, 32);
             label116.TabIndex = 271;
@@ -2973,7 +2961,7 @@
             // 
             label115.AutoSize = true;
             label115.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label115.Location = new Point(178, 115);
+            label115.Location = new Point(133, 142);
             label115.Name = "label115";
             label115.Size = new Size(221, 32);
             label115.TabIndex = 270;
@@ -2981,7 +2969,7 @@
             // 
             // down10ButtonP2
             // 
-            down10ButtonP2.Location = new Point(910, 462);
+            down10ButtonP2.Location = new Point(938, 463);
             down10ButtonP2.Name = "down10ButtonP2";
             down10ButtonP2.Size = new Size(106, 88);
             down10ButtonP2.TabIndex = 97;
@@ -2990,7 +2978,7 @@
             // 
             // right10ButtonP2
             // 
-            right10ButtonP2.Location = new Point(1074, 318);
+            right10ButtonP2.Location = new Point(1102, 319);
             right10ButtonP2.Name = "right10ButtonP2";
             right10ButtonP2.Size = new Size(106, 88);
             right10ButtonP2.TabIndex = 96;
@@ -2999,7 +2987,7 @@
             // 
             // left10ButtonP2
             // 
-            left10ButtonP2.Location = new Point(752, 318);
+            left10ButtonP2.Location = new Point(780, 319);
             left10ButtonP2.Name = "left10ButtonP2";
             left10ButtonP2.Size = new Size(106, 88);
             left10ButtonP2.TabIndex = 95;
@@ -3008,7 +2996,7 @@
             // 
             // up10ButtonP2
             // 
-            up10ButtonP2.Location = new Point(910, 178);
+            up10ButtonP2.Location = new Point(938, 179);
             up10ButtonP2.Name = "up10ButtonP2";
             up10ButtonP2.Size = new Size(106, 88);
             up10ButtonP2.TabIndex = 94;
@@ -3017,7 +3005,7 @@
             // 
             // down1ButtonP2
             // 
-            down1ButtonP2.Location = new Point(932, 395);
+            down1ButtonP2.Location = new Point(960, 396);
             down1ButtonP2.Name = "down1ButtonP2";
             down1ButtonP2.Size = new Size(65, 61);
             down1ButtonP2.TabIndex = 93;
@@ -3026,7 +3014,7 @@
             // 
             // right1ButtonP2
             // 
-            right1ButtonP2.Location = new Point(1003, 332);
+            right1ButtonP2.Location = new Point(1031, 333);
             right1ButtonP2.Name = "right1ButtonP2";
             right1ButtonP2.Size = new Size(65, 61);
             right1ButtonP2.TabIndex = 92;
@@ -3035,7 +3023,7 @@
             // 
             // left1ButtonP2
             // 
-            left1ButtonP2.Location = new Point(861, 332);
+            left1ButtonP2.Location = new Point(889, 333);
             left1ButtonP2.Name = "left1ButtonP2";
             left1ButtonP2.Size = new Size(65, 61);
             left1ButtonP2.TabIndex = 91;
@@ -3044,7 +3032,7 @@
             // 
             // up1ButtonP2
             // 
-            up1ButtonP2.Location = new Point(932, 272);
+            up1ButtonP2.Location = new Point(960, 273);
             up1ButtonP2.Name = "up1ButtonP2";
             up1ButtonP2.Size = new Size(65, 61);
             up1ButtonP2.TabIndex = 90;
@@ -3055,14 +3043,14 @@
             // 
             panel2.BackColor = SystemColors.ActiveCaptionText;
             panel2.ForeColor = SystemColors.ControlText;
-            panel2.Location = new Point(752, 177);
+            panel2.Location = new Point(780, 178);
             panel2.Name = "panel2";
             panel2.Size = new Size(428, 380);
             panel2.TabIndex = 98;
             // 
             // down10ButtonP1
             // 
-            down10ButtonP1.Location = new Point(227, 461);
+            down10ButtonP1.Location = new Point(196, 462);
             down10ButtonP1.Name = "down10ButtonP1";
             down10ButtonP1.Size = new Size(106, 88);
             down10ButtonP1.TabIndex = 88;
@@ -3071,7 +3059,7 @@
             // 
             // right10ButtonP1
             // 
-            right10ButtonP1.Location = new Point(391, 317);
+            right10ButtonP1.Location = new Point(360, 318);
             right10ButtonP1.Name = "right10ButtonP1";
             right10ButtonP1.Size = new Size(106, 88);
             right10ButtonP1.TabIndex = 87;
@@ -3080,7 +3068,7 @@
             // 
             // left10ButtonP1
             // 
-            left10ButtonP1.Location = new Point(69, 317);
+            left10ButtonP1.Location = new Point(38, 318);
             left10ButtonP1.Name = "left10ButtonP1";
             left10ButtonP1.Size = new Size(106, 88);
             left10ButtonP1.TabIndex = 86;
@@ -3089,7 +3077,7 @@
             // 
             // up10ButtonP1
             // 
-            up10ButtonP1.Location = new Point(227, 177);
+            up10ButtonP1.Location = new Point(196, 178);
             up10ButtonP1.Name = "up10ButtonP1";
             up10ButtonP1.Size = new Size(106, 88);
             up10ButtonP1.TabIndex = 85;
@@ -3098,7 +3086,7 @@
             // 
             // down1ButtonP1
             // 
-            down1ButtonP1.Location = new Point(249, 394);
+            down1ButtonP1.Location = new Point(218, 395);
             down1ButtonP1.Name = "down1ButtonP1";
             down1ButtonP1.Size = new Size(65, 61);
             down1ButtonP1.TabIndex = 84;
@@ -3107,7 +3095,7 @@
             // 
             // right1ButtonP1
             // 
-            right1ButtonP1.Location = new Point(320, 331);
+            right1ButtonP1.Location = new Point(289, 332);
             right1ButtonP1.Name = "right1ButtonP1";
             right1ButtonP1.Size = new Size(65, 61);
             right1ButtonP1.TabIndex = 83;
@@ -3116,7 +3104,7 @@
             // 
             // left1ButtonP1
             // 
-            left1ButtonP1.Location = new Point(178, 331);
+            left1ButtonP1.Location = new Point(147, 332);
             left1ButtonP1.Name = "left1ButtonP1";
             left1ButtonP1.Size = new Size(65, 61);
             left1ButtonP1.TabIndex = 82;
@@ -3125,7 +3113,7 @@
             // 
             // up1ButtonP1
             // 
-            up1ButtonP1.Location = new Point(249, 271);
+            up1ButtonP1.Location = new Point(218, 272);
             up1ButtonP1.Name = "up1ButtonP1";
             up1ButtonP1.Size = new Size(65, 61);
             up1ButtonP1.TabIndex = 81;
@@ -3136,16 +3124,174 @@
             // 
             panel1.BackColor = SystemColors.ActiveCaptionText;
             panel1.ForeColor = SystemColors.ControlText;
-            panel1.Location = new Point(69, 176);
+            panel1.Location = new Point(38, 177);
             panel1.Name = "panel1";
             panel1.Size = new Size(428, 380);
             panel1.TabIndex = 89;
+            // 
+            // btnSave
+            // 
+            btnSave.BackColor = SystemColors.MenuHighlight;
+            btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSave.ForeColor = SystemColors.ControlLightLight;
+            btnSave.Location = new Point(78, 133);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(136, 36);
+            btnSave.TabIndex = 230;
+            btnSave.Text = "Save Setting";
+            btnSave.UseVisualStyleBackColor = false;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = SystemColors.Control;
+            panel3.Controls.Add(btnStartP2);
+            panel3.Controls.Add(pictureBox3);
+            panel3.Controls.Add(pictureBox4);
+            panel3.Controls.Add(checkBox3);
+            panel3.Controls.Add(checkBox4);
+            panel3.Controls.Add(pictureBox2);
+            panel3.Controls.Add(btnSave);
+            panel3.Controls.Add(pictureBox1);
+            panel3.Controls.Add(label121);
+            panel3.Controls.Add(label120);
+            panel3.Controls.Add(checkBox1);
+            panel3.Controls.Add(checkBox2);
+            panel3.Controls.Add(btnStartP1);
+            panel3.Location = new Point(478, 48);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(302, 176);
+            panel3.TabIndex = 240;
+            // 
+            // btnStartP2
+            // 
+            btnStartP2.BackColor = Color.DarkGray;
+            btnStartP2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnStartP2.ForeColor = SystemColors.ButtonHighlight;
+            btnStartP2.Location = new Point(163, 86);
+            btnStartP2.Name = "btnStartP2";
+            btnStartP2.Size = new Size(124, 41);
+            btnStartP2.TabIndex = 253;
+            btnStartP2.Text = "Not ready";
+            btnStartP2.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.InitialImage = null;
+            pictureBox3.Location = new Point(214, 31);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(61, 30);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 252;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(170, 33);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(38, 28);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 251;
+            pictureBox4.TabStop = false;
+            // 
+            // checkBox3
+            // 
+            checkBox3.AutoSize = true;
+            checkBox3.Enabled = false;
+            checkBox3.Location = new Point(181, 66);
+            checkBox3.Name = "checkBox3";
+            checkBox3.Size = new Size(15, 14);
+            checkBox3.TabIndex = 250;
+            checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            checkBox4.AutoSize = true;
+            checkBox4.Enabled = false;
+            checkBox4.Location = new Point(239, 66);
+            checkBox4.Name = "checkBox4";
+            checkBox4.Size = new Size(15, 14);
+            checkBox4.TabIndex = 249;
+            checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.InitialImage = null;
+            pictureBox2.Location = new Point(64, 31);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(63, 30);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 248;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(20, 33);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(38, 28);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 247;
+            pictureBox1.TabStop = false;
+            // 
+            // label121
+            // 
+            label121.AutoSize = true;
+            label121.Location = new Point(45, 6);
+            label121.Name = "label121";
+            label121.Size = new Size(48, 15);
+            label121.TabIndex = 244;
+            label121.Text = "Player 1";
+            // 
+            // label120
+            // 
+            label120.AutoSize = true;
+            label120.Location = new Point(196, 8);
+            label120.Name = "label120";
+            label120.Size = new Size(48, 15);
+            label120.TabIndex = 243;
+            label120.Text = "Player 2";
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Enabled = false;
+            checkBox1.Location = new Point(32, 66);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(15, 14);
+            checkBox1.TabIndex = 242;
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.Enabled = false;
+            checkBox2.Location = new Point(92, 66);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new Size(15, 14);
+            checkBox2.TabIndex = 241;
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // btnStartP1
+            // 
+            btnStartP1.BackColor = Color.DarkGray;
+            btnStartP1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnStartP1.ForeColor = SystemColors.ButtonHighlight;
+            btnStartP1.Location = new Point(12, 86);
+            btnStartP1.Name = "btnStartP1";
+            btnStartP1.Size = new Size(124, 41);
+            btnStartP1.TabIndex = 237;
+            btnStartP1.Text = "Not ready";
+            btnStartP1.UseVisualStyleBackColor = false;
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1252, 648);
+            Controls.Add(panel3);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -3172,6 +3318,12 @@
             tabPage2.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -3179,8 +3331,7 @@
 
         private TabControl tabControl1;
         private TabPage tabPage1;
-        private Label label18;
-        private Button btnStart;
+        private Button btnStartP1;
         private Label label13;
         private Label label14;
         private Label label11;
@@ -3358,7 +3509,6 @@
         private Label label115;
         private Label label118;
         private Label label117;
-        private Label label119;
         private ComboBox comboBox11;
         private ComboBox comboBox10;
         private ComboBox comboBox78;
@@ -3447,5 +3597,18 @@
         private ComboBox comboBox20;
         private ComboBox comboBox21;
         private ComboBox comboBox22;
+        private Panel panel3;
+        private Label label121;
+        private Label label120;
+        private CheckBox checkBox1;
+        private CheckBox checkBox2;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
+        private CheckBox checkBox3;
+        private CheckBox checkBox4;
+        private Button btnStartP2;
+        private Label label18;
     }
 }
