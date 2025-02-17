@@ -64,10 +64,7 @@ namespace LightGun.LightGunCompoment
             foreach (var contour in contours)
             {
                 double area = 0;
-
                 area = CvInvoke.ContourArea(contour);
-
-
                 VectorOfPoint approx = new VectorOfPoint();
                 CvInvoke.ApproxPolyDP(contour, approx, 0.015 * CvInvoke.ArcLength(contour, true), true);
                 if (area > maxArea && approx.Size == 4)

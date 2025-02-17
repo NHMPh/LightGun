@@ -298,6 +298,8 @@
             panel1 = new Panel();
             btnSave = new Button();
             panel3 = new Panel();
+            label122 = new Label();
+            label119 = new Label();
             btnStartP2 = new Button();
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
@@ -310,6 +312,9 @@
             checkBoxCamP1 = new CheckBox();
             checkBoxArP1 = new CheckBox();
             btnStartP1 = new Button();
+            tabPage4 = new TabPage();
+            label123 = new Label();
+            label124 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxProP2).BeginInit();
@@ -333,10 +338,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            tabPage4.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
             // 
+            tabControl1.Controls.Add(tabPage4);
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
@@ -3134,9 +3141,9 @@
             btnSave.BackColor = SystemColors.MenuHighlight;
             btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSave.ForeColor = SystemColors.ControlLightLight;
-            btnSave.Location = new Point(78, 133);
+            btnSave.Location = new Point(94, 133);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(136, 36);
+            btnSave.Size = new Size(110, 36);
             btnSave.TabIndex = 230;
             btnSave.Text = "Save Setting";
             btnSave.UseVisualStyleBackColor = false;
@@ -3144,6 +3151,8 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.Control;
+            panel3.Controls.Add(label122);
+            panel3.Controls.Add(label119);
             panel3.Controls.Add(btnStartP2);
             panel3.Controls.Add(pictureBox3);
             panel3.Controls.Add(pictureBox4);
@@ -3161,6 +3170,24 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(302, 176);
             panel3.TabIndex = 240;
+            // 
+            // label122
+            // 
+            label122.AutoSize = true;
+            label122.Location = new Point(214, 130);
+            label122.Name = "label122";
+            label122.Size = new Size(65, 15);
+            label122.TabIndex = 255;
+            label122.Text = "(LShift + 2)";
+            // 
+            // label119
+            // 
+            label119.AutoSize = true;
+            label119.Location = new Point(20, 130);
+            label119.Name = "label119";
+            label119.Size = new Size(65, 15);
+            label119.TabIndex = 254;
+            label119.Text = "(LShift + 1)";
             // 
             // btnStartP2
             // 
@@ -3286,6 +3313,37 @@
             btnStartP1.Text = "Not ready";
             btnStartP1.UseVisualStyleBackColor = false;
             // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(label124);
+            tabPage4.Controls.Add(label123);
+            tabPage4.Location = new Point(4, 24);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(1244, 626);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Firmware";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label123
+            // 
+            label123.AutoSize = true;
+            label123.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label123.Location = new Point(35, 85);
+            label123.Name = "label123";
+            label123.Size = new Size(361, 21);
+            label123.TabIndex = 278;
+            label123.Text = "**Stop the gun before uploading the firmware";
+            // 
+            // label124
+            // 
+            label124.AutoSize = true;
+            label124.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label124.Location = new Point(35, 55);
+            label124.Name = "label124";
+            label124.Size = new Size(365, 21);
+            label124.TabIndex = 279;
+            label124.Text = "**Connect the arduino uploading the firmware";
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -3324,6 +3382,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            tabPage4.ResumeLayout(false);
+            tabPage4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -3610,5 +3670,10 @@
         private CheckBox checkBoxArP2;
         private Button btnStartP2;
         private Label label18;
+        private Label label122;
+        private Label label119;
+        private TabPage tabPage4;
+        private Label label124;
+        private Label label123;
     }
 }

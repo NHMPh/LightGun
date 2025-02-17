@@ -1,8 +1,9 @@
-﻿using AForge;
-using AForge.Video.DirectShow;
+﻿
 using LightGun.LightGunCompoment;
 using LightGun.UIControl;
+using System.Collections.ObjectModel;
 using System.IO.Ports;
+using System.Management;
 using static LightGun.UIControl.ButtonAssignmentTab;
 using ComboBox = System.Windows.Forms.ComboBox;
 
@@ -135,8 +136,6 @@ namespace LightGun
                 }
             }
 
-
-
         }
 
         private void Unforcus(object? sender, EventArgs e)
@@ -157,6 +156,15 @@ namespace LightGun
                     btnStartP1.Text = "Start";
                 }
             }
+            else
+            {
+                checkBoxArP1.Checked = false;
+                btnStartP1.BackColor = Color.DarkGray;
+                btnStartP1.Text = "Not ready";
+                comBoxArP1.SelectedIndex = -1;
+                return;
+            }
+
             for (int i = 0; i < 43; i++)
             {
 
@@ -187,6 +195,14 @@ namespace LightGun
                     btnStartP2.BackColor = Color.Green;
                     btnStartP2.Text = "Start";
                 }
+            }
+            else
+            {
+                checkBoxArP2.Checked = false;
+                btnStartP2.BackColor = Color.DarkGray;
+                btnStartP2.Text = "Not ready";
+                comBoxArP2.SelectedIndex = -1;
+                return;
             }
 
             for (int i = 44; i < 88; i++)
@@ -226,43 +242,61 @@ namespace LightGun
             borderTextBox.Text = master.Settings.Border.ToString();
         }
 
+
         private void BtnRefresh(object? sender, EventArgs e)
         {
 
-            comBoxCamP1.Items.Clear();
-            comBoxCamP2.Items.Clear();
-            comBoxArP1.Items.Clear();
-            comBoxArP2.Items.Clear();
-            // Create a collection to hold the video devices
-            FilterInfoCollection videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             string[] ports = SerialPort.GetPortNames();
+            var webcams = master.mainTab.GetSortedWebcamsByLastArrivalDate();
 
             // Check if any video devices are found
-            if (videoDevices.Count == 0)
+            if (webcams.Count == 0)
             {
                 MessageBox.Show("No webcams found.");
                 return;
             }
+            comBoxArP1.Items.Clear();
+            comBoxArP2.Items.Clear();
+            comBoxCamP1.Items.Clear();
+            comBoxCamP2.Items.Clear();
+
             comBoxCamP1.Sorted = false;
             comBoxCamP2.Sorted = false;
             comBoxArP1.Sorted = false;
             comBoxArP2.Sorted = false;
+
             // Add each video device to the ComboBox
-            foreach (FilterInfo device in videoDevices)
+            foreach (var device in webcams)
             {
-                comBoxCamP1.Items.Add(device.Name);
-                comBoxCamP2.Items.Add(device.Name);
+                comBoxCamP1.Items.Add(device);
+                comBoxCamP2.Items.Add(device);
+
             }
-            comBoxCamP1.Sorted = false;
-            comBoxCamP2.Sorted = false;
 
             foreach (var port in ports)
             {
-                comBoxArP1.Items.Add((string)port);
-                comBoxArP2.Items.Add((string)port);
+                foreach (var item in comBoxArP1.Items)
+                {
+                    if (item.ToString() == port)
+                    {
+                        comBoxArP1.Items.Remove(port);
+                    }
+                }
+                foreach (var item in comBoxArP2.Items)
+                {
+                    if (item.ToString() == port)
+                    {
+                        comBoxArP2.Items.Remove(port);
+                    }
+                }
+                comBoxArP1.Items.Add(port);
+                comBoxArP2.Items.Add(port);
+
             }
-            comBoxArP1.Sorted = false;
-            comBoxArP2.Sorted = false;
+
+
+
+
         }
 
         private void BTrackBarP1_ValueChanged(object? sender, EventArgs e)
@@ -350,27 +384,44 @@ namespace LightGun
         }
         private async Task FetchVideoP1()
         {
-            await Task.Delay(5000);
             while (true)
             {
                 //Display video
-                if (rawCheckBox.Checked)
-                    picBoxRawP1.Image = master.mainTab.picBoxRawP1();
-                if (processCheckBox.Checked)
-                    picBoxProP1.Image = master.mainTab.picBoxProP1();
-                await Task.Delay(16);
 
+                if (rawCheckBox.Checked)
+                {
+                    var image = master.mainTab.picBoxRawP1();
+                    picBoxRawP1.Invoke((Action)(() => picBoxRawP1.Image = image));
+                }
+                if (processCheckBox.Checked)
+                {
+                    var image = master.mainTab.picBoxProP1();
+                    picBoxProP1.Invoke((Action)(() => picBoxProP1.Image = image));
+                }
+
+
+                await Task.Delay(16);
             }
         }
+
         private async Task FetchVideoP2()
         {
             while (true)
             {
+
                 //Display video
                 if (rawCheckBox.Checked)
-                    picBoxRawP2.Image = master.mainTab.picBoxRawP2();
+                {
+                    var image = master.mainTab.picBoxRawP2();
+                    picBoxRawP2.Invoke((Action)(() => picBoxRawP2.Image = image));
+                }
                 if (processCheckBox.Checked)
-                    picBoxProP2.Image = master.mainTab.picBoxProP2();
+                {
+                    var image = master.mainTab.picBoxProP2();
+                    picBoxProP2.Invoke((Action)(() => picBoxProP2.Image = image));
+                }
+
+
                 await Task.Delay(16);
             }
         }
@@ -398,17 +449,17 @@ namespace LightGun
         {
             if (!checkBoxCamP1.Checked && !checkBoxArP1.Checked)
             {
-                MessageBox.Show("Camera is not found\nArduino is not found", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Camera is not found\nArduino is not found", "Can not start player 1", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else if (!checkBoxCamP1.Checked)
             {
-                MessageBox.Show("Camera is not found.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Camera is not found.", "Can not start player 1", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else if (!checkBoxArP1.Checked)
             {
-                MessageBox.Show("Arduino is not found", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Arduino is not found", "Can not start player 1", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -419,17 +470,17 @@ namespace LightGun
         {
             if (!checkBoxCamP2.Checked && !checkBoxArP2.Checked)
             {
-                MessageBox.Show("Camera is not found\nArduino is not found", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Camera is not found\nArduino is not found", "Can not start player 2", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else if (!checkBoxCamP2.Checked)
             {
-                MessageBox.Show("Camera is not found.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Camera is not found.", "Can not start player 2", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else if (!checkBoxArP2.Checked)
             {
-                MessageBox.Show("Arduino is not found.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Arduino is not found.", "Can not start player 2", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -448,6 +499,7 @@ namespace LightGun
         }
         public void DisconnectCameraP1(object? sender, EventArgs e)
         {
+        
             checkBoxCamP1.Checked = false;
             btnStartP1.BackColor = Color.DarkGray;
             btnStartP1.Text = "Not ready";
@@ -477,6 +529,7 @@ namespace LightGun
             btnStartP2.Text = "Not ready";
             comBoxArP2.SelectedIndex = -1;
         }
+
 
     }
 }

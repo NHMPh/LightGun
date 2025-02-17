@@ -64,7 +64,7 @@ namespace LightGun.UIControl
         }
         public bool CheckArduinoConnectP1()
         {
-            return lightGunP1.ComPortString != "";
+            return lightGunP1.IsArduinoOpen();
         }
         public bool CheckCameraConnectP2()
         {
@@ -72,7 +72,7 @@ namespace LightGun.UIControl
         }
         public bool CheckArduinoConnectP2()
         {
-            return lightGunP2.ComPortString != "";
+            return lightGunP2.IsArduinoOpen();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using AutoHotkey.Interop;
+﻿
 using Emgu.CV;
 using Emgu.CV.CvEnum;
 
@@ -747,14 +747,14 @@ namespace LightGun
         {
 
             clickOutside = (sender as ComboBox).SelectedItem.ToString();
-            ahk.SetVar("clickAction", $"{clickOutside}");
+            //ahk.SetVar("clickAction", $"{clickOutside}");
           //  settings.ClickOutSide = clickOutside;
             this.ActiveControl = null;
         }
         private void holdOutComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             holdOutside = (sender as ComboBox).SelectedItem.ToString();
-            ahk.SetVar("holdAction", $"{holdOutside}");
+           // ahk.SetVar("holdAction", $"{holdOutside}");
          //   settings.HoldOutSide = holdOutside;
             this.ActiveControl = null;
         }

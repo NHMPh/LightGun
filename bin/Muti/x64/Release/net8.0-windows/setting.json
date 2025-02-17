@@ -10,7 +10,7 @@
       "Exposure": -7,
       "NormalButton": [
         {
-          "SelectedIndex": 0
+          "SelectedIndex": 5
         },
         {
           "SelectedIndex": 0
@@ -173,7 +173,19 @@
           "SelectedIndex": 0
         },
         {
-          "SelectedIndex": 6
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 1
         },
         {
           "SelectedIndex": 0
@@ -198,18 +210,6 @@
         },
         {
           "SelectedIndex": 0
-        },
-        {
-          "SelectedIndex": 0
-        },
-        {
-          "SelectedIndex": 27
-        },
-        {
-          "SelectedIndex": 0
-        },
-        {
-          "SelectedIndex": 21
         },
         {
           "SelectedIndex": 0
@@ -250,7 +250,10 @@
           "SelectedIndex": 0
         },
         {
-          "SelectedIndex": 25
+          "SelectedIndex": 0
+        },
+        {
+          "SelectedIndex": 2
         },
         {
           "SelectedIndex": 0
@@ -275,9 +278,6 @@
         },
         {
           "SelectedIndex": 0
-        },
-        {
-          "SelectedIndex": 17
         },
         {
           "SelectedIndex": 0

@@ -4,8 +4,8 @@ using Emgu.CV.Util;
 using Emgu.CV;
 using System.Runtime.InteropServices;
 using System.Text.Json;
-using AutoHotkey.Interop;
-using AForge.Video.DirectShow;
+
+
 
 namespace LightGun
 {
@@ -61,7 +61,7 @@ namespace LightGun
         Mat matrix = new Mat();
         Mat transformedPointMat = new Mat();
 
-        static AutoHotkeyEngine ahk = AutoHotkeyEngine.Instance;
+        //static AutoHotkeyEngine ahk = AutoHotkeyEngine.Instance;
         public Form1()
         {
             //ahk.Suspend();
@@ -133,8 +133,8 @@ StopTimer(){{
  SetTimer, SendMiddleClick, Off
 }}
 ";
-            ahk.ExecRaw(script);
-            ahk.Suspend();
+         //   ahk.ExecRaw(script);
+          //  ahk.Suspend();
 
            arduinoCom = new ArduinoCom();
             arduinoCom.OpenPort("COM12");
@@ -143,20 +143,20 @@ StopTimer(){{
         private void LoadWebcams()
         {
             // Create a collection to hold the video devices
-            FilterInfoCollection videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+          //  FilterInfoCollection videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
 
             // Check if any video devices are found
-            if (videoDevices.Count == 0)
-            {
-                MessageBox.Show("No webcams found.");
-                return;
-            }
-            comboBox1.Sorted = false;
+          //  if (videoDevices.Count == 0)
+          //  {
+          //      MessageBox.Show("No webcams found.");
+         //       return;
+          //  }
+         //   comboBox1.Sorted = false;
             // Add each video device to the ComboBox
-            foreach (FilterInfo device in videoDevices)
-            {
-                comboBox1.Items.Add(device.Name);
-            }
+          //  foreach (FilterInfo device in videoDevices)
+         //   {
+          //      comboBox1.Items.Add(device.Name);
+         //   }
         }
         private void SetCamera()
         {
@@ -242,9 +242,9 @@ StopTimer(){{
             movable = !movable;
             button1.Text = movable ? "Stop" : "Start";
             button1.BackColor = movable ? Color.Red : Color.Green;
-           if(movable)
-            ahk.UnSuspend();
-           else ahk.Suspend();
+           //if(movable)
+            //ahk.UnSuspend();
+          // else// ahk.Suspend();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -332,10 +332,7 @@ StopTimer(){{
                         pictureBox2.Image = process;
                     }
                     outSideOfScreen = true;
-                    if(movable)
-                        ahk.UnSuspend();
-                    else
-                        ahk.Suspend();
+                   
                     return System.Drawing.PointF.Empty;
                 }
                 // Convert VectorOfPoint to PointF array
@@ -419,17 +416,14 @@ StopTimer(){{
                     {
                        
                         outSideOfScreen = true;
-                        if (movable)
-                            ahk.UnSuspend();
-                        else
-                            ahk.Suspend();
+                      
                     }
                     else
                     {
                         outSideOfScreen = false;
                       
-                        ahk.ExecFunction("StopTimer");
-                        ahk.Suspend();
+                     //   ahk.ExecFunction("StopTimer");
+                      //  ahk.Suspend();
                     }
 
 
@@ -446,17 +440,11 @@ StopTimer(){{
                 }
      
                 outSideOfScreen = true;
-                if (movable)
-                    ahk.UnSuspend();
-                else
-                    ahk.Suspend();
+              
             }
            
             outSideOfScreen = true;
-            if (movable)
-                ahk.UnSuspend();
-            else
-                ahk.Suspend();
+          
             return PointF.Empty;
 
 

@@ -120,10 +120,6 @@ D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\LightGun.deps.json
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\LightGun.runtimeconfig.json
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\LightGun.dll
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\LightGun.pdb
-D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\AForge.dll
-D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\AForge.Video.dll
-D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\AForge.Video.DirectShow.dll
-D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\AutoHotkey.Interop.dll
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\Emgu.CV.dll
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\Emgu.CV.Bitmap.dll
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\System.Drawing.Common.dll
@@ -134,10 +130,8 @@ D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\System.Text.Json.dll
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win-arm64\native\cvextern.dll
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win-x64\native\cvextern.dll
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win-x64\native\libusb-1.0.dll
-D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win-x64\native\opencv_videoio_ffmpeg490_64.dll
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win-x86\native\cvextern.dll
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win-x86\native\libusb-1.0.dll
-D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win-x86\native\opencv_videoio_ffmpeg490.dll
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win-arm64\native\concrt140.dll
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win-arm64\native\msvcp140.dll
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win-arm64\native\msvcp140_1.dll
@@ -183,3 +177,11 @@ D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\browser\lib\net8.0\
 D:\WPF\LightGun\obj\x64\Release\net8.0-windows\LightGun.csproj.Up2Date
 D:\WPF\LightGun\obj\x64\Release\net8.0-windows\LightGun.MainWindow.resources
 D:\WPF\LightGun\obj\x64\Release\net8.0-windows\LightGun.TransparentForm.resources
+D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\Microsoft.Win32.SystemEvents.dll
+D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\System.CodeDom.dll
+D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\System.Private.Windows.Core.dll
+D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\System.Management.dll
+D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win-x64\native\opencv_videoio_ffmpeg4100_64.dll
+D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win-x86\native\opencv_videoio_ffmpeg4100.dll
+D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win\lib\net8.0\System.Management.dll

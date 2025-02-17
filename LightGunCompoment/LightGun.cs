@@ -49,6 +49,7 @@ namespace LightGun.LightGunCompoment
 
         private bool isArduinoStart = false;
         private bool isCameraStart = false;
+        private bool isArduinoOpen = false;
 
         private Camera camera = new Camera();
         private ImageProcessor processor = new ImageProcessor();
@@ -71,7 +72,7 @@ namespace LightGun.LightGunCompoment
             LoadSetting();
         }
 
-        
+
 
         private void LoadSetting()
         {
@@ -84,20 +85,20 @@ namespace LightGun.LightGunCompoment
         }
         public void CloseCamera()
         {
-            camera.CloseCamera();
+            CameraDisconnected?.Invoke(this, EventArgs.Empty);
         }
         public void SetAndStartCamera(int index)
         {
             try
             {
+                isCameraStart = false;
                 camIndex = index;
                 camera.OpenCamera(index);
                 camera.SetBrightness(brightness);
                 camera.SetContrast(contrast);
                 camera.SetExposure(exposure);
                 processor.SetOffset(xOffset, yOffset);
-                processor.SetThresdHold(thresdhold);
-                isCameraStart = true;
+                processor.SetThresdHold(thresdhold);             
                 Task.Run(async () => await StreamVideo());
             }
             catch (Exception e)
@@ -178,7 +179,12 @@ namespace LightGun.LightGunCompoment
         {
             arduinoMouse.OpenPort(comPort);
             if (arduinoMouse.isOpen())
+            {
                 comPortString = comPort;
+                isArduinoOpen = true;
+                Task.Run(async () => await CheckArduinoState());
+            }
+
         }
         public bool SetButton(int type, int index, byte buttonCode)
         {
@@ -232,8 +238,29 @@ namespace LightGun.LightGunCompoment
             comPortString = "";
             isArduinoStart = false;
         }
+        public void CloseArduino()
+        {
+            ArduinoDisconnected?.Invoke(this, EventArgs.Empty);
+        }
+        public bool IsArduinoOpen()
+        {
+            return arduinoMouse.isOpen();
+        }
+        private async Task CheckArduinoState()
+        {
+            while (isArduinoOpen)
+            {
+                if (!arduinoMouse.isOpen())
+                {
+                    ArduinoDisconnected?.Invoke(this, EventArgs.Empty);
+                    isArduinoOpen = false;                 
+                }
+                await Task.Delay(100);
+            }
+        }
         private async Task StreamVideo()
         {
+            isCameraStart = true;
             while (isCameraStart)
             {
                 try
@@ -246,23 +273,19 @@ namespace LightGun.LightGunCompoment
                     catch (Exception ex)
                     {
                         CameraDisconnected?.Invoke(this, EventArgs.Empty);
-                        MessageBox.Show("Camera Disconnected");
+                        MessageBox.Show($"Player {index + 1}'s Camera Disconnected");
 
                     }
 
                     //processor contains raw and process images
                     point = processor.GetPointingCoordinate(image);
-                    if ( isArduinoStart)
-                    {
-                       if(arduinoMouse.isOpen())
+                    if (isArduinoStart)
+                    {     if(arduinoMouse.isOpen())
                             arduinoMouse.SendCursorPos(point);
                         else
                         {
-                            ArduinoDisconnected?.Invoke(this, EventArgs.Empty);
-                            
-                            MessageBox.Show("Arduino Disconnected");
+                            MessageBox.Show($"Player {index + 1}'s Arduino Disconnected");
                         }
-
                     }
 
                     await Task.Delay(16);

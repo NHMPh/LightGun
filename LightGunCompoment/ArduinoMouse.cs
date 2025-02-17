@@ -17,7 +17,6 @@ namespace LightGun.LightGunCompoment
             try
             {
                 this.port.Open();
-                MessageBox.Show("Open");
             }
             catch (Exception ex)
             {
