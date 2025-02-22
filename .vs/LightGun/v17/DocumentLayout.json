@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\WPF\\LightGun\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|D:\\WPF\\LightGun\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\uicontrol\\master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:uicontrol\\master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|D:\\WPF\\LightGun\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\wpf\\lightgun\\lightguncompoment\\imageprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -114,7 +114,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
@@ -131,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GuideMessageBoxMessage.cs",
               "DocumentMoniker": "D:\\WPF\\LightGun\\UIControl\\GuideMessageBoxMessage.cs",
               "RelativeDocumentMoniker": "UIControl\\GuideMessageBoxMessage.cs",
@@ -139,8 +139,7 @@
               "RelativeToolTip": "UIControl\\GuideMessageBoxMessage.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAxwCYAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T15:03:58.326Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T15:03:58.326Z"
             },
             {
               "$type": "Document",
@@ -184,8 +183,8 @@
               "Title": "MainWindow.Designer.cs",
               "DocumentMoniker": "D:\\WPF\\LightGun\\MainWindow.Designer.cs",
               "RelativeDocumentMoniker": "MainWindow.Designer.cs",
-              "ToolTip": "D:\\WPF\\LightGun\\MainWindow.Designer.cs",
-              "RelativeToolTip": "MainWindow.Designer.cs",
+              "ToolTip": "D:\\WPF\\LightGun\\MainWindow.Designer.cs*",
+              "RelativeToolTip": "MainWindow.Designer.cs*",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-31T09:36:13.344Z",
@@ -193,19 +192,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "MainWindow.cs [Design]",
               "DocumentMoniker": "D:\\WPF\\LightGun\\MainWindow.cs",
               "RelativeDocumentMoniker": "MainWindow.cs",
-              "ToolTip": "D:\\WPF\\LightGun\\MainWindow.cs [Design]",
-              "RelativeToolTip": "MainWindow.cs [Design]",
+              "ToolTip": "D:\\WPF\\LightGun\\MainWindow.cs [Design]*",
+              "RelativeToolTip": "MainWindow.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-13T07:58:07.379Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Master.cs",
               "DocumentMoniker": "D:\\WPF\\LightGun\\UIControl\\Master.cs",
               "RelativeDocumentMoniker": "UIControl\\Master.cs",
@@ -213,17 +212,16 @@
               "RelativeToolTip": "UIControl\\Master.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAQwB8AAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T11:46:06.11Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-12T11:46:06.11Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.cs",
               "DocumentMoniker": "D:\\WPF\\LightGun\\MainWindow.cs",
               "RelativeDocumentMoniker": "MainWindow.cs",
-              "ToolTip": "D:\\WPF\\LightGun\\MainWindow.cs",
-              "RelativeToolTip": "MainWindow.cs",
+              "ToolTip": "D:\\WPF\\LightGun\\MainWindow.cs*",
+              "RelativeToolTip": "MainWindow.cs*",
               "ViewState": "AgIAAEwAAAAAAAAAAAAgwHMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-31T09:36:49.58Z",
@@ -249,8 +247,7 @@
               "RelativeToolTip": "LightGunCompoment\\ImageProcessor.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAIwD4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T12:41:43.094Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-12T12:41:43.094Z"
             },
             {
               "$type": "Document",

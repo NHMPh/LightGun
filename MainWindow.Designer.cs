@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            guideSelect2 = new Button();
+            guideSelect = new Button();
+            guideCam = new Button();
+            guideBorder = new Button();
             label18 = new Label();
             label13 = new Label();
             label14 = new Label();
@@ -88,6 +92,7 @@
             label1 = new Label();
             comBoxCamP1 = new ComboBox();
             tabPage2 = new TabPage();
+            guideButtonAssign = new Button();
             comboBox11 = new ComboBox();
             comboBox10 = new ComboBox();
             comboBox78 = new ComboBox();
@@ -273,6 +278,7 @@
             label15 = new Label();
             label17 = new Label();
             tabPage3 = new TabPage();
+            guideCalibration = new Button();
             label118 = new Label();
             label117 = new Label();
             btnSaveCali = new Button();
@@ -297,6 +303,7 @@
             up1ButtonP1 = new Button();
             panel1 = new Panel();
             tabPage4 = new TabPage();
+            guideFirmware = new Button();
             comBoxArSelP2 = new ComboBox();
             comBoxArSelP1 = new ComboBox();
             label129 = new Label();
@@ -310,6 +317,8 @@
             label123 = new Label();
             btnSave = new Button();
             panel3 = new Panel();
+            guideOverlay2 = new Button();
+            guideOverlay = new Button();
             label122 = new Label();
             label119 = new Label();
             btnStartP2 = new Button();
@@ -324,15 +333,6 @@
             checkBoxCamP1 = new CheckBox();
             checkBoxArP1 = new CheckBox();
             btnStartP1 = new Button();
-            guideOverlay = new Button();
-            guideOverlay2 = new Button();
-            guideBorder = new Button();
-            guideCam = new Button();
-            guideSelect = new Button();
-            guideSelect2 = new Button();
-            guideButtonAssign = new Button();
-            guideCalibration = new Button();
-            guideFirmware = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxProP2).BeginInit();
@@ -441,14 +441,54 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Main";
             // 
+            // guideSelect2
+            // 
+            guideSelect2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guideSelect2.Location = new Point(1115, 30);
+            guideSelect2.Name = "guideSelect2";
+            guideSelect2.Size = new Size(28, 28);
+            guideSelect2.TabIndex = 260;
+            guideSelect2.Text = "?";
+            guideSelect2.UseVisualStyleBackColor = true;
+            // 
+            // guideSelect
+            // 
+            guideSelect.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guideSelect.Location = new Point(19, 30);
+            guideSelect.Name = "guideSelect";
+            guideSelect.Size = new Size(28, 28);
+            guideSelect.TabIndex = 259;
+            guideSelect.Text = "?";
+            guideSelect.UseVisualStyleBackColor = true;
+            // 
+            // guideCam
+            // 
+            guideCam.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guideCam.Location = new Point(605, 567);
+            guideCam.Name = "guideCam";
+            guideCam.Size = new Size(28, 28);
+            guideCam.TabIndex = 258;
+            guideCam.Text = "?";
+            guideCam.UseVisualStyleBackColor = true;
+            // 
+            // guideBorder
+            // 
+            guideBorder.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guideBorder.Location = new Point(723, 287);
+            guideBorder.Name = "guideBorder";
+            guideBorder.Size = new Size(28, 28);
+            guideBorder.TabIndex = 257;
+            guideBorder.Text = "?";
+            guideBorder.UseVisualStyleBackColor = true;
+            // 
             // label18
             // 
             label18.AutoSize = true;
             label18.Location = new Point(564, 204);
             label18.Name = "label18";
-            label18.Size = new Size(112, 15);
+            label18.Size = new Size(110, 15);
             label18.TabIndex = 239;
-            label18.Text = "Created by MHMPh";
+            label18.Text = "Created by NHMPh";
             // 
             // label13
             // 
@@ -1157,6 +1197,16 @@
             tabPage2.Size = new Size(1244, 626);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Button Assignment";
+            // 
+            // guideButtonAssign
+            // 
+            guideButtonAssign.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guideButtonAssign.Location = new Point(617, 204);
+            guideButtonAssign.Name = "guideButtonAssign";
+            guideButtonAssign.Size = new Size(28, 28);
+            guideButtonAssign.TabIndex = 376;
+            guideButtonAssign.Text = "?";
+            guideButtonAssign.UseVisualStyleBackColor = true;
             // 
             // comboBox11
             // 
@@ -2946,6 +2996,16 @@
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Calibration";
             // 
+            // guideCalibration
+            // 
+            guideCalibration.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guideCalibration.Location = new Point(616, 332);
+            guideCalibration.Name = "guideCalibration";
+            guideCalibration.Size = new Size(28, 28);
+            guideCalibration.TabIndex = 278;
+            guideCalibration.Text = "?";
+            guideCalibration.UseVisualStyleBackColor = true;
+            // 
             // label118
             // 
             label118.AutoSize = true;
@@ -3181,6 +3241,16 @@
             tabPage4.Text = "Firmware";
             tabPage4.UseVisualStyleBackColor = true;
             // 
+            // guideFirmware
+            // 
+            guideFirmware.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guideFirmware.Location = new Point(621, 302);
+            guideFirmware.Name = "guideFirmware";
+            guideFirmware.Size = new Size(28, 28);
+            guideFirmware.TabIndex = 291;
+            guideFirmware.Text = "?";
+            guideFirmware.UseVisualStyleBackColor = true;
+            // 
             // comBoxArSelP2
             // 
             comBoxArSelP2.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -3325,6 +3395,26 @@
             panel3.Size = new Size(302, 176);
             panel3.TabIndex = 240;
             // 
+            // guideOverlay2
+            // 
+            guideOverlay2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guideOverlay2.Location = new Point(133, 93);
+            guideOverlay2.Name = "guideOverlay2";
+            guideOverlay2.Size = new Size(28, 28);
+            guideOverlay2.TabIndex = 256;
+            guideOverlay2.Text = "?";
+            guideOverlay2.UseVisualStyleBackColor = true;
+            // 
+            // guideOverlay
+            // 
+            guideOverlay.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guideOverlay.Location = new Point(133, 33);
+            guideOverlay.Name = "guideOverlay";
+            guideOverlay.Size = new Size(28, 28);
+            guideOverlay.TabIndex = 240;
+            guideOverlay.Text = "?";
+            guideOverlay.UseVisualStyleBackColor = true;
+            // 
             // label122
             // 
             label122.AutoSize = true;
@@ -3466,96 +3556,6 @@
             btnStartP1.TabIndex = 237;
             btnStartP1.Text = "Not ready";
             btnStartP1.UseVisualStyleBackColor = false;
-            // 
-            // guideOverlay
-            // 
-            guideOverlay.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guideOverlay.Location = new Point(133, 33);
-            guideOverlay.Name = "guideOverlay";
-            guideOverlay.Size = new Size(28, 28);
-            guideOverlay.TabIndex = 240;
-            guideOverlay.Text = "?";
-            guideOverlay.UseVisualStyleBackColor = true;
-            // 
-            // guideOverlay2
-            // 
-            guideOverlay2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guideOverlay2.Location = new Point(133, 93);
-            guideOverlay2.Name = "guideOverlay2";
-            guideOverlay2.Size = new Size(28, 28);
-            guideOverlay2.TabIndex = 256;
-            guideOverlay2.Text = "?";
-            guideOverlay2.UseVisualStyleBackColor = true;
-            // 
-            // guideBorder
-            // 
-            guideBorder.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guideBorder.Location = new Point(723, 287);
-            guideBorder.Name = "guideBorder";
-            guideBorder.Size = new Size(28, 28);
-            guideBorder.TabIndex = 257;
-            guideBorder.Text = "?";
-            guideBorder.UseVisualStyleBackColor = true;
-            // 
-            // guideCam
-            // 
-            guideCam.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guideCam.Location = new Point(605, 567);
-            guideCam.Name = "guideCam";
-            guideCam.Size = new Size(28, 28);
-            guideCam.TabIndex = 258;
-            guideCam.Text = "?";
-            guideCam.UseVisualStyleBackColor = true;
-            // 
-            // guideSelect
-            // 
-            guideSelect.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guideSelect.Location = new Point(19, 30);
-            guideSelect.Name = "guideSelect";
-            guideSelect.Size = new Size(28, 28);
-            guideSelect.TabIndex = 259;
-            guideSelect.Text = "?";
-            guideSelect.UseVisualStyleBackColor = true;
-            // 
-            // guideSelect2
-            // 
-            guideSelect2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guideSelect2.Location = new Point(1115, 30);
-            guideSelect2.Name = "guideSelect2";
-            guideSelect2.Size = new Size(28, 28);
-            guideSelect2.TabIndex = 260;
-            guideSelect2.Text = "?";
-            guideSelect2.UseVisualStyleBackColor = true;
-            // 
-            // guideButtonAssign
-            // 
-            guideButtonAssign.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guideButtonAssign.Location = new Point(617, 204);
-            guideButtonAssign.Name = "guideButtonAssign";
-            guideButtonAssign.Size = new Size(28, 28);
-            guideButtonAssign.TabIndex = 376;
-            guideButtonAssign.Text = "?";
-            guideButtonAssign.UseVisualStyleBackColor = true;
-            // 
-            // guideCalibration
-            // 
-            guideCalibration.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guideCalibration.Location = new Point(616, 332);
-            guideCalibration.Name = "guideCalibration";
-            guideCalibration.Size = new Size(28, 28);
-            guideCalibration.TabIndex = 278;
-            guideCalibration.Text = "?";
-            guideCalibration.UseVisualStyleBackColor = true;
-            // 
-            // guideFirmware
-            // 
-            guideFirmware.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guideFirmware.Location = new Point(621, 302);
-            guideFirmware.Name = "guideFirmware";
-            guideFirmware.Size = new Size(28, 28);
-            guideFirmware.TabIndex = 291;
-            guideFirmware.Text = "?";
-            guideFirmware.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
