@@ -16,6 +16,7 @@ namespace LightGun.LightGunCompoment
         private int xOffset;
         private int yOffset;
 
+        private bool isDetected = false;    
 
         PointF topLeft = PointF.Empty;
         PointF topRight = PointF.Empty;
@@ -49,6 +50,7 @@ namespace LightGun.LightGunCompoment
         {
             if (processImage == null) return null;
             var process = processImage.ToBitmap().ToImage<Bgr, byte>();
+            if (!isDetected) return process.ToBitmap();
             var pointToTrack = new PointF(ixres / 2 + xOffset, iyres / 2 + yOffset);
             process.Draw(new CircleF(topLeft, 20), new Bgr(0, 0, 255), 10);
             process.Draw(new CircleF(topRight, 20), new Bgr(0, 255, 0), 10);
@@ -60,7 +62,7 @@ namespace LightGun.LightGunCompoment
         private VectorOfPoint BiggestContour(List<VectorOfPoint> contours)
         {
             VectorOfPoint biggest = new VectorOfPoint();
-            double maxArea = 28800;
+            double maxArea = 28800/4;
             foreach (var contour in contours)
             {
                 double area = 0;
@@ -102,6 +104,7 @@ namespace LightGun.LightGunCompoment
 
             if (biggest.Size == 4)
             {
+                isDetected = true;
                 // Convert VectorOfPoint to PointF array
                 Point[] points = biggest.ToArray();
                 PointF[] corners = Array.ConvertAll(points, p => new PointF(p.X, p.Y));
@@ -168,6 +171,7 @@ namespace LightGun.LightGunCompoment
                 }
 
             }
+            isDetected = false;
             return Point.Empty;
 
 

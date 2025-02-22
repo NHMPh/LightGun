@@ -101,6 +101,19 @@ namespace LightGun
             down1ButtonP2.Click += master.calibrationTab.down1ButtonP2;
             left1ButtonP2.Click += master.calibrationTab.left1ButtonP2;
             right1ButtonP2.Click += master.calibrationTab.right1ButtonP2;
+            //GuideButton
+            guideBorder.Click += master.guideMessageBoxMessage.BorderMessage;
+            guideButtonAssign.Click += master.guideMessageBoxMessage.ButtonAssignMessage;
+            guideCalibration.Click += master.guideMessageBoxMessage.CalibrationMessage;
+            guideCam.Click += master.guideMessageBoxMessage.CamMessage;
+            guideFirmware.Click += master.guideMessageBoxMessage.FirmwareMessage;
+            guideSelect.Click += master.guideMessageBoxMessage.SelectMessage;
+            guideOverlay.Click += master.guideMessageBoxMessage.OverlayTabMessage1;
+            guideOverlay2.Click += master.guideMessageBoxMessage.OverlayTabMessage2;
+            guideSelect2.Click += master.guideMessageBoxMessage.SelectMessage;
+
+
+
 
             //Button AssignmentTab UI
 
@@ -139,6 +152,11 @@ namespace LightGun
 
                 }
             }
+
+            comBoxArSelP2.SelectedIndex = 0;
+            comBoxArSelP1.SelectedIndex = 0;
+            comBoxArSelP1.Enabled = false;
+            comBoxArSelP2.Enabled = false;
 
         }
 

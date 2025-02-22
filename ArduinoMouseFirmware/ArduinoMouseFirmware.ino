@@ -112,10 +112,6 @@ void ReleaseCurrentButton() {
     }
   }
 }
-Leonardo
-Micro
-ProMicro8
-ProMicro16
 void ProcessData() {
   switch (data[0]) {
     case 0:

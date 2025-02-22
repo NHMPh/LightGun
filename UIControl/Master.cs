@@ -20,6 +20,7 @@ namespace LightGun.UIControl
         public CalibrationTab calibrationTab;
         public OverlayPanel overlayPanel;
         public FirmwareUploadTab firmwareUploadTab;
+        public GuideMessageBoxMessage guideMessageBoxMessage = new GuideMessageBoxMessage();
         public Master(MainWindow mainWindow)
         {
             

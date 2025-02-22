@@ -1,9 +1,9 @@
 {
   "Players": [
     {
-      "Threshold": 57,
-      "Xoffset": -46,
-      "Yoffset": -74,
+      "Threshold": 40,
+      "Xoffset": -37,
+      "Yoffset": -80,
       "Brightness": 64,
       "Contrast": 58,
       "Gamma": 300,
@@ -146,9 +146,9 @@
       ]
     },
     {
-      "Threshold": 48,
-      "Xoffset": 24,
-      "Yoffset": -87,
+      "Threshold": 37,
+      "Xoffset": 21,
+      "Yoffset": -91,
       "Brightness": 64,
       "Contrast": 60,
       "Gamma": 300,
@@ -291,5 +291,5 @@
       ]
     }
   ],
-  "Border": 3
+  "Border": 2
 }
