@@ -2,15 +2,15 @@
   "Players": [
     {
       "Threshold": 57,
-      "Xoffset": -51,
-      "Yoffset": -41,
+      "Xoffset": -46,
+      "Yoffset": -74,
       "Brightness": 64,
-      "Contrast": 59,
+      "Contrast": 58,
       "Gamma": 300,
-      "Exposure": -7,
+      "Exposure": -8,
       "NormalButton": [
         {
-          "SelectedIndex": 5
+          "SelectedIndex": 0
         },
         {
           "SelectedIndex": 0
@@ -146,11 +146,11 @@
       ]
     },
     {
-      "Threshold": 53,
-      "Xoffset": -51,
-      "Yoffset": -41,
+      "Threshold": 48,
+      "Xoffset": 24,
+      "Yoffset": -87,
       "Brightness": 64,
-      "Contrast": 48,
+      "Contrast": 60,
       "Gamma": 300,
       "Exposure": -8,
       "NormalButton": [
@@ -291,5 +291,5 @@
       ]
     }
   ],
-  "Border": 2
+  "Border": 3
 }

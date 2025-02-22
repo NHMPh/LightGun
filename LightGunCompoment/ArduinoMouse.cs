@@ -1,4 +1,6 @@
 ﻿
+using ArduinoUploader;
+using ArduinoUploader.Hardware;
 using System.IO.Ports;
 
 namespace LightGun.LightGunCompoment
@@ -6,9 +8,10 @@ namespace LightGun.LightGunCompoment
     public class ArduinoMouse
     {
         private SerialPort port = new SerialPort();
+
         public ArduinoMouse()
         {
-           
+
         }
         public void OpenPort(string port)
         {
@@ -32,24 +35,46 @@ namespace LightGun.LightGunCompoment
             port.Close();
         }
         public void SendCursorPos(Point point)
-        {      
+        {
             string data = $"0 {point.X} {point.Y}\n";
-           
-            while (port.BytesToWrite != 0);    
-            
+
+            while (port.BytesToWrite != 0) ;
+
             port.Write(data);
         }
-        public void SendNewButtonAssignment(int type, int index,byte buttonCode)
+        public void SendNewButtonAssignment(int type, int index, byte buttonCode)
         {
-           
+
             //type = 0 normal type = 1 offscreen  
             string data = $"1 {type} {index} {buttonCode}\n";
 
             while (port.BytesToWrite != 0) ;
-            
+
             port.Write(data);
-            
+
         }
-       
+        public void UploadFirmware(ArduinoModel model)
+        {
+            port.Close();
+            var uploader = new ArduinoSketchUploader(
+                    new ArduinoSketchUploaderOptions()
+                    {
+                        PortName = port.PortName,
+                        ArduinoModel = model,
+                        
+                    });
+            try
+            {
+                uploader.UploadFile(".\\ArduinoMouseFirmware\\ArduinoMouseFirmware.ino.hex");
+                MessageBox.Show("Upload success! Please reconnect your arduino");
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());         
+            }
+           
+
+        }
+
     }
 }

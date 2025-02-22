@@ -296,6 +296,16 @@
             left1ButtonP1 = new Button();
             up1ButtonP1 = new Button();
             panel1 = new Panel();
+            tabPage4 = new TabPage();
+            label129 = new Label();
+            label128 = new Label();
+            label127 = new Label();
+            label126 = new Label();
+            label125 = new Label();
+            btnUpFirP2 = new Button();
+            btnUpFirP1 = new Button();
+            label124 = new Label();
+            label123 = new Label();
             btnSave = new Button();
             panel3 = new Panel();
             label122 = new Label();
@@ -312,9 +322,8 @@
             checkBoxCamP1 = new CheckBox();
             checkBoxArP1 = new CheckBox();
             btnStartP1 = new Button();
-            tabPage4 = new TabPage();
-            label123 = new Label();
-            label124 = new Label();
+            comBoxArSelP1 = new ComboBox();
+            comBoxArSelP2 = new ComboBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxProP2).BeginInit();
@@ -333,20 +342,20 @@
             ((System.ComponentModel.ISupportInitialize)tTrackBarP1).BeginInit();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
+            tabPage4.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            tabPage4.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(tabPage4);
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
+            tabControl1.Controls.Add(tabPage4);
             tabControl1.Location = new Point(2, 2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -3136,6 +3145,113 @@
             panel1.Size = new Size(428, 380);
             panel1.TabIndex = 89;
             // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(comBoxArSelP2);
+            tabPage4.Controls.Add(comBoxArSelP1);
+            tabPage4.Controls.Add(label129);
+            tabPage4.Controls.Add(label128);
+            tabPage4.Controls.Add(label127);
+            tabPage4.Controls.Add(label126);
+            tabPage4.Controls.Add(label125);
+            tabPage4.Controls.Add(btnUpFirP2);
+            tabPage4.Controls.Add(btnUpFirP1);
+            tabPage4.Controls.Add(label124);
+            tabPage4.Controls.Add(label123);
+            tabPage4.Location = new Point(4, 24);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(1244, 626);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Firmware";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label129
+            // 
+            label129.AutoSize = true;
+            label129.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label129.Location = new Point(892, 197);
+            label129.Name = "label129";
+            label129.Size = new Size(282, 32);
+            label129.TabIndex = 288;
+            label129.Text = "Upload firmware player 2";
+            // 
+            // label128
+            // 
+            label128.AutoSize = true;
+            label128.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label128.Location = new Point(79, 197);
+            label128.Name = "label128";
+            label128.Size = new Size(282, 32);
+            label128.TabIndex = 287;
+            label128.Text = "Upload firmware player 1";
+            // 
+            // label127
+            // 
+            label127.AutoSize = true;
+            label127.Font = new Font("Segoe UI", 12F);
+            label127.Location = new Point(960, 247);
+            label127.Name = "label127";
+            label127.Size = new Size(99, 21);
+            label127.TabIndex = 286;
+            label127.Text = "Select model\r\n";
+            // 
+            // label126
+            // 
+            label126.AutoSize = true;
+            label126.Font = new Font("Segoe UI", 12F);
+            label126.Location = new Point(130, 247);
+            label126.Name = "label126";
+            label126.Size = new Size(99, 21);
+            label126.TabIndex = 285;
+            label126.Text = "Select model\r\n";
+            // 
+            // label125
+            // 
+            label125.AutoSize = true;
+            label125.Location = new Point(174, 567);
+            label125.Name = "label125";
+            label125.Size = new Size(924, 15);
+            label125.TabIndex = 284;
+            label125.Text = "If your Arduino has native USB support but is not listed, you can download the Arduino IDE and upload the sketch provided at ./ArduinoMouseFirmware/ArduinoFirmware.ino\r\n";
+            // 
+            // btnUpFirP2
+            // 
+            btnUpFirP2.Location = new Point(982, 300);
+            btnUpFirP2.Name = "btnUpFirP2";
+            btnUpFirP2.Size = new Size(110, 30);
+            btnUpFirP2.TabIndex = 283;
+            btnUpFirP2.Text = "Upload";
+            btnUpFirP2.UseVisualStyleBackColor = true;
+            // 
+            // btnUpFirP1
+            // 
+            btnUpFirP1.Location = new Point(152, 300);
+            btnUpFirP1.Name = "btnUpFirP1";
+            btnUpFirP1.Size = new Size(110, 30);
+            btnUpFirP1.TabIndex = 282;
+            btnUpFirP1.Text = "Upload";
+            btnUpFirP1.UseVisualStyleBackColor = true;
+            // 
+            // label124
+            // 
+            label124.AutoSize = true;
+            label124.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label124.Location = new Point(35, 55);
+            label124.Name = "label124";
+            label124.Size = new Size(365, 21);
+            label124.TabIndex = 279;
+            label124.Text = "**Connect the arduino uploading the firmware";
+            // 
+            // label123
+            // 
+            label123.AutoSize = true;
+            label123.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label123.Location = new Point(35, 85);
+            label123.Name = "label123";
+            label123.Size = new Size(361, 21);
+            label123.TabIndex = 278;
+            label123.Text = "**Stop the gun before uploading the firmware";
+            // 
             // btnSave
             // 
             btnSave.BackColor = SystemColors.MenuHighlight;
@@ -3313,36 +3429,25 @@
             btnStartP1.Text = "Not ready";
             btnStartP1.UseVisualStyleBackColor = false;
             // 
-            // tabPage4
+            // comBoxArSelP1
             // 
-            tabPage4.Controls.Add(label124);
-            tabPage4.Controls.Add(label123);
-            tabPage4.Location = new Point(4, 24);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(1244, 626);
-            tabPage4.TabIndex = 3;
-            tabPage4.Text = "Firmware";
-            tabPage4.UseVisualStyleBackColor = true;
+            comBoxArSelP1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comBoxArSelP1.FormattingEnabled = true;
+            comBoxArSelP1.Items.AddRange(new object[] { "Leonardo", "Micro", "ProMicro8", "ProMicro16" });
+            comBoxArSelP1.Location = new Point(130, 271);
+            comBoxArSelP1.Name = "comBoxArSelP1";
+            comBoxArSelP1.Size = new Size(154, 23);
+            comBoxArSelP1.TabIndex = 289;
             // 
-            // label123
+            // comBoxArSelP2
             // 
-            label123.AutoSize = true;
-            label123.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label123.Location = new Point(35, 85);
-            label123.Name = "label123";
-            label123.Size = new Size(361, 21);
-            label123.TabIndex = 278;
-            label123.Text = "**Stop the gun before uploading the firmware";
-            // 
-            // label124
-            // 
-            label124.AutoSize = true;
-            label124.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label124.Location = new Point(35, 55);
-            label124.Name = "label124";
-            label124.Size = new Size(365, 21);
-            label124.TabIndex = 279;
-            label124.Text = "**Connect the arduino uploading the firmware";
+            comBoxArSelP2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comBoxArSelP2.FormattingEnabled = true;
+            comBoxArSelP2.Items.AddRange(new object[] { "Leonardo", "Micro", "ProMicro8", "ProMicro16" });
+            comBoxArSelP2.Location = new Point(960, 271);
+            comBoxArSelP2.Name = "comBoxArSelP2";
+            comBoxArSelP2.Size = new Size(151, 23);
+            comBoxArSelP2.TabIndex = 290;
             // 
             // MainWindow
             // 
@@ -3376,14 +3481,14 @@
             tabPage2.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
+            tabPage4.ResumeLayout(false);
+            tabPage4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            tabPage4.ResumeLayout(false);
-            tabPage4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -3675,5 +3780,14 @@
         private TabPage tabPage4;
         private Label label124;
         private Label label123;
+        private Label label125;
+        private Button btnUpFirP2;
+        private Button btnUpFirP1;
+        private Label label127;
+        private Label label126;
+        private Label label129;
+        private Label label128;
+        private ComboBox comBoxArSelP2;
+        private ComboBox comBoxArSelP1;
     }
 }

@@ -163,7 +163,7 @@ namespace LightGun.LightGunCompoment
                     float[] transformedPointValues = new float[2];
                     Marshal.Copy(transformedPointMat.DataPointer, transformedPointValues, 0, 2);
                     Point returnPoint = new Point((int)transformedPointValues[0], (int)transformedPointValues[1]);
-
+                    Console.WriteLine(returnPoint);
                     return returnPoint;
                 }
 

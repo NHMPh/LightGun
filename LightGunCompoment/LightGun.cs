@@ -10,6 +10,7 @@ using Emgu.CV.CvEnum;
 using Emgu.CV.XPhoto;
 using System.Diagnostics.Contracts;
 using System.Text.Json;
+using ArduinoUploader.Hardware;
 
 namespace LightGun.LightGunCompoment
 {
@@ -97,6 +98,9 @@ namespace LightGun.LightGunCompoment
                 camera.SetBrightness(brightness);
                 camera.SetContrast(contrast);
                 camera.SetExposure(exposure);
+                camera.SetHue(-2000);
+                camera.SetSaturation(0);
+                camera.SetSharpness(7);
                 processor.SetOffset(xOffset, yOffset);
                 processor.SetThresdHold(thresdhold);             
                 Task.Run(async () => await StreamVideo());
@@ -201,6 +205,10 @@ namespace LightGun.LightGunCompoment
             }
         }
 
+        public void UploadFirmware(ArduinoModel model)
+        {
+            arduinoMouse.UploadFirmware(model);
+        }
         public void SaveButtonSetting(int index, int type, int selectedValue)
         {
             if (type == 0)

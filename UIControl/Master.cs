@@ -19,6 +19,7 @@ namespace LightGun.UIControl
         public ButtonAssignmentTab buttonAssignmentTab;
         public CalibrationTab calibrationTab;
         public OverlayPanel overlayPanel;
+        public FirmwareUploadTab firmwareUploadTab;
         public Master(MainWindow mainWindow)
         {
             
@@ -38,6 +39,7 @@ namespace LightGun.UIControl
             buttonAssignmentTab = new ButtonAssignmentTab(lightGunP1, lightGunP2);
             calibrationTab = new CalibrationTab(lightGunP1, lightGunP2);
             overlayPanel = new OverlayPanel(lightGunP1 ,lightGunP2);
+            firmwareUploadTab = new FirmwareUploadTab(lightGunP1, lightGunP2);
         }
 
         public void SaveSetting(object sender, EventArgs e)

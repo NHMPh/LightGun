@@ -1,4 +1,5 @@
 ﻿
+using ArduinoUploader.Hardware;
 using LightGun.LightGunCompoment;
 using LightGun.UIControl;
 using System.Collections.ObjectModel;
@@ -46,6 +47,9 @@ namespace LightGun
 
             btnRefreshArP1.Click += BtnRefresh;
             btnRefreshArP2.Click += BtnRefresh;
+
+            btnUpFirP1.Click += BtnUpFirP1_Click;
+            btnUpFirP2.Click += BtnUpFirP2_Click;
 
             BtnRefresh(null, null);
 
@@ -136,6 +140,28 @@ namespace LightGun
                 }
             }
 
+        }
+
+        private void BtnUpFirP2_Click(object? sender, EventArgs e)
+        {
+            if(comBoxArSelP2.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a model");
+                return;
+            }
+            master.firmwareUploadTab.UploadFirmwareP2((ArduinoModel)Enum.Parse(typeof(ArduinoModel), comBoxArSelP2.SelectedItem.ToString()));
+            BtnRefresh(null, null);
+        }
+
+        private void BtnUpFirP1_Click(object? sender, EventArgs e)
+        {
+            if (comBoxArSelP1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a model");
+                return;
+            }
+            master.firmwareUploadTab.UploadFirmwareP1((ArduinoModel)Enum.Parse(typeof(ArduinoModel),comBoxArSelP1.SelectedItem.ToString()));
+            BtnRefresh(null, null);
         }
 
         private void Unforcus(object? sender, EventArgs e)
