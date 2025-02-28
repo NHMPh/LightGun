@@ -81,6 +81,10 @@ namespace LightGun
             gTrackBarP2.ValueChanged += master.mainTab.gTrackBarP2;
             eTrackBarP2.ValueChanged += master.mainTab.eTrackBarP2;
 
+
+            rawCheckBox.CheckedChanged += RawCheckBox_CheckedChanged;
+            processCheckBox.CheckedChanged += ProcessCheckBox_CheckedChanged;
+            _43CheckBox.CheckedChanged += _43CheckBox_CheckedChanged;
             //Calibration Tab UI
             up10ButtonP1.Click += master.calibrationTab.up10ButtonP1;
             down10ButtonP1.Click += master.calibrationTab.down10ButtonP1;
@@ -158,6 +162,21 @@ namespace LightGun
             comBoxArSelP1.Enabled = false;
             comBoxArSelP2.Enabled = false;
 
+        }
+
+        private void _43CheckBox_CheckedChanged(object? sender, EventArgs e)
+        {
+           master.Settings.Is43BorderCheck = _43CheckBox.Checked;
+        }
+
+        private void ProcessCheckBox_CheckedChanged(object? sender, EventArgs e)
+        {
+            master.Settings.IsProcessCheck = processCheckBox.Checked;
+        }
+
+        private void RawCheckBox_CheckedChanged(object? sender, EventArgs e)
+        {
+            master.Settings.IsRawCheck = rawCheckBox.Checked;
         }
 
         private void BtnUpFirP2_Click(object? sender, EventArgs e)
@@ -282,6 +301,10 @@ namespace LightGun
             cTrackBarP2.Value = master.Settings.Players[1].Contrast;
             gTrackBarP2.Value = master.Settings.Players[1].Gamma;
             eTrackBarP2.Value = master.Settings.Players[1].Exposure;
+
+            _43CheckBox.Checked = master.Settings.Is43BorderCheck;
+            rawCheckBox.Checked = master.Settings.IsRawCheck;
+            processCheckBox.Checked = master.Settings.IsProcessCheck;
 
             borderTextBox.Text = master.Settings.Border.ToString();
         }
@@ -471,6 +494,8 @@ namespace LightGun
         }
 
         private TransparentForm border;
+        private int currentState = 0; // 0: off, 1: 16:9, 2: 4:3
+
         public void OpenBorder()
         {
             int screenWidth = Screen.PrimaryScreen.Bounds.Width;
@@ -480,13 +505,31 @@ namespace LightGun
             {
                 border.Dispose();
                 border = null;
+            }
+            if (_43CheckBox.Checked)
+            {
+                currentState = (currentState + 1) % 3;
 
             }
             else
             {
+                if(currentState == 2)
+                {
+                    currentState = -1;
+                }
+                currentState = (currentState + 1) % 2;
+            }
+
+            if (currentState == 1 )
+            {
                 border = new TransparentForm(int.Parse(borderTextBox.Text), screenWidth, screenHeight);
                 border.Show();
-
+            }
+            else if (currentState == 2)
+            {
+                border = new TransparentForm(int.Parse(borderTextBox.Text), screenWidth, screenHeight);
+                border.Is43 = true;
+                border.Show();
             }
         }
         public void StartStopP1(object? sender, EventArgs e)

@@ -11,9 +11,16 @@ namespace LightGun
     {
 
 
-        float width = 39;
-        int resX;
-        int resY;
+        private float width = 0;
+        private int resX;
+        private int resY;
+        private bool is43 = false;
+        public bool Is43
+        {
+            get { return is43; }
+            set { is43 = value; }
+        }
+
         public TransparentForm(float width,int resX, int resY )
         {
             // Set the form properties
@@ -34,14 +41,37 @@ namespace LightGun
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            float thickness = (float)Math.Ceiling((resX*1.12) * (width / 100)) ;
-            // Draw a rectangle on the form
-            using (Pen pen = new Pen(Color.White, thickness))
+            if (!is43)
             {
-                e.Graphics.DrawRectangle(pen, new Rectangle(0, 0, resX, resY));
+                // Draw 16:9 aspect ratio
+                float thickness = (float)Math.Ceiling((resX * 1.12) * (width / 100));
+                // Draw a rectangle on the form
+                using (Pen pen = new Pen(Color.White, thickness))
+                {
+                    e.Graphics.DrawRectangle(pen, new Rectangle(0, 0, resX, resY));
+                }
             }
+            else
+            {
+                // Draw 4:3 aspect ratio horizontally
+                float thickness = (float)Math.Ceiling((resX * 1.12) * (width / 100));
+                int width43 = (int)(resY * 4.0 / 3.0);
+                int horizontalPadding = (resX - width43) / 2;
 
-           
+                // Paint the extra space black
+                using (Brush brush = new SolidBrush(Color.Black))
+                {
+                    e.Graphics.FillRectangle(brush, new Rectangle(0, 0, horizontalPadding, resY)); // Left black bar
+                    e.Graphics.FillRectangle(brush, new Rectangle(resX - horizontalPadding, 0, horizontalPadding, resY)); // Right black bar
+                }
+
+                // Draw a rectangle on the form
+                using (Pen pen = new Pen(Color.White, thickness))
+                {
+                    e.Graphics.DrawRectangle(pen, new Rectangle(horizontalPadding, 0, width43, resY));
+                }
+            }
+         
         }
         protected override CreateParams CreateParams
         {

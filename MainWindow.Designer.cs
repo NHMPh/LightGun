@@ -333,6 +333,7 @@
             checkBoxCamP1 = new CheckBox();
             checkBoxArP1 = new CheckBox();
             btnStartP1 = new Button();
+            _43CheckBox = new CheckBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxProP2).BeginInit();
@@ -374,6 +375,7 @@
             // tabPage1
             // 
             tabPage1.BackColor = SystemColors.Control;
+            tabPage1.Controls.Add(_43CheckBox);
             tabPage1.Controls.Add(guideSelect2);
             tabPage1.Controls.Add(guideSelect);
             tabPage1.Controls.Add(guideCam);
@@ -531,7 +533,7 @@
             processCheckBox.AutoSize = true;
             processCheckBox.Checked = true;
             processCheckBox.CheckState = CheckState.Checked;
-            processCheckBox.Location = new Point(550, 276);
+            processCheckBox.Location = new Point(550, 263);
             processCheckBox.Name = "processCheckBox";
             processCheckBox.Size = new Size(111, 19);
             processCheckBox.TabIndex = 232;
@@ -3557,6 +3559,18 @@
             btnStartP1.Text = "Not ready";
             btnStartP1.UseVisualStyleBackColor = false;
             // 
+            // _43CheckBox
+            // 
+            _43CheckBox.AutoSize = true;
+            _43CheckBox.Checked = true;
+            _43CheckBox.CheckState = CheckState.Checked;
+            _43CheckBox.Location = new Point(550, 287);
+            _43CheckBox.Name = "_43CheckBox";
+            _43CheckBox.Size = new Size(120, 19);
+            _43CheckBox.TabIndex = 261;
+            _43CheckBox.Text = "Cycle a 4:3 border";
+            _43CheckBox.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -3906,5 +3920,6 @@
         private Button guideCalibration;
         private Button guideFirmware;
         private Button guideOverlay2;
+        private CheckBox _43CheckBox;
     }
 }

@@ -29,5 +29,10 @@ namespace LightGun
     {
         public PlayerSettings[] Players { get; set; }
         public float Border { get; set; }
+        public bool IsRawCheck { get; set; }
+
+        public bool IsProcessCheck { get; set; }
+
+        public bool Is43BorderCheck { get; set; }
     }
 }
