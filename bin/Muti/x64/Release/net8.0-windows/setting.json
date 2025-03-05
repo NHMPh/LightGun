@@ -1,11 +1,11 @@
 {
   "Players": [
     {
-      "Threshold": 53,
-      "Xoffset": -46,
-      "Yoffset": -78,
+      "Threshold": 200,
+      "Xoffset": 0,
+      "Yoffset": 0,
       "Brightness": 64,
-      "Contrast": 51,
+      "Contrast": 0,
       "Gamma": 300,
       "Exposure": -8,
       "NormalButton": [
@@ -40,7 +40,7 @@
           "SelectedIndex": 0
         },
         {
-          "SelectedIndex": 1
+          "SelectedIndex": 0
         },
         {
           "SelectedIndex": 0
@@ -108,7 +108,7 @@
           "SelectedIndex": 0
         },
         {
-          "SelectedIndex": 2
+          "SelectedIndex": 0
         },
         {
           "SelectedIndex": 0
@@ -146,11 +146,11 @@
       ]
     },
     {
-      "Threshold": 65,
-      "Xoffset": 30,
-      "Yoffset": -87,
+      "Threshold": 200,
+      "Xoffset": 0,
+      "Yoffset": 0,
       "Brightness": 64,
-      "Contrast": 42,
+      "Contrast": 0,
       "Gamma": 300,
       "Exposure": -8,
       "NormalButton": [
@@ -185,7 +185,7 @@
           "SelectedIndex": 0
         },
         {
-          "SelectedIndex": 1
+          "SelectedIndex": 0
         },
         {
           "SelectedIndex": 0
@@ -253,7 +253,7 @@
           "SelectedIndex": 0
         },
         {
-          "SelectedIndex": 2
+          "SelectedIndex": 0
         },
         {
           "SelectedIndex": 0

@@ -53,7 +53,7 @@ namespace LightGun.LightGunCompoment
             port.Write(data);
 
         }
-        public void UploadFirmware(ArduinoModel model)
+        public void UploadFirmware(ArduinoModel model,int playerIndex)
         {
             port.Close();
             var uploader = new ArduinoSketchUploader(
@@ -65,7 +65,11 @@ namespace LightGun.LightGunCompoment
                     });
             try
             {
-                uploader.UploadFile(".\\ArduinoMouseFirmware\\ArduinoMouseFirmware.ino.hex");
+                if(playerIndex ==0)
+                uploader.UploadFile(".\\ArduinoMouseFirmware\\ArduinoMouseFirmwareP1.ino.hex");
+                else
+                uploader.UploadFile(".\\ArduinoMouseFirmware\\ArduinoMouseFirmwareP2.ino.hex");
+
                 MessageBox.Show("Upload success! Please reconnect your arduino");
             }
             catch(Exception e)

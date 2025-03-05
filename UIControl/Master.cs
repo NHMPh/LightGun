@@ -10,7 +10,7 @@ namespace LightGun.UIControl
         private LightGunCompoment.LightGun lightGunP2;
 
         private Settings settings;
-        string jsonFilePath = ".\\setting.json";
+        string jsonFilePath = $"{Environment.CurrentDirectory}\\setting.json";
         string jsonString;
 
         public Settings Settings {get {return settings;}}
@@ -23,11 +23,32 @@ namespace LightGun.UIControl
         public GuideMessageBoxMessage guideMessageBoxMessage = new GuideMessageBoxMessage();
         public Master(MainWindow mainWindow)
         {
-            
-            //Load setting
-            jsonString = File.ReadAllText(jsonFilePath);
-            settings = JsonSerializer.Deserialize<Settings>(jsonString);
 
+            //Load setting
+            try
+            {
+                jsonString = File.ReadAllText(jsonFilePath);
+            }
+            catch
+            {      
+                settings = new Settings();
+                settings.Is43BorderCheck = true;
+                settings.IsRawCheck = true;
+                settings.IsProcessCheck = true;
+                settings.Border = 2;
+                for (int i = 0; i < settings.Players.Length; i++)
+                {
+                    PlayerSettings playerSettings = new PlayerSettings();
+                    playerSettings.NormalButton = Enumerable.Repeat(new ButtonSelection { SelectedIndex = 0 }, 22).ToArray();
+                    playerSettings.OffscreenButton = Enumerable.Repeat(new ButtonSelection { SelectedIndex = 0 }, 22).ToArray();
+                    settings.Players[i] = playerSettings;
+                }
+                
+                SaveSetting(null, null);
+                jsonString = File.ReadAllText(jsonFilePath);
+            }
+           
+            settings = JsonSerializer.Deserialize<Settings>(jsonString);
             lightGunP1 = new LightGunCompoment.LightGun(0,settings);
             lightGunP2 = new LightGunCompoment.LightGun(1,settings);
 

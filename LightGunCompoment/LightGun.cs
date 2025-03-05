@@ -207,7 +207,7 @@ namespace LightGun.LightGunCompoment
 
         public void UploadFirmware(ArduinoModel model)
         {
-            arduinoMouse.UploadFirmware(model);
+            arduinoMouse.UploadFirmware(model,index);
         }
         public void SaveButtonSetting(int index, int type, int selectedValue)
         {

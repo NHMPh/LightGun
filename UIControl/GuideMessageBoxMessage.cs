@@ -34,11 +34,11 @@ namespace LightGun.UIControl
         }
         public void CalibrationMessage(object? sender, EventArgs e)
         {
-            MessageBox.Show("Use the iron sights of your gun to adjust the mouse cursor position, aligning it with the gun’s sight by clicking/shooting the (+10, -10, +1, -1) buttons. ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Use the iron sights of your gun to adjust the mouse cursor position, aligning it with the gun’s sight by clicking/shooting the (+10, -10, +1, -1) buttons.\nMake sure you assign your normal trigger to 'Click Left'.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         public void FirmwareMessage(object? sender, EventArgs e)
         {
-            MessageBox.Show("Use this to upload the firmware to a new Leonardo Arduino.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Use this to upload the firmware to a new Leonardo Arduino. You should wait for a few moments after pressing upload.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -12,13 +12,13 @@ namespace LightGun
     }
     public class PlayerSettings
     {
-        public int Threshold { get; set; }
-        public int Xoffset { get; set; }
-        public int Yoffset { get; set; }
-        public int Brightness { get; set; }
-        public int Contrast { get; set; }
-        public int Gamma { get; set; }
-        public int Exposure { get; set; }
+        public int Threshold { get; set; } = 200;
+        public int Xoffset { get; set; } = 0;
+        public int Yoffset { get; set; } = 0;
+        public int Brightness { get; set; } = 64;
+        public int Contrast { get; set; } = 0;
+        public int Gamma { get; set; } = 300;
+        public int Exposure { get; set; } = -8;
 
         public ButtonSelection[] NormalButton { get; set; }
 
@@ -27,7 +27,7 @@ namespace LightGun
 
     public class Settings
     {
-        public PlayerSettings[] Players { get; set; }
+        public PlayerSettings[] Players { get; set; } = new PlayerSettings[2];
         public float Border { get; set; }
         public bool IsRawCheck { get; set; }
 

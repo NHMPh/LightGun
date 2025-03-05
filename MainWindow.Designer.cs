@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            _43CheckBox = new CheckBox();
             guideSelect2 = new Button();
             guideSelect = new Button();
             guideCam = new Button();
@@ -303,6 +304,7 @@
             up1ButtonP1 = new Button();
             panel1 = new Panel();
             tabPage4 = new TabPage();
+            label130 = new Label();
             guideFirmware = new Button();
             comBoxArSelP2 = new ComboBox();
             comBoxArSelP1 = new ComboBox();
@@ -333,7 +335,7 @@
             checkBoxCamP1 = new CheckBox();
             checkBoxArP1 = new CheckBox();
             btnStartP1 = new Button();
-            _43CheckBox = new CheckBox();
+            label131 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxProP2).BeginInit();
@@ -442,6 +444,18 @@
             tabPage1.Size = new Size(1244, 626);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Main";
+            // 
+            // _43CheckBox
+            // 
+            _43CheckBox.AutoSize = true;
+            _43CheckBox.Checked = true;
+            _43CheckBox.CheckState = CheckState.Checked;
+            _43CheckBox.Location = new Point(550, 287);
+            _43CheckBox.Name = "_43CheckBox";
+            _43CheckBox.Size = new Size(120, 19);
+            _43CheckBox.TabIndex = 261;
+            _43CheckBox.Text = "Cycle a 4:3 border";
+            _43CheckBox.UseVisualStyleBackColor = true;
             // 
             // guideSelect2
             // 
@@ -628,7 +642,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(713, 567);
             label2.Name = "label2";
-            label2.Size = new Size(54, 15);
+            label2.Size = new Size(55, 15);
             label2.TabIndex = 221;
             label2.Text = "Exposure";
             // 
@@ -739,7 +753,7 @@
             label8.AutoSize = true;
             label8.Location = new Point(713, 413);
             label8.Name = "label8";
-            label8.Size = new Size(60, 15);
+            label8.Size = new Size(59, 15);
             label8.TabIndex = 209;
             label8.Text = "Threshold";
             // 
@@ -765,7 +779,7 @@
             label9.AutoSize = true;
             label9.Location = new Point(57, 567);
             label9.Name = "label9";
-            label9.Size = new Size(54, 15);
+            label9.Size = new Size(55, 15);
             label9.TabIndex = 206;
             label9.Text = "Exposure";
             // 
@@ -876,7 +890,7 @@
             tLable.AutoSize = true;
             tLable.Location = new Point(57, 413);
             tLable.Name = "tLable";
-            tLable.Size = new Size(60, 15);
+            tLable.Size = new Size(59, 15);
             tLable.TabIndex = 194;
             tLable.Text = "Threshold";
             // 
@@ -3224,6 +3238,8 @@
             // 
             // tabPage4
             // 
+            tabPage4.Controls.Add(label131);
+            tabPage4.Controls.Add(label130);
             tabPage4.Controls.Add(guideFirmware);
             tabPage4.Controls.Add(comBoxArSelP2);
             tabPage4.Controls.Add(comBoxArSelP1);
@@ -3242,6 +3258,16 @@
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Firmware";
             tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label130
+            // 
+            label130.AutoSize = true;
+            label130.Font = new Font("Segoe UI", 12F);
+            label130.Location = new Point(62, 378);
+            label130.Name = "label130";
+            label130.Size = new Size(334, 21);
+            label130.TabIndex = 292;
+            label130.Text = "This gun will be named \"NHMPh LightGun P1.\"";
             // 
             // guideFirmware
             // 
@@ -3559,17 +3585,15 @@
             btnStartP1.Text = "Not ready";
             btnStartP1.UseVisualStyleBackColor = false;
             // 
-            // _43CheckBox
+            // label131
             // 
-            _43CheckBox.AutoSize = true;
-            _43CheckBox.Checked = true;
-            _43CheckBox.CheckState = CheckState.Checked;
-            _43CheckBox.Location = new Point(550, 287);
-            _43CheckBox.Name = "_43CheckBox";
-            _43CheckBox.Size = new Size(120, 19);
-            _43CheckBox.TabIndex = 261;
-            _43CheckBox.Text = "Cycle a 4:3 border";
-            _43CheckBox.UseVisualStyleBackColor = true;
+            label131.AutoSize = true;
+            label131.Font = new Font("Segoe UI", 12F);
+            label131.Location = new Point(861, 378);
+            label131.Name = "label131";
+            label131.Size = new Size(334, 21);
+            label131.TabIndex = 293;
+            label131.Text = "This gun will be named \"NHMPh LightGun P2.\"";
             // 
             // MainWindow
             // 
@@ -3921,5 +3945,7 @@
         private Button guideFirmware;
         private Button guideOverlay2;
         private CheckBox _43CheckBox;
+        private Label label130;
+        private Label label131;
     }
 }
