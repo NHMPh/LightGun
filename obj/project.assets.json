@@ -7790,19 +7790,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\minhp\\.nuget\\packages\\": {}
+    "C:\\Users\\Phu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\LightGun\\LightGun\\LightGun.csproj",
+      "projectUniqueName": "D:\\WPF\\LightGun\\LightGun.csproj",
       "projectName": "LightGun",
-      "projectPath": "D:\\Project\\LightGun\\LightGun\\LightGun.csproj",
-      "packagesPath": "C:\\Users\\minhp\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\LightGun\\LightGun\\obj\\",
+      "projectPath": "D:\\WPF\\LightGun\\LightGun.csproj",
+      "packagesPath": "C:\\Users\\Phu\\.nuget\\packages\\",
+      "outputPath": "D:\\WPF\\LightGun\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\minhp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Phu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7882,7 +7882,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
