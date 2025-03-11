@@ -32,7 +32,7 @@ NHMPh Light gun uses an image processing program and Arduino hardware to convert
 
 #### Hardware build
 
-The light gun comprises a toy gun, a compact USB webcam (OV9726) and a Leonardo arduino.
+The light gun comprises a toy gun, a compact USB webcam (OV9726) and a Leonardo pro micro arduino.
 
 The camera is mounted on the barrel, while a switch is securely attached behind the trigger.
 
@@ -51,7 +51,7 @@ To connect additional buttons, repeat the same process, but assign each button t
 
  #### Flashing the arduino
 
-If you're using an Arduino Leonardo, you can upload the firmware directly through the software. See below for details.
+If you're using an Arduino Leonardo pro micro, you can upload the firmware directly through the software. See below for details.
 
 If you're using a different model or encountering issues uploading the firmware through the software, download the Arduino IDE, install the HID-Project library by NicoHood, and use the provided sketch at 
 
