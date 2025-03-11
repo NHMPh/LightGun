@@ -46,29 +46,33 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
-            "AForge.Video.DirectShow": {
+            "ArduinoUploader.NET": {
               "target": "Package",
-              "version": "[2.2.5, )"
-            },
-            "AutoHotkey.Interop": {
-              "target": "Package",
-              "version": "[1.0.0.1, )"
+              "version": "[7.1.0, )"
             },
             "Emgu.CV": {
               "target": "Package",
-              "version": "[4.9.0.5494, )"
+              "version": "[4.10.0.5680, )"
             },
             "Emgu.CV.Bitmap": {
               "target": "Package",
-              "version": "[4.9.0.5494, )"
+              "version": "[4.10.0.5680, )"
             },
             "Emgu.CV.runtime.windows": {
               "target": "Package",
-              "version": "[4.9.0.5494, )"
+              "version": "[4.10.0.5680, )"
+            },
+            "System.IO.Ports": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "System.Management": {
+              "target": "Package",
+              "version": "[9.0.2, )"
             },
             "System.Text.Json": {
               "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[9.0.2, )"
             }
           },
           "imports": [

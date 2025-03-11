@@ -4,18 +4,13 @@ using Emgu.CV.Util;
 using Emgu.CV;
 using System.Runtime.InteropServices;
 using System.Text.Json;
-using AutoHotkey.Interop;
-using AForge.Video.DirectShow;
+
+
 
 namespace LightGun
 {
     public partial class Form1 : Form
     {
-
-
-
-
-
         static int ixres = 640;
         static int iyres = 480;
 
@@ -34,6 +29,7 @@ namespace LightGun
         //Camera variable
         static int cameraIndex = -1;
         static VideoCapture capture = new VideoCapture(cameraIndex);
+        ArduinoCom arduinoCom;
         Mat frame = new Mat();
         Image<Bgr, byte> image;
         Size frameSize = new Size(ixres, iyres);
@@ -65,13 +61,9 @@ namespace LightGun
         Mat matrix = new Mat();
         Mat transformedPointMat = new Mat();
 
-        static AutoHotkeyEngine ahk = AutoHotkeyEngine.Instance;
+        //static AutoHotkeyEngine ahk = AutoHotkeyEngine.Instance;
         public Form1()
         {
-
-
-
-
             //ahk.Suspend();
             InitializeComponent();
 
@@ -89,8 +81,8 @@ namespace LightGun
             sWidth = settings.Border;
             borderTextBox.Text = sWidth.ToString();
             LoadWebcams();
-            clickOutside = settings.ClickOutSide;
-            holdOutside = settings.HoldOutSide;
+            //clickOutside = settings.ClickOutSide;
+            //holdOutside = settings.HoldOutSide;
             clickOutComboBox.SelectedItem = clickOutside.ToString();
             holdOutComboBox.SelectedItem = holdOutside.ToString();
             string script = $@"
@@ -141,91 +133,94 @@ StopTimer(){{
  SetTimer, SendMiddleClick, Off
 }}
 ";
-            ahk.ExecRaw(script);
-            ahk.Suspend();
+         //   ahk.ExecRaw(script);
+          //  ahk.Suspend();
+
+           arduinoCom = new ArduinoCom();
+            arduinoCom.OpenPort("COM12");
 
         }
         private void LoadWebcams()
         {
             // Create a collection to hold the video devices
-            FilterInfoCollection videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+          //  FilterInfoCollection videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
 
             // Check if any video devices are found
-            if (videoDevices.Count == 0)
-            {
-                MessageBox.Show("No webcams found.");
-                return;
-            }
-            comboBox1.Sorted = false;
+          //  if (videoDevices.Count == 0)
+          //  {
+          //      MessageBox.Show("No webcams found.");
+         //       return;
+          //  }
+         //   comboBox1.Sorted = false;
             // Add each video device to the ComboBox
-            foreach (FilterInfo device in videoDevices)
-            {
-                comboBox1.Items.Add(device.Name);
-            }
+          //  foreach (FilterInfo device in videoDevices)
+         //   {
+          //      comboBox1.Items.Add(device.Name);
+         //   }
         }
         private void SetCamera()
         {
 
-            // Set the capture resolution
-            capture.Set(CapProp.FrameWidth, ixres);
-            capture.Set(CapProp.FrameHeight, iyres);
-            capture.Set(CapProp.Fps, 30);
+            //// Set the capture resolution
+            //capture.Set(CapProp.FrameWidth, ixres);
+            //capture.Set(CapProp.FrameHeight, iyres);
+            //capture.Set(CapProp.Fps, 30);
 
-            // Path to the JSON file
+            //// Path to the JSON file
 
-            // Read the JSON file
+            //// Read the JSON file
 
-            // Deserialize the JSON content into the Settings class
+            //// Deserialize the JSON content into the Settings class
 
-            // Assign the values to the variables
-            threadhold = settings.Threadhold;
-            brightness = settings.Brightness;
-            contrast = settings.Contrast;
-            hue = settings.Hue;
-            saturation = settings.Saturation;
-            sharpness = settings.Sharpness;
-            gamma = settings.Gamma;
-            whiteBalance = settings.WhiteBalance;
-            exposure = settings.Exposure;
+            //// Assign the values to the variables
+            //threadhold = settings.Threadhold;
+            //brightness = settings.Brightness;
+            //contrast = settings.Contrast;
+            //hue = settings.Hue;
+            //saturation = settings.Saturation;
+            //sharpness = settings.Sharpness;
+            //gamma = settings.Gamma;
+            //whiteBalance = settings.WhiteBalance;
+            //exposure = settings.Exposure;
 
-            xOffset = settings.Xoffset;
-            yOffset = settings.Yoffset;
-
-
-
-            tTrackBar.Value = threadhold;
-            bTrackBar.Value = brightness;
-            cTrackBar.Value = contrast;
-            hTrackBar.Value = hue;
-            saTrackBar.Value = saturation;
-            shTrackBar.Value = sharpness;
-            gTrackBar.Value = gamma;
-            wTrackBar.Value = whiteBalance;
-            eTrackBar.Value = exposure;
+            //xOffset = settings.Xoffset;
+            //yOffset = settings.Yoffset;
 
 
 
-
-            tTextBox.Text = threadhold.ToString();
-            bTextBox.Text = brightness.ToString();
-            cTextBox.Text = contrast.ToString();
-            hTextBox.Text = hue.ToString();
-            saTextBox.Text = saturation.ToString();
-            shTextBox.Text = sharpness.ToString();
-            gTextBox.Text = gamma.ToString();
-            wTextBox.Text = whiteBalance.ToString();
-            eTextBox.Text = exposure.ToString();
-
+            //tTrackBar.Value = threadhold;
+            //bTrackBar.Value = brightness;
+            //cTrackBar.Value = contrast;
+            //hTrackBar.Value = hue;
+            //saTrackBar.Value = saturation;
+            //shTrackBar.Value = sharpness;
+            //gTrackBar.Value = gamma;
+            //wTrackBar.Value = whiteBalance;
+            //eTrackBar.Value = exposure;
 
 
-            capture.Set(CapProp.Brightness, brightness);
-            capture.Set(CapProp.Contrast, contrast);
-            capture.Set(CapProp.Hue, hue);
-            capture.Set(CapProp.Saturation, saturation);
-            capture.Set(CapProp.Sharpness, sharpness);
-            capture.Set(CapProp.Gamma, gamma);
-            capture.Set(CapProp.WhiteBalanceRedV, whiteBalance);
-            capture.Set(CapProp.Exposure, exposure);
+
+
+            //tTextBox.Text = threadhold.ToString();
+            //bTextBox.Text = brightness.ToString();
+            //cTextBox.Text = contrast.ToString();
+            //hTextBox.Text = hue.ToString();
+            //saTextBox.Text = saturation.ToString();
+            //shTextBox.Text = sharpness.ToString();
+            //gTextBox.Text = gamma.ToString();
+            //wTextBox.Text = whiteBalance.ToString();
+            //eTextBox.Text = exposure.ToString();
+
+
+
+            //capture.Set(CapProp.Brightness, brightness);
+            //capture.Set(CapProp.Contrast, contrast);
+            //capture.Set(CapProp.Hue, hue);
+            //capture.Set(CapProp.Saturation, saturation);
+            //capture.Set(CapProp.Sharpness, sharpness);
+            //capture.Set(CapProp.Gamma, gamma);
+            //capture.Set(CapProp.WhiteBalanceRedV, whiteBalance);
+            //capture.Set(CapProp.Exposure, exposure);
 
         }
 
@@ -247,9 +242,9 @@ StopTimer(){{
             movable = !movable;
             button1.Text = movable ? "Stop" : "Start";
             button1.BackColor = movable ? Color.Red : Color.Green;
-           if(movable)
-            ahk.UnSuspend();
-           else ahk.Suspend();
+           //if(movable)
+            //ahk.UnSuspend();
+          // else// ahk.Suspend();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -337,10 +332,7 @@ StopTimer(){{
                         pictureBox2.Image = process;
                     }
                     outSideOfScreen = true;
-                    if(movable)
-                        ahk.UnSuspend();
-                    else
-                        ahk.Suspend();
+                   
                     return System.Drawing.PointF.Empty;
                 }
                 // Convert VectorOfPoint to PointF array
@@ -416,7 +408,7 @@ StopTimer(){{
                     float[] transformedPointValues = new float[2];
                     Marshal.Copy(transformedPointMat.DataPointer, transformedPointValues, 0, 2);
                     PointF transformedPoint = new PointF((transformedPointValues[0] / ixres) * xres, (transformedPointValues[1] / iyres) * yres);
-
+                    arduinoCom.SendCursorPos((int)transformedPointValues[0], (int)transformedPointValues[1]);
 
                     bool outsideX = transformedPoint.X < 0 || transformedPoint.X > xres;
                     bool outsideY = transformedPoint.Y < 0 || transformedPoint.Y > yres;
@@ -424,17 +416,14 @@ StopTimer(){{
                     {
                        
                         outSideOfScreen = true;
-                        if (movable)
-                            ahk.UnSuspend();
-                        else
-                            ahk.Suspend();
+                      
                     }
                     else
                     {
                         outSideOfScreen = false;
                       
-                        ahk.ExecFunction("StopTimer");
-                        ahk.Suspend();
+                     //   ahk.ExecFunction("StopTimer");
+                      //  ahk.Suspend();
                     }
 
 
@@ -451,17 +440,11 @@ StopTimer(){{
                 }
      
                 outSideOfScreen = true;
-                if (movable)
-                    ahk.UnSuspend();
-                else
-                    ahk.Suspend();
+              
             }
            
             outSideOfScreen = true;
-            if (movable)
-                ahk.UnSuspend();
-            else
-                ahk.Suspend();
+          
             return PointF.Empty;
 
 
@@ -483,49 +466,49 @@ StopTimer(){{
         private void up10Button_Click(object sender, EventArgs e)
         {
             yOffset -= 10;
-            settings.Yoffset = (int)yOffset;
+            //settings.Yoffset = (int)yOffset;
         }
 
         private void down10Button_Click(object sender, EventArgs e)
         {
             yOffset += 10;
-            settings.Yoffset = (int)yOffset;
+          //  settings.Yoffset = (int)yOffset;
         }
 
         private void left10Button_Click(object sender, EventArgs e)
         {
             xOffset -= 10;
-            settings.Xoffset = (int)xOffset;
+           // settings.Xoffset = (int)xOffset;
         }
 
         private void right10Button_Click(object sender, EventArgs e)
         {
             xOffset += 10;
-            settings.Xoffset = (int)xOffset;
+           // settings.Xoffset = (int)xOffset;
         }
 
         private void up1Button_Click(object sender, EventArgs e)
         {
             yOffset -= 1;
-            settings.Yoffset = (int)yOffset;
+           // settings.Yoffset = (int)yOffset;
         }
 
         private void down1Button_Click(object sender, EventArgs e)
         {
             yOffset += 1;
-            settings.Yoffset = (int)yOffset;
+           // settings.Yoffset = (int)yOffset;
         }
 
         private void left1Button_Click(object sender, EventArgs e)
         {
             xOffset -= 1;
-            settings.Xoffset = (int)xOffset;
+          //  settings.Xoffset = (int)xOffset;
         }
 
         private void right1Button_Click(object sender, EventArgs e)
         {
             xOffset += 1;
-            settings.Xoffset = (int)xOffset;
+           // settings.Xoffset = (int)xOffset;
         }
 
 

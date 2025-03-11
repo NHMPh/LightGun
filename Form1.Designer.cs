@@ -1,4 +1,4 @@
-﻿using AutoHotkey.Interop;
+﻿
 using Emgu.CV;
 using Emgu.CV.CvEnum;
 
@@ -747,15 +747,15 @@ namespace LightGun
         {
 
             clickOutside = (sender as ComboBox).SelectedItem.ToString();
-            ahk.SetVar("clickAction", $"{clickOutside}");
-            settings.ClickOutSide = clickOutside;
+            //ahk.SetVar("clickAction", $"{clickOutside}");
+          //  settings.ClickOutSide = clickOutside;
             this.ActiveControl = null;
         }
         private void holdOutComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             holdOutside = (sender as ComboBox).SelectedItem.ToString();
-            ahk.SetVar("holdAction", $"{holdOutside}");
-            settings.HoldOutSide = holdOutside;
+           // ahk.SetVar("holdAction", $"{holdOutside}");
+         //   settings.HoldOutSide = holdOutside;
             this.ActiveControl = null;
         }
         private void ClickOutTextBox_TextChanged(object sender, EventArgs e)
@@ -777,7 +777,7 @@ namespace LightGun
             }
 
             holdOutside = (sender as TextBox).Text;
-            settings.HoldOutSide = holdOutside;
+          //  settings.HoldOutSide = holdOutside;
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -822,7 +822,7 @@ namespace LightGun
         private void ETrackBar_ValueChanged(object sender, EventArgs e)
         {
             int value = (sender as TrackBar).Value;
-            settings.Exposure = value;
+           // settings.Exposure = value;
             eTextBox.Text = value.ToString();
             capture.Set(CapProp.Exposure, value);
         }
@@ -830,7 +830,7 @@ namespace LightGun
         private void GTrackBar_ValueChanged(object sender, EventArgs e)
         {
             int value = (sender as TrackBar).Value;
-            settings.Gamma = value;
+          //  settings.Gamma = value;
             gTextBox.Text = value.ToString();
             capture.Set(CapProp.Gamma, value);
         }
@@ -838,7 +838,7 @@ namespace LightGun
         private void WTrackBar_ValueChanged(object sender, EventArgs e)
         {
             int value = (sender as TrackBar).Value;
-            settings.WhiteBalance = value;
+           // settings.WhiteBalance = value;
             wTextBox.Text = value.ToString();
             capture.Set(CapProp.WhiteBalanceRedV, value);
         }
@@ -846,7 +846,7 @@ namespace LightGun
         private void SaTrackBar_ValueChanged(object sender, EventArgs e)
         {
             int value = (sender as TrackBar).Value;
-            settings.Saturation = value;
+         //   settings.Saturation = value;
             saTextBox.Text = value.ToString();
             capture.Set(CapProp.Saturation, value);
         }
@@ -854,7 +854,7 @@ namespace LightGun
         private void ShTrackBar_ValueChanged(object sender, EventArgs e)
         {
             int value = (sender as TrackBar).Value;
-            settings.Sharpness = value;
+          //  settings.Sharpness = value;
             shTextBox.Text = value.ToString();
             capture.Set(CapProp.Sharpness, value);
         }
@@ -862,7 +862,7 @@ namespace LightGun
         private void CTrackBar_ValueChanged(object sender, EventArgs e)
         {
             int value = (sender as TrackBar).Value;
-            settings.Contrast = value;
+           // settings.Contrast = value;
             cTextBox.Text = value.ToString();
             capture.Set(CapProp.Contrast, value);
         }
@@ -870,7 +870,7 @@ namespace LightGun
         private void HTrackBar_ValueChanged(object sender, EventArgs e)
         {
             int value = (sender as TrackBar).Value;
-            settings.Hue = value;
+        //    settings.Hue = value;
             hTextBox.Text = value.ToString();
             capture.Set(CapProp.Hue, value);
         }
@@ -878,7 +878,7 @@ namespace LightGun
         private void BTrackBar_ValueChanged(object sender, EventArgs e)
         {
             int value = (sender as TrackBar).Value;
-            settings.Brightness = value;
+           // settings.Brightness = value;
             bTextBox.Text = value.ToString();
             capture.Set(CapProp.Brightness, value);
         }
@@ -887,7 +887,7 @@ namespace LightGun
         {
             int value = (sender as TrackBar).Value;
             threadhold = value;
-            settings.Threadhold = value;
+         //   settings.Threadhold = value;
             tTextBox.Text = value.ToString();
         }
 
