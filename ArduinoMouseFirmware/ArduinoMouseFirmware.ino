@@ -112,6 +112,7 @@ void ReleaseCurrentButton() {
     }
   }
 }
+
 void ProcessData() {
   switch (data[0]) {
     case 0:
