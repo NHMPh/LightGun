@@ -29,8 +29,6 @@ namespace LightGun
             ApplicationConfiguration.Initialize();
             try
             {
-
-
                 _keyboardHookID = SetKeyboardHook(_keyboardProc);
                 Application.Run(mainWindow);
             }
@@ -45,11 +43,7 @@ namespace LightGun
 
 
         }
-        private static void OnTimedEvent(Object source, ElapsedEventArgs e)
-        {
-
-            SendKeys.SendWait(Form1.holdOutside);
-        }
+  
 
         private static IntPtr SetKeyboardHook(LowLevelKeyboardProc proc)
         {
