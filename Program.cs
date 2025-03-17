@@ -27,17 +27,9 @@ namespace LightGun
             // see https://aka.ms/applicationconfiguration.
 
             ApplicationConfiguration.Initialize();
-            try
-            {
-                _keyboardHookID = SetKeyboardHook(_keyboardProc);
-                Application.Run(mainWindow);
-            }
-            catch
-            {
-                //_keyboardHookID = SetKeyboardHook(_keyboardProc);
-                mainWindow = new MainWindow();
-                Application.Run(mainWindow);
-            }
+            mainWindow = new MainWindow();
+            Application.Run(mainWindow);
+            
 
             UnhookWindowsHookEx(_keyboardHookID);
 
