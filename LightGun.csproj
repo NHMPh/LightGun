@@ -8,13 +8,13 @@
     <PlatformTarget>x64</PlatformTarget>
     <Platforms>AnyCPU;x64</Platforms>
     <OutputType>WinExe</OutputType>
-    <ApplicationIcon>bin\x64\Release\net8.0-windows\icon.ico</ApplicationIcon>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
     <BaseOutputPath>.\\bin</BaseOutputPath>
     <StartupObject></StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="bin\x64\Release\net8.0-windows\icon.ico" />
+    <Content Include="icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +40,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\x64\Release\net8.0-windows\" />
   </ItemGroup>
 
 </Project>

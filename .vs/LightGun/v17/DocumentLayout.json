@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "D:\\Test\\LightGun\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\test\\lightgun\\lightgun.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:lightgun.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\test\\lightgun\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\test\\lightgun\\uicontrol\\guidemessageboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:uicontrol\\guidemessageboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,20 +23,12 @@
       "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:uicontrol\\overlaypanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\test\\lightgun\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\test\\lightgun\\mainwindow.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:mainwindow.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\test\\lightgun\\uicontrol\\firmwareuploadtab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:uicontrol\\firmwareuploadtab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|d:\\test\\lightgun\\lightgun.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{59C93487-403E-4346-B977-0BF81A9643D2}|LightGun.csproj|solutionrelative:lightgun.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Phu\\AppData\\Local\\Temp\\.vsdbgsrc\\b7f76707424ba58fdf3042b68b3cf4ccc03a299e8df517e11acd8beb79fe0cb3\\Application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -122,7 +122,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -139,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MainWindow.Designer.cs",
               "DocumentMoniker": "D:\\Test\\LightGun\\MainWindow.Designer.cs",
               "RelativeDocumentMoniker": "MainWindow.Designer.cs",
@@ -151,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Setting.cs",
               "DocumentMoniker": "D:\\Test\\LightGun\\Setting.cs",
               "RelativeDocumentMoniker": "Setting.cs",
@@ -159,18 +159,20 @@
               "RelativeToolTip": "Setting.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAACMAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T16:37:07.963Z"
+              "WhenOpened": "2025-02-12T16:37:07.963Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "LightGun",
               "DocumentMoniker": "D:\\Test\\LightGun\\LightGun.csproj",
               "RelativeDocumentMoniker": "LightGun.csproj",
               "ToolTip": "D:\\Test\\LightGun\\LightGun.csproj",
               "RelativeToolTip": "LightGun.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-02-17T06:51:40.371Z"
+              "WhenOpened": "2025-02-17T06:51:40.371Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -185,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "FirmwareUploadTab.cs",
               "DocumentMoniker": "D:\\Test\\LightGun\\UIControl\\FirmwareUploadTab.cs",
               "RelativeDocumentMoniker": "UIControl\\FirmwareUploadTab.cs",
@@ -197,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "OverlayPanel.cs",
               "DocumentMoniker": "D:\\Test\\LightGun\\UIControl\\OverlayPanel.cs",
               "RelativeDocumentMoniker": "UIControl\\OverlayPanel.cs",
@@ -209,20 +211,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "GuideMessageBoxMessage.cs",
               "DocumentMoniker": "D:\\Test\\LightGun\\UIControl\\GuideMessageBoxMessage.cs",
               "RelativeDocumentMoniker": "UIControl\\GuideMessageBoxMessage.cs",
               "ToolTip": "D:\\Test\\LightGun\\UIControl\\GuideMessageBoxMessage.cs",
               "RelativeToolTip": "UIControl\\GuideMessageBoxMessage.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCcAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBgAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-22T15:03:58.326Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ArduinoMouse.cs",
               "DocumentMoniker": "D:\\Test\\LightGun\\LightGunCompoment\\ArduinoMouse.cs",
               "RelativeDocumentMoniker": "LightGunCompoment\\ArduinoMouse.cs",
