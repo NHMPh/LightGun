@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "InSPC8XZAT4=",
+  "dgSpecHash": "+wnfwc1nXb8=",
   "success": true,
-  "projectFilePath": "D:\\WPF\\LightGun\\LightGun.csproj",
+  "projectFilePath": "D:\\Test\\LightGun\\LightGun.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Phu\\.nuget\\packages\\arduinouploader.net\\7.1.0\\arduinouploader.net.7.1.0.nupkg.sha512",
     "C:\\Users\\Phu\\.nuget\\packages\\emgu.cv\\4.10.0.5680\\emgu.cv.4.10.0.5680.nupkg.sha512",

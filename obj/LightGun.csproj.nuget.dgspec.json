@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WPF\\LightGun\\LightGun.csproj": {}
+    "D:\\Test\\LightGun\\LightGun.csproj": {}
   },
   "projects": {
-    "D:\\WPF\\LightGun\\LightGun.csproj": {
+    "D:\\Test\\LightGun\\LightGun.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WPF\\LightGun\\LightGun.csproj",
+        "projectUniqueName": "D:\\Test\\LightGun\\LightGun.csproj",
         "projectName": "LightGun",
-        "projectPath": "D:\\WPF\\LightGun\\LightGun.csproj",
+        "projectPath": "D:\\Test\\LightGun\\LightGun.csproj",
         "packagesPath": "C:\\Users\\Phu\\.nuget\\packages\\",
-        "outputPath": "D:\\WPF\\LightGun\\obj\\",
+        "outputPath": "D:\\Test\\LightGun\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Phu\\AppData\\Roaming\\NuGet\\NuGet.Config",

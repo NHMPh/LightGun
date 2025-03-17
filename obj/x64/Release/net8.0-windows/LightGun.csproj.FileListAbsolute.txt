@@ -196,3 +196,16 @@ D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\unix\lib\net8.0\Sys
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win\lib\net8.0\System.IO.Ports.dll
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\win\lib\net8.0\System.Management.dll
 D:\WPF\LightGun\bin\Muti\x64\Release\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\Test\LightGun\obj\x64\Release\net8.0-windows\LightGun.csproj.AssemblyReference.cache
+D:\Test\LightGun\obj\x64\Release\net8.0-windows\LightGun.MainWindow.resources
+D:\Test\LightGun\obj\x64\Release\net8.0-windows\LightGun.Properties.Resources.resources
+D:\Test\LightGun\obj\x64\Release\net8.0-windows\LightGun.TransparentForm.resources
+D:\Test\LightGun\obj\x64\Release\net8.0-windows\LightGun.csproj.GenerateResource.cache
+D:\Test\LightGun\obj\x64\Release\net8.0-windows\LightGun.GeneratedMSBuildEditorConfig.editorconfig
+D:\Test\LightGun\obj\x64\Release\net8.0-windows\LightGun.AssemblyInfoInputs.cache
+D:\Test\LightGun\obj\x64\Release\net8.0-windows\LightGun.AssemblyInfo.cs
+D:\Test\LightGun\obj\x64\Release\net8.0-windows\LightGun.csproj.CoreCompileInputs.cache
+D:\Test\LightGun\obj\x64\Release\net8.0-windows\LightGun.sourcelink.json
+D:\Test\LightGun\obj\x64\Release\net8.0-windows\LightGun.dll
+D:\Test\LightGun\obj\x64\Release\net8.0-windows\refint\LightGun.dll
+D:\Test\LightGun\obj\x64\Release\net8.0-windows\LightGun.pdb
