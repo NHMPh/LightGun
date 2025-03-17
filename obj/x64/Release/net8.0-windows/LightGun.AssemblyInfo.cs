@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LightGun")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+870ef3ed4f8d7c7a75f26f6b14d85c8e0f23785d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c29942cc87f305355475dc3260b9363c77677d36")]
 [assembly: System.Reflection.AssemblyProductAttribute("LightGun")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LightGun")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
