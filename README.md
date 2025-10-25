@@ -55,7 +55,7 @@ If you're using an Arduino Leonardo pro micro, you can upload the firmware direc
 
 If you're using a different model or encountering issues uploading the firmware through the software, download the Arduino IDE, install the HID-Project library by NicoHood, and use the provided sketch at 
 
-[/NHMPh/LightGun/tree/Mutiplayer/ArduinoMouseFirmware](https://github.com/NHMPh/LightGun/tree/Mutiplayer/ArduinoMouseFirmware).
+[/NHMPh/LightGun/tree/main/ArduinoMouseFirmware](https://github.com/NHMPh/LightGun/tree/main/ArduinoMouseFirmware).
 
  ---
  
@@ -88,7 +88,7 @@ Press the corresponding upload button for Player 1 or Player 2 to upload the fir
 
 Wait until the pop-up appears before proceeding.
 
-If you compile the program yourself, create a folder named "ArduinoMouseFirmware" in the same directory as the program's .exe file. Then, download and place the two .hex files from [/NHMPh/LightGun/tree/Mutiplayer/ArduinoMouseFirmware](https://github.com/NHMPh/LightGun/tree/Mutiplayer/ArduinoMouseFirmware) into that folder before pressing the upload button.
+If you compile the program yourself, create a folder named "ArduinoMouseFirmware" in the same directory as the program's .exe file. Then, download and place the two .hex files from [/NHMPh/LightGun/tree/main/ArduinoMouseFirmware](https://github.com/NHMPh/LightGun/tree/main/ArduinoMouseFirmware) into that folder before pressing the upload button.
 
  ![Example Image](Readme_img/24.png "CamPro")
   
