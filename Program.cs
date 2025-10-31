@@ -27,7 +27,14 @@ namespace LightGun
             // see https://aka.ms/applicationconfiguration.
 
             ApplicationConfiguration.Initialize();
-            _keyboardHookID = SetKeyboardHook(_keyboardProc);
+            try
+            {
+                _keyboardHookID = SetKeyboardHook(_keyboardProc);
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Failed to set keyboard hook: " + ex.Message);
+            }
+            
             mainWindow = new MainWindow();
             Application.Run(mainWindow);
             
@@ -83,6 +90,10 @@ namespace LightGun
                     {
 
                         mainWindow.StartStopP2(null,null);
+                    }
+                    if (shiftPressed && key == Keys.R)
+                    {
+                        mainWindow.StartStopJoyStick(null, null);
                     }
                 }
                 else if (wParam == (IntPtr)WM_KEYUP)

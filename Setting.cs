@@ -12,7 +12,7 @@ namespace LightGun
     }
     public class PlayerSettings
     {
-        public int Threshold { get; set; } = 200;
+        public int Threshold { get; set; } = 85;
         public int Xoffset { get; set; } = 0;
         public int Yoffset { get; set; } = 0;
         public int Brightness { get; set; } = 64;
@@ -34,5 +34,11 @@ namespace LightGun
         public bool IsProcessCheck { get; set; }
 
         public bool Is43BorderCheck { get; set; }
+
+        public bool IsJoyCheck { get; set; }
+
+        public bool IsZAxisCheck { get; set; }
+
+        public bool IsAntiDriftCheck { get;set; }
     }
 }

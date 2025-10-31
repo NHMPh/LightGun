@@ -40,5 +40,9 @@ namespace LightGun.UIControl
         {
             MessageBox.Show("Use this to upload the firmware to a new Leonardo Arduino. You should wait for a few moments after pressing upload.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        public void JoyStickMessage(object? sender, EventArgs e)
+        {
+            MessageBox.Show("Joystick Aim Mode maps your aiming controls to the joystick’s axes, making it useful for games or emulators that don’t support mouse input. Remember to set your emulator's joystick deadzone to 0% and saturation to 100%.\r\n\nSome emulators — such as MAME — may not handle the Y-axis correctly, so you can enable the “Use Z-Axis” option to fix this issue.\r\n\nThe Anti-Drift is useful when mapping the joystick aim in emulators.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

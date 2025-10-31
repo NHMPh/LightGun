@@ -31,6 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            antiDriftCheckBox = new CheckBox();
+            guideJoyStick = new Button();
+            label133 = new Label();
+            zAxisCheckBox = new CheckBox();
+            joyCheckBox = new CheckBox();
             _43CheckBox = new CheckBox();
             guideSelect2 = new Button();
             guideSelect = new Button();
@@ -93,27 +98,15 @@
             label1 = new Label();
             comBoxCamP1 = new ComboBox();
             tabPage2 = new TabPage();
-            guideButtonAssign = new Button();
-            comboBox11 = new ComboBox();
-            comboBox10 = new ComboBox();
             comboBox78 = new ComboBox();
-            comboBox9 = new ComboBox();
             comboBox79 = new ComboBox();
-            comboBox8 = new ComboBox();
             comboBox80 = new ComboBox();
-            comboBox7 = new ComboBox();
             comboBox81 = new ComboBox();
-            comboBox6 = new ComboBox();
             comboBox82 = new ComboBox();
-            comboBox5 = new ComboBox();
             comboBox83 = new ComboBox();
-            comboBox4 = new ComboBox();
             comboBox84 = new ComboBox();
-            comboBox3 = new ComboBox();
             comboBox85 = new ComboBox();
-            comboBox2 = new ComboBox();
             comboBox86 = new ComboBox();
-            comboBox1 = new ComboBox();
             comboBox87 = new ComboBox();
             comboBox88 = new ComboBox();
             comboBox67 = new ComboBox();
@@ -182,6 +175,18 @@
             comboBox20 = new ComboBox();
             comboBox21 = new ComboBox();
             comboBox22 = new ComboBox();
+            comboBox9 = new ComboBox();
+            comboBox10 = new ComboBox();
+            comboBox11 = new ComboBox();
+            comboBox5 = new ComboBox();
+            comboBox6 = new ComboBox();
+            comboBox7 = new ComboBox();
+            comboBox8 = new ComboBox();
+            comboBox3 = new ComboBox();
+            comboBox4 = new ComboBox();
+            comboBox2 = new ComboBox();
+            guideButtonAssign = new Button();
+            comboBox1 = new ComboBox();
             btnSaveBuAssign = new Button();
             label114 = new Label();
             label112 = new Label();
@@ -279,6 +284,7 @@
             label15 = new Label();
             label17 = new Label();
             tabPage3 = new TabPage();
+            label132 = new Label();
             guideCalibration = new Button();
             label118 = new Label();
             label117 = new Label();
@@ -336,7 +342,6 @@
             checkBoxCamP1 = new CheckBox();
             checkBoxArP1 = new CheckBox();
             btnStartP1 = new Button();
-            label132 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxProP2).BeginInit();
@@ -378,6 +383,11 @@
             // tabPage1
             // 
             tabPage1.BackColor = SystemColors.Control;
+            tabPage1.Controls.Add(antiDriftCheckBox);
+            tabPage1.Controls.Add(guideJoyStick);
+            tabPage1.Controls.Add(label133);
+            tabPage1.Controls.Add(zAxisCheckBox);
+            tabPage1.Controls.Add(joyCheckBox);
             tabPage1.Controls.Add(_43CheckBox);
             tabPage1.Controls.Add(guideSelect2);
             tabPage1.Controls.Add(guideSelect);
@@ -446,12 +456,64 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Main";
             // 
+            // antiDriftCheckBox
+            // 
+            antiDriftCheckBox.AutoSize = true;
+            antiDriftCheckBox.Font = new Font("Segoe UI", 9.75F);
+            antiDriftCheckBox.Location = new Point(536, 369);
+            antiDriftCheckBox.Name = "antiDriftCheckBox";
+            antiDriftCheckBox.Size = new Size(123, 21);
+            antiDriftCheckBox.TabIndex = 266;
+            antiDriftCheckBox.Text = "Anti joystick drift";
+            antiDriftCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // guideJoyStick
+            // 
+            guideJoyStick.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guideJoyStick.Location = new Point(501, 322);
+            guideJoyStick.Name = "guideJoyStick";
+            guideJoyStick.Size = new Size(28, 28);
+            guideJoyStick.TabIndex = 265;
+            guideJoyStick.Text = "?";
+            guideJoyStick.UseVisualStyleBackColor = true;
+            // 
+            // label133
+            // 
+            label133.AutoSize = true;
+            label133.Location = new Point(697, 322);
+            label133.Name = "label133";
+            label133.Size = new Size(66, 15);
+            label133.TabIndex = 264;
+            label133.Text = "(LShift + R)";
+            // 
+            // zAxisCheckBox
+            // 
+            zAxisCheckBox.AutoSize = true;
+            zAxisCheckBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            zAxisCheckBox.Location = new Point(536, 343);
+            zAxisCheckBox.Name = "zAxisCheckBox";
+            zAxisCheckBox.Size = new Size(185, 21);
+            zAxisCheckBox.TabIndex = 263;
+            zAxisCheckBox.Text = "Use z-axis instead of y-axis";
+            zAxisCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // joyCheckBox
+            // 
+            joyCheckBox.AutoSize = true;
+            joyCheckBox.Font = new Font("Segoe UI", 9.75F);
+            joyCheckBox.Location = new Point(536, 319);
+            joyCheckBox.Name = "joyCheckBox";
+            joyCheckBox.Size = new Size(155, 21);
+            joyCheckBox.TabIndex = 262;
+            joyCheckBox.Text = "Enable joystick aiming";
+            joyCheckBox.UseVisualStyleBackColor = true;
+            // 
             // _43CheckBox
             // 
             _43CheckBox.AutoSize = true;
             _43CheckBox.Checked = true;
             _43CheckBox.CheckState = CheckState.Checked;
-            _43CheckBox.Location = new Point(550, 287);
+            _43CheckBox.Location = new Point(517, 257);
             _43CheckBox.Name = "_43CheckBox";
             _43CheckBox.Size = new Size(120, 19);
             _43CheckBox.TabIndex = 261;
@@ -491,7 +553,7 @@
             // guideBorder
             // 
             guideBorder.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guideBorder.Location = new Point(723, 287);
+            guideBorder.Location = new Point(721, 253);
             guideBorder.Name = "guideBorder";
             guideBorder.Size = new Size(28, 28);
             guideBorder.TabIndex = 257;
@@ -548,7 +610,7 @@
             processCheckBox.AutoSize = true;
             processCheckBox.Checked = true;
             processCheckBox.CheckState = CheckState.Checked;
-            processCheckBox.Location = new Point(550, 263);
+            processCheckBox.Location = new Point(635, 232);
             processCheckBox.Name = "processCheckBox";
             processCheckBox.Size = new Size(111, 19);
             processCheckBox.TabIndex = 232;
@@ -560,7 +622,7 @@
             rawCheckBox.AutoSize = true;
             rawCheckBox.Checked = true;
             rawCheckBox.CheckState = CheckState.Checked;
-            rawCheckBox.Location = new Point(550, 238);
+            rawCheckBox.Location = new Point(517, 232);
             rawCheckBox.Name = "rawCheckBox";
             rawCheckBox.Size = new Size(77, 19);
             rawCheckBox.TabIndex = 231;
@@ -570,7 +632,7 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(697, 328);
+            label16.Location = new Point(706, 293);
             label16.Name = "label16";
             label16.Size = new Size(61, 15);
             label16.TabIndex = 229;
@@ -578,7 +640,7 @@
             // 
             // borderTextBox
             // 
-            borderTextBox.Location = new Point(591, 325);
+            borderTextBox.Location = new Point(600, 290);
             borderTextBox.Name = "borderTextBox";
             borderTextBox.Size = new Size(100, 23);
             borderTextBox.TabIndex = 228;
@@ -587,7 +649,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(481, 328);
+            label10.Location = new Point(490, 293);
             label10.Name = "label10";
             label10.Size = new Size(104, 15);
             label10.TabIndex = 227;
@@ -1023,27 +1085,15 @@
             // tabPage2
             // 
             tabPage2.BackColor = SystemColors.Control;
-            tabPage2.Controls.Add(guideButtonAssign);
-            tabPage2.Controls.Add(comboBox11);
-            tabPage2.Controls.Add(comboBox10);
             tabPage2.Controls.Add(comboBox78);
-            tabPage2.Controls.Add(comboBox9);
             tabPage2.Controls.Add(comboBox79);
-            tabPage2.Controls.Add(comboBox8);
             tabPage2.Controls.Add(comboBox80);
-            tabPage2.Controls.Add(comboBox7);
             tabPage2.Controls.Add(comboBox81);
-            tabPage2.Controls.Add(comboBox6);
             tabPage2.Controls.Add(comboBox82);
-            tabPage2.Controls.Add(comboBox5);
             tabPage2.Controls.Add(comboBox83);
-            tabPage2.Controls.Add(comboBox4);
             tabPage2.Controls.Add(comboBox84);
-            tabPage2.Controls.Add(comboBox3);
             tabPage2.Controls.Add(comboBox85);
-            tabPage2.Controls.Add(comboBox2);
             tabPage2.Controls.Add(comboBox86);
-            tabPage2.Controls.Add(comboBox1);
             tabPage2.Controls.Add(comboBox87);
             tabPage2.Controls.Add(comboBox88);
             tabPage2.Controls.Add(comboBox67);
@@ -1112,6 +1162,18 @@
             tabPage2.Controls.Add(comboBox20);
             tabPage2.Controls.Add(comboBox21);
             tabPage2.Controls.Add(comboBox22);
+            tabPage2.Controls.Add(comboBox9);
+            tabPage2.Controls.Add(comboBox10);
+            tabPage2.Controls.Add(comboBox11);
+            tabPage2.Controls.Add(comboBox5);
+            tabPage2.Controls.Add(comboBox6);
+            tabPage2.Controls.Add(comboBox7);
+            tabPage2.Controls.Add(comboBox8);
+            tabPage2.Controls.Add(comboBox3);
+            tabPage2.Controls.Add(comboBox4);
+            tabPage2.Controls.Add(comboBox2);
+            tabPage2.Controls.Add(guideButtonAssign);
+            tabPage2.Controls.Add(comboBox1);
             tabPage2.Controls.Add(btnSaveBuAssign);
             tabPage2.Controls.Add(label114);
             tabPage2.Controls.Add(label112);
@@ -1215,6 +1277,963 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Button Assignment";
             // 
+            // comboBox78
+            // 
+            comboBox78.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox78.DropDownWidth = 125;
+            comboBox78.FormattingEnabled = true;
+            comboBox78.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox78.Location = new Point(1121, 248);
+            comboBox78.Name = "comboBox78";
+            comboBox78.Size = new Size(100, 23);
+            comboBox78.TabIndex = 463;
+            // 
+            // comboBox79
+            // 
+            comboBox79.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox79.DropDownWidth = 125;
+            comboBox79.FormattingEnabled = true;
+            comboBox79.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox79.Location = new Point(1121, 277);
+            comboBox79.Name = "comboBox79";
+            comboBox79.Size = new Size(100, 23);
+            comboBox79.TabIndex = 462;
+            // 
+            // comboBox80
+            // 
+            comboBox80.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox80.DropDownWidth = 125;
+            comboBox80.FormattingEnabled = true;
+            comboBox80.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox80.Location = new Point(1121, 306);
+            comboBox80.Name = "comboBox80";
+            comboBox80.Size = new Size(100, 23);
+            comboBox80.TabIndex = 461;
+            // 
+            // comboBox81
+            // 
+            comboBox81.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox81.DropDownWidth = 125;
+            comboBox81.FormattingEnabled = true;
+            comboBox81.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox81.Location = new Point(1121, 335);
+            comboBox81.Name = "comboBox81";
+            comboBox81.Size = new Size(100, 23);
+            comboBox81.TabIndex = 460;
+            // 
+            // comboBox82
+            // 
+            comboBox82.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox82.DropDownWidth = 125;
+            comboBox82.FormattingEnabled = true;
+            comboBox82.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox82.Location = new Point(1121, 364);
+            comboBox82.Name = "comboBox82";
+            comboBox82.Size = new Size(100, 23);
+            comboBox82.TabIndex = 459;
+            // 
+            // comboBox83
+            // 
+            comboBox83.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox83.DropDownWidth = 125;
+            comboBox83.FormattingEnabled = true;
+            comboBox83.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox83.Location = new Point(1121, 393);
+            comboBox83.Name = "comboBox83";
+            comboBox83.Size = new Size(100, 23);
+            comboBox83.TabIndex = 458;
+            // 
+            // comboBox84
+            // 
+            comboBox84.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox84.DropDownWidth = 125;
+            comboBox84.FormattingEnabled = true;
+            comboBox84.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox84.Location = new Point(1121, 422);
+            comboBox84.Name = "comboBox84";
+            comboBox84.Size = new Size(100, 23);
+            comboBox84.TabIndex = 457;
+            // 
+            // comboBox85
+            // 
+            comboBox85.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox85.DropDownWidth = 125;
+            comboBox85.FormattingEnabled = true;
+            comboBox85.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox85.Location = new Point(1121, 451);
+            comboBox85.Name = "comboBox85";
+            comboBox85.Size = new Size(100, 23);
+            comboBox85.TabIndex = 456;
+            // 
+            // comboBox86
+            // 
+            comboBox86.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox86.DropDownWidth = 125;
+            comboBox86.FormattingEnabled = true;
+            comboBox86.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox86.Location = new Point(1121, 480);
+            comboBox86.Name = "comboBox86";
+            comboBox86.Size = new Size(100, 23);
+            comboBox86.TabIndex = 455;
+            // 
+            // comboBox87
+            // 
+            comboBox87.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox87.DropDownWidth = 125;
+            comboBox87.FormattingEnabled = true;
+            comboBox87.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox87.Location = new Point(1121, 510);
+            comboBox87.Name = "comboBox87";
+            comboBox87.Size = new Size(100, 23);
+            comboBox87.TabIndex = 454;
+            // 
+            // comboBox88
+            // 
+            comboBox88.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox88.DropDownWidth = 125;
+            comboBox88.FormattingEnabled = true;
+            comboBox88.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox88.Location = new Point(1121, 539);
+            comboBox88.Name = "comboBox88";
+            comboBox88.Size = new Size(100, 23);
+            comboBox88.TabIndex = 453;
+            // 
+            // comboBox67
+            // 
+            comboBox67.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox67.DropDownWidth = 125;
+            comboBox67.FormattingEnabled = true;
+            comboBox67.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox67.Location = new Point(979, 248);
+            comboBox67.Name = "comboBox67";
+            comboBox67.Size = new Size(100, 23);
+            comboBox67.TabIndex = 452;
+            // 
+            // comboBox68
+            // 
+            comboBox68.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox68.DropDownWidth = 125;
+            comboBox68.FormattingEnabled = true;
+            comboBox68.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox68.Location = new Point(979, 277);
+            comboBox68.Name = "comboBox68";
+            comboBox68.Size = new Size(100, 23);
+            comboBox68.TabIndex = 451;
+            // 
+            // comboBox69
+            // 
+            comboBox69.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox69.DropDownWidth = 125;
+            comboBox69.FormattingEnabled = true;
+            comboBox69.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox69.Location = new Point(979, 306);
+            comboBox69.Name = "comboBox69";
+            comboBox69.Size = new Size(100, 23);
+            comboBox69.TabIndex = 450;
+            // 
+            // comboBox70
+            // 
+            comboBox70.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox70.DropDownWidth = 125;
+            comboBox70.FormattingEnabled = true;
+            comboBox70.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox70.Location = new Point(979, 335);
+            comboBox70.Name = "comboBox70";
+            comboBox70.Size = new Size(100, 23);
+            comboBox70.TabIndex = 449;
+            // 
+            // comboBox71
+            // 
+            comboBox71.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox71.DropDownWidth = 125;
+            comboBox71.FormattingEnabled = true;
+            comboBox71.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox71.Location = new Point(979, 364);
+            comboBox71.Name = "comboBox71";
+            comboBox71.Size = new Size(100, 23);
+            comboBox71.TabIndex = 448;
+            // 
+            // comboBox72
+            // 
+            comboBox72.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox72.DropDownWidth = 125;
+            comboBox72.FormattingEnabled = true;
+            comboBox72.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox72.Location = new Point(979, 393);
+            comboBox72.Name = "comboBox72";
+            comboBox72.Size = new Size(100, 23);
+            comboBox72.TabIndex = 447;
+            // 
+            // comboBox73
+            // 
+            comboBox73.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox73.DropDownWidth = 125;
+            comboBox73.FormattingEnabled = true;
+            comboBox73.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox73.Location = new Point(979, 422);
+            comboBox73.Name = "comboBox73";
+            comboBox73.Size = new Size(100, 23);
+            comboBox73.TabIndex = 446;
+            // 
+            // comboBox74
+            // 
+            comboBox74.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox74.DropDownWidth = 125;
+            comboBox74.FormattingEnabled = true;
+            comboBox74.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox74.Location = new Point(979, 451);
+            comboBox74.Name = "comboBox74";
+            comboBox74.Size = new Size(100, 23);
+            comboBox74.TabIndex = 445;
+            // 
+            // comboBox75
+            // 
+            comboBox75.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox75.DropDownWidth = 125;
+            comboBox75.FormattingEnabled = true;
+            comboBox75.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox75.Location = new Point(979, 480);
+            comboBox75.Name = "comboBox75";
+            comboBox75.Size = new Size(100, 23);
+            comboBox75.TabIndex = 444;
+            // 
+            // comboBox76
+            // 
+            comboBox76.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox76.DropDownWidth = 125;
+            comboBox76.FormattingEnabled = true;
+            comboBox76.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox76.Location = new Point(979, 510);
+            comboBox76.Name = "comboBox76";
+            comboBox76.Size = new Size(100, 23);
+            comboBox76.TabIndex = 443;
+            // 
+            // comboBox77
+            // 
+            comboBox77.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox77.DropDownWidth = 125;
+            comboBox77.FormattingEnabled = true;
+            comboBox77.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox77.Location = new Point(979, 539);
+            comboBox77.Name = "comboBox77";
+            comboBox77.Size = new Size(100, 23);
+            comboBox77.TabIndex = 442;
+            // 
+            // comboBox56
+            // 
+            comboBox56.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox56.DropDownWidth = 125;
+            comboBox56.FormattingEnabled = true;
+            comboBox56.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox56.Location = new Point(823, 248);
+            comboBox56.Name = "comboBox56";
+            comboBox56.Size = new Size(100, 23);
+            comboBox56.TabIndex = 441;
+            // 
+            // comboBox57
+            // 
+            comboBox57.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox57.DropDownWidth = 125;
+            comboBox57.FormattingEnabled = true;
+            comboBox57.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox57.Location = new Point(823, 277);
+            comboBox57.Name = "comboBox57";
+            comboBox57.Size = new Size(100, 23);
+            comboBox57.TabIndex = 440;
+            // 
+            // comboBox58
+            // 
+            comboBox58.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox58.DropDownWidth = 125;
+            comboBox58.FormattingEnabled = true;
+            comboBox58.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox58.Location = new Point(823, 306);
+            comboBox58.Name = "comboBox58";
+            comboBox58.Size = new Size(100, 23);
+            comboBox58.TabIndex = 439;
+            // 
+            // comboBox59
+            // 
+            comboBox59.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox59.DropDownWidth = 125;
+            comboBox59.FormattingEnabled = true;
+            comboBox59.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox59.Location = new Point(823, 335);
+            comboBox59.Name = "comboBox59";
+            comboBox59.Size = new Size(100, 23);
+            comboBox59.TabIndex = 438;
+            // 
+            // comboBox60
+            // 
+            comboBox60.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox60.DropDownWidth = 125;
+            comboBox60.FormattingEnabled = true;
+            comboBox60.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox60.Location = new Point(823, 364);
+            comboBox60.Name = "comboBox60";
+            comboBox60.Size = new Size(100, 23);
+            comboBox60.TabIndex = 437;
+            // 
+            // comboBox61
+            // 
+            comboBox61.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox61.DropDownWidth = 125;
+            comboBox61.FormattingEnabled = true;
+            comboBox61.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox61.Location = new Point(823, 393);
+            comboBox61.Name = "comboBox61";
+            comboBox61.Size = new Size(100, 23);
+            comboBox61.TabIndex = 436;
+            // 
+            // comboBox62
+            // 
+            comboBox62.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox62.DropDownWidth = 125;
+            comboBox62.FormattingEnabled = true;
+            comboBox62.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox62.Location = new Point(823, 422);
+            comboBox62.Name = "comboBox62";
+            comboBox62.Size = new Size(100, 23);
+            comboBox62.TabIndex = 435;
+            // 
+            // comboBox63
+            // 
+            comboBox63.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox63.DropDownWidth = 125;
+            comboBox63.FormattingEnabled = true;
+            comboBox63.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox63.Location = new Point(823, 451);
+            comboBox63.Name = "comboBox63";
+            comboBox63.Size = new Size(100, 23);
+            comboBox63.TabIndex = 434;
+            // 
+            // comboBox64
+            // 
+            comboBox64.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox64.DropDownWidth = 125;
+            comboBox64.FormattingEnabled = true;
+            comboBox64.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox64.Location = new Point(823, 480);
+            comboBox64.Name = "comboBox64";
+            comboBox64.Size = new Size(100, 23);
+            comboBox64.TabIndex = 433;
+            // 
+            // comboBox65
+            // 
+            comboBox65.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox65.DropDownWidth = 125;
+            comboBox65.FormattingEnabled = true;
+            comboBox65.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox65.Location = new Point(823, 510);
+            comboBox65.Name = "comboBox65";
+            comboBox65.Size = new Size(100, 23);
+            comboBox65.TabIndex = 432;
+            // 
+            // comboBox66
+            // 
+            comboBox66.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox66.DropDownWidth = 125;
+            comboBox66.FormattingEnabled = true;
+            comboBox66.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox66.Location = new Point(823, 539);
+            comboBox66.Name = "comboBox66";
+            comboBox66.Size = new Size(100, 23);
+            comboBox66.TabIndex = 431;
+            // 
+            // comboBox45
+            // 
+            comboBox45.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox45.DropDownWidth = 125;
+            comboBox45.FormattingEnabled = true;
+            comboBox45.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox45.Location = new Point(681, 248);
+            comboBox45.Name = "comboBox45";
+            comboBox45.Size = new Size(100, 23);
+            comboBox45.TabIndex = 430;
+            // 
+            // comboBox46
+            // 
+            comboBox46.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox46.DropDownWidth = 125;
+            comboBox46.FormattingEnabled = true;
+            comboBox46.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox46.Location = new Point(681, 277);
+            comboBox46.Name = "comboBox46";
+            comboBox46.Size = new Size(100, 23);
+            comboBox46.TabIndex = 429;
+            // 
+            // comboBox47
+            // 
+            comboBox47.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox47.DropDownWidth = 125;
+            comboBox47.FormattingEnabled = true;
+            comboBox47.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox47.Location = new Point(681, 306);
+            comboBox47.Name = "comboBox47";
+            comboBox47.Size = new Size(100, 23);
+            comboBox47.TabIndex = 428;
+            // 
+            // comboBox48
+            // 
+            comboBox48.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox48.DropDownWidth = 125;
+            comboBox48.FormattingEnabled = true;
+            comboBox48.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox48.Location = new Point(681, 335);
+            comboBox48.Name = "comboBox48";
+            comboBox48.Size = new Size(100, 23);
+            comboBox48.TabIndex = 427;
+            // 
+            // comboBox49
+            // 
+            comboBox49.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox49.DropDownWidth = 125;
+            comboBox49.FormattingEnabled = true;
+            comboBox49.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox49.Location = new Point(681, 364);
+            comboBox49.Name = "comboBox49";
+            comboBox49.Size = new Size(100, 23);
+            comboBox49.TabIndex = 426;
+            // 
+            // comboBox50
+            // 
+            comboBox50.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox50.DropDownWidth = 125;
+            comboBox50.FormattingEnabled = true;
+            comboBox50.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox50.Location = new Point(681, 393);
+            comboBox50.Name = "comboBox50";
+            comboBox50.Size = new Size(100, 23);
+            comboBox50.TabIndex = 425;
+            // 
+            // comboBox51
+            // 
+            comboBox51.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox51.DropDownWidth = 125;
+            comboBox51.FormattingEnabled = true;
+            comboBox51.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox51.Location = new Point(681, 422);
+            comboBox51.Name = "comboBox51";
+            comboBox51.Size = new Size(100, 23);
+            comboBox51.TabIndex = 424;
+            // 
+            // comboBox52
+            // 
+            comboBox52.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox52.DropDownWidth = 125;
+            comboBox52.FormattingEnabled = true;
+            comboBox52.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox52.Location = new Point(681, 451);
+            comboBox52.Name = "comboBox52";
+            comboBox52.Size = new Size(100, 23);
+            comboBox52.TabIndex = 423;
+            // 
+            // comboBox53
+            // 
+            comboBox53.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox53.DropDownWidth = 125;
+            comboBox53.FormattingEnabled = true;
+            comboBox53.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox53.Location = new Point(681, 480);
+            comboBox53.Name = "comboBox53";
+            comboBox53.Size = new Size(100, 23);
+            comboBox53.TabIndex = 422;
+            // 
+            // comboBox54
+            // 
+            comboBox54.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox54.DropDownWidth = 125;
+            comboBox54.FormattingEnabled = true;
+            comboBox54.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox54.Location = new Point(681, 510);
+            comboBox54.Name = "comboBox54";
+            comboBox54.Size = new Size(100, 23);
+            comboBox54.TabIndex = 421;
+            // 
+            // comboBox55
+            // 
+            comboBox55.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox55.DropDownWidth = 125;
+            comboBox55.FormattingEnabled = true;
+            comboBox55.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox55.Location = new Point(681, 539);
+            comboBox55.Name = "comboBox55";
+            comboBox55.Size = new Size(100, 23);
+            comboBox55.TabIndex = 420;
+            // 
+            // comboBox34
+            // 
+            comboBox34.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox34.DropDownWidth = 125;
+            comboBox34.FormattingEnabled = true;
+            comboBox34.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox34.Location = new Point(497, 248);
+            comboBox34.Name = "comboBox34";
+            comboBox34.Size = new Size(100, 23);
+            comboBox34.TabIndex = 419;
+            // 
+            // comboBox35
+            // 
+            comboBox35.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox35.DropDownWidth = 125;
+            comboBox35.FormattingEnabled = true;
+            comboBox35.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox35.Location = new Point(497, 277);
+            comboBox35.Name = "comboBox35";
+            comboBox35.Size = new Size(100, 23);
+            comboBox35.TabIndex = 418;
+            // 
+            // comboBox36
+            // 
+            comboBox36.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox36.DropDownWidth = 125;
+            comboBox36.FormattingEnabled = true;
+            comboBox36.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox36.Location = new Point(497, 306);
+            comboBox36.Name = "comboBox36";
+            comboBox36.Size = new Size(100, 23);
+            comboBox36.TabIndex = 417;
+            // 
+            // comboBox37
+            // 
+            comboBox37.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox37.DropDownWidth = 125;
+            comboBox37.FormattingEnabled = true;
+            comboBox37.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox37.Location = new Point(497, 335);
+            comboBox37.Name = "comboBox37";
+            comboBox37.Size = new Size(100, 23);
+            comboBox37.TabIndex = 416;
+            // 
+            // comboBox38
+            // 
+            comboBox38.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox38.DropDownWidth = 125;
+            comboBox38.FormattingEnabled = true;
+            comboBox38.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox38.Location = new Point(497, 364);
+            comboBox38.Name = "comboBox38";
+            comboBox38.Size = new Size(100, 23);
+            comboBox38.TabIndex = 415;
+            // 
+            // comboBox39
+            // 
+            comboBox39.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox39.DropDownWidth = 125;
+            comboBox39.FormattingEnabled = true;
+            comboBox39.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox39.Location = new Point(497, 393);
+            comboBox39.Name = "comboBox39";
+            comboBox39.Size = new Size(100, 23);
+            comboBox39.TabIndex = 414;
+            // 
+            // comboBox40
+            // 
+            comboBox40.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox40.DropDownWidth = 125;
+            comboBox40.FormattingEnabled = true;
+            comboBox40.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox40.Location = new Point(497, 422);
+            comboBox40.Name = "comboBox40";
+            comboBox40.Size = new Size(100, 23);
+            comboBox40.TabIndex = 413;
+            // 
+            // comboBox41
+            // 
+            comboBox41.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox41.DropDownWidth = 125;
+            comboBox41.FormattingEnabled = true;
+            comboBox41.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox41.Location = new Point(497, 451);
+            comboBox41.Name = "comboBox41";
+            comboBox41.Size = new Size(100, 23);
+            comboBox41.TabIndex = 412;
+            // 
+            // comboBox42
+            // 
+            comboBox42.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox42.DropDownWidth = 125;
+            comboBox42.FormattingEnabled = true;
+            comboBox42.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox42.Location = new Point(497, 480);
+            comboBox42.Name = "comboBox42";
+            comboBox42.Size = new Size(100, 23);
+            comboBox42.TabIndex = 411;
+            // 
+            // comboBox43
+            // 
+            comboBox43.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox43.DropDownWidth = 125;
+            comboBox43.FormattingEnabled = true;
+            comboBox43.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox43.Location = new Point(497, 510);
+            comboBox43.Name = "comboBox43";
+            comboBox43.Size = new Size(100, 23);
+            comboBox43.TabIndex = 410;
+            // 
+            // comboBox44
+            // 
+            comboBox44.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox44.DropDownWidth = 125;
+            comboBox44.FormattingEnabled = true;
+            comboBox44.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox44.Location = new Point(497, 539);
+            comboBox44.Name = "comboBox44";
+            comboBox44.Size = new Size(100, 23);
+            comboBox44.TabIndex = 409;
+            // 
+            // comboBox23
+            // 
+            comboBox23.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox23.DropDownWidth = 125;
+            comboBox23.FormattingEnabled = true;
+            comboBox23.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox23.Location = new Point(355, 248);
+            comboBox23.Name = "comboBox23";
+            comboBox23.Size = new Size(100, 23);
+            comboBox23.TabIndex = 408;
+            // 
+            // comboBox24
+            // 
+            comboBox24.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox24.DropDownWidth = 125;
+            comboBox24.FormattingEnabled = true;
+            comboBox24.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox24.Location = new Point(355, 277);
+            comboBox24.Name = "comboBox24";
+            comboBox24.Size = new Size(100, 23);
+            comboBox24.TabIndex = 407;
+            // 
+            // comboBox25
+            // 
+            comboBox25.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox25.DropDownWidth = 125;
+            comboBox25.FormattingEnabled = true;
+            comboBox25.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox25.Location = new Point(355, 306);
+            comboBox25.Name = "comboBox25";
+            comboBox25.Size = new Size(100, 23);
+            comboBox25.TabIndex = 406;
+            // 
+            // comboBox26
+            // 
+            comboBox26.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox26.DropDownWidth = 125;
+            comboBox26.FormattingEnabled = true;
+            comboBox26.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox26.Location = new Point(355, 335);
+            comboBox26.Name = "comboBox26";
+            comboBox26.Size = new Size(100, 23);
+            comboBox26.TabIndex = 405;
+            // 
+            // comboBox27
+            // 
+            comboBox27.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox27.DropDownWidth = 125;
+            comboBox27.FormattingEnabled = true;
+            comboBox27.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox27.Location = new Point(355, 364);
+            comboBox27.Name = "comboBox27";
+            comboBox27.Size = new Size(100, 23);
+            comboBox27.TabIndex = 404;
+            // 
+            // comboBox28
+            // 
+            comboBox28.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox28.DropDownWidth = 125;
+            comboBox28.FormattingEnabled = true;
+            comboBox28.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox28.Location = new Point(355, 393);
+            comboBox28.Name = "comboBox28";
+            comboBox28.Size = new Size(100, 23);
+            comboBox28.TabIndex = 403;
+            // 
+            // comboBox29
+            // 
+            comboBox29.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox29.DropDownWidth = 125;
+            comboBox29.FormattingEnabled = true;
+            comboBox29.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox29.Location = new Point(355, 422);
+            comboBox29.Name = "comboBox29";
+            comboBox29.Size = new Size(100, 23);
+            comboBox29.TabIndex = 402;
+            // 
+            // comboBox30
+            // 
+            comboBox30.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox30.DropDownWidth = 125;
+            comboBox30.FormattingEnabled = true;
+            comboBox30.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox30.Location = new Point(355, 451);
+            comboBox30.Name = "comboBox30";
+            comboBox30.Size = new Size(100, 23);
+            comboBox30.TabIndex = 401;
+            // 
+            // comboBox31
+            // 
+            comboBox31.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox31.DropDownWidth = 125;
+            comboBox31.FormattingEnabled = true;
+            comboBox31.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox31.Location = new Point(355, 480);
+            comboBox31.Name = "comboBox31";
+            comboBox31.Size = new Size(100, 23);
+            comboBox31.TabIndex = 400;
+            // 
+            // comboBox32
+            // 
+            comboBox32.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox32.DropDownWidth = 125;
+            comboBox32.FormattingEnabled = true;
+            comboBox32.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox32.Location = new Point(355, 510);
+            comboBox32.Name = "comboBox32";
+            comboBox32.Size = new Size(100, 23);
+            comboBox32.TabIndex = 399;
+            // 
+            // comboBox33
+            // 
+            comboBox33.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox33.DropDownWidth = 125;
+            comboBox33.FormattingEnabled = true;
+            comboBox33.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox33.Location = new Point(355, 539);
+            comboBox33.Name = "comboBox33";
+            comboBox33.Size = new Size(100, 23);
+            comboBox33.TabIndex = 398;
+            // 
+            // comboBox12
+            // 
+            comboBox12.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox12.DropDownWidth = 125;
+            comboBox12.FormattingEnabled = true;
+            comboBox12.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox12.Location = new Point(199, 248);
+            comboBox12.Name = "comboBox12";
+            comboBox12.Size = new Size(100, 23);
+            comboBox12.TabIndex = 397;
+            // 
+            // comboBox13
+            // 
+            comboBox13.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox13.DropDownWidth = 125;
+            comboBox13.FormattingEnabled = true;
+            comboBox13.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox13.Location = new Point(199, 277);
+            comboBox13.Name = "comboBox13";
+            comboBox13.Size = new Size(100, 23);
+            comboBox13.TabIndex = 396;
+            // 
+            // comboBox14
+            // 
+            comboBox14.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox14.DropDownWidth = 125;
+            comboBox14.FormattingEnabled = true;
+            comboBox14.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox14.Location = new Point(199, 306);
+            comboBox14.Name = "comboBox14";
+            comboBox14.Size = new Size(100, 23);
+            comboBox14.TabIndex = 395;
+            // 
+            // comboBox15
+            // 
+            comboBox15.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox15.DropDownWidth = 125;
+            comboBox15.FormattingEnabled = true;
+            comboBox15.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox15.Location = new Point(199, 335);
+            comboBox15.Name = "comboBox15";
+            comboBox15.Size = new Size(100, 23);
+            comboBox15.TabIndex = 394;
+            // 
+            // comboBox16
+            // 
+            comboBox16.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox16.DropDownWidth = 125;
+            comboBox16.FormattingEnabled = true;
+            comboBox16.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox16.Location = new Point(199, 364);
+            comboBox16.Name = "comboBox16";
+            comboBox16.Size = new Size(100, 23);
+            comboBox16.TabIndex = 393;
+            // 
+            // comboBox17
+            // 
+            comboBox17.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox17.DropDownWidth = 125;
+            comboBox17.FormattingEnabled = true;
+            comboBox17.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox17.Location = new Point(199, 393);
+            comboBox17.Name = "comboBox17";
+            comboBox17.Size = new Size(100, 23);
+            comboBox17.TabIndex = 392;
+            // 
+            // comboBox18
+            // 
+            comboBox18.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox18.DropDownWidth = 125;
+            comboBox18.FormattingEnabled = true;
+            comboBox18.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox18.Location = new Point(199, 422);
+            comboBox18.Name = "comboBox18";
+            comboBox18.Size = new Size(100, 23);
+            comboBox18.TabIndex = 391;
+            // 
+            // comboBox19
+            // 
+            comboBox19.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox19.DropDownWidth = 125;
+            comboBox19.FormattingEnabled = true;
+            comboBox19.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox19.Location = new Point(199, 451);
+            comboBox19.Name = "comboBox19";
+            comboBox19.Size = new Size(100, 23);
+            comboBox19.TabIndex = 390;
+            // 
+            // comboBox20
+            // 
+            comboBox20.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox20.DropDownWidth = 125;
+            comboBox20.FormattingEnabled = true;
+            comboBox20.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox20.Location = new Point(199, 480);
+            comboBox20.Name = "comboBox20";
+            comboBox20.Size = new Size(100, 23);
+            comboBox20.TabIndex = 389;
+            // 
+            // comboBox21
+            // 
+            comboBox21.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox21.DropDownWidth = 125;
+            comboBox21.FormattingEnabled = true;
+            comboBox21.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox21.Location = new Point(199, 510);
+            comboBox21.Name = "comboBox21";
+            comboBox21.Size = new Size(100, 23);
+            comboBox21.TabIndex = 388;
+            // 
+            // comboBox22
+            // 
+            comboBox22.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox22.DropDownWidth = 125;
+            comboBox22.FormattingEnabled = true;
+            comboBox22.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox22.Location = new Point(199, 539);
+            comboBox22.Name = "comboBox22";
+            comboBox22.Size = new Size(100, 23);
+            comboBox22.TabIndex = 387;
+            // 
+            // comboBox9
+            // 
+            comboBox9.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox9.DropDownWidth = 125;
+            comboBox9.FormattingEnabled = true;
+            comboBox9.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox9.Location = new Point(57, 480);
+            comboBox9.Name = "comboBox9";
+            comboBox9.Size = new Size(100, 23);
+            comboBox9.TabIndex = 386;
+            // 
+            // comboBox10
+            // 
+            comboBox10.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox10.DropDownWidth = 125;
+            comboBox10.FormattingEnabled = true;
+            comboBox10.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox10.Location = new Point(57, 509);
+            comboBox10.Name = "comboBox10";
+            comboBox10.Size = new Size(100, 23);
+            comboBox10.TabIndex = 385;
+            // 
+            // comboBox11
+            // 
+            comboBox11.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox11.DropDownWidth = 125;
+            comboBox11.FormattingEnabled = true;
+            comboBox11.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox11.Location = new Point(57, 538);
+            comboBox11.Name = "comboBox11";
+            comboBox11.Size = new Size(100, 23);
+            comboBox11.TabIndex = 384;
+            // 
+            // comboBox5
+            // 
+            comboBox5.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox5.DropDownWidth = 125;
+            comboBox5.FormattingEnabled = true;
+            comboBox5.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox5.Location = new Point(57, 364);
+            comboBox5.Name = "comboBox5";
+            comboBox5.Size = new Size(100, 23);
+            comboBox5.TabIndex = 383;
+            // 
+            // comboBox6
+            // 
+            comboBox6.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox6.DropDownWidth = 125;
+            comboBox6.FormattingEnabled = true;
+            comboBox6.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox6.Location = new Point(57, 393);
+            comboBox6.Name = "comboBox6";
+            comboBox6.Size = new Size(100, 23);
+            comboBox6.TabIndex = 382;
+            // 
+            // comboBox7
+            // 
+            comboBox7.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox7.DropDownWidth = 125;
+            comboBox7.FormattingEnabled = true;
+            comboBox7.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox7.Location = new Point(57, 422);
+            comboBox7.Name = "comboBox7";
+            comboBox7.Size = new Size(100, 23);
+            comboBox7.TabIndex = 381;
+            // 
+            // comboBox8
+            // 
+            comboBox8.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox8.DropDownWidth = 125;
+            comboBox8.FormattingEnabled = true;
+            comboBox8.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox8.Location = new Point(57, 451);
+            comboBox8.Name = "comboBox8";
+            comboBox8.Size = new Size(100, 23);
+            comboBox8.TabIndex = 380;
+            // 
+            // comboBox3
+            // 
+            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox3.DropDownWidth = 125;
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox3.Location = new Point(57, 306);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(100, 23);
+            comboBox3.TabIndex = 379;
+            // 
+            // comboBox4
+            // 
+            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox4.DropDownWidth = 125;
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox4.Location = new Point(57, 335);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(100, 23);
+            comboBox4.TabIndex = 378;
+            // 
+            // comboBox2
+            // 
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.DropDownWidth = 125;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
+            comboBox2.Location = new Point(57, 277);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(100, 23);
+            comboBox2.TabIndex = 377;
+            // 
             // guideButtonAssign
             // 
             guideButtonAssign.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -1225,885 +2244,16 @@
             guideButtonAssign.Text = "?";
             guideButtonAssign.UseVisualStyleBackColor = true;
             // 
-            // comboBox11
-            // 
-            comboBox11.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox11.FormattingEnabled = true;
-            comboBox11.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox11.Location = new Point(57, 538);
-            comboBox11.Name = "comboBox11";
-            comboBox11.Size = new Size(100, 23);
-            comboBox11.TabIndex = 309;
-            // 
-            // comboBox10
-            // 
-            comboBox10.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox10.FormattingEnabled = true;
-            comboBox10.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox10.Location = new Point(57, 509);
-            comboBox10.Name = "comboBox10";
-            comboBox10.Size = new Size(100, 23);
-            comboBox10.TabIndex = 308;
-            // 
-            // comboBox78
-            // 
-            comboBox78.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox78.FormattingEnabled = true;
-            comboBox78.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox78.Location = new Point(1121, 248);
-            comboBox78.Name = "comboBox78";
-            comboBox78.Size = new Size(100, 23);
-            comboBox78.TabIndex = 375;
-            // 
-            // comboBox9
-            // 
-            comboBox9.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox9.FormattingEnabled = true;
-            comboBox9.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox9.Location = new Point(57, 480);
-            comboBox9.Name = "comboBox9";
-            comboBox9.Size = new Size(100, 23);
-            comboBox9.TabIndex = 307;
-            // 
-            // comboBox79
-            // 
-            comboBox79.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox79.FormattingEnabled = true;
-            comboBox79.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox79.Location = new Point(1121, 277);
-            comboBox79.Name = "comboBox79";
-            comboBox79.Size = new Size(100, 23);
-            comboBox79.TabIndex = 374;
-            // 
-            // comboBox8
-            // 
-            comboBox8.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox8.FormattingEnabled = true;
-            comboBox8.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox8.Location = new Point(57, 451);
-            comboBox8.Name = "comboBox8";
-            comboBox8.Size = new Size(100, 23);
-            comboBox8.TabIndex = 306;
-            // 
-            // comboBox80
-            // 
-            comboBox80.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox80.FormattingEnabled = true;
-            comboBox80.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox80.Location = new Point(1121, 306);
-            comboBox80.Name = "comboBox80";
-            comboBox80.Size = new Size(100, 23);
-            comboBox80.TabIndex = 373;
-            // 
-            // comboBox7
-            // 
-            comboBox7.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox7.FormattingEnabled = true;
-            comboBox7.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox7.Location = new Point(57, 422);
-            comboBox7.Name = "comboBox7";
-            comboBox7.Size = new Size(100, 23);
-            comboBox7.TabIndex = 305;
-            // 
-            // comboBox81
-            // 
-            comboBox81.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox81.FormattingEnabled = true;
-            comboBox81.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox81.Location = new Point(1121, 335);
-            comboBox81.Name = "comboBox81";
-            comboBox81.Size = new Size(100, 23);
-            comboBox81.TabIndex = 372;
-            // 
-            // comboBox6
-            // 
-            comboBox6.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox6.FormattingEnabled = true;
-            comboBox6.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox6.Location = new Point(57, 393);
-            comboBox6.Name = "comboBox6";
-            comboBox6.Size = new Size(100, 23);
-            comboBox6.TabIndex = 304;
-            // 
-            // comboBox82
-            // 
-            comboBox82.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox82.FormattingEnabled = true;
-            comboBox82.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox82.Location = new Point(1121, 364);
-            comboBox82.Name = "comboBox82";
-            comboBox82.Size = new Size(100, 23);
-            comboBox82.TabIndex = 371;
-            // 
-            // comboBox5
-            // 
-            comboBox5.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox5.Location = new Point(57, 364);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(100, 23);
-            comboBox5.TabIndex = 303;
-            // 
-            // comboBox83
-            // 
-            comboBox83.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox83.FormattingEnabled = true;
-            comboBox83.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox83.Location = new Point(1121, 393);
-            comboBox83.Name = "comboBox83";
-            comboBox83.Size = new Size(100, 23);
-            comboBox83.TabIndex = 370;
-            // 
-            // comboBox4
-            // 
-            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox4.Location = new Point(57, 335);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(100, 23);
-            comboBox4.TabIndex = 302;
-            // 
-            // comboBox84
-            // 
-            comboBox84.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox84.FormattingEnabled = true;
-            comboBox84.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox84.Location = new Point(1121, 422);
-            comboBox84.Name = "comboBox84";
-            comboBox84.Size = new Size(100, 23);
-            comboBox84.TabIndex = 369;
-            // 
-            // comboBox3
-            // 
-            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox3.Location = new Point(57, 306);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(100, 23);
-            comboBox3.TabIndex = 301;
-            // 
-            // comboBox85
-            // 
-            comboBox85.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox85.FormattingEnabled = true;
-            comboBox85.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox85.Location = new Point(1121, 451);
-            comboBox85.Name = "comboBox85";
-            comboBox85.Size = new Size(100, 23);
-            comboBox85.TabIndex = 368;
-            // 
-            // comboBox2
-            // 
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox2.Location = new Point(57, 277);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(100, 23);
-            comboBox2.TabIndex = 300;
-            // 
-            // comboBox86
-            // 
-            comboBox86.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox86.FormattingEnabled = true;
-            comboBox86.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox86.Location = new Point(1121, 480);
-            comboBox86.Name = "comboBox86";
-            comboBox86.Size = new Size(100, 23);
-            comboBox86.TabIndex = 367;
-            // 
             // comboBox1
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.DropDownWidth = 125;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
+            comboBox1.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right", "Joystick On/Off", "Joystick Button 1", "Joystick Button 2", "Joystick Button 3", "Joystick Button 4", "Joystick Button 5", "Joystick Button 6", "Joystick Button 7", "Joystick Button 8", "Joystick Button 9", "Joystick Button 10", "Joystick Button 11", "Joystick Button 12", "Joystick Button 13", "Joystick Button 14", "Joystick Button 15", "Joystick Button 16", "Joystick Button 17", "Joystick Button 18", "Joystick Button 19", "Joystick Button 20", "Joystick Button 21", "Joystick Button 22", "Joystick Button 23", "Joystick Button 24", "Joystick Button 25", "Joystick Button 26", "Joystick Button 27", "Joystick Button 28", "Joystick Button 29", "Joystick Button 30", "Joystick Button 31", "Joystick Button 32" });
             comboBox1.Location = new Point(57, 248);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(100, 23);
             comboBox1.TabIndex = 299;
-            // 
-            // comboBox87
-            // 
-            comboBox87.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox87.FormattingEnabled = true;
-            comboBox87.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox87.Location = new Point(1121, 509);
-            comboBox87.Name = "comboBox87";
-            comboBox87.Size = new Size(100, 23);
-            comboBox87.TabIndex = 366;
-            // 
-            // comboBox88
-            // 
-            comboBox88.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox88.FormattingEnabled = true;
-            comboBox88.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox88.Location = new Point(1121, 538);
-            comboBox88.Name = "comboBox88";
-            comboBox88.Size = new Size(100, 23);
-            comboBox88.TabIndex = 365;
-            // 
-            // comboBox67
-            // 
-            comboBox67.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox67.FormattingEnabled = true;
-            comboBox67.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox67.Location = new Point(979, 248);
-            comboBox67.Name = "comboBox67";
-            comboBox67.Size = new Size(100, 23);
-            comboBox67.TabIndex = 364;
-            // 
-            // comboBox68
-            // 
-            comboBox68.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox68.FormattingEnabled = true;
-            comboBox68.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox68.Location = new Point(979, 277);
-            comboBox68.Name = "comboBox68";
-            comboBox68.Size = new Size(100, 23);
-            comboBox68.TabIndex = 363;
-            // 
-            // comboBox69
-            // 
-            comboBox69.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox69.FormattingEnabled = true;
-            comboBox69.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox69.Location = new Point(979, 306);
-            comboBox69.Name = "comboBox69";
-            comboBox69.Size = new Size(100, 23);
-            comboBox69.TabIndex = 362;
-            // 
-            // comboBox70
-            // 
-            comboBox70.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox70.FormattingEnabled = true;
-            comboBox70.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox70.Location = new Point(979, 335);
-            comboBox70.Name = "comboBox70";
-            comboBox70.Size = new Size(100, 23);
-            comboBox70.TabIndex = 361;
-            // 
-            // comboBox71
-            // 
-            comboBox71.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox71.FormattingEnabled = true;
-            comboBox71.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox71.Location = new Point(979, 364);
-            comboBox71.Name = "comboBox71";
-            comboBox71.Size = new Size(100, 23);
-            comboBox71.TabIndex = 360;
-            // 
-            // comboBox72
-            // 
-            comboBox72.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox72.FormattingEnabled = true;
-            comboBox72.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox72.Location = new Point(979, 393);
-            comboBox72.Name = "comboBox72";
-            comboBox72.Size = new Size(100, 23);
-            comboBox72.TabIndex = 359;
-            // 
-            // comboBox73
-            // 
-            comboBox73.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox73.FormattingEnabled = true;
-            comboBox73.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox73.Location = new Point(979, 422);
-            comboBox73.Name = "comboBox73";
-            comboBox73.Size = new Size(100, 23);
-            comboBox73.TabIndex = 358;
-            // 
-            // comboBox74
-            // 
-            comboBox74.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox74.FormattingEnabled = true;
-            comboBox74.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox74.Location = new Point(979, 451);
-            comboBox74.Name = "comboBox74";
-            comboBox74.Size = new Size(100, 23);
-            comboBox74.TabIndex = 357;
-            // 
-            // comboBox75
-            // 
-            comboBox75.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox75.FormattingEnabled = true;
-            comboBox75.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox75.Location = new Point(979, 480);
-            comboBox75.Name = "comboBox75";
-            comboBox75.Size = new Size(100, 23);
-            comboBox75.TabIndex = 356;
-            // 
-            // comboBox76
-            // 
-            comboBox76.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox76.FormattingEnabled = true;
-            comboBox76.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox76.Location = new Point(979, 509);
-            comboBox76.Name = "comboBox76";
-            comboBox76.Size = new Size(100, 23);
-            comboBox76.TabIndex = 355;
-            // 
-            // comboBox77
-            // 
-            comboBox77.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox77.FormattingEnabled = true;
-            comboBox77.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox77.Location = new Point(979, 538);
-            comboBox77.Name = "comboBox77";
-            comboBox77.Size = new Size(100, 23);
-            comboBox77.TabIndex = 354;
-            // 
-            // comboBox56
-            // 
-            comboBox56.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox56.FormattingEnabled = true;
-            comboBox56.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox56.Location = new Point(823, 248);
-            comboBox56.Name = "comboBox56";
-            comboBox56.Size = new Size(100, 23);
-            comboBox56.TabIndex = 353;
-            // 
-            // comboBox57
-            // 
-            comboBox57.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox57.FormattingEnabled = true;
-            comboBox57.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox57.Location = new Point(823, 277);
-            comboBox57.Name = "comboBox57";
-            comboBox57.Size = new Size(100, 23);
-            comboBox57.TabIndex = 352;
-            // 
-            // comboBox58
-            // 
-            comboBox58.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox58.FormattingEnabled = true;
-            comboBox58.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox58.Location = new Point(823, 306);
-            comboBox58.Name = "comboBox58";
-            comboBox58.Size = new Size(100, 23);
-            comboBox58.TabIndex = 351;
-            // 
-            // comboBox59
-            // 
-            comboBox59.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox59.FormattingEnabled = true;
-            comboBox59.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox59.Location = new Point(823, 335);
-            comboBox59.Name = "comboBox59";
-            comboBox59.Size = new Size(100, 23);
-            comboBox59.TabIndex = 350;
-            // 
-            // comboBox60
-            // 
-            comboBox60.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox60.FormattingEnabled = true;
-            comboBox60.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox60.Location = new Point(823, 364);
-            comboBox60.Name = "comboBox60";
-            comboBox60.Size = new Size(100, 23);
-            comboBox60.TabIndex = 349;
-            // 
-            // comboBox61
-            // 
-            comboBox61.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox61.FormattingEnabled = true;
-            comboBox61.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox61.Location = new Point(823, 393);
-            comboBox61.Name = "comboBox61";
-            comboBox61.Size = new Size(100, 23);
-            comboBox61.TabIndex = 348;
-            // 
-            // comboBox62
-            // 
-            comboBox62.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox62.FormattingEnabled = true;
-            comboBox62.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox62.Location = new Point(823, 422);
-            comboBox62.Name = "comboBox62";
-            comboBox62.Size = new Size(100, 23);
-            comboBox62.TabIndex = 347;
-            // 
-            // comboBox63
-            // 
-            comboBox63.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox63.FormattingEnabled = true;
-            comboBox63.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox63.Location = new Point(823, 451);
-            comboBox63.Name = "comboBox63";
-            comboBox63.Size = new Size(100, 23);
-            comboBox63.TabIndex = 346;
-            // 
-            // comboBox64
-            // 
-            comboBox64.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox64.FormattingEnabled = true;
-            comboBox64.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox64.Location = new Point(823, 480);
-            comboBox64.Name = "comboBox64";
-            comboBox64.Size = new Size(100, 23);
-            comboBox64.TabIndex = 345;
-            // 
-            // comboBox65
-            // 
-            comboBox65.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox65.FormattingEnabled = true;
-            comboBox65.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox65.Location = new Point(823, 509);
-            comboBox65.Name = "comboBox65";
-            comboBox65.Size = new Size(100, 23);
-            comboBox65.TabIndex = 344;
-            // 
-            // comboBox66
-            // 
-            comboBox66.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox66.FormattingEnabled = true;
-            comboBox66.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox66.Location = new Point(823, 538);
-            comboBox66.Name = "comboBox66";
-            comboBox66.Size = new Size(100, 23);
-            comboBox66.TabIndex = 343;
-            // 
-            // comboBox45
-            // 
-            comboBox45.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox45.FormattingEnabled = true;
-            comboBox45.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox45.Location = new Point(681, 248);
-            comboBox45.Name = "comboBox45";
-            comboBox45.Size = new Size(100, 23);
-            comboBox45.TabIndex = 342;
-            // 
-            // comboBox46
-            // 
-            comboBox46.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox46.FormattingEnabled = true;
-            comboBox46.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox46.Location = new Point(681, 277);
-            comboBox46.Name = "comboBox46";
-            comboBox46.Size = new Size(100, 23);
-            comboBox46.TabIndex = 341;
-            // 
-            // comboBox47
-            // 
-            comboBox47.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox47.FormattingEnabled = true;
-            comboBox47.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox47.Location = new Point(681, 306);
-            comboBox47.Name = "comboBox47";
-            comboBox47.Size = new Size(100, 23);
-            comboBox47.TabIndex = 340;
-            // 
-            // comboBox48
-            // 
-            comboBox48.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox48.FormattingEnabled = true;
-            comboBox48.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox48.Location = new Point(681, 335);
-            comboBox48.Name = "comboBox48";
-            comboBox48.Size = new Size(100, 23);
-            comboBox48.TabIndex = 339;
-            // 
-            // comboBox49
-            // 
-            comboBox49.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox49.FormattingEnabled = true;
-            comboBox49.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox49.Location = new Point(681, 364);
-            comboBox49.Name = "comboBox49";
-            comboBox49.Size = new Size(100, 23);
-            comboBox49.TabIndex = 338;
-            // 
-            // comboBox50
-            // 
-            comboBox50.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox50.FormattingEnabled = true;
-            comboBox50.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox50.Location = new Point(681, 393);
-            comboBox50.Name = "comboBox50";
-            comboBox50.Size = new Size(100, 23);
-            comboBox50.TabIndex = 337;
-            // 
-            // comboBox51
-            // 
-            comboBox51.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox51.FormattingEnabled = true;
-            comboBox51.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox51.Location = new Point(681, 422);
-            comboBox51.Name = "comboBox51";
-            comboBox51.Size = new Size(100, 23);
-            comboBox51.TabIndex = 336;
-            // 
-            // comboBox52
-            // 
-            comboBox52.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox52.FormattingEnabled = true;
-            comboBox52.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox52.Location = new Point(681, 451);
-            comboBox52.Name = "comboBox52";
-            comboBox52.Size = new Size(100, 23);
-            comboBox52.TabIndex = 335;
-            // 
-            // comboBox53
-            // 
-            comboBox53.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox53.FormattingEnabled = true;
-            comboBox53.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox53.Location = new Point(681, 480);
-            comboBox53.Name = "comboBox53";
-            comboBox53.Size = new Size(100, 23);
-            comboBox53.TabIndex = 334;
-            // 
-            // comboBox54
-            // 
-            comboBox54.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox54.FormattingEnabled = true;
-            comboBox54.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox54.Location = new Point(681, 509);
-            comboBox54.Name = "comboBox54";
-            comboBox54.Size = new Size(100, 23);
-            comboBox54.TabIndex = 333;
-            // 
-            // comboBox55
-            // 
-            comboBox55.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox55.FormattingEnabled = true;
-            comboBox55.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox55.Location = new Point(681, 538);
-            comboBox55.Name = "comboBox55";
-            comboBox55.Size = new Size(100, 23);
-            comboBox55.TabIndex = 332;
-            // 
-            // comboBox34
-            // 
-            comboBox34.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox34.FormattingEnabled = true;
-            comboBox34.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox34.Location = new Point(497, 248);
-            comboBox34.Name = "comboBox34";
-            comboBox34.Size = new Size(100, 23);
-            comboBox34.TabIndex = 331;
-            // 
-            // comboBox35
-            // 
-            comboBox35.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox35.FormattingEnabled = true;
-            comboBox35.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox35.Location = new Point(497, 277);
-            comboBox35.Name = "comboBox35";
-            comboBox35.Size = new Size(100, 23);
-            comboBox35.TabIndex = 330;
-            // 
-            // comboBox36
-            // 
-            comboBox36.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox36.FormattingEnabled = true;
-            comboBox36.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox36.Location = new Point(497, 306);
-            comboBox36.Name = "comboBox36";
-            comboBox36.Size = new Size(100, 23);
-            comboBox36.TabIndex = 329;
-            // 
-            // comboBox37
-            // 
-            comboBox37.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox37.FormattingEnabled = true;
-            comboBox37.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox37.Location = new Point(497, 335);
-            comboBox37.Name = "comboBox37";
-            comboBox37.Size = new Size(100, 23);
-            comboBox37.TabIndex = 328;
-            // 
-            // comboBox38
-            // 
-            comboBox38.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox38.FormattingEnabled = true;
-            comboBox38.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox38.Location = new Point(497, 364);
-            comboBox38.Name = "comboBox38";
-            comboBox38.Size = new Size(100, 23);
-            comboBox38.TabIndex = 327;
-            // 
-            // comboBox39
-            // 
-            comboBox39.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox39.FormattingEnabled = true;
-            comboBox39.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox39.Location = new Point(497, 393);
-            comboBox39.Name = "comboBox39";
-            comboBox39.Size = new Size(100, 23);
-            comboBox39.TabIndex = 326;
-            // 
-            // comboBox40
-            // 
-            comboBox40.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox40.FormattingEnabled = true;
-            comboBox40.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox40.Location = new Point(497, 422);
-            comboBox40.Name = "comboBox40";
-            comboBox40.Size = new Size(100, 23);
-            comboBox40.TabIndex = 325;
-            // 
-            // comboBox41
-            // 
-            comboBox41.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox41.FormattingEnabled = true;
-            comboBox41.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox41.Location = new Point(497, 451);
-            comboBox41.Name = "comboBox41";
-            comboBox41.Size = new Size(100, 23);
-            comboBox41.TabIndex = 324;
-            // 
-            // comboBox42
-            // 
-            comboBox42.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox42.FormattingEnabled = true;
-            comboBox42.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox42.Location = new Point(497, 480);
-            comboBox42.Name = "comboBox42";
-            comboBox42.Size = new Size(100, 23);
-            comboBox42.TabIndex = 323;
-            // 
-            // comboBox43
-            // 
-            comboBox43.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox43.FormattingEnabled = true;
-            comboBox43.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox43.Location = new Point(497, 509);
-            comboBox43.Name = "comboBox43";
-            comboBox43.Size = new Size(100, 23);
-            comboBox43.TabIndex = 322;
-            // 
-            // comboBox44
-            // 
-            comboBox44.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox44.FormattingEnabled = true;
-            comboBox44.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox44.Location = new Point(497, 538);
-            comboBox44.Name = "comboBox44";
-            comboBox44.Size = new Size(100, 23);
-            comboBox44.TabIndex = 321;
-            // 
-            // comboBox23
-            // 
-            comboBox23.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox23.FormattingEnabled = true;
-            comboBox23.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox23.Location = new Point(355, 248);
-            comboBox23.Name = "comboBox23";
-            comboBox23.Size = new Size(100, 23);
-            comboBox23.TabIndex = 320;
-            // 
-            // comboBox24
-            // 
-            comboBox24.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox24.FormattingEnabled = true;
-            comboBox24.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox24.Location = new Point(355, 277);
-            comboBox24.Name = "comboBox24";
-            comboBox24.Size = new Size(100, 23);
-            comboBox24.TabIndex = 319;
-            // 
-            // comboBox25
-            // 
-            comboBox25.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox25.FormattingEnabled = true;
-            comboBox25.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox25.Location = new Point(355, 306);
-            comboBox25.Name = "comboBox25";
-            comboBox25.Size = new Size(100, 23);
-            comboBox25.TabIndex = 318;
-            // 
-            // comboBox26
-            // 
-            comboBox26.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox26.FormattingEnabled = true;
-            comboBox26.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox26.Location = new Point(355, 335);
-            comboBox26.Name = "comboBox26";
-            comboBox26.Size = new Size(100, 23);
-            comboBox26.TabIndex = 317;
-            // 
-            // comboBox27
-            // 
-            comboBox27.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox27.FormattingEnabled = true;
-            comboBox27.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox27.Location = new Point(355, 364);
-            comboBox27.Name = "comboBox27";
-            comboBox27.Size = new Size(100, 23);
-            comboBox27.TabIndex = 316;
-            // 
-            // comboBox28
-            // 
-            comboBox28.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox28.FormattingEnabled = true;
-            comboBox28.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox28.Location = new Point(355, 393);
-            comboBox28.Name = "comboBox28";
-            comboBox28.Size = new Size(100, 23);
-            comboBox28.TabIndex = 315;
-            // 
-            // comboBox29
-            // 
-            comboBox29.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox29.FormattingEnabled = true;
-            comboBox29.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox29.Location = new Point(355, 422);
-            comboBox29.Name = "comboBox29";
-            comboBox29.Size = new Size(100, 23);
-            comboBox29.TabIndex = 314;
-            // 
-            // comboBox30
-            // 
-            comboBox30.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox30.FormattingEnabled = true;
-            comboBox30.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox30.Location = new Point(355, 451);
-            comboBox30.Name = "comboBox30";
-            comboBox30.Size = new Size(100, 23);
-            comboBox30.TabIndex = 313;
-            // 
-            // comboBox31
-            // 
-            comboBox31.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox31.FormattingEnabled = true;
-            comboBox31.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox31.Location = new Point(355, 480);
-            comboBox31.Name = "comboBox31";
-            comboBox31.Size = new Size(100, 23);
-            comboBox31.TabIndex = 312;
-            // 
-            // comboBox32
-            // 
-            comboBox32.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox32.FormattingEnabled = true;
-            comboBox32.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox32.Location = new Point(355, 509);
-            comboBox32.Name = "comboBox32";
-            comboBox32.Size = new Size(100, 23);
-            comboBox32.TabIndex = 311;
-            // 
-            // comboBox33
-            // 
-            comboBox33.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox33.FormattingEnabled = true;
-            comboBox33.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox33.Location = new Point(355, 538);
-            comboBox33.Name = "comboBox33";
-            comboBox33.Size = new Size(100, 23);
-            comboBox33.TabIndex = 310;
-            // 
-            // comboBox12
-            // 
-            comboBox12.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox12.FormattingEnabled = true;
-            comboBox12.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox12.Location = new Point(199, 248);
-            comboBox12.Name = "comboBox12";
-            comboBox12.Size = new Size(100, 23);
-            comboBox12.TabIndex = 309;
-            // 
-            // comboBox13
-            // 
-            comboBox13.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox13.FormattingEnabled = true;
-            comboBox13.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox13.Location = new Point(199, 277);
-            comboBox13.Name = "comboBox13";
-            comboBox13.Size = new Size(100, 23);
-            comboBox13.TabIndex = 308;
-            // 
-            // comboBox14
-            // 
-            comboBox14.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox14.FormattingEnabled = true;
-            comboBox14.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox14.Location = new Point(199, 306);
-            comboBox14.Name = "comboBox14";
-            comboBox14.Size = new Size(100, 23);
-            comboBox14.TabIndex = 307;
-            // 
-            // comboBox15
-            // 
-            comboBox15.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox15.FormattingEnabled = true;
-            comboBox15.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox15.Location = new Point(199, 335);
-            comboBox15.Name = "comboBox15";
-            comboBox15.Size = new Size(100, 23);
-            comboBox15.TabIndex = 306;
-            // 
-            // comboBox16
-            // 
-            comboBox16.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox16.FormattingEnabled = true;
-            comboBox16.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox16.Location = new Point(199, 364);
-            comboBox16.Name = "comboBox16";
-            comboBox16.Size = new Size(100, 23);
-            comboBox16.TabIndex = 305;
-            // 
-            // comboBox17
-            // 
-            comboBox17.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox17.FormattingEnabled = true;
-            comboBox17.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox17.Location = new Point(199, 393);
-            comboBox17.Name = "comboBox17";
-            comboBox17.Size = new Size(100, 23);
-            comboBox17.TabIndex = 304;
-            // 
-            // comboBox18
-            // 
-            comboBox18.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox18.FormattingEnabled = true;
-            comboBox18.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox18.Location = new Point(199, 422);
-            comboBox18.Name = "comboBox18";
-            comboBox18.Size = new Size(100, 23);
-            comboBox18.TabIndex = 303;
-            // 
-            // comboBox19
-            // 
-            comboBox19.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox19.FormattingEnabled = true;
-            comboBox19.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox19.Location = new Point(199, 451);
-            comboBox19.Name = "comboBox19";
-            comboBox19.Size = new Size(100, 23);
-            comboBox19.TabIndex = 302;
-            // 
-            // comboBox20
-            // 
-            comboBox20.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox20.FormattingEnabled = true;
-            comboBox20.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox20.Location = new Point(199, 480);
-            comboBox20.Name = "comboBox20";
-            comboBox20.Size = new Size(100, 23);
-            comboBox20.TabIndex = 301;
-            // 
-            // comboBox21
-            // 
-            comboBox21.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox21.FormattingEnabled = true;
-            comboBox21.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox21.Location = new Point(199, 509);
-            comboBox21.Name = "comboBox21";
-            comboBox21.Size = new Size(100, 23);
-            comboBox21.TabIndex = 300;
-            // 
-            // comboBox22
-            // 
-            comboBox22.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox22.FormattingEnabled = true;
-            comboBox22.Items.AddRange(new object[] { "None", "Click Left", "Click Right", "Click Middle", "Border On/Off", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Esc", "Tab", "Space", "Enter", "Backspace", "Up", "Down", "Left", "Right" });
-            comboBox22.Location = new Point(199, 538);
-            comboBox22.Name = "comboBox22";
-            comboBox22.Size = new Size(100, 23);
-            comboBox22.TabIndex = 299;
             // 
             // btnSaveBuAssign
             // 
@@ -3014,6 +3164,16 @@
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Calibration";
             // 
+            // label132
+            // 
+            label132.AutoSize = true;
+            label132.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label132.Location = new Point(32, 97);
+            label132.Name = "label132";
+            label132.Size = new Size(331, 21);
+            label132.TabIndex = 279;
+            label132.Text = "**Assign your normal trigger to 'Click Left'";
+            // 
             // guideCalibration
             // 
             guideCalibration.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -3354,11 +3514,11 @@
             // label125
             // 
             label125.AutoSize = true;
-            label125.Location = new Point(130, 567);
+            label125.Location = new Point(62, 539);
             label125.Name = "label125";
-            label125.Size = new Size(1032, 30);
+            label125.Size = new Size(1137, 30);
             label125.TabIndex = 284;
-            label125.Text = "If your Arduino model is not Leonardo, but it has native USB support, you can download the Arduino IDE and upload the sketch provided at ./ArduinoMouseFirmware/ArduinoMouseFirmware.ino\r\n\r\n";
+            label125.Text = resources.GetString("label125.Text");
             // 
             // btnUpFirP2
             // 
@@ -3597,16 +3757,6 @@
             btnStartP1.Text = "Not ready";
             btnStartP1.UseVisualStyleBackColor = false;
             // 
-            // label132
-            // 
-            label132.AutoSize = true;
-            label132.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label132.Location = new Point(32, 97);
-            label132.Name = "label132";
-            label132.Size = new Size(331, 21);
-            label132.TabIndex = 279;
-            label132.Text = "**Assign your normal trigger to 'Click Left'";
-            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -3649,6 +3799,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
+
+       
 
         #endregion
 
@@ -3832,28 +3984,73 @@
         private Label label115;
         private Label label118;
         private Label label117;
-        private ComboBox comboBox11;
-        private ComboBox comboBox10;
-        private ComboBox comboBox78;
-        private ComboBox comboBox9;
-        private ComboBox comboBox79;
-        private ComboBox comboBox8;
-        private ComboBox comboBox80;
-        private ComboBox comboBox7;
-        private ComboBox comboBox81;
-        private ComboBox comboBox6;
-        private ComboBox comboBox82;
-        private ComboBox comboBox5;
-        private ComboBox comboBox83;
-        private ComboBox comboBox4;
-        private ComboBox comboBox84;
-        private ComboBox comboBox3;
-        private ComboBox comboBox85;
-        private ComboBox comboBox2;
-        private ComboBox comboBox86;
         private ComboBox comboBox1;
-        private ComboBox comboBox87;
-        private ComboBox comboBox88;
+        private Panel panel3;
+        private Label label121;
+        private Label label120;
+        private CheckBox checkBoxCamP1;
+        private CheckBox checkBoxArP1;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
+        private CheckBox checkBoxCamP2;
+        private CheckBox checkBoxArP2;
+        private Button btnStartP2;
+        private Label label18;
+        private Label label122;
+        private Label label119;
+        private TabPage tabPage4;
+        private Label label124;
+        private Label label123;
+        private Label label125;
+        private Button btnUpFirP2;
+        private Button btnUpFirP1;
+        private Label label127;
+        private Label label126;
+        private Label label129;
+        private Label label128;
+        private ComboBox comBoxArSelP2;
+        private ComboBox comBoxArSelP1;
+        private Button guideOverlay;
+        private Button guideSelect2;
+        private Button guideSelect;
+        private Button guideCam;
+        private Button guideBorder;
+        private Button guideButtonAssign;
+        private Button guideCalibration;
+        private Button guideFirmware;
+        private Button guideOverlay2;
+        private CheckBox _43CheckBox;
+        private Label label130;
+        private Label label131;
+        private Label label132;
+        private CheckBox zAxisCheckBox;
+        private CheckBox joyCheckBox;
+        private Button guideJoyStick;
+        private Label label133;
+        private CheckBox antiDriftCheckBox;
+        private ComboBox comboBox12;
+        private ComboBox comboBox13;
+        private ComboBox comboBox14;
+        private ComboBox comboBox15;
+        private ComboBox comboBox16;
+        private ComboBox comboBox17;
+        private ComboBox comboBox18;
+        private ComboBox comboBox19;
+        private ComboBox comboBox20;
+        private ComboBox comboBox21;
+        private ComboBox comboBox22;
+        private ComboBox comboBox9;
+        private ComboBox comboBox10;
+        private ComboBox comboBox11;
+        private ComboBox comboBox5;
+        private ComboBox comboBox6;
+        private ComboBox comboBox7;
+        private ComboBox comboBox8;
+        private ComboBox comboBox3;
+        private ComboBox comboBox4;
+        private ComboBox comboBox2;
         private ComboBox comboBox67;
         private ComboBox comboBox68;
         private ComboBox comboBox69;
@@ -3909,56 +4106,16 @@
         private ComboBox comboBox31;
         private ComboBox comboBox32;
         private ComboBox comboBox33;
-        private ComboBox comboBox12;
-        private ComboBox comboBox13;
-        private ComboBox comboBox14;
-        private ComboBox comboBox15;
-        private ComboBox comboBox16;
-        private ComboBox comboBox17;
-        private ComboBox comboBox18;
-        private ComboBox comboBox19;
-        private ComboBox comboBox20;
-        private ComboBox comboBox21;
-        private ComboBox comboBox22;
-        private Panel panel3;
-        private Label label121;
-        private Label label120;
-        private CheckBox checkBoxCamP1;
-        private CheckBox checkBoxArP1;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
-        private CheckBox checkBoxCamP2;
-        private CheckBox checkBoxArP2;
-        private Button btnStartP2;
-        private Label label18;
-        private Label label122;
-        private Label label119;
-        private TabPage tabPage4;
-        private Label label124;
-        private Label label123;
-        private Label label125;
-        private Button btnUpFirP2;
-        private Button btnUpFirP1;
-        private Label label127;
-        private Label label126;
-        private Label label129;
-        private Label label128;
-        private ComboBox comBoxArSelP2;
-        private ComboBox comBoxArSelP1;
-        private Button guideOverlay;
-        private Button guideSelect2;
-        private Button guideSelect;
-        private Button guideCam;
-        private Button guideBorder;
-        private Button guideButtonAssign;
-        private Button guideCalibration;
-        private Button guideFirmware;
-        private Button guideOverlay2;
-        private CheckBox _43CheckBox;
-        private Label label130;
-        private Label label131;
-        private Label label132;
+        private ComboBox comboBox78;
+        private ComboBox comboBox79;
+        private ComboBox comboBox80;
+        private ComboBox comboBox81;
+        private ComboBox comboBox82;
+        private ComboBox comboBox83;
+        private ComboBox comboBox84;
+        private ComboBox comboBox85;
+        private ComboBox comboBox86;
+        private ComboBox comboBox87;
+        private ComboBox comboBox88;
     }
 }
