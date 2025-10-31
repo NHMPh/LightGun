@@ -24,11 +24,12 @@ namespace LightGun.UIControl
             Offscreen,
 
         }
-        private ComboBox[] normalP1 = new ComboBox[22];
+
         public ButtonAssignmentTab(LightGunCompoment.LightGun lightGunP1, LightGunCompoment.LightGun lightGunP2)
         {
             this.lightGunP1 = lightGunP1;
             this.lightGunP2 = lightGunP2;
+         
         }
         public void ComboBoxChangeButton(object sender, EventArgs e)
         {
@@ -143,6 +144,40 @@ namespace LightGun.UIControl
                 case "Down": return 81;
                 case "Left": return 80;
                 case "Right": return 79;
+
+                case "Joystick On/Off": return 89;
+                case "Joystick Button 1": return 90;
+                case "Joystick Button 2": return 91;
+                case "Joystick Button 3": return 92;
+                case "Joystick Button 4": return 93;
+                case "Joystick Button 5": return 94;
+                case "Joystick Button 6": return 95;
+                case "Joystick Button 7": return 96;
+                case "Joystick Button 8": return 97;
+                case "Joystick Button 9": return 98;
+                case "Joystick Button 10": return 99;
+                case "Joystick Button 11": return 100;
+                case "Joystick Button 12": return 101;
+                case "Joystick Button 13": return 102;
+                case "Joystick Button 14": return 103;
+                case "Joystick Button 15": return 104;
+                case "Joystick Button 16": return 105;
+                case "Joystick Button 17": return 106;
+                case "Joystick Button 18": return 107;
+                case "Joystick Button 19": return 108;
+                case "Joystick Button 20": return 109;
+                case "Joystick Button 21": return 110;
+                case "Joystick Button 22": return 111;
+                case "Joystick Button 23": return 112;
+                case "Joystick Button 24": return 113;
+                case "Joystick Button 25": return 114;
+                case "Joystick Button 26": return 115;
+                case "Joystick Button 27": return 116;
+                case "Joystick Button 28": return 117;
+                case "Joystick Button 29": return 118;
+                case "Joystick Button 30": return 119;
+                case "Joystick Button 31": return 120;
+                case "Joystick Button 32": return 121;
                 default: return 0;
             }
         }
@@ -156,6 +191,7 @@ namespace LightGun.UIControl
                 return AssignmentZone.P2Normal;
             return AssignmentZone.P2Offscreen;
         }
+        
         public void SetButton(string comboBoxValue, int playerIndex, int type, int index)
         {
             if (playerIndex == 0)

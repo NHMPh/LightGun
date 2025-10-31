@@ -5,7 +5,7 @@ namespace LightGun.UIControl
 {
     internal class Master
     {
-
+    
         private LightGunCompoment.LightGun lightGunP1;
         private LightGunCompoment.LightGun lightGunP2;
 
@@ -30,25 +30,20 @@ namespace LightGun.UIControl
                 jsonString = File.ReadAllText(jsonFilePath);
             }
             catch
-            {      
-                settings = new Settings();
-                settings.Is43BorderCheck = true;
-                settings.IsRawCheck = true;
-                settings.IsProcessCheck = true;
-                settings.Border = 2;
-                for (int i = 0; i < settings.Players.Length; i++)
-                {
-                    PlayerSettings playerSettings = new PlayerSettings();
-                    playerSettings.NormalButton = Enumerable.Repeat(new ButtonSelection { SelectedIndex = 0 }, 22).ToArray();
-                    playerSettings.OffscreenButton = Enumerable.Repeat(new ButtonSelection { SelectedIndex = 0 }, 22).ToArray();
-                    settings.Players[i] = playerSettings;
-                }
-                
-                SaveSetting(null, null);
-                jsonString = File.ReadAllText(jsonFilePath);
+            {
+                MakeNewSaveFile();
             }
-           
-            settings = JsonSerializer.Deserialize<Settings>(jsonString);
+            try
+            {
+                settings = JsonSerializer.Deserialize<Settings>(jsonString);
+            }
+            catch
+            {
+                if (File.Exists(jsonFilePath))
+                    File.Delete(jsonFilePath);
+                MakeNewSaveFile();
+            }
+            
             lightGunP1 = new LightGunCompoment.LightGun(0,settings);
             lightGunP2 = new LightGunCompoment.LightGun(1,settings);
 
@@ -71,6 +66,27 @@ namespace LightGun.UIControl
             // Write the JSON string to a file
             File.WriteAllText(jsonFilePath, updatedJsonString);
 
+        }
+        private void MakeNewSaveFile()
+        {
+            settings = new Settings();
+            settings.Is43BorderCheck = true;
+            settings.IsRawCheck = true;
+            settings.IsProcessCheck = true;
+            settings.Border = 2;
+            settings.IsJoyCheck = false;
+            settings.IsZAxisCheck = false;
+            settings.IsAntiDriftCheck = false;
+            for (int i = 0; i < settings.Players.Length; i++)
+            {
+                PlayerSettings playerSettings = new PlayerSettings();
+                playerSettings.NormalButton = Enumerable.Repeat(new ButtonSelection { SelectedIndex = 0 }, 22).ToArray();
+                playerSettings.OffscreenButton = Enumerable.Repeat(new ButtonSelection { SelectedIndex = 0 }, 22).ToArray();
+                settings.Players[i] = playerSettings;
+            }
+
+            SaveSetting(null, null);
+            jsonString = File.ReadAllText(jsonFilePath);
         }
     }
 }
