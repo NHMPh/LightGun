@@ -651,7 +651,6 @@ namespace LightGun
             comBoxArP2.SelectedIndex = -1;
         }
 
-
-      
+       
     }
 }

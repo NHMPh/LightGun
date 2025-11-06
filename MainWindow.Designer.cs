@@ -310,6 +310,7 @@
             up1ButtonP1 = new Button();
             panel1 = new Panel();
             tabPage4 = new TabPage();
+            linkLabel1 = new LinkLabel();
             label131 = new Label();
             label130 = new Label();
             guideFirmware = new Button();
@@ -342,6 +343,7 @@
             checkBoxCamP1 = new CheckBox();
             checkBoxArP1 = new CheckBox();
             btnStartP1 = new Button();
+            label134 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxProP2).BeginInit();
@@ -3400,6 +3402,8 @@
             // 
             // tabPage4
             // 
+            tabPage4.Controls.Add(label134);
+            tabPage4.Controls.Add(linkLabel1);
             tabPage4.Controls.Add(label131);
             tabPage4.Controls.Add(label130);
             tabPage4.Controls.Add(guideFirmware);
@@ -3420,6 +3424,16 @@
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Firmware";
             tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(799, 536);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(401, 15);
+            linkLabel1.TabIndex = 294;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "https://github.com/NHMPh/LightGun/tree/main/ArduinoMouseFirmware";
             // 
             // label131
             // 
@@ -3514,11 +3528,11 @@
             // label125
             // 
             label125.AutoSize = true;
-            label125.Location = new Point(62, 539);
+            label125.Location = new Point(62, 536);
             label125.Name = "label125";
-            label125.Size = new Size(1137, 30);
+            label125.Size = new Size(743, 15);
             label125.TabIndex = 284;
-            label125.Text = resources.GetString("label125.Text");
+            label125.Text = "If your Arduino model is not Leonardo, but it has native USB support, you can download the Arduino IDE and upload the sketch provided at ";
             // 
             // btnUpFirP2
             // 
@@ -3756,6 +3770,7 @@
             btnStartP1.TabIndex = 237;
             btnStartP1.Text = "Not ready";
             btnStartP1.UseVisualStyleBackColor = false;
+           
             // 
             // MainWindow
             // 
@@ -3800,7 +3815,7 @@
             ResumeLayout(false);
         }
 
-       
+
 
         #endregion
 
@@ -4117,5 +4132,7 @@
         private ComboBox comboBox86;
         private ComboBox comboBox87;
         private ComboBox comboBox88;
+        private LinkLabel linkLabel1;
+        private Label label134;
     }
 }
