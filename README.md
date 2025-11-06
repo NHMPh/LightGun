@@ -53,7 +53,7 @@ To connect additional buttons, repeat the same process, but assign each button t
 
 If you're using an Arduino Leonardo pro micro, you can upload the firmware directly through the software. See below for details.
 
-If you're using a different model or encountering issues uploading the firmware through the software, download the Arduino IDE, install the HID-Project library by NicoHood, and use the provided sketch at 
+If you're using a different model or encountering issues uploading the firmware through the software, download the Arduino IDE, install the HID-Project library by NicoHood inside arduino library manager ; [ArduinoJoystickLibrary by MHeironimus](https://github.com/MHeironimus/ArduinoJoystickLibrary), and use the provided sketch at 
 
 [/NHMPh/LightGun/tree/main/ArduinoMouseFirmware](https://github.com/NHMPh/LightGun/tree/main/ArduinoMouseFirmware).
 
