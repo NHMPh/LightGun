@@ -102,7 +102,7 @@ namespace LightGun.LightGunCompoment
                 camera.SetSaturation(0);
                 camera.SetSharpness(7);
                 processor.SetOffset(xOffset, yOffset);
-                processor.SetThresdHold(thresdhold);             
+                processor.SetThresdHold(thresdhold);
                 Task.Run(async () => await StreamVideo());
             }
             catch (Exception e)
@@ -207,7 +207,7 @@ namespace LightGun.LightGunCompoment
 
         public void UploadFirmware(ArduinoModel model)
         {
-            arduinoMouse.UploadFirmware(model,index);
+            arduinoMouse.UploadFirmware(model, index);
         }
         public void SaveButtonSetting(int index, int type, int selectedValue)
         {
@@ -261,7 +261,7 @@ namespace LightGun.LightGunCompoment
                 if (!arduinoMouse.isOpen())
                 {
                     ArduinoDisconnected?.Invoke(this, EventArgs.Empty);
-                    isArduinoOpen = false;                 
+                    isArduinoOpen = false;
                 }
                 await Task.Delay(100);
             }
@@ -287,14 +287,20 @@ namespace LightGun.LightGunCompoment
 
                     //processor contains raw and process images
                     point = processor.GetPointingCoordinate(image);
-                    if (isArduinoStart)
-                    {     if(arduinoMouse.isOpen())
-                            arduinoMouse.SendCursorPos(point);
-                        else
-                        {
-                            MessageBox.Show($"Player {index + 1}'s Arduino Disconnected");
-                        }
+
+                    if (!isArduinoStart) continue;
+                    if (!arduinoMouse.isOpen())
+                    {
+                        MessageBox.Show($"Player {index + 1}'s Arduino Disconnected");
+                        continue;
                     }
+                    if (!settings.IsJoyCheck)
+                        arduinoMouse.SendCursorPos(point);
+                    else
+                    {
+                        arduinoMouse.SendJoyStickPos(point, settings.IsZAxisCheck, settings.IsAntiDriftCheck);
+                    }
+
 
                     await Task.Delay(16);
                 }

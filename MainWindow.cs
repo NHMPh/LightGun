@@ -3,6 +3,7 @@ using ArduinoUploader.Hardware;
 using LightGun.LightGunCompoment;
 using LightGun.UIControl;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO.Ports;
 using System.Management;
 using static LightGun.UIControl.ButtonAssignmentTab;
@@ -85,6 +86,9 @@ namespace LightGun
             rawCheckBox.CheckedChanged += RawCheckBox_CheckedChanged;
             processCheckBox.CheckedChanged += ProcessCheckBox_CheckedChanged;
             _43CheckBox.CheckedChanged += _43CheckBox_CheckedChanged;
+            joyCheckBox.CheckedChanged += JoyCheckBox_CheckedChanged;
+            zAxisCheckBox.CheckedChanged += ZAxisCheckBox_CheckedChanged;
+            antiDriftCheckBox.CheckedChanged += AntiDriftCheckBox_CheckedChanged;
             //Calibration Tab UI
             up10ButtonP1.Click += master.calibrationTab.up10ButtonP1;
             down10ButtonP1.Click += master.calibrationTab.down10ButtonP1;
@@ -115,6 +119,7 @@ namespace LightGun
             guideOverlay.Click += master.guideMessageBoxMessage.OverlayTabMessage1;
             guideOverlay2.Click += master.guideMessageBoxMessage.OverlayTabMessage2;
             guideSelect2.Click += master.guideMessageBoxMessage.SelectMessage;
+            guideJoyStick.Click += master.guideMessageBoxMessage.JoyStickMessage;
 
 
 
@@ -164,11 +169,25 @@ namespace LightGun
 
         }
 
-        private void _43CheckBox_CheckedChanged(object? sender, EventArgs e)
+        private void AntiDriftCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-           master.Settings.Is43BorderCheck = _43CheckBox.Checked;
+            master.Settings.IsAntiDriftCheck = antiDriftCheckBox.Checked;
         }
 
+        private void ZAxisCheckBox_CheckedChanged(object? sender, EventArgs e)
+        {
+            master.Settings.IsZAxisCheck = zAxisCheckBox.Checked;
+        }
+
+        private void JoyCheckBox_CheckedChanged(object? sender, EventArgs e)
+        {
+            master.Settings.IsJoyCheck = joyCheckBox.Checked;
+        }
+
+        private void _43CheckBox_CheckedChanged(object? sender, EventArgs e)
+        {
+            master.Settings.Is43BorderCheck = _43CheckBox.Checked;
+        }
         private void ProcessCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
             master.Settings.IsProcessCheck = processCheckBox.Checked;
@@ -181,7 +200,7 @@ namespace LightGun
 
         private void BtnUpFirP2_Click(object? sender, EventArgs e)
         {
-            if(comBoxArSelP2.SelectedIndex == -1)
+            if (comBoxArSelP2.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a model");
                 return;
@@ -197,7 +216,7 @@ namespace LightGun
                 MessageBox.Show("Please select a model");
                 return;
             }
-            master.firmwareUploadTab.UploadFirmwareP1((ArduinoModel)Enum.Parse(typeof(ArduinoModel),comBoxArSelP1.SelectedItem.ToString()));
+            master.firmwareUploadTab.UploadFirmwareP1((ArduinoModel)Enum.Parse(typeof(ArduinoModel), comBoxArSelP1.SelectedItem.ToString()));
             BtnRefresh(null, null);
         }
 
@@ -290,6 +309,13 @@ namespace LightGun
         }
         private void LoadSetting()
         {
+            string folderPath = $"{Environment.CurrentDirectory}\\ArduinoMouseFirmware";
+
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+                Console.WriteLine("Folder created: " + folderPath);
+            }
             tTrackBarP1.Value = master.Settings.Players[0].Threshold;
             bTrackBarP1.Value = master.Settings.Players[0].Brightness;
             cTrackBarP1.Value = master.Settings.Players[0].Contrast;
@@ -305,6 +331,9 @@ namespace LightGun
             _43CheckBox.Checked = master.Settings.Is43BorderCheck;
             rawCheckBox.Checked = master.Settings.IsRawCheck;
             processCheckBox.Checked = master.Settings.IsProcessCheck;
+            joyCheckBox.Checked = master.Settings.IsJoyCheck;
+            zAxisCheckBox.Checked = master.Settings.IsZAxisCheck;
+            antiDriftCheckBox.Checked = master.Settings.IsAntiDriftCheck;
 
             borderTextBox.Text = master.Settings.Border.ToString();
         }
@@ -513,14 +542,14 @@ namespace LightGun
             }
             else
             {
-                if(currentState == 2)
+                if (currentState == 2)
                 {
                     currentState = -1;
                 }
                 currentState = (currentState + 1) % 2;
             }
 
-            if (currentState == 1 )
+            if (currentState == 1)
             {
                 border = new TransparentForm(int.Parse(borderTextBox.Text), screenWidth, screenHeight);
                 border.Show();
@@ -531,6 +560,11 @@ namespace LightGun
                 border.Is43 = true;
                 border.Show();
             }
+        }
+        public void StartStopJoyStick(object? sender, EventArgs e)
+        {
+            joyCheckBox.Checked = !joyCheckBox.Checked;
+            master.Settings.IsJoyCheck = joyCheckBox.Checked;
         }
         public void StartStopP1(object? sender, EventArgs e)
         {
@@ -586,7 +620,7 @@ namespace LightGun
         }
         public void DisconnectCameraP1(object? sender, EventArgs e)
         {
-        
+
             checkBoxCamP1.Checked = false;
             btnStartP1.BackColor = Color.DarkGray;
             btnStartP1.Text = "Not ready";
@@ -617,6 +651,6 @@ namespace LightGun
             comBoxArP2.SelectedIndex = -1;
         }
 
-
+       
     }
 }

@@ -34,9 +34,20 @@ namespace LightGun.LightGunCompoment
         {
             port.Close();
         }
+        //Opcode 0 = cursor pos 1 = button assignment 2 = joy axis 3 = joy z axis
         public void SendCursorPos(Point point)
         {
+            
             string data = $"0 {point.X} {point.Y}\n";
+
+            while (port.BytesToWrite != 0) ;
+
+            port.Write(data);
+        }
+        public void SendJoyStickPos(Point point, bool isZAxis, bool isAntiDrift)
+        {
+
+            string data = $"2 {(isZAxis ? 1 : 0)} {(isAntiDrift ? 1 : 0)} {point.X} {point.Y}\n";
 
             while (port.BytesToWrite != 0) ;
 
