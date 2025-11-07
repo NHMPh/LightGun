@@ -260,10 +260,14 @@ namespace LightGun.LightGunCompoment
             {
                 if (!arduinoMouse.isOpen())
                 {
-                    ArduinoDisconnected?.Invoke(this, EventArgs.Empty);
-                    isArduinoOpen = false;
+                    await Task.Delay(50);
+                    if (!arduinoMouse.isOpen())
+                    {
+                        ArduinoDisconnected?.Invoke(this, EventArgs.Empty);
+                        isArduinoOpen = false;
+                    }
                 }
-                await Task.Delay(100);
+                await Task.Delay(50);
             }
         }
         private async Task StreamVideo()
@@ -297,29 +301,26 @@ namespace LightGun.LightGunCompoment
 
                     if (!isArduinoStart) continue;
                     if (!arduinoMouse.isOpen())
-                    {
-                        Task.Run(() =>
-                        {
-                            MessageBox.Show(
-                                $"Player {index + 1}'s Arduino Disconnected",
-                                "Info",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information,
-                                MessageBoxDefaultButton.Button1,
-                                MessageBoxOptions.DefaultDesktopOnly
-                            );
-                        });
-
                         continue;
-                    }
-                    if (!settings.IsJoyCheck)
-                        arduinoMouse.SendCursorPos(point);
-                    else
+
+                    try
                     {
-                        arduinoMouse.SendJoyStickPos(point, settings.IsZAxisCheck, settings.IsAntiDriftCheck);
+                        if (!settings.IsJoyCheck)
+                            arduinoMouse.SendCursorPos(point);
+                        else
+                            arduinoMouse.SendJoyStickPos(point, settings.IsZAxisCheck, settings.IsAntiDriftCheck);
                     }
-
-
+                    catch
+                    {
+                        MessageBox.Show(
+                               $"Player {index + 1}'s Arduino Disconnected",
+                               "Info",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Information,
+                               MessageBoxDefaultButton.Button1,
+                               MessageBoxOptions.DefaultDesktopOnly
+                           );
+                    }
                     await Task.Delay(16);
                 }
                 catch

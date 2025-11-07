@@ -29,7 +29,7 @@ namespace LightGun.UIControl
         {
             this.lightGunP1 = lightGunP1;
             this.lightGunP2 = lightGunP2;
-         
+
         }
         public void ComboBoxChangeButton(object sender, EventArgs e)
         {
@@ -40,41 +40,38 @@ namespace LightGun.UIControl
                 case AssignmentZone.P1Normal:
                     lightGunP1.SaveButtonSetting(id - 1, (int)Type.Normal, comboBox.SelectedIndex);
                     if (!lightGunP1.SetButton((int)Type.Normal, id - 1, ButtonCodeConvert(comboBox.SelectedItem.ToString())))
-                    {
-                        comboBox.SelectedIndexChanged -= ComboBoxChangeButton;
-                        comboBox.SelectedIndex = int.Parse(comboBox.Tag.ToString());
-                        comboBox.SelectedIndexChanged += ComboBoxChangeButton;
-                    }
-
+                        RevertComboBox(comboBox);
+                    else
+                        comboBox.Tag = int.Parse(comboBox.SelectedIndex.ToString());
                     break;
                 case AssignmentZone.P1Offscreen:
                     lightGunP1.SaveButtonSetting(id - 1 - 22, (int)Type.Offscreen, comboBox.SelectedIndex);
-                    if (!lightGunP1.SetButton((int)Type.Offscreen, id - 1 - 22, ButtonCodeConvert(comboBox.SelectedItem.ToString())))
-                    {
-                        comboBox.SelectedIndexChanged -= ComboBoxChangeButton;
-                        comboBox.SelectedIndex = int.Parse(comboBox.Tag.ToString());
-                        comboBox.SelectedIndexChanged += ComboBoxChangeButton;
-                    }
+                    if (!lightGunP1.SetButton((int)Type.Offscreen, id - 1 - 22, ButtonCodeConvert(comboBox.SelectedItem.ToString())))                   
+                        RevertComboBox(comboBox);                  
+                    else
+                        comboBox.Tag = int.Parse(comboBox.SelectedIndex.ToString());
                     break;
                 case AssignmentZone.P2Normal:
                     lightGunP2.SaveButtonSetting(id - 1 - 44, (int)Type.Normal, comboBox.SelectedIndex);
-                    if (!lightGunP2.SetButton((int)Type.Normal, id - 1 - 44, ButtonCodeConvert(comboBox.SelectedItem.ToString())))
-                    {
-                        comboBox.SelectedIndexChanged -= ComboBoxChangeButton;
-                        comboBox.SelectedIndex = int.Parse(comboBox.Tag.ToString());
-                        comboBox.SelectedIndexChanged += ComboBoxChangeButton;
-                    }
+                    if (!lightGunP2.SetButton((int)Type.Normal, id - 1 - 44, ButtonCodeConvert(comboBox.SelectedItem.ToString())))                   
+                        RevertComboBox(comboBox);           
+                    else
+                        comboBox.Tag = int.Parse(comboBox.SelectedIndex.ToString());
                     break;
                 case AssignmentZone.P2Offscreen:
                     lightGunP2.SaveButtonSetting(id - 1 - 66, (int)Type.Offscreen, comboBox.SelectedIndex);
                     if (!lightGunP2.SetButton((int)Type.Offscreen, id - 1 - 66, ButtonCodeConvert(comboBox.SelectedItem.ToString())))
-                    {
-                        comboBox.SelectedIndexChanged -= ComboBoxChangeButton;
-                        comboBox.SelectedIndex = int.Parse(comboBox.Tag.ToString());
-                        comboBox.SelectedIndexChanged += ComboBoxChangeButton;
-                    }
+                        RevertComboBox(comboBox);
+                    else
+                        comboBox.Tag = int.Parse(comboBox.SelectedIndex.ToString());
                     break;
             }
+        }
+        private void RevertComboBox(ComboBox comboBox)
+        {
+            comboBox.SelectedIndexChanged -= ComboBoxChangeButton;
+            comboBox.SelectedIndex = int.Parse(comboBox.Tag.ToString());
+            comboBox.SelectedIndexChanged += ComboBoxChangeButton;
         }
         private byte ButtonCodeConvert(string value)
         {
@@ -191,7 +188,7 @@ namespace LightGun.UIControl
                 return AssignmentZone.P2Normal;
             return AssignmentZone.P2Offscreen;
         }
-        
+
         public void SetButton(string comboBoxValue, int playerIndex, int type, int index)
         {
             if (playerIndex == 0)

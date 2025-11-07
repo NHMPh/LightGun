@@ -25,6 +25,9 @@ namespace LightGun.UIControl
         {
             int cameraIndex = (sender as ComboBox).SelectedIndex;
             if (cameraIndex == -1) return;
+            
+            lightGunP1.SetIsStart(false);
+            
             if (lightGunP2.CamIndex == cameraIndex)
             {
                 lightGunP2.CloseCamera();
@@ -35,6 +38,7 @@ namespace LightGun.UIControl
         {
             int cameraIndex = (sender as ComboBox).SelectedIndex;
             if (cameraIndex == -1) return;
+            lightGunP2.SetIsStart(false);
             if (lightGunP1.CamIndex == cameraIndex)
             {
                 lightGunP1.CloseCamera();
@@ -45,7 +49,9 @@ namespace LightGun.UIControl
         {
             if ((sender as ComboBox).SelectedIndex == -1) return;
             string arduinoIndex = (sender as ComboBox).SelectedItem.ToString();
-            if(lightGunP2.ComPortString == arduinoIndex)
+            if (lightGunP1.ComPortString == arduinoIndex) return;
+            lightGunP1.SetIsStart(false);
+            if (lightGunP2.ComPortString == arduinoIndex)
             {
                 lightGunP2.CloseArduino();
             }
@@ -61,6 +67,8 @@ namespace LightGun.UIControl
         {
             if ((sender as ComboBox).SelectedIndex == -1) return;
             string arduinoIndex = (sender as ComboBox).SelectedItem.ToString();
+            if (lightGunP2.ComPortString == arduinoIndex) return;
+            lightGunP2.SetIsStart(false);
             if (lightGunP1.ComPortString == arduinoIndex)
             {
                 lightGunP1.CloseArduino();

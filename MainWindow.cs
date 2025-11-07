@@ -351,6 +351,22 @@ namespace LightGun
                 MessageBox.Show("No webcams found.");
                 return;
             }
+
+            string selectedCamP1 = "";
+            string selectedCamP2 = "";
+            string selectedArP1 = "";
+            string selectedArP2 = "";
+
+            if (comBoxCamP1.SelectedIndex != -1)      
+                selectedCamP1 = comBoxCamP1.SelectedItem.ToString();         
+            if (comBoxCamP2.SelectedIndex != -1)          
+                selectedCamP2 = comBoxCamP2.SelectedItem.ToString();          
+            if (comBoxArP1.SelectedIndex != -1)         
+                selectedArP1 = comBoxArP1.SelectedItem.ToString();          
+            if (comBoxArP2.SelectedIndex != -1)           
+                selectedArP2 = comBoxArP2.SelectedItem.ToString();
+            
+
             comBoxArP1.Items.Clear();
             comBoxArP2.Items.Clear();
             comBoxCamP1.Items.Clear();
@@ -389,10 +405,10 @@ namespace LightGun
                 comBoxArP2.Items.Add(port);
 
             }
-
-
-
-
+            comBoxArP1.Text = selectedArP1;
+            comBoxArP2.Text = selectedArP2;
+            comBoxCamP1.Text = selectedCamP1;
+            comBoxCamP2.Text = selectedCamP2;
         }
 
         private void BTrackBarP1_ValueChanged(object? sender, EventArgs e)
