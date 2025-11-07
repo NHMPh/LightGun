@@ -46,4 +46,8 @@
     <Folder Include="bin\x64\Release\net8.0-windows\" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(ProjectDir)ArduinoMouseFirmware&quot; &quot;$(TargetDir)ArduinoMouseFirmware&quot; /E /Y /I" />
+  </Target>
+
 </Project>
