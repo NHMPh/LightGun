@@ -281,7 +281,14 @@ namespace LightGun.LightGunCompoment
                     catch (Exception ex)
                     {
                         CameraDisconnected?.Invoke(this, EventArgs.Empty);
-                        MessageBox.Show($"Player {index + 1}'s Camera Disconnected");
+                        MessageBox.Show(
+                               $"Player {index + 1}'s Camera Disconnected",
+                               "Info",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Information,
+                               MessageBoxDefaultButton.Button1,
+                               MessageBoxOptions.DefaultDesktopOnly
+                           );
 
                     }
 
@@ -291,7 +298,18 @@ namespace LightGun.LightGunCompoment
                     if (!isArduinoStart) continue;
                     if (!arduinoMouse.isOpen())
                     {
-                        MessageBox.Show($"Player {index + 1}'s Arduino Disconnected");
+                        Task.Run(() =>
+                        {
+                            MessageBox.Show(
+                                $"Player {index + 1}'s Arduino Disconnected",
+                                "Info",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information,
+                                MessageBoxDefaultButton.Button1,
+                                MessageBoxOptions.DefaultDesktopOnly
+                            );
+                        });
+
                         continue;
                     }
                     if (!settings.IsJoyCheck)
